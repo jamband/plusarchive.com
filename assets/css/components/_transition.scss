@@ -1,0 +1,48 @@
+.page {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity .25s;
+  }
+
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+  }
+}
+
+.player {
+  &-enter-active,
+  &-leave-active {
+    transition: all .5s;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
+
+.now-playing {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity .5s;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+
+.footer {
+  &-enter-active,
+  &-leave-active {
+    transition: opacity .5s;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}

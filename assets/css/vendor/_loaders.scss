@@ -1,0 +1,6 @@
+@import "../variables/system-color";
+@import "~loaders.css/src/animations/line-scale";
+
+.line-scale > div {
+  background-color: $gray-500;
+}

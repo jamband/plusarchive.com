@@ -1,0 +1,14 @@
+@import "../variables/body";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.playlist-title {
+  > li {
+    @include media-breakpoint-only(xs) {
+      font-size: 115%;
+    }
+
+    @include media-breakpoint-up(sm) {
+      font-size: 120%;
+    }
+  }
+}

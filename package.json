@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "test": "jest",
+    "clean": "rm -rf .nuxt node_modules"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/vue-fontawesome": "^0.1.8",
+    "@nuxtjs/axios": "^5.9.0",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.0.0",
+    "lazysizes": "^5.2.0-beta1",
+    "loaders.css": "^0.1.2",
+    "masonry-layout": "^4.2.2",
+    "nuxt": "^2.11.0",
+    "nuxt-start": "^2.11.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^2.0.0",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/google-analytics": "^2.2.2",
+    "@nuxtjs/router": "^1.5.0",
+    "@vue/test-utils": "^1.0.0-beta.30",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "jest": "^24.1.0",
+    "lodash.clonedeep": "^4.5.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "vue-jest": "^4.0.0-beta.2"
+  }
+}

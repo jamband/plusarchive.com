@@ -1,0 +1,16 @@
+@import "~bootstrap/scss/mixins/breakpoints";
+
+body {
+  @include media-breakpoint-down(md) {
+    margin-bottom: 90px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 55px;
+  }
+}
+
+.footer {
+  font-size: 85%;
+  font-weight: bold;
+}
