@@ -1,7 +1,7 @@
 <template>
-  <div class="py-lg-0 py-2">
-    <input v-model="search" :class="inputClass" :placeholder="placeholder" type="text" @keyup.enter="onSubmit()">
-  </div>
+  <form class="py-lg-0 py-2" @submit.prevent="onSubmit()">
+    <input v-model="search" :class="inputClass" :placeholder="placeholder" type="text">
+  </form>
 </template>
 
 <script>

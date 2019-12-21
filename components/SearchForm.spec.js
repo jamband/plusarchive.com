@@ -21,14 +21,14 @@ describe('components: SearchForm', () => {
   test('name: default', () => {
     const routerPush = jest.fn()
     const wrapper = factory({}, { push: routerPush })
-    wrapper.find('input').trigger('keyup.enter')
+    wrapper.trigger('submit.prevent')
     expect(routerPush).toHaveBeenCalledWith({ query: { search: '' } })
   })
 
   test('name: foo', () => {
     const routerPush = jest.fn()
     const wrapper = factory({ name: 'foo' }, { push: routerPush })
-    wrapper.find('input').trigger('keyup.enter')
+    wrapper.trigger('submit.prevent')
     expect(routerPush).toHaveBeenCalledWith({ query: { foo: '' } })
   })
 
@@ -56,7 +56,7 @@ describe('components: SearchForm', () => {
     const routerPush = jest.fn()
     const wrapper = factory({}, { push: routerPush })
     wrapper.setData({ search: 'foo' })
-    wrapper.find('input').trigger('keyup.enter')
+    wrapper.trigger('submit.prevent')
     expect(routerPush).toHaveBeenCalledWith({ query: { search: 'foo' } })
   })
 })
