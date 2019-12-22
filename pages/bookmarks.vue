@@ -7,16 +7,6 @@
       </nuxt-link>
       <TotalCount />
       <br>
-      <b-dropdown variant="link" toggle-class="badge badge-secondary" no-caret>
-        <template slot="button-content">
-          <SortLabel query="sort" label="Sort" />
-          <fa icon="angle-down" fixed-width />
-        </template>
-        <b-dropdown-item :to="$url.removeQuery($route, 'sort')" exact>Reset</b-dropdown-item>
-        <b-dropdown-divider />
-        <b-dropdown-item :to="$url.appendQuery($route, 'sort', 'Name')" append exact>Name</b-dropdown-item>
-        <b-dropdown-item :to="$url.appendQuery($route, 'sort', 'Latest')" append exact>Latest</b-dropdown-item>
-      </b-dropdown>
       <b-dropdown variant="link" toggle-class="badge badge-secondary" menu-class="scrollable-menu" no-caret>
         <template slot="button-content">
           <SortLabel query="country" label="Countries" />
