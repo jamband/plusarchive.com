@@ -5,7 +5,7 @@
       <p>
         You can check the license of the third-party libraries used on this site by the following link.
       </p>
-      <a href="/app/licenses.txt" target="_blank">licenses.txt</a>
+      <a href="/_nuxt/licenses.txt" target="_blank">licenses.txt</a>
     </div>
   </div>
 </template>

@@ -39,7 +39,6 @@ export default {
     '@nuxtjs/dotenv'
   ],
   build: {
-    publicPath: '/app/',
     terser: {
       extractComments: {
         filename: 'licenses.txt'
