@@ -7,6 +7,9 @@
     <a href="#" class="text-white" @click.prevent="clear()">
       <fa icon="times" />
     </a>
+    <div class="d-md-none text-secondary">
+      {{ $app.name }}
+    </div>
   </div>
 </template>
 

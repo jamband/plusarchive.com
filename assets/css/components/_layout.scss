@@ -2,7 +2,7 @@
 
 body {
   @include media-breakpoint-down(md) {
-    margin-bottom: 90px;
+    margin-bottom: 75px;
   }
 
   @include media-breakpoint-up(lg) {
