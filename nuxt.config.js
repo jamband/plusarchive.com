@@ -62,6 +62,6 @@ export default {
     disabled: true,
     set: [
       { field: 'anonymizeIp', value: true }
-    ],
+    ]
   }
 }
