@@ -6,6 +6,7 @@
         <b-navbar-toggle target="nav-collapse" />
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
+            <b-nav-item :to="{ name: 'home' }" :link-classes="{ active: isActive('home') }" class="d-md-none">Home</b-nav-item>
             <b-nav-item :to="{ name: 'tracks' }" :link-classes="{ active: isActive('track') }">Track</b-nav-item>
             <b-nav-item :to="{ name: 'playlists' }" :link-classes="{ active: isActive('playlist') }">Playlist</b-nav-item>
             <b-nav-item :to="{ name: 'labels' }" :link-classes="{ active: isActive('label') }">Label</b-nav-item>

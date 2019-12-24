@@ -33,51 +33,56 @@ describe('components: TheHeader', () => {
   test('active when { route: "home" }', () => {
     const wrapper = factory({ name: 'home' })
     const a = wrapper.findAll('.nav-link')
-    expect(a.at(0).attributes().class).not.toContain('active')
+    expect(a.at(0).attributes().class).toContain('active')
     expect(a.at(1).attributes().class).not.toContain('active')
     expect(a.at(2).attributes().class).not.toContain('active')
     expect(a.at(3).attributes().class).not.toContain('active')
     expect(a.at(4).attributes().class).not.toContain('active')
+    expect(a.at(5).attributes().class).not.toContain('active')
   })
 
   test('active when { route: "tracks" }', () => {
     const wrapper = factory({ name: 'tracks' })
     const a = wrapper.findAll('.nav-link')
-    expect(a.at(0).attributes().class).toContain('active')
-    expect(a.at(1).attributes().class).not.toContain('active')
+    expect(a.at(0).attributes().class).not.toContain('active')
+    expect(a.at(1).attributes().class).toContain('active')
     expect(a.at(2).attributes().class).not.toContain('active')
     expect(a.at(3).attributes().class).not.toContain('active')
     expect(a.at(4).attributes().class).not.toContain('active')
+    expect(a.at(5).attributes().class).not.toContain('active')
   })
 
   test('active when { route : "track" }', () => {
     const wrapper = factory({ name: 'track' })
     const a = wrapper.findAll('.nav-link')
-    expect(a.at(0).attributes().class).toContain('active')
-    expect(a.at(1).attributes().class).not.toContain('active')
+    expect(a.at(0).attributes().class).not.toContain('active')
+    expect(a.at(1).attributes().class).toContain('active')
     expect(a.at(2).attributes().class).not.toContain('active')
     expect(a.at(3).attributes().class).not.toContain('active')
     expect(a.at(4).attributes().class).not.toContain('active')
+    expect(a.at(5).attributes().class).not.toContain('active')
   })
 
   test('active when { route : "playlists" }', () => {
     const wrapper = factory({ name: 'playlists' })
     const a = wrapper.findAll('.nav-link')
     expect(a.at(0).attributes().class).not.toContain('active')
-    expect(a.at(1).attributes().class).toContain('active')
-    expect(a.at(2).attributes().class).not.toContain('active')
+    expect(a.at(1).attributes().class).not.toContain('active')
+    expect(a.at(2).attributes().class).toContain('active')
     expect(a.at(3).attributes().class).not.toContain('active')
     expect(a.at(4).attributes().class).not.toContain('active')
+    expect(a.at(5).attributes().class).not.toContain('active')
   })
 
   test('active when { route : "playlist" }', () => {
     const wrapper = factory({ name: 'playlist' })
     const a = wrapper.findAll('.nav-link')
     expect(a.at(0).attributes().class).not.toContain('active')
-    expect(a.at(1).attributes().class).toContain('active')
-    expect(a.at(2).attributes().class).not.toContain('active')
+    expect(a.at(1).attributes().class).not.toContain('active')
+    expect(a.at(2).attributes().class).toContain('active')
     expect(a.at(3).attributes().class).not.toContain('active')
     expect(a.at(4).attributes().class).not.toContain('active')
+    expect(a.at(5).attributes().class).not.toContain('active')
   })
 
   test('active when { route : "labels" }', () => {
@@ -85,9 +90,10 @@ describe('components: TheHeader', () => {
     const a = wrapper.findAll('.nav-link')
     expect(a.at(0).attributes().class).not.toContain('active')
     expect(a.at(1).attributes().class).not.toContain('active')
-    expect(a.at(2).attributes().class).toContain('active')
-    expect(a.at(3).attributes().class).not.toContain('active')
+    expect(a.at(2).attributes().class).not.toContain('active')
+    expect(a.at(3).attributes().class).toContain('active')
     expect(a.at(4).attributes().class).not.toContain('active')
+    expect(a.at(5).attributes().class).not.toContain('active')
   })
 
   test('active when { route : "stores" }', () => {
@@ -96,8 +102,9 @@ describe('components: TheHeader', () => {
     expect(a.at(0).attributes().class).not.toContain('active')
     expect(a.at(1).attributes().class).not.toContain('active')
     expect(a.at(2).attributes().class).not.toContain('active')
-    expect(a.at(3).attributes().class).toContain('active')
-    expect(a.at(4).attributes().class).not.toContain('active')
+    expect(a.at(3).attributes().class).not.toContain('active')
+    expect(a.at(4).attributes().class).toContain('active')
+    expect(a.at(5).attributes().class).not.toContain('active')
   })
 
   test('active when { route : "bookmarks" }', () => {
@@ -107,7 +114,8 @@ describe('components: TheHeader', () => {
     expect(a.at(1).attributes().class).not.toContain('active')
     expect(a.at(2).attributes().class).not.toContain('active')
     expect(a.at(3).attributes().class).not.toContain('active')
-    expect(a.at(4).attributes().class).toContain('active')
+    expect(a.at(4).attributes().class).not.toContain('active')
+    expect(a.at(5).attributes().class).toContain('active')
   })
 
   test('whether is visible search form when { route: "tracks" }', () => {
