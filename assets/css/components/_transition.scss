@@ -1,7 +1,7 @@
 .page {
   &-enter-active,
   &-leave-active {
-    transition: opacity .25s;
+    transition: opacity .15s;
   }
 
   &-enter,
@@ -13,7 +13,7 @@
 .player {
   &-enter-active,
   &-leave-active {
-    transition: all .5s;
+    transition: all .3s;
   }
 
   &-enter,
@@ -26,7 +26,7 @@
 .now-playing {
   &-enter-active,
   &-leave-active {
-    transition: opacity .5s;
+    transition: opacity .3s;
   }
 
   &-enter,
@@ -38,7 +38,7 @@
 .footer {
   &-enter-active,
   &-leave-active {
-    transition: opacity .5s;
+    transition: opacity .3s;
   }
 
   &-enter,
