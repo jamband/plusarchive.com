@@ -187,13 +187,15 @@ describe('components: TheFooter', () => {
   test('text when { title: "something", tracking: false, route: "home" }', () => {
     store.commit('player/setItem', fixture.player)
     const wrapper = factory(store, { name: 'home' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: false, route: "tracks" }', () => {
     store.commit('player/setItem', fixture.player)
     const wrapper = factory(store, { name: 'tracks' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: false, route: "track" }', () => {
@@ -205,7 +207,8 @@ describe('components: TheFooter', () => {
   test('text when { title: "something", tracking: false, route: "playlists" }', () => {
     store.commit('player/setItem', fixture.player)
     const wrapper = factory(store, { name: 'playlists' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: false, route: "playlist" }', () => {
@@ -217,25 +220,29 @@ describe('components: TheFooter', () => {
   test('text when { title: "something", tracking: false, route: "labels" }', () => {
     store.commit('player/setItem', fixture.player)
     const wrapper = factory(store, { name: 'labels' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: false, route: "stores" }', () => {
     store.commit('player/setItem', fixture.player)
     const wrapper = factory(store, { name: 'stores' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: false, route: "bookmarks" }', () => {
     store.commit('player/setItem', fixture.player)
     const wrapper = factory(store, { name: 'bookmarks' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: false, route: "about" }', () => {
     store.commit('player/setItem', fixture.player)
     const wrapper = factory(store, { name: 'about' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: false, route: "privacy" }', () => {
@@ -247,13 +254,15 @@ describe('components: TheFooter', () => {
   test('text when { title: "something", tracking: false, route: "contact" }', () => {
     store.commit('player/setItem', fixture.player)
     const wrapper = factory(store, { name: 'contact' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: false, route: "third-party-licenses" }', () => {
     store.commit('player/setItem', fixture.player)
     const wrapper = factory(store, { name: 'third-party-licenses' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   // title: 'something', tracking: true
@@ -261,14 +270,16 @@ describe('components: TheFooter', () => {
     store.commit('tracking/enable')
     store.commit('player/setItem', fixture.player)
     const wrapper = factory(store, { name: 'home' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: true, route: "tracks" }', () => {
     store.commit('player/setItem', fixture.player)
     store.commit('tracking/enable')
     const wrapper = factory(store, { name: 'tracks' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: true, route: "track" }', () => {
@@ -282,7 +293,8 @@ describe('components: TheFooter', () => {
     store.commit('player/setItem', fixture.player)
     store.commit('tracking/enable')
     const wrapper = factory(store, { name: 'playlists' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: true, route: "playlist" }', () => {
@@ -296,48 +308,55 @@ describe('components: TheFooter', () => {
     store.commit('player/setItem', fixture.player)
     store.commit('tracking/enable')
     const wrapper = factory(store, { name: 'labels' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: true, route: "stores" }', () => {
     store.commit('player/setItem', fixture.player)
     store.commit('tracking/enable')
     const wrapper = factory(store, { name: 'stores' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: true, route: "bookmarks" }', () => {
     store.commit('player/setItem', fixture.player)
     store.commit('tracking/enable')
     const wrapper = factory(store, { name: 'bookmarks' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: true, route: "about" }', () => {
     store.commit('player/setItem', fixture.player)
     store.commit('tracking/enable')
     const wrapper = factory(store, { name: 'about' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: true, route: "privacy" }', () => {
     store.commit('player/setItem', fixture.player)
     store.commit('tracking/enable')
     const wrapper = factory(store, { name: 'privacy' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: true, route: "contact" }', () => {
     store.commit('player/setItem', fixture.player)
     store.commit('tracking/enable')
     const wrapper = factory(store, { name: 'contact' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 
   test('text when { title: "something", tracking: true, route: "third-party-licenses" }', () => {
     store.commit('player/setItem', fixture.player)
     store.commit('tracking/enable')
     const wrapper = factory(store, { name: 'third-party-licenses' })
-    expect(wrapper.text()).toBe('title1')
+    expect(wrapper.text()).toContain('title1')
+    expect(wrapper.text()).toContain('PlusArchive')
   })
 })

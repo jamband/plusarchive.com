@@ -39,7 +39,11 @@ export default {
     '@nuxtjs/dotenv'
   ],
   build: {
-    extend (config, ctx) {
+    publicPath: '/app/',
+    terser: {
+      extractComments: {
+        filename: 'licenses.txt'
+      }
     }
   },
   bootstrapVue: {

@@ -2,12 +2,14 @@ import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import Vuex from 'vuex'
 import cloneDeep from 'lodash.clonedeep'
 import TheFooterPlayerTitle from '~/components/TheFooterPlayerTitle'
+import pluginApp from '~/plugins/app'
 import pluginFontAwesome from '~/plugins/fontawesome'
 import storePlayer from '~/store/player'
 
 const localVue = createLocalVue()
 
 localVue.use(Vuex)
+localVue.use(pluginApp)
 localVue.use(pluginFontAwesome)
 
 const factory = (store = {}) => {
