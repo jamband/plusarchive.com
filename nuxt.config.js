@@ -36,7 +36,8 @@ export default {
   modules: [
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/pwa'
   ],
   build: {
     // analyze: true,
@@ -46,6 +47,7 @@ export default {
       }
     }
   },
+  // top level options for packages
   bootstrapVue: {
     componentPlugins: [
       'NavbarPlugin'
@@ -67,5 +69,13 @@ export default {
     set: [
       { field: 'anonymizeIp', value: true }
     ]
+  },
+  manifest: {
+    name: 'PlusArchive',
+    short_name: 'PlusArchive',
+    lang: 'en',
+    background_color: '#222',
+    display: 'standalone',
+    start_url: '/'
   }
 }
