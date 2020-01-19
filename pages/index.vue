@@ -9,7 +9,7 @@
         <div class="card">
           <div class="card-img-wrap">
             <n-link :to="{ name: 'track', params: { id: track.id } }" @click.native="load(track.id)">
-              <img :src="track.image" class="card-img-top" alt="">
+              <img :data-src="track.image" class="card-img-top lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=" alt="">
               <fa :icon="audioStatusIcon(track.id)" class="card-play" />
             </n-link>
           </div>
@@ -51,6 +51,8 @@
 </template>
 
 <script>
+import Lazysizes from 'lazysizes'
+
 export default {
   async fetch ({ store, error }) {
     await Promise.all([
@@ -68,6 +70,9 @@ export default {
     player () {
       return this.$store.state.player
     }
+  },
+  mounted () {
+    Lazysizes.init()
   },
   methods: {
     load (id) {
