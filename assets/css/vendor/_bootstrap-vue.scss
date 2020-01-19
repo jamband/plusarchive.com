@@ -1,9 +1,3 @@
 @import "~bootstrap-vue/src/variables";
 @import "~bootstrap-vue/src/utilities";
 @import "~bootstrap-vue/src/components/dropdown";
-
-// https://github.com/bootstrap-vue/bootstrap-vue/issues/4477
-// TODO Remove when v2.2 is released
-.dropdown-menu:focus {
-  outline: none;
-}
