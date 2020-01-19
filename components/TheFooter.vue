@@ -37,3 +37,20 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.footer {
+  font-size: 85%;
+  font-weight: bold;
+
+  &-enter-active,
+  &-leave-active {
+    transition: opacity .3s;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+</style>

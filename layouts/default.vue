@@ -29,3 +29,18 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.player {
+  &-enter-active,
+  &-leave-active {
+    transition: all .3s;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
+</style>

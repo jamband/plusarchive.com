@@ -57,3 +57,20 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.embed-responsive {
+  &-1by1-half {
+    @include media-breakpoint-down(md) {
+      width: 100%;
+      padding-bottom: 100%;
+    }
+
+    @include media-breakpoint-up(lg) {
+      width: 56.25%;
+      margin: 0 auto;
+      padding-bottom: 56.25%;
+    }
+  }
+}
+</style>

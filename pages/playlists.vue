@@ -4,8 +4,8 @@
       <h2>Playlists <small class="text-muted">via SoundCloud or YouTube</small></h2>
     </div>
     <div class="col-md-6">
-      <ul class="list-unstyled playlist-title text-truncate">
-        <li v-for="playlist in playlists" :key="playlist.id">
+      <ul class="list-unstyled text-truncate">
+        <li v-for="playlist in playlists" :key="playlist.id" class="playlist-title">
           <n-link :to="{ name: 'playlist', params: { id: playlist.id } }" @click.native="load(playlist.id)">
             {{ playlist.title }} <fa icon="angle-right" fixed-width />
           </n-link>
@@ -45,3 +45,17 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.playlist {
+  &-title {
+    @include media-breakpoint-only(xs) {
+      font-size: 115%;
+    }
+
+    @include media-breakpoint-up(sm) {
+      font-size: 120%;
+    }
+  }
+}
+</style>
