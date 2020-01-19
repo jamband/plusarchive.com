@@ -76,5 +76,24 @@ export default {
       bottom: 3.1em;
     }
   }
+  .page-link {
+    &:hover {
+      @include media-breakpoint-down(sm) {
+        color: $primary;
+        background-color: transparent;
+      }
+    }
+
+    &:active {
+      outline: 0;
+      box-shadow: 0 0 0 .2rem rgba($primary, .25);
+
+      @include media-breakpoint-down(sm) {
+        color: $link-hover-color;
+        background-color: $pagination-hover-bg;
+      }
+
+    }
+  }
 }
 </style>
