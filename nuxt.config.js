@@ -74,6 +74,7 @@ export default {
   manifest: {
     name: 'PlusArchive',
     short_name: 'PlusArchive',
+    description: 'PlusArchive is music archive website for everyday',
     lang: 'en',
     background_color: '#222',
     display: 'standalone',
