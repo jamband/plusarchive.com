@@ -60,7 +60,7 @@ describe('components: PaginationMinimal', () => {
     expect(li.at(2).find(RouterLinkStub).props().to).toEqual({ query: { page: 2 } })
     expect(li.at(3).find(RouterLinkStub).props().to).toEqual({ query: { page: 10 } })
 
-    expect(wrapper.find('.pagination-info').text()).toBe('1/10')
+    expect(wrapper.find('.info').text()).toBe('1/10')
   })
 
   test('current page: second', () => {
@@ -83,7 +83,7 @@ describe('components: PaginationMinimal', () => {
     expect(li.at(2).find(RouterLinkStub).props().to).toEqual({ query: { page: 3 } })
     expect(li.at(3).find(RouterLinkStub).props().to).toEqual({ query: { page: 10 } })
 
-    expect(wrapper.find('.pagination-info').text()).toBe('2/10')
+    expect(wrapper.find('.info').text()).toBe('2/10')
   })
 
   test('current page: last', () => {
@@ -106,6 +106,6 @@ describe('components: PaginationMinimal', () => {
     expect(li.at(2).find(RouterLinkStub).props().to).toEqual({ query: { page: 11 } })
     expect(li.at(3).find(RouterLinkStub).props().to).toEqual({ query: { page: 10 } })
 
-    expect(wrapper.find('.pagination-info').text()).toBe('10/10')
+    expect(wrapper.find('.info').text()).toBe('10/10')
   })
 })

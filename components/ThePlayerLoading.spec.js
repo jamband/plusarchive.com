@@ -5,9 +5,7 @@ const factory = () => {
   return mount(ThePlayerLoading)
 }
 
-describe('components: ThePlayerLoading', () => {
-  test('number of div', () => {
-    const wrapper = factory()
-    expect(wrapper.isVueInstance()).toBe(true)
-  })
+test('', () => {
+  const wrapper = factory()
+  expect(wrapper.isVueInstance()).toBe(true)
 })

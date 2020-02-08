@@ -1,6 +1,6 @@
 <template>
   <div class="d-inline">
-    <a v-for="(url, index) in urls" :key="index" :href="url" rel="noopener" target="_blank" class="icon-link">
+    <a v-for="(url, index) in urls" :key="index" :href="url" rel="noopener" target="_blank">
       <fa :icon="icon(url)" size="lg" />
     </a>
   </div>
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon-link {
+a {
   margin-right: 10px;
   color: $gray-400;
 
