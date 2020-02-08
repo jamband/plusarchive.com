@@ -25,8 +25,7 @@ export default {
   plugins: [
     '~/plugins/app',
     '~/plugins/fontawesome',
-    '~/plugins/scroll',
-    '~/plugins/url'
+    '~/plugins/scroll'
   ],
   buildModules: [
     '@nuxtjs/eslint-module',

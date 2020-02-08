@@ -1,10 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils'
-import pluginUrl from '~/plugins/url'
 import SearchForm from '~/components/SearchForm'
 
 const localVue = createLocalVue()
-
-localVue.use(pluginUrl)
 
 const factory = (props = {}, router = {}) => {
   return mount(SearchForm, {

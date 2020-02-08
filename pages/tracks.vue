@@ -6,24 +6,8 @@
       </n-link>
       <TotalCount />
       <br class="d-sm-none">
-      <b-dropdown variant="link" toggle-class="badge badge-secondary" no-caret>
-        <template slot="button-content">
-          <SortLabel query="provider" label="Providers" />
-          <fa icon="angle-down" fixed-width />
-        </template>
-        <b-dropdown-item :to="$url.removeQuery($route, 'provider')">Reset</b-dropdown-item>
-        <b-dropdown-divider />
-        <b-dropdown-item v-for="(provider, key) in providers" :key="key" :to="$url.appendQuery($route, 'provider', provider)" append exact>{{ provider }}</b-dropdown-item>
-      </b-dropdown>
-      <b-dropdown variant="link" toggle-class="badge badge-secondary" menu-class="scrollable-menu" no-caret>
-        <template slot="button-content">
-          <SortLabel query="genre" label="Genres" />
-          <fa icon="angle-down" fixed-width />
-        </template>
-        <b-dropdown-item :to="$url.removeQuery($route, 'genre')">Reset</b-dropdown-item>
-        <b-dropdown-divider />
-        <b-dropdown-item v-for="genre in genres" :key="genre" :to="$url.appendQuery($route, 'genre', genre)" append exact>{{ genre }}</b-dropdown-item>
-      </b-dropdown>
+      <SearchDropdown label="Providers" query="provider" :items="providers" />
+      <SearchDropdown label="Genres" query="genre" :items="genres" />
       <SearchForm class="d-lg-none mb-3" />
     </div>
     <div class="row text-center card-container">
@@ -63,14 +47,14 @@
 import Lazysizes from 'lazysizes'
 
 import PaginationMinimal from '~/components/PaginationMinimal'
-import SortLabel from '~/components/SortLabel'
+import SearchDropdown from '~/components/SearchDropdown'
 import SearchForm from '~/components/SearchForm'
 import TotalCount from '~/components/TotalCount'
 
 export default {
   components: {
     PaginationMinimal,
-    SortLabel,
+    SearchDropdown,
     SearchForm,
     TotalCount
   },

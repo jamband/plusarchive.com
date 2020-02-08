@@ -7,24 +7,8 @@
       </nuxt-link>
       <TotalCount />
       <br>
-      <b-dropdown variant="link" toggle-class="badge badge-secondary" menu-class="scrollable-menu" no-caret>
-        <template slot="button-content">
-          <SortLabel query="country" label="Countries" />
-          <fa icon="angle-down" fixed-width />
-        </template>
-        <b-dropdown-item :to="$url.removeQuery($route, 'country')" exact>Reset</b-dropdown-item>
-        <b-dropdown-divider />
-        <b-dropdown-item v-for="country in countries" :key="country" :to="$url.appendQuery($route, 'country', country)" append exact>{{ country }}</b-dropdown-item>
-      </b-dropdown>
-      <b-dropdown variant="link" toggle-class="badge badge-secondary" menu-class="scrollable-menu" no-caret>
-        <template slot="button-content">
-          <SortLabel query="tag" label="Tags" />
-          <fa icon="angle-down" fixed-width />
-        </template>
-        <b-dropdown-item :to="$url.removeQuery($route, 'tag')" exact>Reset</b-dropdown-item>
-        <b-dropdown-divider />
-        <b-dropdown-item v-for="tag in tags" :key="tag" :to="$url.appendQuery($route, 'tag', tag)" append exact>{{ tag }}</b-dropdown-item>
-      </b-dropdown>
+      <SearchDropdown label="Countries" query="country" :items="countries" />
+      <SearchDropdown label="Tags" query="tag" :items="tags" />
       <SearchForm class="d-lg-none mt-1 mb-3" />
     </div>
     <div class="col-lg-8">
@@ -55,16 +39,16 @@
 <script>
 import BrandIconLink from '~/components/BrandIconLink'
 import PaginationMinimal from '~/components/PaginationMinimal'
+import SearchDropdown from '~/components/SearchDropdown'
 import SearchForm from '~/components/SearchForm'
-import SortLabel from '~/components/SortLabel'
 import TotalCount from '~/components/TotalCount'
 
 export default {
   components: {
     BrandIconLink,
     PaginationMinimal,
+    SearchDropdown,
     SearchForm,
-    SortLabel,
     TotalCount
   },
   async fetch ({ store, query, error }) {
