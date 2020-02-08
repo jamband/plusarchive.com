@@ -14,14 +14,12 @@ const factory = () => {
   })
 }
 
-describe('pages: about', () => {
-  test('is visible', () => {
-    const wrapper = factory()
+test('is visible', () => {
+  const wrapper = factory()
 
-    expect(wrapper.text()).toContain('About')
-    expect(wrapper.text()).toContain('PlusArchive is')
+  expect(wrapper.text()).toContain('About')
+  expect(wrapper.text()).toContain('PlusArchive is')
 
-    const a = wrapper.findAll('a')
-    expect(a.at(0).element.href).toBe('https://github.com/jamband/plusarchive.com')
-  })
+  const a = wrapper.findAll('a')
+  expect(a.at(0).element.href).toBe('https://github.com/jamband/plusarchive.com')
 })

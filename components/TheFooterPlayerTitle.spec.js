@@ -22,48 +22,46 @@ const factory = (store = {}) => {
   })
 }
 
-describe('components: TheFooterPlayerTitle', () => {
-  const player = cloneDeep(storePlayer)
-  player.namespaced = true
+const player = cloneDeep(storePlayer)
+player.namespaced = true
 
-  let fixture, store
+let fixture, store
 
-  beforeEach(() => {
-    store = new Vuex.Store({ modules: { player } })
+beforeEach(() => {
+  store = new Vuex.Store({ modules: { player } })
 
-    fixture = {}
-    fixture.player = {
-      id: 'id1',
-      title: 'title1',
-      provider: 'provider1',
-      type: 'track',
-      src: 'src1'
-    }
-  })
+  fixture = {}
+  fixture.player = {
+    id: 'id1',
+    title: 'title1',
+    provider: 'provider1',
+    type: 'track',
+    src: 'src1'
+  }
+})
 
-  test('title route', () => {
-    store.commit('player/setItem', fixture.player)
-    const wrapper = factory(store)
-    expect(wrapper.findAll(RouterLinkStub).at(0).props().to)
-      .toEqual({ name: 'track', params: { id: 'id1' } })
-  })
+test('title route', () => {
+  store.commit('player/setItem', fixture.player)
+  const wrapper = factory(store)
+  expect(wrapper.findAll(RouterLinkStub).at(0).props().to)
+    .toEqual({ name: 'track', params: { id: 'id1' } })
+})
 
-  test('title', () => {
-    fixture.player.title = 'a'.repeat(50)
-    store.commit('player/setItem', fixture.player)
-    const wrapper = factory(store)
-    expect(/^a{40}\.\.\.$/.test(wrapper.findAll(RouterLinkStub).at(0).text()))
-      .toBe(true)
-  })
+test('title', () => {
+  fixture.player.title = 'a'.repeat(50)
+  store.commit('player/setItem', fixture.player)
+  const wrapper = factory(store)
+  expect(/^a{40}\.\.\.$/.test(wrapper.findAll(RouterLinkStub).at(0).text()))
+    .toBe(true)
+})
 
-  test('click clear', async () => {
-    store.commit('player/setItem', fixture.player)
-    const wrapper = factory(store)
-    expect(wrapper.findAll(RouterLinkStub).at(0).text()).toBe('title1')
+test('click clear', async () => {
+  store.commit('player/setItem', fixture.player)
+  const wrapper = factory(store)
+  expect(wrapper.findAll(RouterLinkStub).at(0).text()).toBe('title1')
 
-    wrapper.findAll('a').at(1).trigger('click.prevent')
-    await wrapper.vm.$nextTick()
+  wrapper.findAll('a').at(1).trigger('click.prevent')
+  await wrapper.vm.$nextTick()
 
-    expect(wrapper.findAll(RouterLinkStub).at(0).text()).toBe('')
-  })
+  expect(wrapper.findAll(RouterLinkStub).at(0).text()).toBe('')
 })

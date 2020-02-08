@@ -15,26 +15,24 @@ const factory = (store = {}) => {
   })
 }
 
-describe('components: TotalCount', () => {
-  const pagination = cloneDeep(storePagination)
-  pagination.namespaced = true
+const pagination = cloneDeep(storePagination)
+pagination.namespaced = true
 
-  let store
+let store
 
-  beforeEach(() => {
-    store = new Vuex.Store({ modules: { pagination } })
+beforeEach(() => {
+  store = new Vuex.Store({ modules: { pagination } })
+})
+
+test('case: 0', () => {
+  const wrapper = factory(store)
+  expect(wrapper.text()).toBe('No results found')
+})
+
+test('case: 100', () => {
+  store.commit('pagination/setMeta', {
+    totalCount: 100
   })
-
-  test('case: 0', () => {
-    const wrapper = factory(store)
-    expect(wrapper.text()).toBe('No results found')
-  })
-
-  test('case: 100', () => {
-    store.commit('pagination/setMeta', {
-      totalCount: 100
-    })
-    const wrapper = factory(store)
-    expect(wrapper.text()).toBe('100 results')
-  })
+  const wrapper = factory(store)
+  expect(wrapper.text()).toBe('100 results')
 })

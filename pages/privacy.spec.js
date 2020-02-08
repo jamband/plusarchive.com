@@ -25,32 +25,30 @@ const factory = (store = {}) => {
   })
 }
 
-describe('pages: privacy', () => {
-  const tracking = cloneDeep(storeTracking)
-  tracking.namespaced = true
+const tracking = cloneDeep(storeTracking)
+tracking.namespaced = true
 
-  let wrapper
+let wrapper
 
-  beforeEach(() => {
-    const store = new Vuex.Store({ modules: { tracking } })
-    wrapper = factory(store)
-  })
+beforeEach(() => {
+  const store = new Vuex.Store({ modules: { tracking } })
+  wrapper = factory(store)
+})
 
-  test('is visible', () => {
-    expect(wrapper.text()).toContain('Privacy')
-  })
+test('is visible', () => {
+  expect(wrapper.text()).toContain('Privacy')
+})
 
-  test('optOut', () => {
-    jest.spyOn(window, 'alert').mockImplementation(() => {})
+test('optOut', () => {
+  jest.spyOn(window, 'alert').mockImplementation(() => {})
 
-    wrapper.findAll('a').at(1).trigger('click.prevent')
-    expect(window.alert).toHaveBeenCalledWith('Google Analytics is not yet loaded.')
+  wrapper.findAll('a').at(1).trigger('click.prevent')
+  expect(window.alert).toHaveBeenCalledWith('Google Analytics is not yet loaded.')
 
-    wrapper.vm.$store.commit('tracking/enable')
-    expect(wrapper.vm.$store.state.tracking.disable).toBe(false)
+  wrapper.vm.$store.commit('tracking/enable')
+  expect(wrapper.vm.$store.state.tracking.disable).toBe(false)
 
-    wrapper.findAll('a').at(1).trigger('click.prevent')
-    expect(window.alert).toHaveBeenCalledWith('Opt-Out has been complete.')
-    expect(wrapper.vm.$store.state.tracking.disable).toBe(true)
-  })
+  wrapper.findAll('a').at(1).trigger('click.prevent')
+  expect(window.alert).toHaveBeenCalledWith('Opt-Out has been complete.')
+  expect(wrapper.vm.$store.state.tracking.disable).toBe(true)
 })

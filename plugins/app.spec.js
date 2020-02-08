@@ -5,10 +5,8 @@ const localVue = createLocalVue()
 
 localVue.use(pluginApp)
 
-describe('plugins: app', () => {
-  const $app = localVue.prototype.$app
+const $app = localVue.prototype.$app
 
-  test('name', () => {
-    expect($app.name).toBe('PlusArchive')
-  })
+test('name', () => {
+  expect($app.name).toBe('PlusArchive')
 })

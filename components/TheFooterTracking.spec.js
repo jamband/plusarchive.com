@@ -23,30 +23,28 @@ const factory = (store = {}) => {
   })
 }
 
-describe('components: TheFooterTracking', () => {
-  const tracking = cloneDeep(storeTracking)
-  tracking.namespaced = true
+const tracking = cloneDeep(storeTracking)
+tracking.namespaced = true
 
-  let wrapper
+let wrapper
 
-  beforeEach(() => {
-    const store = new Vuex.Store({ modules: { tracking } })
-    wrapper = factory(store)
-  })
+beforeEach(() => {
+  const store = new Vuex.Store({ modules: { tracking } })
+  wrapper = factory(store)
+})
 
-  test('text links', () => {
-    const a = wrapper.findAll('a')
-    expect(a.length).toBe(2)
-    expect(a.at(0).text()).toBe('I ACCEPT')
-    expect(a.at(1).text()).toBe('Privacy Policy')
-  })
+test('text links', () => {
+  const a = wrapper.findAll('a')
+  expect(a.length).toBe(2)
+  expect(a.at(0).text()).toBe('I ACCEPT')
+  expect(a.at(1).text()).toBe('Privacy Policy')
+})
 
-  test('optIn', () => {
-    const a = wrapper.findAll('a')
-    const tracking = wrapper.vm.$store.state.tracking
-    expect(tracking.disable).toBe(true)
+test('optIn', () => {
+  const a = wrapper.findAll('a')
+  const tracking = wrapper.vm.$store.state.tracking
+  expect(tracking.disable).toBe(true)
 
-    a.at(0).trigger('click.prevent')
-    expect(tracking.disable).toBe(false)
-  })
+  a.at(0).trigger('click.prevent')
+  expect(tracking.disable).toBe(false)
 })
