@@ -1,5 +1,7 @@
-<template>
-  <span class="badge text-muted pl-3">{{ text }}</span>
+<template functional>
+  <span class="badge text-muted pl-3">
+    {{ props.total === 0 ? 'No results found' : `${props.total} results` }}
+  </span>
 </template>
 
 <script>
@@ -8,13 +10,6 @@ export default {
     total: {
       type: Number,
       required: true
-    }
-  },
-  computed: {
-    text () {
-      return this.total === 0
-        ? 'No results found'
-        : `${this.total} results`
     }
   }
 }
