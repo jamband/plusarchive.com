@@ -31,7 +31,7 @@
                 {{ genre.name }}
               </n-link>
             </div>
-            <div class="card-date">
+            <div class="card-info">
               <fa icon="clock" fixed-width /> {{ track.created_at }}
             </div>
           </div>

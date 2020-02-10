@@ -22,7 +22,7 @@
                 {{ genre.name }}
               </n-link>
             </div>
-            <div class="card-date">
+            <div class="card-info">
               <fa :icon="['fab', providerIcon(track.provider)]" />
               {{ track.provider }}
             </div>
