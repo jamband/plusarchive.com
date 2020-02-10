@@ -1,21 +1,17 @@
-import Vuex from 'vuex'
 import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
-import cloneDeep from 'lodash.clonedeep'
-import storePagination from '~/store/pagination'
 import PaginationMinimal from '~/components/PaginationMinimal'
 import pluginScroll from '~/plugins/scroll'
 import pluginFontAwesome from '~/plugins/fontawesome'
 
 const localVue = createLocalVue()
 
-localVue.use(Vuex)
 localVue.use(pluginFontAwesome)
 localVue.use(pluginScroll)
 
-const factory = (store = {}) => {
+const factory = (props = {}) => {
   return mount(PaginationMinimal, {
-    store,
     localVue,
+    propsData: props,
     stubs: {
       NLink: RouterLinkStub
     },
@@ -25,28 +21,13 @@ const factory = (store = {}) => {
   })
 }
 
-const pagination = cloneDeep(storePagination)
-pagination.namespaced = true
-
-let store
-
-beforeEach(() => {
-  store = new Vuex.Store({ modules: { pagination } })
-})
-
 test('dont have page', () => {
-  const wrapper = factory(store)
+  const wrapper = factory({ currentPage: 0, pageCount: 0 })
   expect(wrapper.html()).toBe('')
 })
 
 test('current page: first', () => {
-  store.commit('pagination/setMeta', {
-    totalCount: 100,
-    pageCount: 10,
-    currentPage: 1
-  })
-
-  const wrapper = factory(store)
+  const wrapper = factory({ currentPage: 1, pageCount: 10 })
   const li = wrapper.findAll('ul > li')
 
   expect(li.at(0).classes()).toContain('disabled')
@@ -63,13 +44,7 @@ test('current page: first', () => {
 })
 
 test('current page: second', () => {
-  store.commit('pagination/setMeta', {
-    totalCount: 100,
-    pageCount: 10,
-    currentPage: 2
-  })
-
-  const wrapper = factory(store)
+  const wrapper = factory({ currentPage: 2, pageCount: 10 })
   const li = wrapper.findAll('ul > li')
 
   expect(li.at(0).classes()).not.toContain('disabled')
@@ -86,13 +61,7 @@ test('current page: second', () => {
 })
 
 test('current page: last', () => {
-  store.commit('pagination/setMeta', {
-    totalCount: 100,
-    pageCount: 10,
-    currentPage: 10
-  })
-
-  const wrapper = factory(store)
+  const wrapper = factory({ currentPage: 10, pageCount: 10 })
   const li = wrapper.findAll('ul > li')
 
   expect(li.at(0).classes()).not.toContain('disabled')

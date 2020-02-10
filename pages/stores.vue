@@ -31,7 +31,7 @@
           <hr class="text-light">
         </div>
       </div>
-      <PaginationMinimal />
+      <PaginationMinimal :current-page="pagination.currentPage" :page-count="pagination.pageCount" />
     </div>
   </div>
 </template>

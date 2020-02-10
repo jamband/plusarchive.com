@@ -6,49 +6,51 @@
           <fa icon="angle-double-left" />
         </n-link>
       </li>
-
       <li class="prev page-item w-25" :class="disabled('prev')">
-        <n-link :to="pageLink(pagination.currentPage - 1)" class="page-link text-center" append exact ontouchstart="">
+        <n-link :to="pageLink(currentPage - 1)" class="page-link text-center" append exact ontouchstart="">
           <fa icon="angle-left" />
         </n-link>
       </li>
-
       <li class="next page-item w-25" :class="disabled('next')">
-        <n-link :to="pageLink(pagination.currentPage + 1)" class="page-link text-center" exact ontouchstart="">
+        <n-link :to="pageLink(currentPage + 1)" class="page-link text-center" exact ontouchstart="">
           <fa icon="angle-right" />
         </n-link>
       </li>
-
       <li class="last page-item w-25" :class="disabled('last')">
-        <n-link :to="pageLink(pagination.pageCount)" class="page-link text-center" exact ontouchstart="">
+        <n-link :to="pageLink(pageCount)" class="page-link text-center" exact ontouchstart="">
           <fa icon="angle-double-right" />
         </n-link>
       </li>
     </ul>
     <div class="info text-center">
-      {{ pagination.currentPage }}/{{ pagination.pageCount }}
+      {{ currentPage }}/{{ pageCount }}
     </div>
   </nav>
 </template>
 
 <script>
 export default {
-  computed: {
-    pagination () {
-      return this.$store.state.pagination
+  props: {
+    currentPage: {
+      type: Number,
+      required: true
+    },
+    pageCount: {
+      type: Number,
+      required: true
     }
   },
   methods: {
     disabled (part) {
-      return (/first|prev/.test(part) && this.pagination.currentPage < 2) ||
-      (/next|last/.test(part) && this.pagination.currentPage >= this.pagination.pageCount) ? 'disabled' : ''
+      return (/first|prev/.test(part) && this.currentPage < 2) ||
+      (/next|last/.test(part) && this.currentPage >= this.pageCount) ? 'disabled' : ''
     },
     pageLink (page) {
       this.$scroll.toTop()
       return { query: { ...this.$route.query, page } }
     },
     hasPage () {
-      return this.pagination.pageCount > 1
+      return this.pageCount > 1
     }
   }
 }
@@ -78,7 +80,6 @@ export default {
         color: $link-hover-color;
         background-color: $pagination-hover-bg;
       }
-
     }
   }
 }

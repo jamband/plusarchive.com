@@ -39,7 +39,7 @@
         <hr class="d-sm-none">
       </div>
     </div>
-    <PaginationMinimal />
+    <PaginationMinimal :current-page="pagination.currentPage" :page-count="pagination.pageCount" />
   </div>
 </template>
 
