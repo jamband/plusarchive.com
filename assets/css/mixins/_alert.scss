@@ -1,4 +1,4 @@
-@import "../variables/system-color";
+@import "~assets/css/variables";
 
 @mixin alert-variant($background, $border, $color) {
   color: $color;
