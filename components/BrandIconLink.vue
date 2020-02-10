@@ -1,9 +1,9 @@
 <template>
-  <div class="d-inline">
+  <span>
     <a v-for="(url, index) in urls" :key="index" :href="url" rel="noopener" target="_blank">
       <fa :icon="icon(url)" size="lg" />
     </a>
-  </div>
+  </span>
 </template>
 
 <script>
