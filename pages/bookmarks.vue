@@ -5,7 +5,7 @@
       <nuxt-link :to="{ name: 'bookmarks' }" class="text-light">
         <fa icon="redo-alt" fixed-width /> Reset All
       </nuxt-link>
-      <TotalCount />
+      <TotalCount :total="pagination.totalCount" />
       <br>
       <SearchDropdown label="Countries" query="country" :items="countries" />
       <SearchDropdown label="Tags" query="tag" :items="tags" />
@@ -66,6 +66,9 @@ export default {
     },
     tags () {
       return this.$store.state.bookmark.tags
+    },
+    pagination () {
+      return this.$store.state.pagination
     }
   },
   head () {

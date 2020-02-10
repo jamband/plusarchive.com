@@ -4,7 +4,7 @@
       <n-link :to="{ name: 'tracks' }" class="text-light">
         <fa icon="redo-alt" fixed-width /> Reset All
       </n-link>
-      <TotalCount />
+      <TotalCount :total="pagination.totalCount" />
       <br class="d-sm-none">
       <SearchDropdown label="Providers" query="provider" :items="providers" />
       <SearchDropdown label="Genres" query="genre" :items="genres" />
@@ -67,6 +67,9 @@ export default {
   computed: {
     tracks () {
       return this.$store.state.track.items
+    },
+    pagination () {
+      return this.$store.state.pagination
     },
     providers () {
       return ['Bandcamp', 'SoundCloud', 'Vimeo', 'YouTube']
