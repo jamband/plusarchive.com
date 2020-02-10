@@ -1,7 +1,7 @@
 <template>
   <div>
     <fa icon="volume-up" fixed-width />
-    <n-link :to="linkTo" :title="player.title" class="text-white px-2">
+    <n-link :to="linkTo" :title="player.title" class="text-white px-3">
       {{ title() }}
     </n-link>
     <a href="#" class="text-white" @click.prevent="clear()">
