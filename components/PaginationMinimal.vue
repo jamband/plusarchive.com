@@ -1,22 +1,22 @@
 <template>
   <nav v-if="hasPage()" aria-label="Page navigation">
     <ul class="pagination">
-      <li class="first page-item w-25" :class="disabled('first')">
+      <li class="page-item w-25" :class="disabled('first')">
         <n-link :to="pageLink(1)" class="page-link text-center" append exact ontouchstart="">
           <fa icon="angle-double-left" />
         </n-link>
       </li>
-      <li class="prev page-item w-25" :class="disabled('prev')">
+      <li class="page-item w-25" :class="disabled('prev')">
         <n-link :to="pageLink(currentPage - 1)" class="page-link text-center" append exact ontouchstart="">
           <fa icon="angle-left" />
         </n-link>
       </li>
-      <li class="next page-item w-25" :class="disabled('next')">
+      <li class="page-item w-25" :class="disabled('next')">
         <n-link :to="pageLink(currentPage + 1)" class="page-link text-center" exact ontouchstart="">
           <fa icon="angle-right" />
         </n-link>
       </li>
-      <li class="last page-item w-25" :class="disabled('last')">
+      <li class="page-item w-25" :class="disabled('last')">
         <n-link :to="pageLink(pageCount)" class="page-link text-center" exact ontouchstart="">
           <fa icon="angle-double-right" />
         </n-link>
@@ -42,8 +42,11 @@ export default {
   },
   methods: {
     disabled (part) {
-      return (/first|prev/.test(part) && this.currentPage < 2) ||
-      (/next|last/.test(part) && this.currentPage >= this.pageCount) ? 'disabled' : ''
+      if (/^(first|prev)$/.test(part)) {
+        return this.currentPage < 2 ? 'disabled' : ''
+      } else {
+        return this.currentPage >= this.pageCount ? 'disabled' : ''
+      }
     },
     pageLink (page) {
       this.$scroll.toTop()
