@@ -47,6 +47,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~assets/css/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
 .playlist {
   &-title {
     @include media-breakpoint-only(xs) {

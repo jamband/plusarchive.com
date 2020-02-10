@@ -53,6 +53,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~assets/css/variables";
+
 a {
   margin-right: 10px;
   color: $gray-400;

@@ -59,6 +59,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~assets/css/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
 .embed-responsive {
   &-1by1-half {
     @include media-breakpoint-down(md) {

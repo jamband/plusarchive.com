@@ -61,6 +61,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~assets/css/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
 .navbar-nav {
   a.active {
     @include media-breakpoint-down(sm) {

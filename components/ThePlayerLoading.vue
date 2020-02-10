@@ -5,6 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
+@import "~assets/css/variables";
 @import "~loaders.css/src/animations/line-scale";
 
 .loading {

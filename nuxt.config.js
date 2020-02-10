@@ -36,8 +36,7 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    '@nuxtjs/pwa',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/pwa'
   ],
   build: {
     // analyze: true,
@@ -78,11 +77,5 @@ export default {
     background_color: '#222',
     display: 'standalone',
     start_url: '/'
-  },
-  styleResources: {
-    scss: [
-      '~/assets/css/variables/*.scss',
-      '~/node_modules/bootstrap/scss/mixins/_breakpoints.scss'
-    ]
   }
 }

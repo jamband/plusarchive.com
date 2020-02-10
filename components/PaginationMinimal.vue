@@ -57,6 +57,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "~assets/css/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
 .pagination {
   > li {
     @include media-breakpoint-down(sm) {
