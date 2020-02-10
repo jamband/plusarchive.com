@@ -19,7 +19,6 @@
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.2.2",
     "lazysizes": "^5.2.0-beta1",
-    "loaders.css": "^0.1.2",
     "masonry-layout": "^4.2.2",
     "nuxt": "^2.11.0",
     "nuxt-start": "^2.11.0"

@@ -1,6 +1,3 @@
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/mixins/hover";
-
 @mixin badge-variant($bg) {
   color: $bg;
   background-color: transparent;

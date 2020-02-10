@@ -1,5 +1,3 @@
-@import "~assets/css/variables";
-
 @mixin alert-variant($background, $border, $color) {
   color: $color;
   border-color: $gray-800;

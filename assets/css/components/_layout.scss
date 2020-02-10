@@ -1,5 +1,3 @@
-@import "~bootstrap/scss/mixins/breakpoints";
-
 body {
   @include media-breakpoint-down(md) {
     margin-bottom: 80px;

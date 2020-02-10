@@ -1,22 +1,24 @@
 <template>
-  <div class="loading line-scale">
-    <div /><div /><div /><div /><div />
+  <div class="player-loading font-weight-bold text-secondary">
+    ...
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import "~assets/css/variables";
-@import "~loaders.css/src/animations/line-scale";
 
-.loading {
+@keyframes blink {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.player-loading {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-
-  div {
-    background-color: $gray-500;
-  }
+  animation: blink .7s ease infinite;
+  font-size: 150%;
 }
 </style>

@@ -3,9 +3,7 @@
     <TheHeader />
     <div class="container">
       <nuxt />
-      <transition name="player">
-        <ThePlayer v-show="playerShow()" />
-      </transition>
+      <ThePlayer v-show="playerShow()" />
     </div>
     <TheFooter />
   </div>
@@ -29,18 +27,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.player {
-  &-enter-active,
-  &-leave-active {
-    transition: all .3s;
-  }
-
-  &-enter,
-  &-leave-to {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-}
-</style>

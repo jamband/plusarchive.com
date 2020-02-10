@@ -1,6 +1,6 @@
 <template>
   <span>
-    <a v-for="(url, index) in urls" :key="index" :href="url" rel="noopener" target="_blank">
+    <a v-for="(url, index) in urls" :key="index" :href="url" class="brand-icon-link" rel="noopener" target="_blank">
       <fa :icon="icon(url)" size="lg" />
     </a>
   </span>
@@ -55,7 +55,7 @@ export default {
 <style lang="scss" scoped>
 @import "~assets/css/variables";
 
-a {
+.brand-icon-link {
   margin-right: 10px;
   color: $gray-400;
 

@@ -46,21 +46,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@import "~assets/css/variables";
-
-/deep/ {
-  .menu {
-    height: auto;
-    max-height: 352px;
-    overflow-x: hidden;
-  }
-
-  button {
-    &:hover {
-      color: $white;
-    }
-  }
-}
-</style>

@@ -22,7 +22,7 @@
         </n-link>
       </li>
     </ul>
-    <div class="info text-center">
+    <div class="pagination-minimal-info text-center">
       {{ currentPage }}/{{ pageCount }}
     </div>
   </nav>
@@ -63,46 +63,21 @@ export default {
 @import "~assets/css/variables";
 @import "~bootstrap/scss/mixins/breakpoints";
 
-.pagination {
-  > li {
-    @include media-breakpoint-down(sm) {
-      font-size: 80%;
-    }
-  }
+.pagination-minimal {
+  &-info {
+    position: relative;
+    z-index: -1;
+    color: $gray-700;
 
-  .page-link {
-    &:hover {
-      @include media-breakpoint-down(sm) {
-        color: $primary;
-        background-color: transparent;
-      }
+    @include media-breakpoint-only(xs) {
+      font-size: 75%;
+      bottom: 3.4em;
     }
 
-    &:active {
-      outline: 0;
-      box-shadow: 0 0 0 .2rem rgba($primary, .25);
-
-      @include media-breakpoint-down(sm) {
-        color: $link-hover-color;
-        background-color: $pagination-hover-bg;
-      }
+    @include media-breakpoint-up(sm) {
+      font-size: 85%;
+      bottom: 3.1em;
     }
-  }
-}
-
-.info {
-  position: relative;
-  z-index: -1;
-  color: $gray-700;
-
-  @include media-breakpoint-only(xs) {
-    font-size: 75%;
-    bottom: 3.4em;
-  }
-
-  @include media-breakpoint-up(sm) {
-    font-size: 85%;
-    bottom: 3.1em;
   }
 }
 </style>

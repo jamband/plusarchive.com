@@ -59,32 +59,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@import "~assets/css/variables";
-@import "~bootstrap/scss/mixins/breakpoints";
-
-.navbar-nav {
-  a.active {
-    @include media-breakpoint-down(sm) {
-      border-left: 3px solid darken($primary, 15%);
-      padding-left: 5px;
-    }
-
-    @include media-breakpoint-up(md) {
-      border-bottom: 3px solid darken($primary, 15%);
-      padding-bottom: 5px;
-    }
-  }
-
-  .nav-item {
-    @include media-breakpoint-up(sm) {
-      font-size: 85%;
-    }
-  }
-
-  .dropdown-item.active {
-    border: none;
-  }
-}
-</style>
