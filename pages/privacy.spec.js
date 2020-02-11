@@ -14,9 +14,6 @@ const factory = (store = {}) => {
   return mount(PagePrivacy, {
     store,
     localVue,
-    stubs: {
-      transition: true
-    },
     mocks: {
       $ga: {
         disable () {}

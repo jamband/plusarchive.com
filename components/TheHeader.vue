@@ -31,9 +31,7 @@
             <b-nav-item :to="{ name: 'third-party-licenses' }" :link-classes="{ active: isActive('third-party-licenses') }">Third-Party Licenses</b-nav-item>
           </b-navbar-nav>
           <b-navbar-nav class="ml-auto d-none d-lg-block">
-            <transition name="page">
-              <SearchForm v-if="showSearchForm()" />
-            </transition>
+            <SearchForm v-if="showSearchForm()" />
           </b-navbar-nav>
         </b-collapse>
       </div>

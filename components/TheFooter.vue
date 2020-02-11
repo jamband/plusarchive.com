@@ -1,10 +1,8 @@
 <template>
   <footer class="footer fixed-bottom p-3 text-center bg-dark">
-    <transition name="footer" mode="out-in">
-      <TheFooterPlayerTitle v-if="hasTitle()" key="player" />
-      <TheFooterTracking v-else-if="tracking.disable" key="tracking" />
-      <div v-else key="default">{{ $app.name }}</div>
-    </transition>
+    <TheFooterPlayerTitle v-if="hasTitle()" key="player" />
+    <TheFooterTracking v-else-if="tracking.disable" key="tracking" />
+    <div v-else key="default">{{ $app.name }}</div>
   </footer>
 </template>
 

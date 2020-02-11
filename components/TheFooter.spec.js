@@ -18,8 +18,7 @@ const factory = (store = {}, route = {}) => {
     localVue,
     store,
     stubs: {
-      NLink: RouterLinkStub,
-      transition: true
+      NLink: RouterLinkStub
     },
     mocks: {
       $route: route
