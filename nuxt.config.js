@@ -9,7 +9,7 @@ export default {
       { hid: 'description', name: 'description', content: 'PlusArchive is music archive website for everyday' }
     ],
     link: [
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap' },
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
       { rel: 'apple-touch-icon', sizes: '152x152', href: '/apple-touch-icon.png' }
     ]
