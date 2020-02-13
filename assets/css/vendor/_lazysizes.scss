@@ -1,3 +1,7 @@
+.lazyload {
+  width: 100%;
+}
+
 .lazyload,
 .lazyloading {
   opacity: 0;
@@ -5,4 +9,5 @@
 
 .lazyloaded {
   opacity: .8;
+  transition: opacity .3s;
 }

@@ -25,6 +25,7 @@ export default {
   plugins: [
     '~/plugins/app',
     '~/plugins/fontawesome',
+    '~/plugins/lazysizes.client.js',
     '~/plugins/scroll'
   ],
   buildModules: [

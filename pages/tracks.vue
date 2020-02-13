@@ -15,7 +15,7 @@
         <div class="card">
           <div class="card-img-wrap">
             <n-link :to="{ name: 'track', params: { id: track.id } }" @click.native="load(track.id)">
-              <img :data-src="track.image" class="card-img-top lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=" alt="">
+              <CardLazyImage :image="track.image" :aspectratio="aspectRatio(track.provider)" />
               <fa :icon="audioStatusIcon(track.id)" class="card-play" />
             </n-link>
           </div>
@@ -44,8 +44,7 @@
 </template>
 
 <script>
-import Lazysizes from 'lazysizes'
-
+import CardLazyImage from '~/components/CardLazyImage'
 import PaginationMinimal from '~/components/PaginationMinimal'
 import SearchDropdown from '~/components/SearchDropdown'
 import SearchForm from '~/components/SearchForm'
@@ -53,6 +52,7 @@ import TotalCount from '~/components/TotalCount'
 
 export default {
   components: {
+    CardLazyImage,
     PaginationMinimal,
     SearchDropdown,
     SearchForm,
@@ -82,7 +82,6 @@ export default {
     }
   },
   mounted () {
-    Lazysizes.init()
     this.masonryLoaded()
   },
   methods: {
@@ -90,6 +89,11 @@ export default {
       if (id !== this.player.id) {
         this.$store.dispatch('player/loading', { status: true })
       }
+    },
+    aspectRatio (provider) {
+      return /^(Vimeo|YouTube)$/.test(provider)
+        ? '16/9'
+        : '1/1'
     },
     audioStatusIcon (id) {
       return id === this.player.id

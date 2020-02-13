@@ -9,7 +9,7 @@
         <div class="card">
           <div class="card-img-wrap">
             <n-link :to="{ name: 'track', params: { id: track.id } }" @click.native="load(track.id)">
-              <img :data-src="track.image" class="card-img-top lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII=" alt="">
+              <CardLazyImage :image="track.image" :aspectratio="aspectRatio(track.provider)" />
               <fa :icon="audioStatusIcon(track.id)" class="card-play" />
             </n-link>
           </div>
@@ -51,9 +51,12 @@
 </template>
 
 <script>
-import Lazysizes from 'lazysizes'
+import CardLazyImage from '~/components/CardLazyImage'
 
 export default {
+  components: {
+    CardLazyImage
+  },
   async fetch ({ store, error }) {
     await Promise.all([
       store.dispatch('track/fetchFavorites', { error }),
@@ -71,14 +74,16 @@ export default {
       return this.$store.state.player
     }
   },
-  mounted () {
-    Lazysizes.init()
-  },
   methods: {
     load (id) {
       if (id !== this.player.id) {
         this.$store.dispatch('player/loading', { status: true })
       }
+    },
+    aspectRatio (provider) {
+      return /^(Vimeo|YouTube)$/.test(provider)
+        ? '16/9'
+        : '1/1'
     },
     audioStatusIcon (id) {
       return id === this.player.id
