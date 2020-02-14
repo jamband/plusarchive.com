@@ -4,8 +4,8 @@
       Recent
       <small class="text-muted">favorite tracks</small>
     </h2>
-    <div class="row text-center card-container">
-      <div v-for="track in tracks" :key="track.id" class="col-md-4 mb-sm-4">
+    <div class="row row-cols-1 row-cols-md-3 text-center card-container">
+      <div v-for="track in tracks" :key="track.id" class="col mb-md-4">
         <div class="card">
           <div class="card-img-wrap">
             <n-link :to="{ name: 'track', params: { id: track.id } }" @click.native="load(track.id)">
@@ -28,7 +28,7 @@
             </div>
           </div>
         </div>
-        <hr class="d-sm-none">
+        <hr class="d-md-none">
       </div>
     </div>
     <h2 class="my-2">
