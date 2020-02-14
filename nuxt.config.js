@@ -10,8 +10,7 @@ export default {
     ],
     link: [
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap' },
-      { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-      { rel: 'apple-touch-icon', sizes: '152x152', href: '/apple-touch-icon.png' }
+      { rel: 'icon', href: '/favicon.ico' }
     ]
   },
   loading: {
