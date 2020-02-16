@@ -4,6 +4,9 @@
 @import "vendor/bootstrap-vue";
 @import "vendor/lazysizes";
 
+@import "mixins/focus-visible";
+
+@import "components/button";
 @import "components/card";
 @import "components/dropdown";
 @import "components/embed";

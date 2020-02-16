@@ -1,0 +1,7 @@
+.btn-link {
+  &:focus {
+    box-shadow: $btn-focus-box-shadow;
+  }
+
+  @include focus-visible();
+}
