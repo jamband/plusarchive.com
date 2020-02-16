@@ -38,14 +38,15 @@ test('is visible', () => {
 
 test('optOut', () => {
   jest.spyOn(window, 'alert').mockImplementation(() => {})
+  const button = wrapper.find('button')
 
-  wrapper.findAll('a').at(1).trigger('click.prevent')
+  button.trigger('click')
   expect(window.alert).toHaveBeenCalledWith('Google Analytics is not yet loaded.')
 
   wrapper.vm.$store.commit('tracking/enable')
   expect(wrapper.vm.$store.state.tracking.disable).toBe(false)
 
-  wrapper.findAll('a').at(1).trigger('click.prevent')
+  button.trigger('click')
   expect(window.alert).toHaveBeenCalledWith('Opt-Out has been complete.')
   expect(wrapper.vm.$store.state.tracking.disable).toBe(true)
 })

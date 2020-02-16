@@ -32,7 +32,7 @@
       </p>
       <p>
         Ever after consenting, you can opt-out by pressing the following link:
-        <a href="#" @click.prevent="optOut()">Opt-Out</a>
+        <button class="btn btn-link align-baseline m-0 p-0" @click="optOut()">Opt-Out</button>
       </p>
 
       <div class="my-5" />

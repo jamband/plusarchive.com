@@ -33,18 +33,16 @@ beforeEach(() => {
   wrapper = factory(store)
 })
 
-test('text links', () => {
-  const a = wrapper.findAll('a')
-  expect(a.length).toBe(2)
-  expect(a.at(0).text()).toBe('I ACCEPT')
-  expect(a.at(1).text()).toBe('Privacy Policy')
+test('text link', () => {
+  const a = wrapper.find('a')
+  expect(a.text()).toBe('Privacy Policy')
 })
 
 test('optIn', () => {
-  const a = wrapper.findAll('a')
+  const button = wrapper.find('button')
   const tracking = wrapper.vm.$store.state.tracking
   expect(tracking.disable).toBe(true)
 
-  a.at(0).trigger('click.prevent')
+  button.trigger('click')
   expect(tracking.disable).toBe(false)
 })
