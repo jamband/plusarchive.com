@@ -1,5 +1,4 @@
 /.nuxt
 /node_modules
 .env
-package-lock.json
 static/sw.js
