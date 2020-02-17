@@ -1,4 +1,4 @@
-import { APP_NAME } from './utils/constants'
+import { APP_NAME, APP_PRIMARY_COLOR } from './utils/constants'
 require('dotenv').config()
 
 export default {
@@ -16,7 +16,7 @@ export default {
     ]
   },
   loading: {
-    color: '#cc6055',
+    color: `#${APP_PRIMARY_COLOR}`,
     height: '3px'
   },
   css: [
