@@ -1,5 +1,5 @@
-<template>
-  <div class="player-loading font-weight-bold text-secondary">
+<template functional>
+  <div class="player-loading">
     ...
   </div>
 </template>
@@ -20,5 +20,7 @@
   pointer-events: none;
   animation: blink .7s ease infinite;
   font-size: 150%;
+  font-weight: $font-weight-bold;
+  color: $secondary;
 }
 </style>

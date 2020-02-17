@@ -5,7 +5,7 @@ const factory = () => {
   return mount(ThePlayerLoading)
 }
 
-test('', () => {
+test('...', () => {
   const wrapper = factory()
-  expect(wrapper.isVueInstance()).toBe(true)
+  expect(wrapper.text()).toBe('...')
 })
