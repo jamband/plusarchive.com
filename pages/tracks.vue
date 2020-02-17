@@ -112,7 +112,7 @@ export default {
   },
   head () {
     return {
-      title: `Tracks - ${this.$app.name}`
+      title: 'Tracks'
     }
   },
   watchQuery: true

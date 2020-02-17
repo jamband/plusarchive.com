@@ -1,12 +1,14 @@
+import { APP_NAME } from './utils/constants'
 require('dotenv').config()
 
 export default {
   mode: 'universal',
   head: {
+    titleTemplate: `%s - ${APP_NAME}`,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'PlusArchive is music archive website for everyday' }
+      { hid: 'description', name: 'description', content: `${APP_NAME} is music archive website for everyday` }
     ],
     link: [
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap' },
@@ -71,9 +73,9 @@ export default {
     ]
   },
   manifest: {
-    name: 'PlusArchive',
-    short_name: 'PlusArchive',
-    description: 'PlusArchive is music archive website for everyday',
+    name: APP_NAME,
+    short_name: APP_NAME,
+    description: `${APP_NAME} is music archive website for everyday`,
     lang: 'en',
     background_color: '#222',
     display: 'standalone',

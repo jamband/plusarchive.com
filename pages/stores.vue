@@ -73,7 +73,7 @@ export default {
   },
   head () {
     return {
-      title: `Stores - ${this.$app.name}`
+      title: 'Stores'
     }
   },
   watchQuery: true

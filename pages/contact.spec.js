@@ -1,11 +1,9 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import PageContact from '~/pages/contact'
-import pluginApp from '~/plugins/app'
 import pluginFontAwesome from '~/plugins/fontawesome'
 
 const localVue = createLocalVue()
 
-localVue.use(pluginApp)
 localVue.use(pluginFontAwesome)
 
 const factory = () => {

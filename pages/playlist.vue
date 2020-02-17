@@ -16,7 +16,7 @@ export default {
   },
   head () {
     return {
-      title: `${this.playlist.title} - ${this.$app.name}`
+      title: this.playlist.title
     }
   }
 }

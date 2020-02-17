@@ -14,7 +14,7 @@
 export default {
   head () {
     return {
-      title: `Third-Party Licenses - ${this.$app.name}`
+      title: 'Third-Party Licenses'
     }
   }
 }

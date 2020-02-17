@@ -1,5 +1,6 @@
 import Vue from 'vue'
+import { APP_NAME } from '~/utils/constants'
 
 Vue.prototype.$app = {
-  name: 'PlusArchive'
+  name: APP_NAME
 }

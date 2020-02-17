@@ -19,7 +19,7 @@
 export default {
   head () {
     return {
-      title: `Contact - ${this.$app.name}`
+      title: 'Contact'
     }
   }
 }

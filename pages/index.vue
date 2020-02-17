@@ -102,7 +102,8 @@ export default {
   },
   head () {
     return {
-      title: this.$app.name
+      title: this.$app.name,
+      titleTemplate: ''
     }
   }
 }

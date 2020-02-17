@@ -17,7 +17,7 @@
 export default {
   head () {
     return {
-      title: `About - ${this.$app.name}`
+      title: 'About'
     }
   }
 }

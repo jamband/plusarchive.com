@@ -40,7 +40,7 @@ export default {
   },
   head () {
     return {
-      title: `Playlists - ${this.$app.name}`
+      title: 'Playlists'
     }
   }
 }

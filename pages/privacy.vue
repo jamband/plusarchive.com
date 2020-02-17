@@ -61,7 +61,7 @@ export default {
   },
   head () {
     return {
-      title: `Privacy Policy - ${this.$app.name}`
+      title: 'Privacy Policy'
     }
   }
 }
