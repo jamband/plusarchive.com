@@ -1,5 +1,9 @@
+import Dotenv from 'dotenv'
+import Fiber from 'fibers'
+import Sass from 'sass'
 import { APP_NAME, APP_PRIMARY_COLOR } from './utils/constants'
-require('dotenv').config()
+
+Dotenv.config()
 
 export default {
   mode: 'universal',
@@ -43,6 +47,14 @@ export default {
   ],
   build: {
     // analyze: true,
+    loaders: {
+      scss: {
+        implementation: Sass,
+        sassOptions: {
+          fiber: Fiber
+        }
+      }
+    },
     terser: {
       extractComments: {
         filename: 'licenses.txt'
