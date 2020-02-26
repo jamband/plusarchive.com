@@ -4,9 +4,9 @@
     <n-link :to="linkTo" :title="player.title" class="text-white px-3">
       {{ title() }}
     </n-link>
-    <a href="#" class="text-white" @click.prevent="clear()">
+    <button class="btn btn-link align-baseline m-0 p-0 text-white" @click="clear()">
       <fa icon="times" />
-    </a>
+    </button>
     <div class="d-md-none pt-1 text-muted">
       {{ $app.name }}
     </div>
@@ -40,3 +40,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.btn {
+  font-size: 100%;
+  font-weight: bold;
+}
+</style>

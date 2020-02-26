@@ -60,7 +60,8 @@ test('click clear', async () => {
   const wrapper = factory(store)
   expect(wrapper.findAll(RouterLinkStub).at(0).text()).toBe('title1')
 
-  wrapper.findAll('a').at(1).trigger('click.prevent')
+  const button = wrapper.find('button')
+  button.trigger('click')
   await wrapper.vm.$nextTick()
 
   expect(wrapper.findAll(RouterLinkStub).at(0).text()).toBe('')
