@@ -4,7 +4,6 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest",
     "clean": "rm -rf .nuxt node_modules"
   },
