@@ -14,9 +14,9 @@
     <div class="col-lg-8">
       <div class="row">
         <div v-for="label in labels" :key="label.id" class="col-lg-6 mb-4">
-          <a :href="label.url" class="font-weight-bold" rel="noopener" target="_blank">
+          <BaseLinkExternal :href="label.url" class="font-weight-bold">
             <fa icon="external-link-alt" fixed-width /> {{ label.name }}
-          </a>
+          </BaseLinkExternal>
           <br>
           <span class="badge badge-secondary">Country:</span>
           {{ label.country }}
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import BaseLinkExternal from '~/components/BaseLinkExternal'
 import BrandIconLink from '~/components/BrandIconLink'
 import PaginationMinimal from '~/components/PaginationMinimal'
 import SearchDropdown from '~/components/SearchDropdown'
@@ -45,6 +46,7 @@ import TotalCount from '~/components/TotalCount'
 
 export default {
   components: {
+    BaseLinkExternal,
     BrandIconLink,
     PaginationMinimal,
     SearchDropdown,

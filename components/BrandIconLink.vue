@@ -1,13 +1,18 @@
 <template>
   <span>
-    <a v-for="(url, index) in urls" :key="index" :href="url" class="brand-icon-link" rel="noopener" target="_blank">
+    <BaseLinkExternal v-for="(url, index) in urls" :key="index" :href="url" class="brand-icon-link">
       <fa :icon="icon(url)" size="lg" />
-    </a>
+    </BaseLinkExternal>
   </span>
 </template>
 
 <script>
+import BaseLinkExternal from '~/components/BaseLinkExternal'
+
 export default {
+  components: {
+    BaseLinkExternal
+  },
   props: {
     links: {
       type: String,
