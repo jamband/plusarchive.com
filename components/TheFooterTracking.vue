@@ -3,7 +3,7 @@
     <fa icon="info-circle" />
     This site uses Google Analytics to provide better experience.
     By pressing <button class="btn btn-link align-baseline m-0 p-0" @click="optIn()">I ACCEPT</button>, you consent.
-    See <n-link :to="{ name: 'privacy' }">Privacy Policy</n-link> for details.
+    See <NLink :to="{ name: 'privacy' }">Privacy Policy</NLink> for details.
   </div>
 </template>
 

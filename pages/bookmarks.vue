@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-lg-4">
       <h2 class="my-2">Bookmarks</h2>
-      <nuxt-link :to="{ name: 'bookmarks' }" class="text-light">
+      <NLink :to="{ name: 'bookmarks' }" class="text-light">
         <fa icon="redo-alt" fixed-width /> Reset All
-      </nuxt-link>
+      </NLink>
       <TotalCount :total="pagination.totalCount" />
       <br>
       <SearchDropdown label="Countries" query="country" :items="countries" />
@@ -25,9 +25,9 @@
           <BrandIconLink :links="bookmark.link" />
           <br>
           <span class="badge badge-secondary">Tag:</span>
-          <nuxt-link v-for="tag in bookmark.tags" :key="tag.id" :to="{ query: { tag: tag.name } }" class="badge badge-secondary" append>
+          <NLink v-for="tag in bookmark.tags" :key="tag.id" :to="{ query: { tag: tag.name } }" class="badge badge-secondary" append>
             {{ tag.name }}
-          </nuxt-link>
+          </NLink>
           <hr class="text-light">
         </div>
       </div>

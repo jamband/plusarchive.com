@@ -8,19 +8,19 @@
       <div v-for="track in tracks" :key="track.id" class="col mb-md-4">
         <div class="card">
           <div class="card-img-wrap">
-            <n-link :to="{ name: 'track', params: { id: track.id } }" @click.native="load(track.id)">
+            <NLink :to="{ name: 'track', params: { id: track.id } }" @click.native="load(track.id)">
               <CardLazyImage :image="track.image" :aspectratio="aspectRatio(track.provider)" />
               <fa :icon="audioStatusIcon(track.id)" class="card-play" />
-            </n-link>
+            </NLink>
           </div>
           <div class="card-body">
             <h6 class="card-title text-truncate">
               {{ track.title }}
             </h6>
             <div class="card-text">
-              <n-link v-for="genre in track.genres" :key="genre.id" :to="{ name: 'tracks', query: { genre: genre.name } }" class="badge badge-secondary" append>
+              <NLink v-for="genre in track.genres" :key="genre.id" :to="{ name: 'tracks', query: { genre: genre.name } }" class="badge badge-secondary" append>
                 {{ genre.name }}
-              </n-link>
+              </NLink>
             </div>
             <div class="card-info">
               <fa :icon="['fab', providerIcon(track.provider)]" />
@@ -36,16 +36,16 @@
       <small class="text-muted">by genres</small>
     </h2>
     <div v-for="genre in genres" :key="genre.id" class="d-inline-block">
-      <n-link :to="{ name: 'tracks', query: { genre } }" class="badge badge-secondary">{{ genre }}</n-link>
+      <NLink :to="{ name: 'tracks', query: { genre } }" class="badge badge-secondary">{{ genre }}</NLink>
     </div>
     <div class="text-center pt-3 pb-4 small">
-      <n-link :to="{ name: 'tracks' }">
+      <NLink :to="{ name: 'tracks' }">
         Go to Tracks
-      </n-link>
+      </NLink>
       <span class="text-muted px-1">or</span>
-      <n-link :to="{ name: 'playlists' }">
+      <NLink :to="{ name: 'playlists' }">
         Playlists<fa icon="angle-right" fixed-width />
-      </n-link>
+      </NLink>
     </div>
   </div>
 </template>

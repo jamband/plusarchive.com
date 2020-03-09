@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="text-center mb-3">
-      <n-link :to="{ name: 'tracks' }" class="text-light">
+      <NLink :to="{ name: 'tracks' }" class="text-light">
         <fa icon="redo-alt" fixed-width /> Reset All
-      </n-link>
+      </NLink>
       <TotalCount :total="pagination.totalCount" />
       <br class="d-sm-none">
       <SearchDropdown label="Providers" query="provider" :items="providers" />
@@ -14,22 +14,22 @@
       <div v-for="track in tracks" :key="track.id" class="col mb-md-4">
         <div class="card">
           <div class="card-img-wrap">
-            <n-link :to="{ name: 'track', params: { id: track.id } }" @click.native="load(track.id)">
+            <NLink :to="{ name: 'track', params: { id: track.id } }" @click.native="load(track.id)">
               <CardLazyImage :image="track.image" :aspectratio="aspectRatio(track.provider)" />
               <fa :icon="audioStatusIcon(track.id)" class="card-play" />
-            </n-link>
+            </NLink>
           </div>
           <div class="card-body">
             <h6 class="card-title text-truncate">
               {{ track.title }}
             </h6>
             <div class="card-text">
-              <n-link :to="{ query: { provider: track.provider } }" class="badge badge-secondary">
+              <NLink :to="{ query: { provider: track.provider } }" class="badge badge-secondary">
                 {{ track.provider }}
-              </n-link>
-              <n-link v-for="genre in track.genres" :key="genre.id" :to="{ query: { genre: genre.name } }" class="badge badge-secondary" append>
+              </NLink>
+              <NLink v-for="genre in track.genres" :key="genre.id" :to="{ query: { genre: genre.name } }" class="badge badge-secondary" append>
                 {{ genre.name }}
-              </n-link>
+              </NLink>
             </div>
             <div class="card-info">
               <fa icon="clock" fixed-width /> {{ track.created_at }}

@@ -12,11 +12,11 @@
     </h5>
 
     <p class="text-center small">
-      <n-link :to="backTo">
+      <NLink :to="backTo">
         <fa icon="angle-left" fixed-width />Back to {{ backToLabel }}
-      </n-link>
+      </NLink>
       <span class="text-muted px-1">or</span>
-      <n-link :to="{ name: 'home' }">Recent Favorites</n-link>
+      <NLink :to="{ name: 'home' }">Recent Favorites</NLink>
     </p>
   </div>
 </template>

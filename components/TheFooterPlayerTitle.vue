@@ -1,9 +1,9 @@
 <template>
   <div>
     <fa icon="volume-up" fixed-width />
-    <n-link :to="linkTo" :title="player.title" class="text-white px-3">
+    <NLink :to="linkTo" :title="player.title" class="text-white px-3">
       {{ title() }}
-    </n-link>
+    </NLink>
     <button class="btn btn-link align-baseline m-0 p-0 text-white" @click="clear()">
       <fa icon="times" />
     </button>
