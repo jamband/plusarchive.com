@@ -6,19 +6,19 @@
         {{ $app.name }} is music archive website for everyday.<br>
         This website is an open source project.
       </p>
-      <BaseExternalLink href="https://github.com/jamband/plusarchive.com">
+      <BaseLinkExternal href="https://github.com/jamband/plusarchive.com">
         <fa :icon="['fab', 'github']" /> jamband/plusarchive.com
-      </BaseExternalLink>
+      </BaseLinkExternal>
     </div>
   </div>
 </template>
 
 <script>
-import BaseExternalLink from '~/components/BaseLinkExternal'
+import BaseLinkExternal from '~/components/BaseLinkExternal'
 
 export default {
   components: {
-    BaseExternalLink
+    BaseLinkExternal
   },
   head () {
     return {
