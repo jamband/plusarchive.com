@@ -1,5 +1,5 @@
 <template>
-  <a :href="href" rel="noopener" target="_blank">
+  <a :href="href" :rel="relValue" target="_blank">
     <slot />
   </a>
 </template>
@@ -10,6 +10,24 @@ export default {
     href: {
       type: String,
       required: true
+    },
+    rel: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    noreferrer: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
+  computed: {
+    relValue () {
+      let rel = 'noopener'
+      rel += this.noreferrer ? ' noreferrer' : ''
+      rel += this.rel !== '' ? ` ${this.rel}` : ''
+      return rel
     }
   }
 }
