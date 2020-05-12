@@ -37,13 +37,12 @@ test('current page: first', () => {
   expect(li.at(NEXT).classes()).not.toContain('disabled')
   expect(li.at(LAST).classes()).not.toContain('disabled')
 
-  expect(wrapper.find('.pagination-minimal-info').text()).toBe('1/10')
+  expect(li.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(li.at(PREV).find('a').props().to).toEqual({ query: { page: 0 } })
+  expect(li.at(NEXT).find('a').props().to).toEqual({ query: { page: 2 } })
+  expect(li.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
 
-  const component = wrapper.findAllComponents(RouterLinkStub)
-  expect(component.at(FIRST).props().to).toEqual({ query: { page: 1 } })
-  expect(component.at(PREV).props().to).toEqual({ query: { page: 0 } })
-  expect(component.at(NEXT).props().to).toEqual({ query: { page: 2 } })
-  expect(component.at(LAST).props().to).toEqual({ query: { page: 10 } })
+  expect(wrapper.find('.pagination-minimal-info').text()).toBe('1/10')
 })
 
 test('current page: second', () => {
@@ -55,13 +54,12 @@ test('current page: second', () => {
   expect(li.at(NEXT).classes()).not.toContain('disabled')
   expect(li.at(LAST).classes()).not.toContain('disabled')
 
-  expect(wrapper.find('.pagination-minimal-info').text()).toBe('2/10')
+  expect(li.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(li.at(PREV).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(li.at(NEXT).find('a').props().to).toEqual({ query: { page: 3 } })
+  expect(li.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
 
-  const component = wrapper.findAllComponents(RouterLinkStub)
-  expect(component.at(FIRST).props().to).toEqual({ query: { page: 1 } })
-  expect(component.at(PREV).props().to).toEqual({ query: { page: 1 } })
-  expect(component.at(NEXT).props().to).toEqual({ query: { page: 3 } })
-  expect(component.at(LAST).props().to).toEqual({ query: { page: 10 } })
+  expect(wrapper.find('.pagination-minimal-info').text()).toBe('2/10')
 })
 
 test('current page: last', () => {
@@ -73,11 +71,10 @@ test('current page: last', () => {
   expect(li.at(NEXT).classes()).toContain('disabled')
   expect(li.at(LAST).classes()).toContain('disabled')
 
-  expect(wrapper.find('.pagination-minimal-info').text()).toBe('10/10')
+  expect(li.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(li.at(PREV).find('a').props().to).toEqual({ query: { page: 9 } })
+  expect(li.at(NEXT).find('a').props().to).toEqual({ query: { page: 11 } })
+  expect(li.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
 
-  const component = wrapper.findAllComponents(RouterLinkStub)
-  expect(component.at(FIRST).props().to).toEqual({ query: { page: 1 } })
-  expect(component.at(PREV).props().to).toEqual({ query: { page: 9 } })
-  expect(component.at(NEXT).props().to).toEqual({ query: { page: 11 } })
-  expect(component.at(LAST).props().to).toEqual({ query: { page: 10 } })
+  expect(wrapper.find('.pagination-minimal-info').text()).toBe('10/10')
 })
