@@ -43,7 +43,7 @@ beforeEach(() => {
 test('title route', () => {
   store.commit('player/setItem', fixture.player)
   const wrapper = factory(store)
-  expect(wrapper.findAll(RouterLinkStub).at(0).props().to)
+  expect(wrapper.findAllComponents(RouterLinkStub).at(0).props().to)
     .toEqual({ name: 'track', params: { id: 'id1' } })
 })
 
@@ -51,18 +51,18 @@ test('title', () => {
   fixture.player.title = 'a'.repeat(50)
   store.commit('player/setItem', fixture.player)
   const wrapper = factory(store)
-  expect(/^a{40}\.\.\.$/.test(wrapper.findAll(RouterLinkStub).at(0).text()))
+  expect(/^a{40}\.\.\.$/.test(wrapper.findAllComponents(RouterLinkStub).at(0).text()))
     .toBe(true)
 })
 
 test('click clear', async () => {
   store.commit('player/setItem', fixture.player)
   const wrapper = factory(store)
-  expect(wrapper.findAll(RouterLinkStub).at(0).text()).toBe('title1')
+  expect(wrapper.findAllComponents(RouterLinkStub).at(0).text()).toBe('title1')
 
   const button = wrapper.find('button')
   button.trigger('click')
   await wrapper.vm.$nextTick()
 
-  expect(wrapper.findAll(RouterLinkStub).at(0).text()).toBe('')
+  expect(wrapper.findAllComponents(RouterLinkStub).at(0).text()).toBe('')
 })
