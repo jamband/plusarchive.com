@@ -61,8 +61,7 @@ test('click clear', async () => {
   expect(wrapper.findAllComponents(RouterLinkStub).at(0).text()).toBe('title1')
 
   const button = wrapper.find('button')
-  button.trigger('click')
-  await wrapper.vm.$nextTick()
+  await button.trigger('click')
 
   expect(wrapper.findAllComponents(RouterLinkStub).at(0).text()).toBe('')
 })
