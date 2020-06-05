@@ -14,9 +14,9 @@
     <div class="col-lg-8">
       <div class="row">
         <div v-for="bookmark in bookmarks" :key="bookmark.id" class="col-lg-6 mb-4">
-          <BaseLinkExternal :href="bookmark.url" class="font-weight-bold">
+          <a :href="bookmark.url" class="font-weight-bold" rel="noopener" target="_blank">
             <fa icon="external-link-alt" fixed-width /> {{ bookmark.name }}
-          </BaseLinkExternal>
+          </a>
           <br>
           <span class="badge badge-secondary">Country:</span>
           {{ bookmark.country }}
@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import BaseLinkExternal from '~/components/BaseLinkExternal'
 import BrandIconLink from '~/components/BrandIconLink'
 import PaginationMinimal from '~/components/PaginationMinimal'
 import SearchDropdown from '~/components/SearchDropdown'
@@ -46,7 +45,6 @@ import TotalCount from '~/components/TotalCount'
 
 export default {
   components: {
-    BaseLinkExternal,
     BrandIconLink,
     PaginationMinimal,
     SearchDropdown,

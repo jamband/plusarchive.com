@@ -7,9 +7,9 @@
         The Google Analytics tool collects internet log information and visitor behavior information in an anonymous form.
         About the information collected by Google Analytics, please see the following links.
       </p>
-      <BaseLinkExternal href="https://policies.google.com/privacy?hl=en">
+      <a href="https://policies.google.com/privacy?hl=en" rel="noopener" target="_blank">
         <fa icon="external-link-alt" /> Google Privacy & Terms
-      </BaseLinkExternal>
+      </a>
 
       <h4 class="mt-5 mb-3">What is Google Analytics used for?</h4>
       <ul>
@@ -42,12 +42,7 @@
 </template>
 
 <script>
-import BaseLinkExternal from '~/components/BaseLinkExternal'
-
 export default {
-  components: {
-    BaseLinkExternal
-  },
   computed: {
     tracking () {
       return this.$store.state.tracking
