@@ -7,14 +7,7 @@
 </template>
 
 <script>
-import TheFooterPlayerTitle from '~/components/TheFooterPlayerTitle'
-import TheFooterTracking from '~/components/TheFooterTracking'
-
 export default {
-  components: {
-    TheFooterPlayerTitle,
-    TheFooterTracking
-  },
   computed: {
     player () {
       return this.$store.state.player

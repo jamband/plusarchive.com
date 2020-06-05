@@ -7,6 +7,7 @@ Dotenv.config()
 
 export default {
   mode: 'universal',
+  components: true,
   head: {
     titleTemplate: `%s - ${APP_NAME}`,
     meta: [
@@ -35,6 +36,7 @@ export default {
     '~/plugins/scroll'
   ],
   buildModules: [
+    '@nuxt/components',
     '@nuxtjs/eslint-module',
     '@nuxtjs/router',
     '@nuxtjs/google-analytics'

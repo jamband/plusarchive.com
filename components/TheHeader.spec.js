@@ -3,6 +3,7 @@ import { NavbarPlugin } from 'bootstrap-vue'
 import pluginApp from '~/plugins/app'
 import pluginFontAwesome from '~/plugins/fontawesome'
 import TheHeader from '~/components/TheHeader'
+import SearchForm from '~/components/SearchForm'
 
 const localVue = createLocalVue()
 
@@ -14,7 +15,8 @@ const factory = (route = {}) => {
   return mount(TheHeader, {
     localVue,
     stubs: {
-      NLink: RouterLinkStub
+      NLink: RouterLinkStub,
+      SearchForm
     },
     mocks: {
       $route: route

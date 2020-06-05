@@ -37,20 +37,7 @@
 </template>
 
 <script>
-import BrandIconLink from '~/components/BrandIconLink'
-import PaginationMinimal from '~/components/PaginationMinimal'
-import SearchDropdown from '~/components/SearchDropdown'
-import SearchForm from '~/components/SearchForm'
-import TotalCount from '~/components/TotalCount'
-
 export default {
-  components: {
-    BrandIconLink,
-    PaginationMinimal,
-    SearchDropdown,
-    SearchForm,
-    TotalCount
-  },
   async fetch ({ store, query, error }) {
     await Promise.all([
       store.dispatch('bookmark/fetchItems', { query, error }),

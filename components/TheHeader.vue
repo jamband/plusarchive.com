@@ -40,12 +40,7 @@
 </template>
 
 <script>
-import SearchForm from '~/components/SearchForm'
-
 export default {
-  components: {
-    SearchForm
-  },
   methods: {
     isActive (value) {
       const routeName = this.$route.name || ''

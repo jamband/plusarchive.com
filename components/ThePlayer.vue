@@ -22,12 +22,7 @@
 </template>
 
 <script>
-import ThePlayerLoading from '~/components/ThePlayerLoading'
-
 export default {
-  components: {
-    ThePlayerLoading
-  },
   computed: {
     player () {
       return this.$store.state.player

@@ -4,6 +4,8 @@ import cloneDeep from 'lodash.clonedeep'
 import pluginApp from '~/plugins/app'
 import pluginFontAwesome from '~/plugins/fontawesome'
 import TheFooter from '~/components/TheFooter'
+import TheFooterPlayerTitle from '~/components/TheFooterPlayerTitle'
+import TheFooterTracking from '~/components/TheFooterTracking'
 import storeTracking from '~/store/tracking'
 import storePlayer from '~/store/player'
 
@@ -18,7 +20,9 @@ const factory = (store = {}, route = {}) => {
     localVue,
     store,
     stubs: {
-      NLink: RouterLinkStub
+      NLink: RouterLinkStub,
+      TheFooterPlayerTitle,
+      TheFooterTracking
     },
     mocks: {
       $route: route
