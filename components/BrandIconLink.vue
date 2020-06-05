@@ -53,8 +53,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~assets/css/variables";
-
 .brand-icon-link {
   margin-right: 10px;
   color: $gray-400;

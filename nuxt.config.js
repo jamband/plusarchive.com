@@ -39,7 +39,8 @@ export default {
     '@nuxt/components',
     '@nuxtjs/eslint-module',
     '@nuxtjs/router',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/style-resources'
   ],
   modules: [
     'bootstrap-vue/nuxt',
@@ -94,5 +95,11 @@ export default {
     background_color: '#222',
     display: 'standalone',
     start_url: '/'
+  },
+  styleResources: {
+    scss: [
+      './assets/css/_variables.scss',
+      './node_modules/bootstrap/scss/mixins/_breakpoints.scss'
+    ]
   }
 }
