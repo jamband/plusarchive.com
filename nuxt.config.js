@@ -6,7 +6,7 @@ import { APP_NAME, APP_PRIMARY_COLOR } from './utils/constants'
 Dotenv.config()
 
 export default {
-  mode: 'universal',
+  ssr: true,
   components: true,
   head: {
     titleTemplate: `%s - ${APP_NAME}`,
@@ -36,7 +36,6 @@ export default {
     '~/plugins/scroll'
   ],
   buildModules: [
-    '@nuxt/components',
     '@nuxtjs/eslint-module',
     '@nuxtjs/router',
     '@nuxtjs/google-analytics',
