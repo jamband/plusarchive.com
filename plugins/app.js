@@ -1,6 +1,9 @@
-import Vue from 'vue'
 import { APP_NAME } from '~/utils/constants'
 
-Vue.prototype.$app = {
+export const app = {
   name: APP_NAME
+}
+
+export default (_, inject) => {
+  inject('app', app)
 }

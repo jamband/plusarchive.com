@@ -1,27 +1,32 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import Error from '~/layouts/error'
-import pluginApp from '~/plugins/app'
 import pluginFontAwesome from '~/plugins/fontawesome'
 
 const localVue = createLocalVue()
 
-localVue.use(pluginApp)
 localVue.use(pluginFontAwesome)
+
+const $app = {
+  name: 'Foo'
+}
 
 const factory = (props = {}) => {
   return mount(Error, {
-    propsData: props
+    propsData: props,
+    mocks: {
+      $app
+    }
   })
 }
 
 test('header text when { statusCode: 404 }', () => {
   const wrapper = factory({ error: { statusCode: 404 } })
-  expect(wrapper.find('h1').text()).toBe('Not Found (#404) - PlusArchive')
+  expect(wrapper.find('h1').text()).toBe(`Not Found (#404) - ${$app.name}`)
 })
 
 test('header text when { statusCode: 500 }', () => {
   const wrapper = factory({ error: { statusCode: 500 } })
-  expect(wrapper.find('h1').text()).toBe('An Error Occurred (#500) - PlusArchive')
+  expect(wrapper.find('h1').text()).toBe(`An Error Occurred (#500) - ${$app.name}`)
 })
 
 test('message when { statusCode: 404 }', () => {

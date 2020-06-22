@@ -1,15 +1,17 @@
 import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import { NavbarPlugin } from 'bootstrap-vue'
-import pluginApp from '~/plugins/app'
 import pluginFontAwesome from '~/plugins/fontawesome'
 import TheHeader from '~/components/TheHeader'
 import SearchForm from '~/components/SearchForm'
 
 const localVue = createLocalVue()
 
-localVue.use(pluginApp)
 localVue.use(pluginFontAwesome)
 localVue.use(NavbarPlugin)
+
+const $app = {
+  name: 'Foo'
+}
 
 const factory = (route = {}) => {
   return mount(TheHeader, {
@@ -19,7 +21,8 @@ const factory = (route = {}) => {
       SearchForm
     },
     mocks: {
-      $route: route
+      $route: route,
+      $app
     }
   })
 }
@@ -28,7 +31,7 @@ test('brand text', () => {
   const wrapper = factory({ name: 'home' })
   const brand = wrapper.findAll('.navbar-brand')
   expect(brand.length).toBe(1)
-  expect(brand.at(0).text()).toBe('PlusArchive')
+  expect(brand.at(0).text()).toBe($app.name)
 })
 
 test('active when { route: "home" }', () => {

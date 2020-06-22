@@ -1,18 +1,19 @@
-import { mount, createLocalVue } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import TheFooterMinimal from '~/components/TheFooterMinimal'
-import pluginApp from '~/plugins/app'
 
-const localVue = createLocalVue()
-
-localVue.use(pluginApp)
+const $app = {
+  name: 'Foo'
+}
 
 const factory = () => {
   return mount(TheFooterMinimal, {
-    localVue
+    mocks: {
+      $app
+    }
   })
 }
 
 test('text', () => {
   const wrapper = factory()
-  expect(wrapper.text()).toBe('PlusArchive')
+  expect(wrapper.text()).toBe($app.name)
 })

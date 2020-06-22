@@ -1,12 +1,10 @@
 import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import PaginationMinimal from '~/components/PaginationMinimal'
-import pluginScroll from '~/plugins/scroll'
 import pluginFontAwesome from '~/plugins/fontawesome'
 
 const localVue = createLocalVue()
 
 localVue.use(pluginFontAwesome)
-localVue.use(pluginScroll)
 
 const factory = (props = {}) => {
   return mount(PaginationMinimal, {
@@ -16,7 +14,10 @@ const factory = (props = {}) => {
       NLink: RouterLinkStub
     },
     mocks: {
-      $route: { query: '' }
+      $route: { query: '' },
+      $scroll: {
+        toTop: jest.fn()
+      }
     }
   })
 }
