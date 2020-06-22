@@ -1,9 +1,6 @@
-import Dotenv from 'dotenv'
 import Fiber from 'fibers'
 import Sass from 'sass'
 import { APP_NAME, APP_PRIMARY_COLOR } from './utils/constants'
-
-Dotenv.config()
 
 export default {
   ssr: true,
@@ -44,7 +41,6 @@ export default {
   modules: [
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
-    '@nuxtjs/dotenv',
     '@nuxtjs/pwa'
   ],
   build: {
