@@ -1,15 +1,12 @@
-import { mount, createLocalVue } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import SearchForm from '~/components/SearchForm'
 
-const localVue = createLocalVue()
-
 const factory = (props = {}, router = {}) => {
-  return mount(SearchForm, {
-    localVue,
+  return shallowMount(SearchForm, {
     propsData: props,
     mocks: {
       $router: router,
-      $route: {}
+      $route: jest.fn()
     }
   })
 }

@@ -1,20 +1,19 @@
 import Vuex from 'vuex'
 import cloneDeep from 'lodash.clonedeep'
-import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
+import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import storeTracking from '~/store/tracking'
 import TheFooterTracking from '~/components/TheFooterTracking'
-import pluginFontAwesome from '~/plugins/fontawesome'
 
 const localVue = createLocalVue()
 
 localVue.use(Vuex)
-localVue.use(pluginFontAwesome)
 
 const factory = (store = {}) => {
-  return mount(TheFooterTracking, {
+  return shallowMount(TheFooterTracking, {
     localVue,
     store,
     stubs: {
+      fa: true,
       NLink: RouterLinkStub
     },
     mocks: {

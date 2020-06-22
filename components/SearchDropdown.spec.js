@@ -1,17 +1,18 @@
 import { mount, createLocalVue } from '@vue/test-utils'
 import { DropdownPlugin } from 'bootstrap-vue'
 import SearchDropdown from '~/components/SearchDropdown'
-import pluginFontAwesome from '~/plugins/fontawesome'
 
 const localVue = createLocalVue()
 
-localVue.use(pluginFontAwesome)
 localVue.use(DropdownPlugin)
 
 const factory = (props = {}, route = {}) => {
   return mount(SearchDropdown, {
     localVue,
     propsData: props,
+    stubs: {
+      fa: true
+    },
     mocks: {
       $route: route
     }

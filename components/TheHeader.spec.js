@@ -1,12 +1,10 @@
 import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import { NavbarPlugin } from 'bootstrap-vue'
-import pluginFontAwesome from '~/plugins/fontawesome'
 import TheHeader from '~/components/TheHeader'
 import SearchForm from '~/components/SearchForm'
 
 const localVue = createLocalVue()
 
-localVue.use(pluginFontAwesome)
 localVue.use(NavbarPlugin)
 
 const $app = {
@@ -17,6 +15,7 @@ const factory = (route = {}) => {
   return mount(TheHeader, {
     localVue,
     stubs: {
+      fa: true,
       NLink: RouterLinkStub,
       SearchForm
     },

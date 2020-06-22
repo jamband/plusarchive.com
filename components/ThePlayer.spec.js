@@ -1,20 +1,19 @@
 import Vuex from 'vuex'
 import cloneDeep from 'lodash.clonedeep'
-import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
+import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import ThePlayer from '~/components/ThePlayer'
 import storePlayer from '~/store/player'
-import pluginFontAwesome from '~/plugins/fontawesome'
 
 const localVue = createLocalVue()
 
 localVue.use(Vuex)
-localVue.use(pluginFontAwesome)
 
 const factory = (store = {}) => {
-  return mount(ThePlayer, {
+  return shallowMount(ThePlayer, {
     localVue,
     store,
     stubs: {
+      fa: true,
       NLink: RouterLinkStub
     },
     mocks: {

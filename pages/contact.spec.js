@@ -1,14 +1,11 @@
-import { mount, createLocalVue } from '@vue/test-utils'
-import PageContact from '~/pages/contact'
-import pluginFontAwesome from '~/plugins/fontawesome'
-
-const localVue = createLocalVue()
-
-localVue.use(pluginFontAwesome)
+import { shallowMount } from '@vue/test-utils'
+import Contact from '~/pages/contact'
 
 const factory = () => {
-  return mount(PageContact, {
-    localVue
+  return shallowMount(Contact, {
+    stubs: {
+      fa: true
+    }
   })
 }
 

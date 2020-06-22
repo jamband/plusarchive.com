@@ -1,15 +1,14 @@
-import { mount, createLocalVue } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import BrandIconLink from '~/components/BrandIconLink'
-import pluginFontAwesome from '~/plugins/fontawesome'
-
-const localVue = createLocalVue()
-
-localVue.use(pluginFontAwesome)
 
 const factory = ({ links }) => {
-  return mount(BrandIconLink, {
-    localVue,
-    propsData: { links }
+  return shallowMount(BrandIconLink, {
+    propsData: {
+      links
+    },
+    stubs: {
+      fa: true
+    }
   })
 }
 
@@ -26,14 +25,11 @@ test('not brand icon links', () => {
   expect(a.at(0).element.href).toBe('https://example.com/foo')
   expect(a.at(1).element.href).toBe('https://example.com/bar')
 
-  const svg = wrapper.findAll('svg')
-  expect(svg.length).toBe(2)
+  const fa = wrapper.findAll('fa-stub')
+  expect(fa.length).toBe(2)
 
-  expect(svg.at(0).attributes()['data-prefix']).toBe('fas')
-  expect(svg.at(1).attributes()['data-prefix']).toBe('fas')
-
-  expect(svg.at(0).attributes()['data-icon']).toBe('external-link-alt')
-  expect(svg.at(1).attributes()['data-icon']).toBe('external-link-alt')
+  expect(fa.at(0).attributes().icon).toBe('fas,external-link-alt')
+  expect(fa.at(1).attributes().icon).toBe('fas,external-link-alt')
 })
 
 test('brand icon links', () => {
@@ -61,11 +57,11 @@ test('brand icon links', () => {
     expect(a.at(i).element.href).toBe(links[i])
   }
 
-  const svg = wrapper.findAll('svg')
-  expect(svg.length).toBe(links.length)
+  const fa = wrapper.findAll('fa-stub')
+  expect(fa.length).toBe(links.length)
 
   for (let i = 0; i < links.length; i++) {
-    expect(svg.at(i).attributes()['data-prefix']).toBe('fab')
+    expect(fa.at(i).attributes().icon).toContain('fab,')
   }
 
   const icons = [
@@ -84,7 +80,7 @@ test('brand icon links', () => {
   ]
 
   for (let i = 0; i < links.length; i++) {
-    expect(svg.at(i).attributes()['data-icon']).toBe(icons[i])
+    expect(fa.at(i).attributes().icon).toBe(`fab,${icons[i]}`)
   }
 })
 
@@ -105,14 +101,10 @@ test('custom domain for Bandcamp', () => {
     expect(a.at(i).element.href).toBe(links[i])
   }
 
-  const svg = wrapper.findAll('svg')
-  expect(svg.length).toBe(links.length)
+  const fa = wrapper.findAll('fa-stub')
+  expect(fa.length).toBe(links.length)
 
   for (let i = 0; i < links.length; i++) {
-    expect(svg.at(i).attributes()['data-prefix']).toBe('fab')
-  }
-
-  for (let i = 0; i < links.length; i++) {
-    expect(svg.at(i).attributes()['data-icon']).toBe('bandcamp')
+    expect(fa.at(i).attributes().icon).toBe('fab,bandcamp')
   }
 })

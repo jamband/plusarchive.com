@@ -1,20 +1,17 @@
-import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
+import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import PaginationMinimal from '~/components/PaginationMinimal'
-import pluginFontAwesome from '~/plugins/fontawesome'
-
-const localVue = createLocalVue()
-
-localVue.use(pluginFontAwesome)
 
 const factory = (props = {}) => {
-  return mount(PaginationMinimal, {
-    localVue,
+  return shallowMount(PaginationMinimal, {
     propsData: props,
     stubs: {
+      fa: true,
       NLink: RouterLinkStub
     },
     mocks: {
-      $route: { query: '' },
+      $route: {
+        query: ''
+      },
       $scroll: {
         toTop: jest.fn()
       }

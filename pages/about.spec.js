@@ -1,18 +1,15 @@
-import { mount, createLocalVue } from '@vue/test-utils'
-import PageAbout from '~/pages/about'
-import pluginFontAwesome from '~/plugins/fontawesome'
-
-const localVue = createLocalVue()
-
-localVue.use(pluginFontAwesome)
+import { shallowMount } from '@vue/test-utils'
+import About from '~/pages/about'
 
 const $app = {
   name: 'Foo'
 }
 
 const factory = () => {
-  return mount(PageAbout, {
-    localVue,
+  return shallowMount(About, {
+    stubs: {
+      fa: true
+    },
     mocks: {
       $app
     }

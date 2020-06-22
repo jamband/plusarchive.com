@@ -1,22 +1,23 @@
 import Vuex from 'vuex'
 import cloneDeep from 'lodash.clonedeep'
-import { mount, createLocalVue } from '@vue/test-utils'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import storeTracking from '~/store/tracking'
 import PagePrivacy from '~/pages/privacy'
-import pluginFontAwesome from '~/plugins/fontawesome'
 
 const localVue = createLocalVue()
 
 localVue.use(Vuex)
-localVue.use(pluginFontAwesome)
 
 const factory = (store = {}) => {
-  return mount(PagePrivacy, {
+  return shallowMount(PagePrivacy, {
     store,
     localVue,
+    stubs: {
+      fa: true
+    },
     mocks: {
       $ga: {
-        disable () {}
+        disable: jest.fn()
       }
     }
   })

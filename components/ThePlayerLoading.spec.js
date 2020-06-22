@@ -1,8 +1,9 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import ThePlayerLoading from '~/components/ThePlayerLoading'
 
 const factory = () => {
-  return mount(ThePlayerLoading)
+  return shallowMount(ThePlayerLoading, {
+  })
 }
 
 test('...', () => {

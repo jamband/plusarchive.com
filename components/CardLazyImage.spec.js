@@ -1,9 +1,12 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import CardLazyImage from '~/components/CardLazyImage'
 
 const factory = (props = {}) => {
-  return mount(CardLazyImage, {
-    propsData: { image: 'foo.jpg', ...props }
+  return shallowMount(CardLazyImage, {
+    propsData: {
+      image: 'foo.jpg',
+      ...props
+    }
   })
 }
 

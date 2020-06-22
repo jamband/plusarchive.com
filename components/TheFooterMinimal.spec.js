@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import TheFooterMinimal from '~/components/TheFooterMinimal'
 
 const $app = {
@@ -6,7 +6,7 @@ const $app = {
 }
 
 const factory = () => {
-  return mount(TheFooterMinimal, {
+  return shallowMount(TheFooterMinimal, {
     mocks: {
       $app
     }
