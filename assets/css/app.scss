@@ -1,11 +1,15 @@
+// variables
 @import "variables";
 
+// vendor
 @import "vendor/bootstrap";
 @import "vendor/bootstrap-vue";
 @import "vendor/lazysizes";
 
+// mixins
 @import "mixins/focus-visible";
 
+// components
 @import "components/button";
 @import "components/card";
 @import "components/dropdown";

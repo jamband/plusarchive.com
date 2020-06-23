@@ -62,18 +62,18 @@ export default {
 <style lang="scss" scoped>
 .pagination-minimal {
   &-info {
+    color: $gray-700;
     position: relative;
     z-index: -1;
-    color: $gray-700;
 
     @include media-breakpoint-only(xs) {
-      font-size: 75%;
       bottom: 3.4em;
+      font-size: 75%;
     }
 
     @include media-breakpoint-up(sm) {
-      font-size: 85%;
       bottom: 3.1em;
+      font-size: 85%;
     }
   }
 }

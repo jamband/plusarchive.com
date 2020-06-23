@@ -51,12 +51,7 @@
 </template>
 
 <script>
-import CardLazyImage from '~/components/CardLazyImage'
-
 export default {
-  components: {
-    CardLazyImage
-  },
   async fetch ({ store, error }) {
     await Promise.all([
       store.dispatch('track/fetchFavorites', { error }),

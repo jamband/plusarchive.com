@@ -54,8 +54,8 @@ export default {
 
 <style lang="scss" scoped>
 .brand-icon-link {
-  margin-right: 10px;
   color: $gray-400;
+  margin-right: 10px;
 
   &:hover {
     color: $gray-500;

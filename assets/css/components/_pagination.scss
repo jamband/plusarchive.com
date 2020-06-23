@@ -8,8 +8,8 @@
   .page-link {
     &:hover {
       @include media-breakpoint-down(sm) {
-        color: $primary;
         background-color: transparent;
+        color: $primary;
       }
     }
 

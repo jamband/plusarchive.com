@@ -10,7 +10,7 @@ $gray-500: #919191;
 $gray-600: #5e5e5e;
 $gray-700: #474747;
 $gray-800: #2e2e2e;
-$gray-900: #222222;
+$gray-900: #222;
 $black:    #000;
 
 $primary:       #cc6055;
@@ -47,21 +47,21 @@ $grid-breakpoints: (
 @include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
 // Components
-$border-radius:               .25rem;
-$border-radius-sm:            .15rem;
+$border-radius:               0.25rem;
+$border-radius-sm:            0.15rem;
 
 $component-active-color:      $white;
 $component-active-bg:         $primary;
 
-$transition-collapse:         height .3s ease;
+$transition-collapse:         height 0.3s ease;
 
 // Typography
-$font-family-sans-serif:      "Source Sans Pro", "游ゴシック体", "Yu Gothic", YuGothic sans-serif;
+$font-family-sans-serif:      "Source Sans Pro", "游ゴシック体", "Yu Gothic", yugothic sans-serif;
 $font-family-base:            $font-family-sans-serif;
 
 $font-size-base:              1rem;
 $font-size-lg:                ($font-size-base * 1.25);
-$font-size-sm:                ($font-size-base * .875);
+$font-size-sm:                ($font-size-base * 0.875);
 
 $font-weight-light:           300;
 $font-weight-normal:          400;
@@ -70,7 +70,7 @@ $font-weight-base:            $font-weight-normal;
 
 $text-muted:                  $gray-600;
 
-$hr-border-color:             rgba($white, .08);
+$hr-border-color:             rgba($white, 0.08);
 $hr-margin-y:                 $spacer / 2;
 
 // Forms
@@ -81,15 +81,15 @@ $input-border-focus:                    $primary;
 
 $input-focus-border-color:              lighten($component-active-bg, 25%);
 
-$input-btn-focus-width:                 .2rem;
-$input-btn-focus-color:                 rgba($component-active-bg, .25);
+$input-btn-focus-width:                 0.2rem;
+$input-btn-focus-color:                 rgba($component-active-bg, 0.25);
 $input-btn-focus-box-shadow:            0 0 0 $input-btn-focus-width $input-btn-focus-color;
 
 // Navbar
-$navbar-nav-link-padding-x:         .8rem;
+$navbar-nav-link-padding-x:         0.8rem;
 
-$navbar-dark-color:                 rgba($white, .5);
-$navbar-dark-hover-color:           rgba($white, .75);
+$navbar-dark-color:                 rgba($white, 0.5);
+$navbar-dark-hover-color:           rgba($white, 0.75);
 $navbar-dark-active-color:          $white;
 $navbar-dark-toggler-border-color:  none;
 
@@ -103,18 +103,18 @@ $dropdown-link-color:               $gray-500;
 $dropdown-link-hover-color:         $gray-300;
 $dropdown-link-hover-bg:            $gray-800;
 $dropdown-divider-bg:               $gray-800;
-$dropdown-box-shadow:               0 .5rem 1rem rgba($black, .175);
+$dropdown-box-shadow:               0 0.5rem 1rem rgba($black, 0.175);
 
 // Pagination
 $pagination-bg:             transparent;
 $pagination-border-color:   none;
 $pagination-hover-color:    $link-hover-color;
-$pagination-hover-bg:       rgba(55,55,55,0.4);
+$pagination-hover-bg:       rgba(55, 55, 55, 0.4);
 $pagination-disabled-bg:    transparent;
 
 // Cards
-$card-spacer-y:                     .8rem;
-$card-spacer-x:                     .6rem;
+$card-spacer-y:                     0.8rem;
+$card-spacer-x:                     0.6rem;
 
 $card-border-color:                 $body-bg;
 
@@ -123,7 +123,7 @@ $badge-font-size:                   88%;
 $badge-font-weight:                 $font-weight-normal;
 
 // Alerts
-$alert-padding-y:                   .75rem;
+$alert-padding-y:                   0.75rem;
 $alert-padding-x:                   1.25rem;
 
 $alert-color-level:                 3;

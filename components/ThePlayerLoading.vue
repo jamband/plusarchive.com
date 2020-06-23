@@ -11,19 +11,19 @@
 }
 
 .player-loading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+  color: $secondary;
   font-size: 150%;
   font-weight: $font-weight-bold;
-  color: $secondary;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
   > span {
-    &:nth-child(1) { animation: .8s ease .3s infinite blink; }
-    &:nth-child(2) { animation: .8s ease .4s infinite blink; }
-    &:nth-child(3) { animation: .8s ease .5s infinite blink; }
+    &:nth-child(1) { animation: 0.8s ease 0.3s infinite blink; }
+    &:nth-child(2) { animation: 0.8s ease 0.4s infinite blink; }
+    &:nth-child(3) { animation: 0.8s ease 0.5s infinite blink; }
   }
 }
 </style>
