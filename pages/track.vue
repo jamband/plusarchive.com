@@ -16,7 +16,13 @@ export default {
   },
   head () {
     return {
-      title: this.track.title
+      title: this.track.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.track.title },
+        { hid: 'og:title', property: 'og:title', content: `${this.track.title} - ${this.$app.name}` },
+        { hid: 'og:description', property: 'og:description', content: this.track.title },
+        { hid: 'og:image', property: 'og:image', content: this.track.image }
+      ]
     }
   }
 }

@@ -16,7 +16,12 @@ export default {
   },
   head () {
     return {
-      title: this.playlist.title
+      title: this.playlist.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.playlist.title },
+        { hid: 'og:title', property: 'og:title', content: `${this.playlist.title} - ${this.$app.name}` },
+        { hid: 'og:description', property: 'og:description', content: this.playlist.title }
+      ]
     }
   }
 }

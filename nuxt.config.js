@@ -1,6 +1,6 @@
 import Fiber from 'fibers'
 import Sass from 'sass'
-import { APP_NAME, APP_COLOR_PRIMARY } from './plugins/constants'
+import { APP_NAME, APP_URL, APP_DESCRIPTION, APP_COLOR_PRIMARY } from './plugins/constants'
 
 export default {
   ssr: true,
@@ -10,7 +10,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: `${APP_NAME} is music archive website for everyday` }
+      { hid: 'description', name: 'description', content: APP_DESCRIPTION },
+
+      { hid: 'og:site_name', property: 'og:site_name', content: APP_NAME },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: APP_URL }
     ],
     link: [
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap' },
@@ -85,7 +89,7 @@ export default {
   manifest: {
     name: APP_NAME,
     short_name: APP_NAME,
-    description: `${APP_NAME} is music archive website for everyday`,
+    description: APP_DESCRIPTION,
     lang: 'en',
     background_color: '#222',
     display: 'standalone',
