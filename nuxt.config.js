@@ -1,6 +1,6 @@
 import Fiber from 'fibers'
 import Sass from 'sass'
-import { APP_NAME, APP_PRIMARY_COLOR } from './utils/constants'
+import { APP_NAME, APP_COLOR_PRIMARY } from './plugins/constants'
 
 export default {
   ssr: true,
@@ -18,7 +18,7 @@ export default {
     ]
   },
   loading: {
-    color: `#${APP_PRIMARY_COLOR}`,
+    color: `#${APP_COLOR_PRIMARY}`,
     height: '3px'
   },
   css: [

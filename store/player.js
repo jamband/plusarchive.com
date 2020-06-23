@@ -1,5 +1,3 @@
-import { APP_PRIMARY_COLOR } from '~/utils/constants'
-
 const state = () => ({
   loading: false,
   id: '',
@@ -39,7 +37,7 @@ const actions = {
 
     if (music.provider === 'Bandcamp') {
       src = 'https://bandcamp.com/EmbeddedPlayer'
-      const params = `size=large/tracklist=false/bgcol=333333/linkcol=${APP_PRIMARY_COLOR}`
+      const params = `size=large/tracklist=false/bgcol=333333/linkcol=${this.$app.color.primary}`
       src = type === 'track'
         ? `${src}/track=${music.provider_key}/${params}`
         : `${src}/album=${music.provider_key}/${params}`
@@ -47,7 +45,7 @@ const actions = {
 
     if (music.provider === 'SoundCloud') {
       src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com'
-      const params = `show_comments=false&color=${APP_PRIMARY_COLOR}&hide_related=true`
+      const params = `show_comments=false&color=${this.$app.color.primary}&hide_related=true`
       src = type === 'track'
         ? `${src}/tracks/${music.provider_key}&${params}&visual=true`
         : `${src}/playlists/${music.provider_key}&${params}&show_playcount=false`

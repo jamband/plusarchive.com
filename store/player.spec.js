@@ -45,6 +45,12 @@ beforeEach(() => {
     type: 'track',
     src: 'src1'
   }
+
+  store.$app = {
+    color: {
+      primary: 'fff'
+    }
+  }
 })
 
 test('state: default values', () => {
