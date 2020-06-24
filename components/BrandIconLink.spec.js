@@ -53,14 +53,14 @@ test('brand icon links', () => {
   const a = wrapper.findAll('a')
   expect(a.length).toBe(links.length)
 
-  for (let i = 0; i < links.length; i++) {
+  for (const i in links) {
     expect(a.at(i).element.href).toBe(links[i])
   }
 
   const fa = wrapper.findAll('fa-stub')
   expect(fa.length).toBe(links.length)
 
-  for (let i = 0; i < links.length; i++) {
+  for (const i in links) {
     expect(fa.at(i).attributes().icon).toContain('fab,')
   }
 
@@ -79,7 +79,7 @@ test('brand icon links', () => {
     'youtube-square'
   ]
 
-  for (let i = 0; i < links.length; i++) {
+  for (const i in icons) {
     expect(fa.at(i).attributes().icon).toBe(`fab,${icons[i]}`)
   }
 })
@@ -97,14 +97,14 @@ test('custom domain for Bandcamp', () => {
   const a = wrapper.findAll('a')
   expect(a.length).toBe(links.length)
 
-  for (let i = 0; i < links.length; i++) {
+  for (const i in links) {
     expect(a.at(i).element.href).toBe(links[i])
   }
 
   const fa = wrapper.findAll('fa-stub')
   expect(fa.length).toBe(links.length)
 
-  for (let i = 0; i < links.length; i++) {
+  for (const i in links) {
     expect(fa.at(i).attributes().icon).toBe('fab,bandcamp')
   }
 })

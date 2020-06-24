@@ -8,7 +8,7 @@ const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-const factory = (store = {}) => {
+const factory = ({ store = {}, route = {} }) => {
   return shallowMount(ThePlayer, {
     localVue,
     store,
@@ -17,7 +17,7 @@ const factory = (store = {}) => {
       NLink: RouterLinkStub
     },
     mocks: {
-      $route: { name: '' }
+      $route: route
     }
   })
 }
@@ -42,48 +42,46 @@ beforeEach(() => {
 
 test('title', () => {
   store.commit('player/setItem', fixture.player)
-  const wrapper = factory(store)
-  expect(wrapper.find('h5').text()).toBe('title1 via provider1')
+  expect(factory({ store }).text())
+    .toContain(`${fixture.player.title} via ${fixture.player.provider}`)
 })
 
-test('aspect ratio when { provider: "Bandcamp" }', () => {
-  fixture.player.provider = 'Bandcamp'
-  store.commit('player/setItem', fixture.player)
-  const wrapper = factory(store)
-  expect(wrapper.find('.embed-responsive').attributes().class).toContain('1by1')
+test('aspectRatio', () => {
+  const aspectRatio = {
+    Bandcamp: '1by1',
+    SoundCloud: '1by1',
+    Vimeo: '16by9',
+    YouTube: '16by9'
+  }
+  for (const [provider, ratio] of Object.entries(aspectRatio)) {
+    fixture.player.provider = provider
+    store.commit('player/setItem', fixture.player)
+    expect(factory({ store }).find('.embed-responsive').attributes().class)
+      .toContain(ratio)
+  }
 })
 
-test('aspect ratio when { provider: "SoundCloud" }', () => {
-  fixture.player.provider = 'SoundCloud'
-  store.commit('player/setItem', fixture.player)
-  const wrapper = factory(store)
-  expect(wrapper.find('.embed-responsive').attributes().class).toContain('1by1')
+test('backTo', () => {
+  const backTo = {
+    track: 'tracks',
+    playlist: 'playlists'
+  }
+  for (const [type, route] of Object.entries(backTo)) {
+    fixture.player.type = type
+    store.commit('player/setItem', fixture.player)
+    const wrapper = factory({ store, route: { name: type } })
+    expect(wrapper.find('a').props().to).toEqual({ name: route })
+  }
 })
 
-test('aspect ratio when { provider: "Vimeo" }', () => {
-  fixture.player.provider = 'Vimeo'
-  store.commit('player/setItem', fixture.player)
-  const wrapper = factory(store)
-  expect(wrapper.find('.embed-responsive').attributes().class).toContain('16by9')
-})
-
-test('aspect ratio when { provider: "YouTube" }', () => {
-  fixture.player.provider = 'YouTube'
-  store.commit('player/setItem', fixture.player)
-  const wrapper = factory(store)
-  expect(wrapper.find('.embed-responsive').attributes().class).toContain('16by9')
-})
-
-test('backTo and backToLabel when { type: "track" }', () => {
-  fixture.player.type = 'track'
-  store.commit('player/setItem', fixture.player)
-  const wrapper = factory(store)
-  expect(wrapper.text()).toContain('Back to Tracks')
-})
-
-test('backTo and backToLabel when { type: "playlist" }', () => {
-  fixture.player.type = 'playlist'
-  store.commit('player/setItem', fixture.player)
-  const wrapper = factory(store)
-  expect(wrapper.text()).toContain('Back to Playlists')
+test('backToLabel', () => {
+  const backToLabel = {
+    track: 'Tracks',
+    playlist: 'Playlists'
+  }
+  for (const [type, label] of Object.entries(backToLabel)) {
+    fixture.player.type = type
+    store.commit('player/setItem', fixture.player)
+    expect(factory({ store }).text()).toContain(`Back to ${label}`)
+  }
 })
