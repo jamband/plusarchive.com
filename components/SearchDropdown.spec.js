@@ -1,16 +1,14 @@
-import { mount, createLocalVue } from '@vue/test-utils'
-import { DropdownPlugin } from 'bootstrap-vue'
+import { shallowMount } from '@vue/test-utils'
+import { BDropdown, BDropdownItem } from 'bootstrap-vue'
 import SearchDropdown from '~/components/SearchDropdown'
 
-const localVue = createLocalVue()
-
-localVue.use(DropdownPlugin)
-
-const factory = (props = {}, route = {}) => {
-  return mount(SearchDropdown, {
-    localVue,
+const factory = ({ props, route }) => {
+  return shallowMount(SearchDropdown, {
     propsData: props,
     stubs: {
+      BDropdown,
+      BDropdownDivider: true,
+      BDropdownItem,
       fa: true
     },
     mocks: {
@@ -33,16 +31,16 @@ test('label', () => {
   const text = (wrapper) => {
     return wrapper.find('button').text()
   }
-  wrapper = factory(props, route)
+  wrapper = factory({ props, route })
   expect(text(wrapper)).toBe('Tags')
 
   route.query = { tag: 'tag1' }
-  wrapper = factory(props, route)
+  wrapper = factory({ props, route })
   expect(text(wrapper)).toBe('tag1')
 })
 
 test('query: none', () => {
-  wrapper = factory(props, route)
+  wrapper = factory({ props, route })
   const a = wrapper.findAll('a')
   expect(a.at(0).attributes('href')).toBe('/')
   expect(a.at(1).attributes('href')).toBe('?tag=tag1')
@@ -50,7 +48,7 @@ test('query: none', () => {
 
 test('query: tag=tag1', () => {
   route.query = { tag: 'tag1' }
-  wrapper = factory(props, route)
+  wrapper = factory({ props, route })
   const a = wrapper.findAll('a')
   expect(a.at(0).attributes('href')).toBe('/')
   expect(a.at(1).attributes('href')).toBe('?tag=tag1')
@@ -58,7 +56,7 @@ test('query: tag=tag1', () => {
 
 test('query: country=country1', () => {
   route.query = { country: 'country1' }
-  wrapper = factory(props, route)
+  wrapper = factory({ props, route })
   const a = wrapper.findAll('a')
   expect(a.at(0).attributes('href')).toBe('?country=country1')
   expect(a.at(1).attributes('href')).toBe('?country=country1&tag=tag1')
@@ -66,7 +64,7 @@ test('query: country=country1', () => {
 
 test('query: country=country1&tag=tag2', () => {
   route.query = { country: 'country1', tag: 'tag2' }
-  wrapper = factory(props, route)
+  wrapper = factory({ props, route })
   const a = wrapper.findAll('a')
   expect(a.at(0).attributes('href')).toBe('?country=country1')
   expect(a.at(1).attributes('href')).toBe('?country=country1&tag=tag1')
@@ -74,7 +72,7 @@ test('query: country=country1&tag=tag2', () => {
 
 test('query: search=foo', () => {
   route.query = { search: 'foo' }
-  wrapper = factory(props, route)
+  wrapper = factory({ props, route })
   const a = wrapper.findAll('a')
   expect(a.at(0).attributes('href')).toBe('?search=foo')
   expect(a.at(1).attributes('href')).toBe('?tag=tag1')
@@ -82,7 +80,7 @@ test('query: search=foo', () => {
 
 test('query: page=2', () => {
   route.query = { page: '2' }
-  wrapper = factory(props, route)
+  wrapper = factory({ props, route })
   const a = wrapper.findAll('a')
   expect(a.at(0).attributes('href')).toBe('/')
   expect(a.at(1).attributes('href')).toBe('?tag=tag1')
