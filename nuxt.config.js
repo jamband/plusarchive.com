@@ -1,5 +1,3 @@
-import Fiber from 'fibers'
-import Sass from 'sass'
 import { APP_NAME, APP_URL, APP_DESCRIPTION, APP_COLOR_PRIMARY } from './plugins/constants'
 
 export default {
@@ -49,14 +47,6 @@ export default {
   ],
   build: {
     // analyze: true,
-    loaders: {
-      scss: {
-        implementation: Sass,
-        sassOptions: {
-          fiber: Fiber
-        }
-      }
-    },
     terser: {
       extractComments: {
         filename: 'licenses.txt'

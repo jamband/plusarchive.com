@@ -19,8 +19,8 @@
     "focus-visible": "^5.1.0",
     "lazysizes": "^5.2.2",
     "masonry-layout": "^4.2.2",
-    "nuxt": "^2.13.1",
-    "nuxt-start": "^2.13.1"
+    "nuxt": "^2.13.3",
+    "nuxt-start": "^2.13.3"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.0.0",
@@ -31,13 +31,13 @@
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.1.0",
-    "eslint": "^7.3.1",
+    "eslint": "^7.4.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "fibers": "^5.0.0",
     "jest": "^26.1.0",
     "lodash.clonedeep": "^4.5.0",
     "sass": "^1.26.9",
-    "sass-loader": "^8.0.0",
+    "sass-loader": "^9.0.1",
     "stylelint": "^13.6.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0",
