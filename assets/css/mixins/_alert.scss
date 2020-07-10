@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @mixin alert-variant($background, $border, $color) {
   border-color: $gray-800;
   color: $color;
@@ -7,6 +9,6 @@
   }
 
   .alert-link {
-    color: darken($color, 10%);
+    color: color.scale($color, $lightness: -20%);
   }
 }
