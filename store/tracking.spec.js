@@ -1,13 +1,13 @@
 import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
-import cloneDeep from 'lodash.clonedeep'
+import klona from 'klona'
 import storeTracking from '~/store/tracking'
 
 const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-const tracking = cloneDeep(storeTracking)
+const tracking = klona(storeTracking)
 tracking.namespaced = true
 
 let store

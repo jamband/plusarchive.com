@@ -1,5 +1,5 @@
 import Vuex from 'vuex'
-import cloneDeep from 'lodash.clonedeep'
+import klona from 'klona'
 import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import storeTracking from '~/store/tracking'
 import TheFooterTracking from '~/components/TheFooterTracking'
@@ -22,7 +22,7 @@ const factory = (store = {}) => {
   })
 }
 
-const tracking = cloneDeep(storeTracking)
+const tracking = klona(storeTracking)
 tracking.namespaced = true
 
 let wrapper

@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
-import cloneDeep from 'lodash.clonedeep'
+import klona from 'klona'
 import axios from 'axios'
 import storePlaylist from '~/store/playlist'
 
@@ -13,7 +13,7 @@ jest.mock('axios', () => ({
   $get: jest.fn(() => Promise.resolve(mockResponse))
 }))
 
-const playlist = cloneDeep(storePlaylist)
+const playlist = klona(storePlaylist)
 playlist.namespaced = true
 
 let store

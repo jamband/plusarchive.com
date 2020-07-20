@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
-import cloneDeep from 'lodash.clonedeep'
+import klona from 'klona'
 import axios from 'axios'
 import storePagination from '~/store/pagination'
 import storeBookmark from '~/store/bookmark'
@@ -14,10 +14,10 @@ jest.mock('axios', () => ({
   $get: jest.fn(() => Promise.resolve(mockResponse))
 }))
 
-const pagination = cloneDeep(storePagination)
+const pagination = klona(storePagination)
 pagination.namespaced = true
 
-const bookmark = cloneDeep(storeBookmark)
+const bookmark = klona(storeBookmark)
 bookmark.namespaced = true
 
 let store

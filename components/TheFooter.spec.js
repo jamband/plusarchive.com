@@ -1,6 +1,6 @@
 import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import Vuex from 'vuex'
-import cloneDeep from 'lodash.clonedeep'
+import klona from 'klona'
 import TheFooter from '~/components/TheFooter'
 import storeTracking from '~/store/tracking'
 import storePlayer from '~/store/player'
@@ -30,10 +30,10 @@ const factory = ({ store, route }) => {
   })
 }
 
-const tracking = cloneDeep(storeTracking)
+const tracking = klona(storeTracking)
 tracking.namespaced = true
 
-const player = cloneDeep(storePlayer)
+const player = klona(storePlayer)
 player.namespaced = true
 
 let store, fixture

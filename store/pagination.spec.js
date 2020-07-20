@@ -1,13 +1,13 @@
 import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
-import cloneDeep from 'lodash.clonedeep'
+import klona from 'klona'
 import storePagination from '~/store/pagination'
 
 const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-const pagination = cloneDeep(storePagination)
+const pagination = klona(storePagination)
 pagination.namespaced = true
 
 let store

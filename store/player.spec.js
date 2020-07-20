@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
-import cloneDeep from 'lodash.clonedeep'
+import klona from 'klona'
 import storeTrack from '~/store/track'
 import storePlaylist from '~/store/playlist'
 import storePlayer from '~/store/player'
@@ -9,13 +9,13 @@ const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-const track = cloneDeep(storeTrack)
+const track = klona(storeTrack)
 track.namespaced = true
 
-const playlist = cloneDeep(storePlaylist)
+const playlist = klona(storePlaylist)
 playlist.namespaced = true
 
-const player = cloneDeep(storePlayer)
+const player = klona(storePlayer)
 player.namespaced = true
 
 let store, fixture
