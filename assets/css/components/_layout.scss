@@ -1,9 +1,9 @@
 body {
   @include media-breakpoint-down(md) {
-    margin-bottom: 80px;
+    margin-bottom: 6rem;
   }
 
   @include media-breakpoint-up(lg) {
-    margin-bottom: 55px;
+    margin-bottom: 4rem;
   }
 }

@@ -3,12 +3,12 @@
 .navbar-nav {
   a.active {
     @include media-breakpoint-down(sm) {
-      border-left: 0.1rem solid color.scale($primary, $lightness: -25%);
+      border-left: 0.2rem solid color.scale($primary, $lightness: -25%);
       padding-left: 0.5rem;
     }
 
     @include media-breakpoint-up(md) {
-      border-bottom: 0.15rem solid color.scale($primary, $lightness: -25%);
+      border-bottom: 0.2rem solid color.scale($primary, $lightness: -25%);
       padding-bottom: 0.3rem;
     }
   }
