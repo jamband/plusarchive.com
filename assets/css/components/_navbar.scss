@@ -1,27 +1,21 @@
 @use "sass:color";
 
-.navbar {
-  .navbar-nav {
-    a.active {
-      @include media-breakpoint-down(sm) {
-        border-left: 3px solid color.scale($primary, $lightness: -25%);
-        padding-left: 5px;
-      }
-
-      @include media-breakpoint-up(md) {
-        border-bottom: 3px solid color.scale($primary, $lightness: -25%);
-        padding-bottom: 5px;
-      }
+.navbar-nav {
+  a.active {
+    @include media-breakpoint-down(sm) {
+      border-left: 0.1rem solid color.scale($primary, $lightness: -25%);
+      padding-left: 0.5rem;
     }
 
-    .nav-item {
-      @include media-breakpoint-up(sm) {
-        font-size: 85%;
-      }
+    @include media-breakpoint-up(md) {
+      border-bottom: 0.15rem solid color.scale($primary, $lightness: -25%);
+      padding-bottom: 0.3rem;
     }
+  }
 
-    .dropdown-item.active {
-      border: none;
+  li {
+    @include media-breakpoint-up(sm) {
+      font-size: 90%;
     }
   }
 }
