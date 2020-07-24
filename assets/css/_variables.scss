@@ -1,7 +1,5 @@
 @use "sass:color";
 
-@import "~bootstrap/scss/functions";
-
 // Color system
 $white:    #fff;
 $gray-100: #f8f9fa;
@@ -44,9 +42,6 @@ $grid-breakpoints: (
   md: 768px,
   lg: 992px
 );
-
-@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
-@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
 // Components
 $border-radius:               0.25rem;
