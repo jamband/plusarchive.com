@@ -1,7 +1,16 @@
+/*!
+ * Bootstrap v4.5.0 (https://getbootstrap.com/)
+ * Copyright 2011-2020 The Bootstrap Authors
+ * Copyright 2011-2020 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+// Configuration
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
+// Colors
 $colors: (
   "white": $white,
   "black": $black,
@@ -18,7 +27,7 @@ $theme-colors: (
 @import "../mixins/alert";
 @import "../mixins/badge";
 
-// components
+// Layout & components
 @import "~bootstrap/scss/root";
 @import "~bootstrap/scss/reboot";
 @import "~bootstrap/scss/type";
@@ -34,7 +43,7 @@ $theme-colors: (
 @import "~bootstrap/scss/pagination";
 @import "~bootstrap/scss/badge";
 
-// utilities
+// Helpers
 @import "~bootstrap/scss/utilities/background";
 @import "~bootstrap/scss/utilities/display";
 @import "~bootstrap/scss/utilities/embed";

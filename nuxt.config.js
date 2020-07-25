@@ -24,7 +24,6 @@ export default {
     height: '3px'
   },
   css: [
-    '@fortawesome/fontawesome-svg-core/styles.css',
     '~/assets/css/app.scss'
   ],
   plugins: [
