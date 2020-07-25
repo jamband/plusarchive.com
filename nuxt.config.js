@@ -15,7 +15,7 @@ export default {
       { hid: 'og:url', property: 'og:url', content: APP_URL }
     ],
     link: [
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap' },
       { rel: 'icon', href: '/favicon.ico' }
     ]
   },
