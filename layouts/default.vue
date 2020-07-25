@@ -2,7 +2,7 @@
   <div>
     <TheHeader />
     <div class="container">
-      <nuxt />
+      <Nuxt />
       <ThePlayer v-show="playerShow()" />
     </div>
     <TheFooter />

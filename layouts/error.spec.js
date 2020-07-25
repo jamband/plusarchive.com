@@ -5,7 +5,7 @@ const $app = {
   name: 'Foo'
 }
 
-const factory = (props = {}) => {
+const factory = ({ props }) => {
   return shallowMount(Error, {
     propsData: props,
     stubs: {
@@ -17,22 +17,16 @@ const factory = (props = {}) => {
   })
 }
 
-test('header text when { statusCode: 404 }', () => {
-  const wrapper = factory({ error: { statusCode: 404 } })
-  expect(wrapper.find('h1').text()).toBe(`Not Found (#404) - ${$app.name}`)
+test('when 404', () => {
+  const props = { error: { statusCode: 404 } }
+  const text = factory({ props }).text()
+  expect(text).toContain(`Not Found (#404) - ${$app.name}`)
+  expect(text).toContain('Page not found.')
 })
 
-test('header text when { statusCode: 500 }', () => {
-  const wrapper = factory({ error: { statusCode: 500 } })
-  expect(wrapper.find('h1').text()).toBe(`An Error Occurred (#500) - ${$app.name}`)
-})
-
-test('message when { statusCode: 404 }', () => {
-  const wrapper = factory({ error: { statusCode: 404 } })
-  expect(wrapper.find('.alert').text()).toBe('Page not found.')
-})
-
-test('message when { statusCode: 500 }', () => {
-  const wrapper = factory({ error: { statusCode: 500 } })
-  expect(wrapper.find('.alert').text()).toBe('An error occurred.')
+test('when 500', () => {
+  const props = { error: { statusCode: 500 } }
+  const text = factory({ props }).text()
+  expect(text).toContain(`An Error Occurred (#500) - ${$app.name}`)
+  expect(text).toContain('An error occurred.')
 })

@@ -1,5 +1,5 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
-import { BNavbarBrand, BNavItem } from 'bootstrap-vue'
+import { BNavItem } from 'bootstrap-vue'
 import TheHeader from '~/components/TheHeader'
 
 const $app = {
@@ -11,7 +11,6 @@ const factory = (route = {}) => {
     stubs: {
       BDropdownItem: true,
       BNavbar: true,
-      BNavbarBrand,
       BNavbarNav: true,
       BNavbarToggle: true,
       BNavItem,

@@ -7,7 +7,6 @@ const factory = ({ props, route }) => {
     propsData: props,
     stubs: {
       BDropdown,
-      BDropdownDivider: true,
       BDropdownItem,
       fa: true
     },

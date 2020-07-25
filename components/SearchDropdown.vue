@@ -7,7 +7,7 @@
     <b-dropdown-item :to="resetLink(query)" exact>
       Reset
     </b-dropdown-item>
-    <b-dropdown-divider />
+    <div class="dropdown-divider" />
     <b-dropdown-item v-for="(item, index) in items" :key="index" :to="itemLink(query, item)" append exact>
       {{ item }}
     </b-dropdown-item>

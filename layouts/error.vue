@@ -1,9 +1,7 @@
 <template>
   <div>
     <h1>{{ title }}</h1>
-    <div class="alert alert-light">
-      <fa icon="info-circle" /> {{ message }}
-    </div>
+    <fa icon="info-circle" /> {{ message }}
   </div>
 </template>
 

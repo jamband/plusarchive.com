@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <img
-      class="card-img-top lazyload"
-      :data-src="image"
-      :data-aspectratio="aspectratio"
-      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII="
-      alt=""
-    >
-  </div>
+  <img
+    class="card-img-top lazyload"
+    :data-src="image"
+    :data-aspectratio="aspectratio"
+    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII="
+    alt=""
+  >
 </template>
 
 <script>

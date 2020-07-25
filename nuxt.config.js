@@ -55,17 +55,12 @@ export default {
   },
   // top level options for packages
   bootstrapVue: {
-    componentPlugins: [
-      'NavbarPlugin'
-    ],
     components: [
       'BNav', 'BNavItem', 'BNavItemDropdown',
-      'BNavbar', 'BNavbarBrand', 'BNavbarNav', 'BNavbarToggle',
-      'BDropdown', 'BDropdownDivider', 'BDropdownItem',
+      'BNavbar', 'BNavbarNav', 'BNavbarToggle',
+      'BDropdown', 'BDropdownItem',
       'BCollapse'
     ],
-    directivePlugins: false,
-    directives: false,
     bootstrapCSS: false,
     bootstrapVueCSS: false
   },
