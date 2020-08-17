@@ -1,5 +1,5 @@
 import Vuex from 'vuex'
-import klona from 'klona'
+import { klona } from 'klona'
 import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import storeTracking from '~/store/tracking'
 import TheFooterTracking from '~/components/TheFooterTracking'

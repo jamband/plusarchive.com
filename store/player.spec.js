@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
-import klona from 'klona'
+import { klona } from 'klona'
 import storeTrack from '~/store/track'
 import storePlaylist from '~/store/playlist'
 import storePlayer from '~/store/player'

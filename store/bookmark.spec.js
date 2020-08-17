@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
-import klona from 'klona'
+import { klona } from 'klona'
 import axios from 'axios'
 import storePagination from '~/store/pagination'
 import storeBookmark from '~/store/bookmark'
