@@ -46,6 +46,9 @@ export default {
   ],
   build: {
     // analyze: true,
+    babel: {
+      compact: true
+    },
     terser: {
       extractComments: {
         filename: 'licenses.txt'
