@@ -1,4 +1,4 @@
 /.nuxt
 /node_modules
 .env
-static/sw.js
+sw.*

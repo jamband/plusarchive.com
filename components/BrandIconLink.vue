@@ -4,6 +4,7 @@
       v-for="(url, index) in urls"
       :key="index"
       :href="url"
+      :aria-label="url"
       class="text-light"
       style="margin-right: 0.7rem;"
       rel="noopener"

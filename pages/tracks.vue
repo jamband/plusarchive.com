@@ -14,7 +14,11 @@
       <div v-for="track in tracks" :key="track.id" class="col mb-md-4">
         <div class="card">
           <div class="card-img-wrap">
-            <NLink :to="{ name: 'track', params: { id: track.id } }" @click.native="load(track.id)">
+            <NLink
+              :to="{ name: 'track', params: { id: track.id } }"
+              :aria-label="track.title"
+              @click.native="load(track.id)"
+            >
               <CardLazyImage :image="track.image" :aspectratio="aspectRatio(track.provider)" />
               <fa :icon="audioStatusIcon(track.id)" class="card-play" />
             </NLink>
