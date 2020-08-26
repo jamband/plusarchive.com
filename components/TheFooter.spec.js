@@ -2,16 +2,13 @@ import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import Vuex from 'vuex'
 import { klona } from 'klona'
 import TheFooter from '~/components/TheFooter'
+import { APP_NAME } from '~/plugins/constants'
 import storeTracking from '~/store/tracking'
 import storePlayer from '~/store/player'
 
 const localVue = createLocalVue()
 
 localVue.use(Vuex)
-
-const $app = {
-  name: 'Foo'
-}
 
 const factory = ({ store, route }) => {
   return shallowMount(TheFooter, {
@@ -24,8 +21,7 @@ const factory = ({ store, route }) => {
       TheFooterTracking: true
     },
     mocks: {
-      $route: route,
-      $app
+      $route: route
     }
   })
 }
@@ -81,7 +77,7 @@ test('when { player.title: "", tracking.disable: false }', () => {
     const wrapper = factory({ store, route: { name: route } })
     expect(wrapper.find('thefooterplayertitle-stub').exists()).toBe(false)
     expect(wrapper.find('thefootertracking-stub').exists()).toBe(false)
-    expect(wrapper.text()).toBe($app.name)
+    expect(wrapper.text()).toBe(APP_NAME)
   }
 })
 
@@ -109,7 +105,7 @@ test('when { player.title: "something", tracking.disable: false }', () => {
 
     if (/^(track|playlist)$/.test(route)) {
       expect(wrapper.find('thefooterplayertitle-stub').exists()).toBe(false)
-      expect(wrapper.text()).toBe($app.name)
+      expect(wrapper.text()).toBe(APP_NAME)
     } else {
       expect(wrapper.find('thefooterplayertitle-stub').exists()).toBe(true)
       expect(wrapper.text()).toBe('')

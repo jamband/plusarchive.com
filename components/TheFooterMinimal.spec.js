@@ -1,19 +1,13 @@
 import { shallowMount } from '@vue/test-utils'
 import TheFooterMinimal from '~/components/TheFooterMinimal'
-
-const $app = {
-  name: 'Foo'
-}
+import { APP_NAME } from '~/plugins/constants'
 
 const factory = () => {
   return shallowMount(TheFooterMinimal, {
-    mocks: {
-      $app
-    }
   })
 }
 
 test('text', () => {
   const wrapper = factory()
-  expect(wrapper.text()).toBe($app.name)
+  expect(wrapper.text()).toBe(APP_NAME)
 })

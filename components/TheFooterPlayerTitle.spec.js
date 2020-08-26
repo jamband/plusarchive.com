@@ -15,9 +15,6 @@ const factory = (store = {}) => {
     stubs: {
       fa: true,
       NLink: RouterLinkStub
-    },
-    mocks: {
-      $app: jest.fn()
     }
   })
 }

@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { APP_NAME } from '~/plugins/constants'
+
 export default {
   props: {
     error: {
@@ -19,7 +21,7 @@ export default {
         ? 'Not Found'
         : 'An Error Occurred'
 
-      return `${title} (#${this.error.statusCode}) - ${this.$app.name}`
+      return `${title} (#${this.error.statusCode}) - ${APP_NAME}`
     },
     message () {
       return this.isNotFound

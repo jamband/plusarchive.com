@@ -51,6 +51,8 @@
 </template>
 
 <script>
+import { APP_NAME } from '~/plugins/constants'
+
 export default {
   async fetch ({ store, error }) {
     await Promise.all([
@@ -97,7 +99,7 @@ export default {
   },
   head () {
     return {
-      title: this.$app.name,
+      title: APP_NAME,
       titleTemplate: ''
     }
   }

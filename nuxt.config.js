@@ -1,4 +1,9 @@
-import { APP_NAME, APP_URL, APP_DESCRIPTION, APP_COLOR_PRIMARY } from './plugins/constants'
+import {
+  APP_NAME,
+  APP_URL,
+  APP_DESCRIPTION,
+  APP_COLOR_PRIMARY
+} from './plugins/constants'
 
 export default {
   ssr: true,
@@ -27,11 +32,8 @@ export default {
     '~/assets/css/app.scss'
   ],
   plugins: [
-    '~/plugins/app',
     '~/plugins/fontawesome',
-    '~/plugins/init',
-    '~/plugins/lazysizes.client.js',
-    '~/plugins/scroll'
+    '~/plugins/init.client.js'
   ],
   buildModules: [
     '@nuxtjs/eslint-module',

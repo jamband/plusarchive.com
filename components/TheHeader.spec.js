@@ -1,10 +1,7 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import { BNavItem } from 'bootstrap-vue'
 import TheHeader from '~/components/TheHeader'
-
-const $app = {
-  name: 'Foo'
-}
+import { APP_NAME } from '~/plugins/constants'
 
 const factory = (route = {}) => {
   return shallowMount(TheHeader, {
@@ -21,15 +18,14 @@ const factory = (route = {}) => {
       SearchForm: true
     },
     mocks: {
-      $route: route,
-      $app
+      $route: route
     }
   })
 }
 
 test('brand text', () => {
   expect(factory({ name: 'home' }).find('.navbar-brand').text())
-    .toBe($app.name)
+    .toBe(APP_NAME)
 })
 
 test('link active', () => {

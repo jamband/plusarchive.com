@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { scrollToTop } from '~/plugins/scroll'
+
 export default {
   async fetch ({ store, error }) {
     await store.dispatch('playlist/fetchItems', { error })
@@ -29,7 +31,7 @@ export default {
     }
   },
   mounted () {
-    this.$scroll.toTop()
+    scrollToTop()
   },
   methods: {
     load (id) {

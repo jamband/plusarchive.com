@@ -2,12 +2,21 @@
   <footer class="footer fixed-bottom p-3 text-center bg-dark">
     <TheFooterPlayerTitle v-if="hasTitle()" key="player" />
     <TheFooterTracking v-else-if="tracking.disable" key="tracking" />
-    <div v-else key="default">{{ $app.name }}</div>
+    <div v-else key="default">{{ app.name }}</div>
   </footer>
 </template>
 
 <script>
+import { APP_NAME } from '~/plugins/constants'
+
 export default {
+  data () {
+    return {
+      app: {
+        name: APP_NAME
+      }
+    }
+  },
   computed: {
     player () {
       return this.$store.state.player

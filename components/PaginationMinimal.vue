@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import { scrollToTop } from '~/plugins/scroll'
+
 export default {
   props: {
     currentPage: {
@@ -49,7 +51,7 @@ export default {
       }
     },
     pageLink (page) {
-      this.$scroll.toTop()
+      scrollToTop()
       return { query: { ...this.$route.query, page } }
     },
     hasPage () {

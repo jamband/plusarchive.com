@@ -8,13 +8,22 @@
       <fa icon="times" />
     </button>
     <div class="d-md-none pt-1 text-muted">
-      {{ $app.name }}
+      {{ app.name }}
     </div>
   </div>
 </template>
 
 <script>
+import { APP_NAME } from '~/plugins/constants'
+
 export default {
+  data () {
+    return {
+      app: {
+        name: APP_NAME
+      }
+    }
+  },
   computed: {
     player () {
       return this.$store.state.player
