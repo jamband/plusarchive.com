@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-6">
       <ul class="list-unstyled text-truncate">
-        <li v-for="playlist in playlists" :key="playlist.id" class="playlist-title">
+        <li v-for="playlist in playlists" :key="playlist.id" class="h5">
           <NLink :to="{ name: 'playlist', params: { id: playlist.id } }" @click.native="load(playlist.id)">
             {{ playlist.title }} <fa icon="angle-right" fixed-width />
           </NLink>
@@ -47,17 +47,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.playlist {
-  &-title {
-    @include media-breakpoint-only(xs) {
-      font-size: 115%;
-    }
-
-    @include media-breakpoint-up(sm) {
-      font-size: 120%;
-    }
-  }
-}
-</style>

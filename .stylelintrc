@@ -8,6 +8,7 @@
   ],
   "rules": {
     "at-rule-no-unknown": null,
+    "value-keyword-case": ["lower", { "ignoreKeywords": ["YuGothic"] }],
     "order/properties-alphabetical-order": true
   }
 }

@@ -4,7 +4,11 @@
     <NLink :to="linkTo" :title="player.title" class="text-white px-3">
       {{ title() }}
     </NLink>
-    <button class="btn btn-link align-baseline m-0 p-0 text-white" @click="clear()">
+    <button
+      class="btn btn-link align-baseline m-0 p-0 font-weight-bold text-white"
+      style="font-size: 100%;"
+      @click="clear()"
+    >
       <fa icon="times" />
     </button>
     <div class="d-md-none pt-1 text-muted">
@@ -49,10 +53,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.btn {
-  font-size: 100%;
-  font-weight: bold;
-}
-</style>

@@ -28,7 +28,7 @@
           <NLink v-for="tag in label.tags" :key="tag.id" :to="{ query: { tag: tag.name } }" class="badge badge-secondary" append>
             {{ tag.name }}
           </NLink>
-          <hr class="text-light">
+          <hr>
         </div>
       </div>
       <PaginationMinimal :current-page="pagination.currentPage" :page-count="pagination.pageCount" />

@@ -1,5 +1,8 @@
 <template>
-  <footer class="footer fixed-bottom p-3 text-center bg-dark">
+  <footer
+    class="footer fixed-bottom p-3 text-center font-weight-bold bg-dark"
+    style="font-size: 85%;"
+  >
     {{ app.name }}
   </footer>
 </template>
@@ -17,10 +20,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.footer {
-  font-size: 85%;
-  font-weight: bold;
-}
-</style>

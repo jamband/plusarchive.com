@@ -53,7 +53,7 @@ $component-active-bg:         $primary;
 $transition-collapse:         height 0.3s ease;
 
 // Typography
-$font-family-sans-serif:      "Source Sans Pro", "Yu Gothic", yugothic sans-serif;
+$font-family-sans-serif:      "Source Sans Pro", "Yu Gothic", YuGothic sans-serif;
 $font-family-base:            $font-family-sans-serif;
 
 $font-size-base:              1rem;
@@ -67,7 +67,7 @@ $font-weight-base:            $font-weight-normal;
 
 $text-muted:                  $gray-600;
 
-$hr-border-color:             rgba($white, 0.08);
+$hr-border-color:             color.scale($white, $lightness: 0%, $alpha: -92%);
 $hr-margin-y:                 $spacer / 2;
 
 // Forms
@@ -75,16 +75,9 @@ $input-bg:                              color.scale($gray-900, $lightness: -10%)
 $input-color:                           color.scale($gray-400, $lightness: -25%);
 $input-border-color:                    $gray-800;
 
-$input-btn-focus-width:                 0.2rem;
-$input-btn-focus-color:                 rgba($component-active-bg, 0.25);
-$input-btn-focus-box-shadow:            0 0 0 $input-btn-focus-width $input-btn-focus-color;
-
 // Navbar
 $navbar-nav-link-padding-x:         0.8rem;
 
-$navbar-dark-color:                 rgba($white, 0.5);
-$navbar-dark-hover-color:           rgba($white, 0.75);
-$navbar-dark-active-color:          $white;
 $navbar-dark-toggler-border-color:  none;
 
 $navbar-toggler-font-size:          $font-size-base;
@@ -97,13 +90,12 @@ $dropdown-link-color:               $gray-500;
 $dropdown-link-hover-color:         $gray-300;
 $dropdown-link-hover-bg:            $gray-800;
 $dropdown-divider-bg:               $gray-800;
-$dropdown-box-shadow:               0 0.5rem 1rem rgba($black, 0.175);
 
 // Pagination
 $pagination-bg:             transparent;
 $pagination-border-color:   none;
 $pagination-hover-color:    $link-hover-color;
-$pagination-hover-bg:       rgba(55, 55, 55, 0.4);
+$pagination-hover-bg:       color.scale($dark, $lightness: 0%, $alpha: -60%);
 $pagination-disabled-bg:    transparent;
 
 // Cards

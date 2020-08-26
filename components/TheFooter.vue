@@ -1,5 +1,8 @@
 <template>
-  <footer class="footer fixed-bottom p-3 text-center bg-dark">
+  <footer
+    class="footer fixed-bottom p-3 text-center font-weight-bold bg-dark"
+    style="font-size: 85%;"
+  >
     <TheFooterPlayerTitle v-if="hasTitle()" key="player" />
     <TheFooterTracking v-else-if="tracking.disable" key="tracking" />
     <div v-else key="default">{{ app.name }}</div>
@@ -37,10 +40,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.footer {
-  font-size: 85%;
-  font-weight: bold;
-}
-</style>

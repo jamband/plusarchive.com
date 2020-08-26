@@ -1,6 +1,14 @@
 <template>
   <span>
-    <a v-for="(url, index) in urls" :key="index" :href="url" class="brand-icon-link" rel="noopener" target="_blank">
+    <a
+      v-for="(url, index) in urls"
+      :key="index"
+      :href="url"
+      class="text-light"
+      style="margin-right: 0.7rem;"
+      rel="noopener"
+      target="_blank"
+    >
       <fa :icon="icon(url)" size="lg" />
     </a>
   </span>
@@ -51,14 +59,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.brand-icon-link {
-  color: $gray-400;
-  margin-right: 10px;
-
-  &:hover {
-    color: $gray-500;
-  }
-}
-</style>
