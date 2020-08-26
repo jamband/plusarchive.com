@@ -1,28 +1,56 @@
 <template>
-  <nav v-if="hasPage()" aria-label="Page navigation">
-    <ul class="pagination text-center">
-      <li class="page-item w-25" :class="disabled('first')">
-        <NLink :to="pageLink(1)" class="page-link" append exact>
+  <nav v-if="hasPage()" class="text-center" aria-label="Page navigation">
+    <ul class="pagination d-flex">
+      <li :class="disabledSelector('first')" class="page-item flex-fill">
+        <NLink
+          :to="pageLink(1)"
+          :aria-current-value="null"
+          :aria-disabled="disabled('first')"
+          :tabindex="disabled('first') ? -1 : 0"
+          class="page-link"
+          aria-label="First"
+        >
           <fa icon="angle-double-left" />
         </NLink>
       </li>
-      <li class="page-item w-25" :class="disabled('prev')">
-        <NLink :to="pageLink(currentPage - 1)" class="page-link" append exact>
+      <li :class="disabledSelector('prev')" class="page-item flex-fill">
+        <NLink
+          :to="pageLink(currentPage - 1)"
+          :aria-current-value="null"
+          :aria-disabled="disabled('prev')"
+          :tabindex="disabled('prev') ? -1 : 0"
+          class="page-link"
+          aria-label="Previous"
+        >
           <fa icon="angle-left" />
         </NLink>
       </li>
-      <li class="page-item w-25" :class="disabled('next')">
-        <NLink :to="pageLink(currentPage + 1)" class="page-link" exact>
+      <li :class="disabledSelector('next')" class="page-item flex-fill">
+        <NLink
+          :to="pageLink(currentPage + 1)"
+          :aria-current-value="null"
+          :aria-disabled="disabled('next')"
+          :tabindex="disabled('next') ? -1 : 0"
+          class="page-link"
+          aria-label="Next"
+        >
           <fa icon="angle-right" />
         </NLink>
       </li>
-      <li class="page-item w-25" :class="disabled('last')">
-        <NLink :to="pageLink(pageCount)" class="page-link" exact>
+      <li :class="disabledSelector('next')" class="page-item flex-fill">
+        <NLink
+          :to="pageLink(pageCount)"
+          :aria-current-value="null"
+          :aria-disabled="disabled('last')"
+          :tabindex="disabled('last') ? -1 : 0"
+          class="page-link"
+          aria-label="Last"
+        >
           <fa icon="angle-double-right" />
         </NLink>
       </li>
     </ul>
-    <div class="pagination-minimal-info text-center">
+    <div class="pagination-minimal-info" aria-label="Page information">
       {{ currentPage }}/{{ pageCount }}
     </div>
   </nav>
@@ -44,11 +72,12 @@ export default {
   },
   methods: {
     disabled (part) {
-      if (/^(first|prev)$/.test(part)) {
-        return this.currentPage < 2 ? 'disabled' : ''
-      } else {
-        return this.currentPage >= this.pageCount ? 'disabled' : ''
-      }
+      return /^(first|prev)$/.test(part)
+        ? this.currentPage < 2
+        : this.currentPage >= this.pageCount
+    },
+    disabledSelector (part) {
+      return this.disabled(part) ? 'disabled' : ''
     },
     pageLink (page) {
       scrollToTop()
