@@ -13,14 +13,14 @@
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/vue-fontawesome": "^0.1.10",
     "@nuxtjs/axios": "^5.12.2",
-    "@nuxtjs/pwa": "^3.0.1",
+    "@nuxtjs/pwa": "^3.0.2",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.16.0",
     "focus-visible": "^5.1.0",
     "lazysizes": "^5.2.2",
     "masonry-layout": "^4.2.2",
-    "nuxt": "^2.14.3",
-    "nuxt-start": "^2.14.3"
+    "nuxt": "^2.14.4",
+    "nuxt-start": "^2.14.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
