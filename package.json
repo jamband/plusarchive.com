@@ -11,16 +11,16 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/vue-fontawesome": "^0.1.10",
+    "@fortawesome/vue-fontawesome": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/pwa": "^3.0.2",
     "bootstrap": "^4.5.2",
-    "bootstrap-vue": "^2.16.0",
+    "bootstrap-vue": "^2.17.3",
     "focus-visible": "^5.1.0",
     "lazysizes": "^5.2.2",
     "masonry-layout": "^4.2.2",
-    "nuxt": "^2.14.4",
-    "nuxt-start": "^2.14.4"
+    "nuxt": "^2.14.5",
+    "nuxt-start": "^2.14.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
@@ -28,20 +28,20 @@
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/router": "^1.5.0",
     "@nuxtjs/style-resources": "^1.0.0",
-    "@vue/test-utils": "^1.0.5",
+    "@vue/test-utils": "^1.1.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",
-    "eslint": "^7.8.0",
+    "eslint": "^7.9.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "fibers": "^5.0.0",
     "jest": "^26.4.2",
-    "klona": "^2.0.3",
-    "sass": "^1.26.10",
-    "sass-loader": "^10.0.1",
-    "stylelint": "^13.7.0",
+    "klona": "^2.0.4",
+    "sass": "^1.26.11",
+    "sass-loader": "^10.0.2",
+    "stylelint": "^13.7.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.18.0",
-    "vue-jest": "^4.0.0-beta.5"
+    "vue-jest": "^4.0.0-rc.0"
   }
 }
