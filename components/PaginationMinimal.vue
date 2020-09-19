@@ -91,9 +91,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/css/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
 .pagination-minimal {
   &-info {
-    color: $gray-700;
+    color: #474747;
     position: relative;
     z-index: -1;
 

@@ -5,13 +5,15 @@
 </template>
 
 <style lang="scss" scoped>
+@import "../assets/css/variables";
+
 @keyframes blink {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
 
 .player-loading {
-  color: $secondary;
+  color: var(--secondary);
   font-size: 150%;
   font-weight: $font-weight-bold;
   left: 50%;
