@@ -1,4 +1,5 @@
 /.nuxt
 /node_modules
 .env
+.eslintcache
 sw.*

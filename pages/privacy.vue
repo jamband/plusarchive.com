@@ -43,6 +43,11 @@
 
 <script>
 export default {
+  head () {
+    return {
+      title: 'Privacy Policy'
+    }
+  },
   computed: {
     tracking () {
       return this.$store.state.tracking
@@ -57,11 +62,6 @@ export default {
         this.$ga.disable()
         alert('Opt-Out has been complete.')
       }
-    }
-  },
-  head () {
-    return {
-      title: 'Privacy Policy'
     }
   }
 }

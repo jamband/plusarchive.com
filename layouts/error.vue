@@ -9,10 +9,16 @@
 import { APP_NAME } from '~/plugins/constants'
 
 export default {
+  layout: 'minimal',
   props: {
     error: {
       type: Object,
       default: null
+    }
+  },
+  head () {
+    return {
+      title: this.title
     }
   },
   computed: {
@@ -31,12 +37,6 @@ export default {
     isNotFound () {
       return this.error.statusCode === 404
     }
-  },
-  head () {
-    return {
-      title: this.title
-    }
-  },
-  layout: 'minimal'
+  }
 }
 </script>

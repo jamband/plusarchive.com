@@ -44,6 +44,11 @@ export default {
       store.dispatch('store/fetchCountriesAndTags', { error })
     ])
   },
+  head () {
+    return {
+      title: 'Stores'
+    }
+  },
   computed: {
     stores () {
       return this.$store.state.store.items
@@ -56,11 +61,6 @@ export default {
     },
     pagination () {
       return this.$store.state.pagination
-    }
-  },
-  head () {
-    return {
-      title: 'Stores'
     }
   },
   watchQuery: true

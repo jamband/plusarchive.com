@@ -11,11 +11,6 @@ export default {
       store.dispatch('player/fetchItem', { type: 'track' })
     })
   },
-  computed: {
-    track () {
-      return this.$store.state.track.item
-    }
-  },
   head () {
     return {
       title: this.track.title,
@@ -25,6 +20,11 @@ export default {
         { hid: 'og:description', property: 'og:description', content: this.track.title },
         { hid: 'og:image', property: 'og:image', content: this.track.image }
       ]
+    }
+  },
+  computed: {
+    track () {
+      return this.$store.state.track.item
     }
   }
 }

@@ -55,6 +55,11 @@ export default {
       store.dispatch('track/fetchGenres', { error })
     ])
   },
+  head () {
+    return {
+      title: 'Tracks'
+    }
+  },
   computed: {
     tracks () {
       return this.$store.state.track.items
@@ -72,6 +77,7 @@ export default {
       return this.$store.state.player
     }
   },
+  watchQuery: true,
   mounted () {
     this.masonryLoaded()
   },
@@ -100,12 +106,6 @@ export default {
         new Masonry(container, { transitionDuration: 0 })
       }, true)
     }
-  },
-  head () {
-    return {
-      title: 'Tracks'
-    }
-  },
-  watchQuery: true
+  }
 }
 </script>

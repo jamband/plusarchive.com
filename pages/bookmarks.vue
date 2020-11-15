@@ -44,6 +44,11 @@ export default {
       store.dispatch('bookmark/fetchCountriesAndTags', { error })
     ])
   },
+  head () {
+    return {
+      title: 'Bookmarks'
+    }
+  },
   computed: {
     bookmarks () {
       return this.$store.state.bookmark.items
@@ -56,11 +61,6 @@ export default {
     },
     pagination () {
       return this.$store.state.pagination
-    }
-  },
-  head () {
-    return {
-      title: 'Bookmarks'
     }
   },
   watchQuery: true

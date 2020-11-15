@@ -22,6 +22,11 @@ export default {
   async fetch ({ store, error }) {
     await store.dispatch('playlist/fetchItems', { error })
   },
+  head () {
+    return {
+      title: 'Playlists'
+    }
+  },
   computed: {
     playlists () {
       return this.$store.state.playlist.items
@@ -38,11 +43,6 @@ export default {
       if (id !== this.player.id) {
         this.$store.dispatch('player/loading', { status: true })
       }
-    }
-  },
-  head () {
-    return {
-      title: 'Playlists'
     }
   }
 }

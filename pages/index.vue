@@ -64,6 +64,12 @@ export default {
       store.dispatch('track/fetchMinimalGenres', { error })
     ])
   },
+  head () {
+    return {
+      title: APP_NAME,
+      titleTemplate: ''
+    }
+  },
   computed: {
     tracks () {
       return this.$store.state.track.favorites
@@ -99,12 +105,6 @@ export default {
         YouTube: 'youtube-square'
       }
       return icon[provider]
-    }
-  },
-  head () {
-    return {
-      title: APP_NAME,
-      titleTemplate: ''
     }
   }
 }

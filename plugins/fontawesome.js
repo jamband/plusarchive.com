@@ -78,4 +78,4 @@ library.add(
   faYoutubeSquare
 )
 
-Vue.component('fa', FontAwesomeIcon)
+Vue.component('fa', FontAwesomeIcon) // eslint-disable-line

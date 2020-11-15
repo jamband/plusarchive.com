@@ -37,13 +37,14 @@ export default {
   ],
   buildModules: [
     '@nuxtjs/eslint-module',
+    '@nuxtjs/google-analytics',
     '@nuxtjs/router',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/stylelint-module'
   ],
   modules: [
-    'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    'bootstrap-vue/nuxt'
   ],
   build: {
     // analyze: true,

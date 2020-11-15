@@ -2,9 +2,7 @@
   <div>
     <div :class="aspectRatio" class="embed-responsive">
       <ThePlayerLoading v-if="player.loading" />
-      <template v-show="!player.loading">
-        <iframe :key="player.id" :src="player.src" class="embed-responsive-item" frameborder="0" allowfullscreen @load="load()" />
-      </template>
+      <iframe :key="player.id" :src="player.src" class="embed-responsive-item" frameborder="0" allowfullscreen @load="load()" />
     </div>
 
     <h5 class="text-center my-2">

@@ -11,11 +11,6 @@ export default {
       store.dispatch('player/fetchItem', { type: 'playlist' })
     })
   },
-  computed: {
-    playlist () {
-      return this.$store.state.playlist.item
-    }
-  },
   head () {
     return {
       title: this.playlist.title,
@@ -24,6 +19,11 @@ export default {
         { hid: 'og:title', property: 'og:title', content: `${this.playlist.title} - ${APP_NAME}` },
         { hid: 'og:description', property: 'og:description', content: this.playlist.title }
       ]
+    }
+  },
+  computed: {
+    playlist () {
+      return this.$store.state.playlist.item
     }
   }
 }
