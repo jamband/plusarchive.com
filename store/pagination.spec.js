@@ -23,7 +23,7 @@ test('state: default values', () => {
 })
 
 test('mutations: setItem', () => {
-  store.commit('pagination/setMeta', {
+  store.commit('pagination/setItem', {
     totalCount: 100,
     pageCount: 10,
     currentPage: 1

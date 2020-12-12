@@ -30,46 +30,42 @@ const mutations = {
 }
 
 const actions = {
-  fetchItem ({ commit, rootState }, { type }) {
-    const music = type === 'track'
-      ? rootState.track.item
-      : rootState.playlist.item
-
+  fetchItem ({ commit }, item) {
     let src
 
-    if (music.provider === 'Bandcamp') {
+    if (item.provider === 'Bandcamp') {
       src = 'https://bandcamp.com/EmbeddedPlayer'
       const params = `size=large/tracklist=false/bgcol=333333/linkcol=${APP_COLOR_PRIMARY}`
-      src = type === 'track'
-        ? `${src}/track=${music.provider_key}/${params}`
-        : `${src}/album=${music.provider_key}/${params}`
+      src = item.type === 'track'
+        ? `${src}/track=${item.provider_key}/${params}`
+        : `${src}/album=${item.provider_key}/${params}`
     }
 
-    if (music.provider === 'SoundCloud') {
+    if (item.provider === 'SoundCloud') {
       src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com'
       const params = `show_comments=false&color=${APP_COLOR_PRIMARY}&hide_related=true`
-      src = type === 'track'
-        ? `${src}/tracks/${music.provider_key}&${params}&visual=true`
-        : `${src}/playlists/${music.provider_key}&${params}&show_playcount=false`
+      src = item.type === 'track'
+        ? `${src}/tracks/${item.provider_key}&${params}&visual=true`
+        : `${src}/playlists/${item.provider_key}&${params}&show_playcount=false`
     }
 
-    if (music.provider === 'Vimeo') {
-      src = `https://player.vimeo.com/video/${music.provider_key}`
+    if (item.provider === 'Vimeo') {
+      src = `https://player.vimeo.com/video/${item.provider_key}`
     }
 
-    if (music.provider === 'YouTube') {
+    if (item.provider === 'YouTube') {
       src = 'https://www.youtube.com/embed'
       const params = 'rel=0&playsinline=1'
-      src = type === 'track'
-        ? `${src}/${music.provider_key}?${params}`
-        : `${src}/videoseries?list=${music.provider_key}&${params}`
+      src = item.type === 'track'
+        ? `${src}/${item.provider_key}?${params}`
+        : `${src}/videoseries?list=${item.provider_key}&${params}`
     }
 
     commit('setItem', {
-      id: music.id,
-      title: music.title,
-      provider: music.provider,
-      type,
+      id: item.id,
+      title: item.title,
+      provider: item.provider,
+      type: item.type,
       src
     })
   },

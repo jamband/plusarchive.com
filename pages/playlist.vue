@@ -6,10 +6,17 @@
 import { APP_NAME } from '~/plugins/constants'
 
 export default {
-  async fetch ({ store, params, error }) {
-    await store.dispatch('playlist/fetchItem', { id: params.id, error }).then(() => {
-      store.dispatch('player/fetchItem', { type: 'playlist' })
+  async asyncData ({ $axios, params, store, error }) {
+    const playlist = await $axios.$get(`playlists/${params.id}`).then((response) => {
+      response.type = 'playlist'
+      store.dispatch('player/fetchItem', response)
+      return response
+    }).catch(() => {
+      error({ statusCode: 404 })
     })
+    return {
+      playlist
+    }
   },
   head () {
     return {
@@ -19,11 +26,6 @@ export default {
         { hid: 'og:title', property: 'og:title', content: `${this.playlist.title} - ${APP_NAME}` },
         { hid: 'og:description', property: 'og:description', content: this.playlist.title }
       ]
-    }
-  },
-  computed: {
-    playlist () {
-      return this.$store.state.playlist.item
     }
   }
 }

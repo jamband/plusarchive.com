@@ -2,85 +2,121 @@ import { shallowMount } from '@vue/test-utils'
 import { BDropdown, BDropdownItem } from 'bootstrap-vue'
 import SearchDropdown from '~/components/SearchDropdown'
 
-const factory = ({ props, route }) => {
+const factory = ({ route, fetchState }) => {
   return shallowMount(SearchDropdown, {
-    propsData: props,
+    propsData: {
+      label: 'Tags',
+      query: 'tag',
+      items: []
+    },
     stubs: {
       BDropdown,
       BDropdownItem,
-      fa: true
+      fa: true,
+      AppLoading: { template: '<div>...</div>' }
     },
     mocks: {
-      $route: route
+      $route: route,
+      $fetchState: fetchState
     }
   })
 }
 
-const props = {
-  label: 'Tags',
-  query: 'tag',
-  items: ['tag1', 'tag2', 'tag3']
-}
-const route = {
-  query: { tag: '' }
-}
-let wrapper
-
-test('label', () => {
-  const text = (wrapper) => {
-    return wrapper.find('button').text()
-  }
-  wrapper = factory({ props, route })
-  expect(text(wrapper)).toBe('Tags')
-
-  route.query = { tag: 'tag1' }
-  wrapper = factory({ props, route })
-  expect(text(wrapper)).toBe('tag1')
+test('fetchState.pending: true', async () => {
+  const wrapper = factory({
+    route: { query: {} },
+    fetchState: { pending: true }
+  })
+  await wrapper.setData({ list: ['tag1'] })
+  expect(wrapper.findAll('a').length).toBe(1)
+  expect(wrapper.text()).toContain('...')
 })
 
-test('query: none', () => {
-  wrapper = factory({ props, route })
-  const a = wrapper.findAll('a')
-  expect(a.at(0).attributes('href')).toBe('/')
-  expect(a.at(1).attributes('href')).toBe('?tag=tag1')
+test('fetchState.error: true', async () => {
+  const wrapper = factory({
+    route: { query: {} },
+    fetchState: { error: true }
+  })
+  await wrapper.setData({ list: ['tag1'] })
+  expect(wrapper.findAll('a').length).toBe(1)
+  expect(wrapper.text()).toContain('Request failure')
 })
 
-test('query: tag=tag1', () => {
-  route.query = { tag: 'tag1' }
-  wrapper = factory({ props, route })
-  const a = wrapper.findAll('a')
-  expect(a.at(0).attributes('href')).toBe('/')
-  expect(a.at(1).attributes('href')).toBe('?tag=tag1')
+test('fetchState.pending: false', async () => {
+  const wrapper = factory({
+    route: { query: {} },
+    fetchState: { pending: false }
+  })
+  await wrapper.setData({ list: ['tag1'] })
+  expect(wrapper.findAll('a').length).toBe(2)
 })
 
-test('query: country=country1', () => {
-  route.query = { country: 'country1' }
-  wrapper = factory({ props, route })
+test('label when route.query: {}', async () => {
+  const wrapper = factory({
+    route: { query: {} },
+    fetchState: { pending: false }
+  })
+  await wrapper.setData({ list: ['tag1'] })
+  expect(wrapper.find('button').text()).toBe('Tags')
+})
+
+test('label when route.query: { tag: "tag1" }', async () => {
+  const wrapper = factory({
+    route: { query: { tag: 'tag1' } },
+    fetchState: { pending: false }
+  })
+  await wrapper.setData({ list: ['tag1'] })
+  expect(wrapper.find('button').text()).toBe('tag1')
+})
+
+test('a.href/text and text when route.query: { country: "country1" }', async () => {
+  const wrapper = factory({
+    route: { query: { country: 'country1' } },
+    fetchState: { pending: false }
+  })
+  await wrapper.setData({ list: ['tag1'] })
   const a = wrapper.findAll('a')
   expect(a.at(0).attributes('href')).toBe('?country=country1')
+  expect(a.at(0).text()).toBe('Reset')
   expect(a.at(1).attributes('href')).toBe('?country=country1&tag=tag1')
+  expect(a.at(1).text()).toBe('tag1')
 })
 
-test('query: country=country1&tag=tag2', () => {
-  route.query = { country: 'country1', tag: 'tag2' }
-  wrapper = factory({ props, route })
+test('a.href/text when route.query: { country: "country1", tag: "tag2" }', async () => {
+  const wrapper = factory({
+    route: { query: { country: 'country1', tag: 'tag2' } },
+    fetchState: { pending: false }
+  })
+  await wrapper.setData({ list: ['tag1'] })
   const a = wrapper.findAll('a')
   expect(a.at(0).attributes('href')).toBe('?country=country1')
+  expect(a.at(0).text()).toBe('Reset')
   expect(a.at(1).attributes('href')).toBe('?country=country1&tag=tag1')
+  expect(a.at(1).text()).toBe('tag1')
 })
 
-test('query: search=foo', () => {
-  route.query = { search: 'foo' }
-  wrapper = factory({ props, route })
+test('a.href/text when route.query: { search: "foo" }', async () => {
+  const wrapper = factory({
+    route: { query: { search: 'foo' } },
+    fetchState: { pending: false }
+  })
+  await wrapper.setData({ list: ['tag1'] })
   const a = wrapper.findAll('a')
   expect(a.at(0).attributes('href')).toBe('?search=foo')
+  expect(a.at(0).text()).toBe('Reset')
   expect(a.at(1).attributes('href')).toBe('?tag=tag1')
+  expect(a.at(1).text()).toBe('tag1')
 })
 
-test('query: page=2', () => {
-  route.query = { page: '2' }
-  wrapper = factory({ props, route })
+test('a.href/text when route.query: { page: "2" }', async () => {
+  const wrapper = factory({
+    route: { query: { page: '2' } },
+    fetchState: { pending: false }
+  })
+  await wrapper.setData({ list: ['tag1'] })
   const a = wrapper.findAll('a')
   expect(a.at(0).attributes('href')).toBe('/')
+  expect(a.at(0).text()).toBe('Reset')
   expect(a.at(1).attributes('href')).toBe('?tag=tag1')
+  expect(a.at(1).text()).toBe('tag1')
 })

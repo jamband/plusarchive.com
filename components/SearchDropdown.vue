@@ -8,7 +8,13 @@
       Reset
     </b-dropdown-item>
     <div class="dropdown-divider" />
-    <b-dropdown-item v-for="(item, index) in items" :key="index" :to="itemLink(query, item)" append exact>
+    <div v-if="$fetchState.pending">
+      <AppLoading />
+    </div>
+    <div v-else-if="$fetchState.error">
+      Request failure.
+    </div>
+    <b-dropdown-item v-for="(item, index) in list" v-else :key="index" :to="itemLink(query, item)" append exact>
       {{ item }}
     </b-dropdown-item>
   </b-dropdown>
@@ -26,15 +32,25 @@ export default {
       required: true
     },
     items: {
-      type: Array,
+      type: [Array, String],
       required: true
     }
+  },
+  data () {
+    return {
+      list: []
+    }
+  },
+  async fetch () {
+    this.list = typeof this.items === 'string'
+      ? await this.$axios.$get(this.items)
+      : this.items
   },
   methods: {
     resetLink (key) {
       const query = { ...this.$route.query }
       if (query.page) { delete query.page }
-      if (query[key]) { delete query[key] }
+      if (query[key] || query[key] === '') { delete query[key] }
       return { query }
     },
     itemLink (key, value) {

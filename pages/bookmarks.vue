@@ -7,62 +7,25 @@
       </NLink>
       <TotalCount :total="pagination.totalCount" />
       <br>
-      <SearchDropdown label="Countries" query="country" :items="countries" />
-      <SearchDropdown label="Tags" query="tag" :items="tags" />
+      <SearchDropdown label="Countries" query="country" items="bookmarks/countries" />
+      <SearchDropdown label="Tags" query="tag" items="bookmarks/tags" />
       <SearchForm class="d-lg-none mt-1 mb-3" />
     </div>
-    <div class="col-lg-8">
-      <div class="row">
-        <div v-for="bookmark in bookmarks" :key="bookmark.id" class="col-lg-6 mb-4">
-          <a :href="bookmark.url" class="font-weight-bold" rel="noopener" target="_blank">
-            <fa icon="external-link-alt" fixed-width /> {{ bookmark.name }}
-          </a>
-          <br>
-          <span class="badge badge-secondary">Country:</span>
-          {{ bookmark.country }}
-          <br>
-          <span class="badge badge-secondary">Link:</span>
-          <BrandIconLink :links="bookmark.link" />
-          <br>
-          <span class="badge badge-secondary">Tag:</span>
-          <NLink v-for="tag in bookmark.tags" :key="tag.id" :to="{ query: { tag: tag.name } }" class="badge badge-secondary" append>
-            {{ tag.name }}
-          </NLink>
-          <hr>
-        </div>
-      </div>
-      <PaginationMinimal :current-page="pagination.currentPage" :page-count="pagination.pageCount" />
-    </div>
+    <ListBookmarks />
   </div>
 </template>
 
 <script>
 export default {
-  async fetch ({ store, query, error }) {
-    await Promise.all([
-      store.dispatch('bookmark/fetchItems', { query, error }),
-      store.dispatch('bookmark/fetchCountriesAndTags', { error })
-    ])
-  },
   head () {
     return {
       title: 'Bookmarks'
     }
   },
   computed: {
-    bookmarks () {
-      return this.$store.state.bookmark.items
-    },
-    countries () {
-      return this.$store.state.bookmark.countries
-    },
-    tags () {
-      return this.$store.state.bookmark.tags
-    },
     pagination () {
       return this.$store.state.pagination
     }
-  },
-  watchQuery: true
+  }
 }
 </script>

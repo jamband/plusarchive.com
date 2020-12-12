@@ -1,44 +1,36 @@
 import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
 import { klona } from 'klona'
-import storeTrack from '~/store/track'
-import storePlaylist from '~/store/playlist'
 import storePlayer from '~/store/player'
 
 const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-const track = klona(storeTrack)
-track.namespaced = true
-
-const playlist = klona(storePlaylist)
-playlist.namespaced = true
-
 const player = klona(storePlayer)
 player.namespaced = true
 
-let store, fixture
+let store, item
 
 beforeEach(() => {
-  store = new Vuex.Store({ modules: { track, playlist, player } })
+  store = new Vuex.Store({ modules: { player } })
 
-  fixture = {}
-  fixture.track = {
+  item = {}
+  item.track = {
     id: 'id1',
     title: 'track1',
     provider: 'provider1',
     provider_key: 'key1',
     type: 'track'
   }
-  fixture.playlist = {
+  item.playlist = {
     id: 'id1',
     title: 'playlist1',
     provider: 'provider1',
     provider_key: 'key1',
     type: 'playlist'
   }
-  fixture.player = {
+  item.player = {
     id: 'id1',
     title: 'track1',
     provider: 'provider1',
@@ -57,9 +49,8 @@ test('state: default values', () => {
 })
 
 test('actions: fetchItem when { provider: "Bandcamp", type: "track" }', () => {
-  fixture.track.provider = 'Bandcamp'
-  store.commit('track/setItem', fixture.track)
-  store.dispatch('player/fetchItem', { type: 'track' })
+  item.track.provider = 'Bandcamp'
+  store.dispatch('player/fetchItem', item.track)
 
   expect(store.state.player.id).toBe('id1')
   expect(store.state.player.title).toBe('track1')
@@ -70,9 +61,8 @@ test('actions: fetchItem when { provider: "Bandcamp", type: "track" }', () => {
 })
 
 test('actions: fetchItem when { provider: "SoundCloud", type: "track" }', () => {
-  fixture.track.provider = 'SoundCloud'
-  store.commit('track/setItem', fixture.track)
-  store.dispatch('player/fetchItem', { type: 'track' })
+  item.track.provider = 'SoundCloud'
+  store.dispatch('player/fetchItem', item.track)
 
   expect(store.state.player.id).toBe('id1')
   expect(store.state.player.title).toBe('track1')
@@ -83,9 +73,8 @@ test('actions: fetchItem when { provider: "SoundCloud", type: "track" }', () => 
 })
 
 test('actions: fetchItem when { provider: "SoundCloud", type: "playlist" }', () => {
-  fixture.playlist.provider = 'SoundCloud'
-  store.commit('playlist/setItem', fixture.playlist)
-  store.dispatch('player/fetchItem', { type: 'playlist' })
+  item.playlist.provider = 'SoundCloud'
+  store.dispatch('player/fetchItem', item.playlist)
 
   expect(store.state.player.id).toBe('id1')
   expect(store.state.player.title).toBe('playlist1')
@@ -96,9 +85,8 @@ test('actions: fetchItem when { provider: "SoundCloud", type: "playlist" }', () 
 })
 
 test('actions: fetchItem when { provider: "Vimeo", type: "track" }', () => {
-  fixture.track.provider = 'Vimeo'
-  store.commit('track/setItem', fixture.track)
-  store.dispatch('player/fetchItem', { type: 'track' })
+  item.track.provider = 'Vimeo'
+  store.dispatch('player/fetchItem', item.track)
 
   expect(store.state.player.id).toBe('id1')
   expect(store.state.player.title).toBe('track1')
@@ -109,9 +97,8 @@ test('actions: fetchItem when { provider: "Vimeo", type: "track" }', () => {
 })
 
 test('actions: fetchItem when { provider: "YouTube", type: "track" }', () => {
-  fixture.track.provider = 'YouTube'
-  store.commit('track/setItem', fixture.track)
-  store.dispatch('player/fetchItem', { type: 'track' })
+  item.track.provider = 'YouTube'
+  store.dispatch('player/fetchItem', item.track)
 
   expect(store.state.player.id).toBe('id1')
   expect(store.state.player.title).toBe('track1')
@@ -122,9 +109,8 @@ test('actions: fetchItem when { provider: "YouTube", type: "track" }', () => {
 })
 
 test('actions: fetchItem when { provider: "YouTube", type: "playlist" }', () => {
-  fixture.playlist.provider = 'YouTube'
-  store.commit('playlist/setItem', fixture.playlist)
-  store.dispatch('player/fetchItem', { type: 'playlist' })
+  item.playlist.provider = 'YouTube'
+  store.dispatch('player/fetchItem', item.playlist)
 
   expect(store.state.player.id).toBe('id1')
   expect(store.state.player.title).toBe('playlist1')
@@ -143,7 +129,7 @@ test('actions: loading', () => {
 })
 
 test('actions: clear', () => {
-  store.commit('player/setItem', fixture.player)
+  store.commit('player/setItem', item.player)
   expect(store.state.player.id).toBe('id1')
   expect(store.state.player.title).toBe('track1')
   expect(store.state.player.provider).toBe('provider1')

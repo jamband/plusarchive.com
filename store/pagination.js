@@ -5,14 +5,21 @@ const state = () => ({
 })
 
 const mutations = {
-  setMeta (state, item) {
-    state.totalCount = item.totalCount
-    state.pageCount = item.pageCount
-    state.currentPage = item.currentPage
+  setItem (state, items) {
+    state.totalCount = items.totalCount
+    state.pageCount = items.pageCount
+    state.currentPage = items.currentPage
+  }
+}
+
+const actions = {
+  fetchItem ({ commit }, items) {
+    commit('setItem', items)
   }
 }
 
 export default {
   state,
-  mutations
+  mutations,
+  actions
 }

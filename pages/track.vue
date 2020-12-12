@@ -6,10 +6,17 @@
 import { APP_NAME } from '~/plugins/constants'
 
 export default {
-  async fetch ({ store, params, error }) {
-    await store.dispatch('track/fetchItem', { id: params.id, error }).then(() => {
-      store.dispatch('player/fetchItem', { type: 'track' })
+  async asyncData ({ $axios, store, params, error }) {
+    const track = await $axios.$get(`tracks/${params.id}`).then((response) => {
+      response.type = 'track'
+      store.dispatch('player/fetchItem', response)
+      return response
+    }).catch(() => {
+      error({ statusCode: 404 })
     })
+    return {
+      track
+    }
   },
   head () {
     return {
@@ -20,11 +27,6 @@ export default {
         { hid: 'og:description', property: 'og:description', content: this.track.title },
         { hid: 'og:image', property: 'og:image', content: this.track.image }
       ]
-    }
-  },
-  computed: {
-    track () {
-      return this.$store.state.track.item
     }
   }
 }
