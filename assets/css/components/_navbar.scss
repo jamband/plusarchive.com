@@ -1,15 +1,12 @@
-@use "sass:color";
-
 .navbar-nav {
   a.active {
     @include media-breakpoint-down(sm) {
-      border-left: 0.2rem solid color.scale($primary, $lightness: -25%);
+      border-left: 0.2rem solid $primary;
       padding-left: 0.5rem;
     }
 
     @include media-breakpoint-up(md) {
-      border-bottom: 0.2rem solid color.scale($primary, $lightness: -25%);
-      padding-bottom: 0.3rem;
+      background: linear-gradient(transparent 92%, $primary 92%);
     }
   }
 
