@@ -48,15 +48,25 @@ export default {
   },
   methods: {
     resetLink (key) {
+      if (this.$route.name.endsWith('-search')) {
+        return {
+          name: this.$route.name.substring(0, this.$route.name.indexOf('-'))
+        }
+      }
       const query = { ...this.$route.query }
       if (query.page) { delete query.page }
       if (query[key] || query[key] === '') { delete query[key] }
       return { query }
     },
     itemLink (key, value) {
+      if (this.$route.name.endsWith('-search')) {
+        return {
+          name: this.$route.name.substring(0, this.$route.name.indexOf('-')),
+          query: { [key]: value }
+        }
+      }
       const query = { ...this.$route.query }
       if (query.page) { delete query.page }
-      if (query.search) { delete query.search }
       return { query: { ...query, [key]: value } }
     }
   }

@@ -1,16 +1,12 @@
 <template>
   <form class="py-lg-0 py-2" @submit.prevent="onSubmit()">
-    <input v-model="search" :class="inputClass" :placeholder="placeholder" type="text">
+    <input v-model="q" :class="inputClass" :placeholder="placeholder" type="search">
   </form>
 </template>
 
 <script>
 export default {
   props: {
-    name: {
-      type: String,
-      default: 'search'
-    },
     inputClass: {
       type: String,
       default: 'form-control'
@@ -22,19 +18,28 @@ export default {
   },
   data () {
     return {
-      search: ''
+      q: ''
     }
   },
   watch: {
-    '$route.query' () {
-      this.search = this.$route.query[this.name] || ''
+    '$route.query.q' () {
+      this.resetValue()
     }
+  },
+  mounted () {
+    this.resetValue()
   },
   methods: {
     onSubmit () {
       this.$router.push({
-        query: { [this.name]: this.search }
+        name: this.$route.name.endsWith('-search')
+          ? this.$route.name
+          : `${this.$route.name}-search`,
+        query: { q: this.q }
       })
+    },
+    resetValue () {
+      this.q = this.$route.query.q || ''
     }
   }
 }

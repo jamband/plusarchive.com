@@ -54,7 +54,10 @@ export default {
     }
   },
   async fetch () {
-    const tracks = await this.$axios.$get('tracks?expand=genres', { params: this.$route.query })
+    const tracks = await this.$axios.$get(
+      `tracks${this.$route.query.q ? '/search' : ''}?expand=genres`,
+      { params: this.$route.query }
+    )
     this.tracks = tracks.items
     this.pagination = tracks._meta
     this.$store.dispatch('pagination/fetchItem', this.pagination)

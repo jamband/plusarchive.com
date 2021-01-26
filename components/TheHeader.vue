@@ -54,7 +54,7 @@ export default {
       return routeName.includes(value)
     },
     showSearchForm () {
-      return /^(track|label|store|bookmark)s$/.test(this.$route.name || '')
+      return /^(track|label|store|bookmark)s(-search)?$/.test(this.$route.name || '')
     }
   }
 }

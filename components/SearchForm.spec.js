@@ -1,54 +1,61 @@
 import { shallowMount } from '@vue/test-utils'
 import SearchForm from '~/components/SearchForm'
 
-const factory = (props = {}, router = {}) => {
+const factory = ({ props, route }) => {
   return shallowMount(SearchForm, {
     propsData: props,
     mocks: {
-      $router: router,
-      $route: jest.fn()
+      $router: {
+        push: jest.fn()
+      },
+      $route: route
     }
   })
 }
 
-test('name: default', () => {
-  const routerPush = jest.fn()
-  const wrapper = factory({}, { push: routerPush })
-  wrapper.trigger('submit.prevent')
-  expect(routerPush).toHaveBeenCalledWith({ query: { search: '' } })
-})
+test('q: foo', () => {
+  const wrapper = factory({
+    props: {},
+    route: { name: 'tracks', query: { q: '' } }
+  })
 
-test('name: foo', () => {
-  const routerPush = jest.fn()
-  const wrapper = factory({ name: 'foo' }, { push: routerPush })
+  wrapper.setData({ q: 'foo' })
   wrapper.trigger('submit.prevent')
-  expect(routerPush).toHaveBeenCalledWith({ query: { foo: '' } })
+
+  expect(wrapper.vm.$router.push).toHaveBeenCalledWith({
+    name: 'tracks-search',
+    query: { q: 'foo' }
+  })
 })
 
 test('inputClass: default', () => {
-  const wrapper = factory()
+  const wrapper = factory({
+    props: {},
+    route: { query: { q: '' } }
+  })
   expect(wrapper.find('input').attributes().class).toBe('form-control')
 })
 
 test('inputClass: foo', () => {
-  const wrapper = factory({ inputClass: 'foo' })
+  const wrapper = factory({
+    props: { inputClass: 'foo' },
+    route: { query: { q: '' } }
+  })
   expect(wrapper.find('input').attributes().class).toBe('foo')
 })
 
 test('placeholder: default', () => {
-  const wrapper = factory()
+  const wrapper = factory({
+    props: {},
+    route: { query: { q: '' } }
+  })
   expect(wrapper.find('input').element.placeholder).toBe('Search...')
 })
 
 test('placeholder: foo', () => {
-  const wrapper = factory({ placeholder: 'foo' })
+  const wrapper = factory({
+    props: { placeholder: 'foo' },
+    route: { query: { q: '' } }
+  })
   expect(wrapper.find('input').element.placeholder).toBe('foo')
-})
-
-test('data: search=foo', () => {
-  const routerPush = jest.fn()
-  const wrapper = factory({}, { push: routerPush })
-  wrapper.setData({ search: 'foo' })
-  wrapper.trigger('submit.prevent')
-  expect(routerPush).toHaveBeenCalledWith({ query: { search: 'foo' } })
 })

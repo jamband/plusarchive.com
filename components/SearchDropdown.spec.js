@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import { BDropdown, BDropdownItem } from 'bootstrap-vue'
 import SearchDropdown from '~/components/SearchDropdown'
 
@@ -13,7 +13,8 @@ const factory = ({ route, fetchState }) => {
       BDropdown,
       BDropdownItem,
       fa: true,
-      AppLoading: { template: '<div>...</div>' }
+      AppLoading: { template: '<div>...</div>' },
+      NLink: RouterLinkStub
     },
     mocks: {
       $route: route,
@@ -24,7 +25,7 @@ const factory = ({ route, fetchState }) => {
 
 test('fetchState.pending: true', async () => {
   const wrapper = factory({
-    route: { query: {} },
+    route: { name: 'foo', query: {} },
     fetchState: { pending: true }
   })
   await wrapper.setData({ list: ['tag1'] })
@@ -34,7 +35,7 @@ test('fetchState.pending: true', async () => {
 
 test('fetchState.error: true', async () => {
   const wrapper = factory({
-    route: { query: {} },
+    route: { name: 'foo', query: {} },
     fetchState: { error: true }
   })
   await wrapper.setData({ list: ['tag1'] })
@@ -44,7 +45,7 @@ test('fetchState.error: true', async () => {
 
 test('fetchState.pending: false', async () => {
   const wrapper = factory({
-    route: { query: {} },
+    route: { name: 'foo', query: {} },
     fetchState: { pending: false }
   })
   await wrapper.setData({ list: ['tag1'] })
@@ -53,7 +54,7 @@ test('fetchState.pending: false', async () => {
 
 test('label when route.query: {}', async () => {
   const wrapper = factory({
-    route: { query: {} },
+    route: { name: 'foo', query: {} },
     fetchState: { pending: false }
   })
   await wrapper.setData({ list: ['tag1'] })
@@ -62,7 +63,7 @@ test('label when route.query: {}', async () => {
 
 test('label when route.query: { tag: "tag1" }', async () => {
   const wrapper = factory({
-    route: { query: { tag: 'tag1' } },
+    route: { name: 'foo', query: { tag: 'tag1' } },
     fetchState: { pending: false }
   })
   await wrapper.setData({ list: ['tag1'] })
@@ -71,7 +72,7 @@ test('label when route.query: { tag: "tag1" }', async () => {
 
 test('a.href/text and text when route.query: { country: "country1" }', async () => {
   const wrapper = factory({
-    route: { query: { country: 'country1' } },
+    route: { name: 'foo', query: { country: 'country1' } },
     fetchState: { pending: false }
   })
   await wrapper.setData({ list: ['tag1'] })
@@ -84,7 +85,7 @@ test('a.href/text and text when route.query: { country: "country1" }', async () 
 
 test('a.href/text when route.query: { country: "country1", tag: "tag2" }', async () => {
   const wrapper = factory({
-    route: { query: { country: 'country1', tag: 'tag2' } },
+    route: { name: 'foo', query: { country: 'country1', tag: 'tag2' } },
     fetchState: { pending: false }
   })
   await wrapper.setData({ list: ['tag1'] })
@@ -95,22 +96,9 @@ test('a.href/text when route.query: { country: "country1", tag: "tag2" }', async
   expect(a.at(1).text()).toBe('tag1')
 })
 
-test('a.href/text when route.query: { search: "foo" }', async () => {
-  const wrapper = factory({
-    route: { query: { search: 'foo' } },
-    fetchState: { pending: false }
-  })
-  await wrapper.setData({ list: ['tag1'] })
-  const a = wrapper.findAll('a')
-  expect(a.at(0).attributes('href')).toBe('?search=foo')
-  expect(a.at(0).text()).toBe('Reset')
-  expect(a.at(1).attributes('href')).toBe('?tag=tag1')
-  expect(a.at(1).text()).toBe('tag1')
-})
-
 test('a.href/text when route.query: { page: "2" }', async () => {
   const wrapper = factory({
-    route: { query: { page: '2' } },
+    route: { name: 'foo', query: { page: '2' } },
     fetchState: { pending: false }
   })
   await wrapper.setData({ list: ['tag1'] })
@@ -119,4 +107,16 @@ test('a.href/text when route.query: { page: "2" }', async () => {
   expect(a.at(0).text()).toBe('Reset')
   expect(a.at(1).attributes('href')).toBe('?tag=tag1')
   expect(a.at(1).text()).toBe('tag1')
+})
+
+test('resetLink.href/text when route: { name: tracks-search, q: foo }', async () => {
+  const wrapper = factory({
+    route: { name: 'tracks-search', query: { q: 'foo' } },
+    fetchState: { pending: false }
+  })
+
+  await wrapper.setData({ list: ['tag1'] })
+  const a = wrapper.findAll('a')
+  expect(a.at(0).text()).toBe('Reset')
+  expect(a.at(0).props().to).toEqual({ name: 'tracks' })
 })

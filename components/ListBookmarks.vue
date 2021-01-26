@@ -40,7 +40,10 @@ export default {
     }
   },
   async fetch () {
-    const bookmarks = await this.$axios.$get('bookmarks?expand=tags', { params: this.$route.query })
+    const bookmarks = await this.$axios.$get(
+      'bookmarks?expand=tags',
+      { params: this.$route.query }
+    )
     this.bookmarks = bookmarks.items
     this.pagination = bookmarks._meta
     this.$store.dispatch('pagination/fetchItem', this.pagination)
