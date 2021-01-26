@@ -46,6 +46,10 @@ export default {
       ? await this.$axios.$get(this.items)
       : this.items
   },
+  beforeUpdate () {
+    this.$el.getElementsByTagName('ul')[0]
+      .scrollTop = 0
+  },
   methods: {
     resetLink (key) {
       if (this.$route.name.endsWith('-search')) {
