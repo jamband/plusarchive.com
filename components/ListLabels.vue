@@ -40,7 +40,9 @@ export default {
     }
   },
   async fetch () {
-    const labels = await this.$axios.$get('labels?expand=tags', { params: this.$route.query })
+    const labels = await this.$axios.$get(
+      `labels${this.$route.query.q ? '/search' : ''}?expand=tagsr`,
+      { params: this.$route.query })
     this.labels = labels.items
     this.pagination = labels._meta
     this.$store.dispatch('pagination/fetchItem', this.pagination)

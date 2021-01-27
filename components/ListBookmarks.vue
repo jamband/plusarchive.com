@@ -41,7 +41,7 @@ export default {
   },
   async fetch () {
     const bookmarks = await this.$axios.$get(
-      'bookmarks?expand=tags',
+      `bookmarks${this.$route.query.q ? '/search' : ''}?expand=tags`,
       { params: this.$route.query }
     )
     this.bookmarks = bookmarks.items
