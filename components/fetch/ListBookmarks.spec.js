@@ -1,5 +1,5 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
-import ListBookmarks from '~/components/ListBookmarks'
+import ListBookmarks from './ListBookmarks'
 
 const factory = ({ fetchState }) => {
   return shallowMount(ListBookmarks, {

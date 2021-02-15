@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import { klona } from 'klona'
 import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
-import ListPlaylists from '~/components/ListPlaylists'
+import ListPlaylists from './ListPlaylists'
 import storePlayer from '~/store/player'
 
 const localVue = createLocalVue()

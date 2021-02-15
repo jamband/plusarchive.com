@@ -1,5 +1,5 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
-import ListSearchByGenres from '~/components/ListSearchByGenres'
+import ListSearchByGenres from './ListSearchByGenres'
 
 const factory = ({ fetchState }) => {
   return shallowMount(ListSearchByGenres, {
