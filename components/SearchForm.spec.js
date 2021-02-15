@@ -20,28 +20,12 @@ test('q: foo', () => {
   })
 
   wrapper.setData({ q: 'foo' })
-  wrapper.trigger('submit.prevent')
+  wrapper.find('input').trigger('keyup.enter')
 
   expect(wrapper.vm.$router.push).toHaveBeenCalledWith({
     name: 'tracks-search',
     query: { q: 'foo' }
   })
-})
-
-test('inputClass: default', () => {
-  const wrapper = factory({
-    props: {},
-    route: { query: { q: '' } }
-  })
-  expect(wrapper.find('input').attributes().class).toBe('form-control')
-})
-
-test('inputClass: foo', () => {
-  const wrapper = factory({
-    props: { inputClass: 'foo' },
-    route: { query: { q: '' } }
-  })
-  expect(wrapper.find('input').attributes().class).toBe('foo')
 })
 
 test('placeholder: default', () => {

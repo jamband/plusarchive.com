@@ -1,16 +1,18 @@
 <template>
-  <form class="py-lg-0 py-2" @submit.prevent="onSubmit()">
-    <input v-model="q" :class="inputClass" :placeholder="placeholder" type="search">
-  </form>
+  <fieldset class="py-lg-0 py-2">
+    <input
+      v-model="q"
+      class="form-control"
+      :placeholder="placeholder"
+      type="search"
+      @keyup.enter="onSubmit()"
+    >
+  </fieldset>
 </template>
 
 <script>
 export default {
   props: {
-    inputClass: {
-      type: String,
-      default: 'form-control'
-    },
     placeholder: {
       type: String,
       default: 'Search...'
