@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div v-if="$fetchState.pending">
-      <AppLoading />
-    </div>
+    <AppLoading v-if="$fetchState.pending" />
     <div v-else-if="$fetchState.error">
       Request failure.
     </div>
