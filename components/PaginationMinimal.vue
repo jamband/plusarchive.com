@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     disabled (part) {
-      return /^(first|prev)$/.test(part)
+      return ['first', 'prev'].includes(part)
         ? this.currentPage < 2
         : this.currentPage >= this.pageCount
     },

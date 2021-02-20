@@ -26,7 +26,7 @@ export default {
       return this.$store.state.player
     },
     aspectRatio () {
-      return /^(Vimeo|YouTube)$/.test(this.player.provider)
+      return ['Vimeo', 'YouTube'].includes(this.player.provider)
         ? 'embed-responsive-16by9'
         : 'embed-responsive-1by1-half'
     },

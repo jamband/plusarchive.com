@@ -80,7 +80,7 @@ export default {
       }
     },
     aspectRatio (provider) {
-      return /^(Vimeo|YouTube)$/.test(provider)
+      return ['Vimeo', 'YouTube'].includes(provider)
         ? '16/9'
         : '1/1'
     },

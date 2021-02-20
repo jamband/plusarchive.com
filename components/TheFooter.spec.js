@@ -86,7 +86,7 @@ test('when { player.title: "something", tracking.disable: true }', () => {
     store.commit('player/setItem', fixture.player)
     const wrapper = factory({ store, route: { name: route } })
 
-    if (/^(track|playlist|privacy)$/.test(route)) {
+    if (['track', 'playlist', 'privacy'].includes(route)) {
       expect(wrapper.find('thefooterplayertitle-stub').exists()).toBe(false)
       expect(wrapper.find('thefootertracking-stub').exists()).toBe(true)
     } else {
@@ -103,7 +103,7 @@ test('when { player.title: "something", tracking.disable: false }', () => {
     store.commit('player/setItem', fixture.player)
     const wrapper = factory({ store, route: { name: route } })
 
-    if (/^(track|playlist)$/.test(route)) {
+    if (['track', 'playlist'].includes(route)) {
       expect(wrapper.find('thefooterplayertitle-stub').exists()).toBe(false)
       expect(wrapper.text()).toBe(APP_NAME)
     } else {
