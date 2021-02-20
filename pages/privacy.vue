@@ -56,7 +56,7 @@ export default {
   methods: {
     optOut () {
       if (this.tracking.disable) {
-        alert('Google Analytics is not yet loaded.')
+        alert('Google Analytics tracking is not yet enabled.')
       } else {
         this.$store.dispatch('tracking/disable')
         this.$ga.disable()

@@ -42,7 +42,7 @@ test('optOut', () => {
   const button = wrapper.find('button')
 
   button.trigger('click')
-  expect(window.alert).toHaveBeenCalledWith('Google Analytics is not yet loaded.')
+  expect(window.alert).toHaveBeenCalledWith('Google Analytics tracking is not yet enabled.')
 
   wrapper.vm.$store.commit('tracking/enable')
   expect(wrapper.vm.$store.state.tracking.disable).toBe(false)
