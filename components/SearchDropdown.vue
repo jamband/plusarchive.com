@@ -14,7 +14,7 @@
     <div v-else-if="$fetchState.error">
       Request failure.
     </div>
-    <b-dropdown-item v-for="(item, index) in list" v-else :key="index" :to="itemLink(query, item)" append exact>
+    <b-dropdown-item v-for="(item, index) in list" v-else :key="index" :to="itemLink(query, item)" append exact @click="dropdownResetScrollTop">
       {{ item }}
     </b-dropdown-item>
   </b-dropdown>
@@ -46,11 +46,10 @@ export default {
       ? await this.$axios.$get(this.items)
       : this.items
   },
-  beforeUpdate () {
-    this.$el.getElementsByTagName('ul')[0]
-      .scrollTop = 0
-  },
   methods: {
+    dropdownResetScrollTop (event) {
+      event.target.parentNode.parentNode.scrollTop = 0
+    },
     resetLink (key) {
       if (this.$route.name.endsWith('-search')) {
         return {

@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import { scrollToTop } from '~/plugins/scroll'
+import { scrollToTop } from '~/utils/scroll'
 import { hasTouchScreen } from '~/utils/screen'
 
 export default {
