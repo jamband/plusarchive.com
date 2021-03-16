@@ -8,8 +8,9 @@ const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-const factory = ({ store, fetchState }) => {
+const factory = ({ props, store }) => {
   return shallowMount(ListTracks, {
+    propsData: props,
     store,
     localVue,
     stubs: {
@@ -18,9 +19,6 @@ const factory = ({ store, fetchState }) => {
       CardLazyImage: true,
       fa: true,
       PaginationMinimal: true
-    },
-    mocks: {
-      $fetchState: fetchState
     }
   })
 }
@@ -30,7 +28,7 @@ const stub = {
   image: 'cardlazyimage-stub'
 }
 
-const data = {
+const props = {
   tracks: [
     {
       id: 1,
@@ -71,26 +69,11 @@ const data = {
 const player = klona(storePlayer)
 player.namespaced = true
 
-test('fetchState.pending: true', () => {
+test('tracks', () => {
   const wrapper = factory({
-    fetchState: { pending: true }
+    props,
+    store: new Vuex.Store({ modules: { player } })
   })
-  expect(wrapper.text()).toBe('...')
-})
-
-test('fetchState.error: true', () => {
-  const wrapper = factory({
-    fetchState: { error: true }
-  })
-  expect(wrapper.text()).toBe('Request failure.')
-})
-
-test('fetchState.pending: false', async () => {
-  const wrapper = factory({
-    store: new Vuex.Store({ modules: { player } }),
-    fetchState: { pending: false }
-  })
-  await wrapper.setData(data)
 
   const card = wrapper.findAll('.card')
   expect(card.length).toBe(3)
@@ -126,12 +109,12 @@ test('fetchState.pending: false', async () => {
   expect(card3.text()).toContain('2xxx.xx.01')
 })
 
-test('When click on a specific track', async () => {
+test('When click on a specific track', () => {
   const wrapper = factory({
+    props,
     store: new Vuex.Store({ modules: { player } }),
     fetchState: { pending: false }
   })
-  await wrapper.setData(data)
   const card = wrapper.findAll('.card')
   const card1 = card.at(0)
   const card2 = card.at(1)
