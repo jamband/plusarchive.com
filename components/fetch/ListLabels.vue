@@ -1,52 +1,32 @@
 <template>
-  <div class="col-lg-8">
-    <AppLoading v-if="$fetchState.pending" class="text-center" />
-    <div v-else-if="$fetchState.error">
-      Request failure.
-    </div>
-    <div v-else>
-      <div class="row">
-        <div v-for="label in labels" :key="label.id" class="col-lg-6 mb-4">
-          <a :href="label.url" class="font-weight-bold" rel="noopener" target="_blank">
-            <fa icon="external-link-alt" fixed-width /> {{ label.name }}
-          </a>
-          <br>
-          <span class="badge badge-secondary">Country:</span>
-          {{ label.country }}
-          <br>
-          <span class="badge badge-secondary">Link:</span>
-          <BrandIconLink :links="label.link" />
-          <br>
-          <span class="badge badge-secondary">Tag:</span>
-          <NLink v-for="tag in label.tags" :key="tag.id" :to="{ query: { tag: tag.name } }" class="badge badge-secondary" append>
-            {{ tag.name }}
-          </NLink>
-          <hr>
-        </div>
-      </div>
-      <PaginationMinimal :current-page="pagination.currentPage" :page-count="pagination.pageCount" />
+  <div class="row">
+    <div v-for="label in labels" :key="label.id" class="col-lg-6 mb-4">
+      <a :href="label.url" class="font-weight-bold" rel="noopener" target="_blank">
+        <fa icon="external-link-alt" fixed-width /> {{ label.name }}
+      </a>
+      <br>
+      <span class="badge badge-secondary">Country:</span>
+      {{ label.country }}
+      <br>
+      <span class="badge badge-secondary">Link:</span>
+      <BrandIconLink :links="label.link" />
+      <br>
+      <span class="badge badge-secondary">Tag:</span>
+      <NLink v-for="tag in label.tags" :key="tag.id" :to="{ query: { tag: tag.name } }" class="badge badge-secondary" append>
+        {{ tag.name }}
+      </NLink>
+      <hr>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      labels: [],
-      pagination: {}
+  props: {
+    labels: {
+      type: Array,
+      required: true
     }
-  },
-  async fetch () {
-    const labels = await this.$axios.$get(
-      `labels${this.$route.query.q ? '/search' : ''}?expand=tags`,
-      { params: this.$route.query })
-    this.labels = labels.items
-    this.pagination = labels._meta
-    this.$store.dispatch('pagination/fetchItem', this.pagination)
-  },
-  watch: {
-    '$route.query': '$fetch'
   }
 }
 </script>
