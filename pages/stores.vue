@@ -11,12 +11,27 @@
       <SearchDropdown label="Tags" query="tag" items="stores/tags" />
       <SearchForm class="d-lg-none mt-1 mb-3" />
     </div>
-    <ListStores />
+    <div class="col-lg-8">
+      <ListStores :stores="stores" />
+      <PaginationMinimal :current-page="pagination.currentPage" :page-count="pagination.pageCount" />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  async asyncData ({ $axios, query, store }) {
+    const stores = await $axios.$get(
+      `stores${query.q ? '/search' : ''}?expand=tags`,
+      { params: query }
+    )
+
+    store.dispatch('pagination/fetchItem', stores._meta)
+
+    return {
+      stores: stores.items
+    }
+  },
   head () {
     return {
       title: 'Stores'
@@ -26,6 +41,7 @@ export default {
     pagination () {
       return this.$store.state.pagination
     }
-  }
+  },
+  watchQuery: ['country', 'page', 'tag']
 }
 </script>

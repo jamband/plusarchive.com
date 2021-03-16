@@ -1,22 +1,20 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import ListStores from './ListStores'
 
-const factory = ({ fetchState }) => {
+const factory = ({ props }) => {
   return shallowMount(ListStores, {
+    propsData: props,
     stubs: {
       fa: true,
       NLink: RouterLinkStub,
       BrandIconLink: true,
       AppLoading: { template: '<div>...</div>' },
       PaginationMinimal: true
-    },
-    mocks: {
-      $fetchState: fetchState
     }
   })
 }
 
-const data = {
+const props = {
   stores: [
     {
       id: 1,
@@ -54,26 +52,8 @@ const data = {
   ]
 }
 
-test('fetchState.pending: true', () => {
-  const wrapper = factory({
-    fetchState: { pending: true }
-  })
-  expect(wrapper.text()).toBe('...')
-})
-
-test('fetchState.error: true', () => {
-  const wrapper = factory({
-    fetchState: { error: true }
-  })
-  expect(wrapper.text()).toBe('Request failure.')
-})
-
-test('fetchState.pending: false', async () => {
-  const wrapper = factory({
-    fetchState: { pending: false }
-  })
-  await wrapper.setData(data)
-
+test('labels', () => {
+  const wrapper = factory({ props })
   const a = wrapper.findAll('a')
   expect(a.length).toBe(9)
 
