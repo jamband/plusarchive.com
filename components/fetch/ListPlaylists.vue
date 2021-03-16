@@ -1,10 +1,6 @@
 <template>
   <div class="col-md-6">
-    <AppLoading v-if="$fetchState.pending" />
-    <div v-else-if="$fetchState.error">
-      Request failure.
-    </div>
-    <ul v-else class="list-unstyled text-truncate">
+    <ul class="list-unstyled text-truncate">
       <li v-for="playlist in playlists" :key="playlist.id" class="h5">
         <NLink :to="{ name: 'playlist', params: { id: playlist.id } }" @click.native="load(playlist.id)">
           {{ playlist.title }} <fa icon="angle-right" fixed-width />
@@ -16,14 +12,11 @@
 
 <script>
 export default {
-  data () {
-    return {
-      playlists: []
+  props: {
+    playlists: {
+      type: Array,
+      required: true
     }
-  },
-  async fetch () {
-    const { items } = await this.$axios.$get('playlists')
-    this.playlists = items
   },
   computed: {
     player () {

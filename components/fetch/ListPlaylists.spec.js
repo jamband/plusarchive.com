@@ -8,22 +8,20 @@ const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-const factory = ({ store, fetchState }) => {
+const factory = ({ props, store }) => {
   return shallowMount(ListPlaylists, {
+    propsData: props,
     store,
     localVue,
     stubs: {
       fa: true,
       NLink: RouterLinkStub,
       AppLoading: { template: '<div>...</div>' }
-    },
-    mocks: {
-      $fetchState: fetchState
     }
   })
 }
 
-const data = {
+const props = {
   playlists: [
     { id: 1, title: 'playlist1' },
     { id: 2, title: 'playlist2' },
@@ -34,25 +32,8 @@ const data = {
 const player = klona(storePlayer)
 player.namespaced = true
 
-test('fetchState.pending: true', () => {
-  const wrapper = factory({
-    fetchState: { pending: true }
-  })
-  expect(wrapper.text()).toBe('...')
-})
-
-test('fetchState.error: true', () => {
-  const wrapper = factory({
-    fetchState: { error: true }
-  })
-  expect(wrapper.text()).toBe('Request failure.')
-})
-
-test('fetchState.pending: false', async () => {
-  const wrapper = factory({
-    fetchState: { pending: false }
-  })
-  await wrapper.setData(data)
+test('playlists', () => {
+  const wrapper = factory({ props })
   const li = wrapper.findAll('li')
   expect(li.length).toBe(3)
   expect(li.at(0).text()).toBe('playlist1')
@@ -63,13 +44,11 @@ test('fetchState.pending: false', async () => {
   expect(li.at(2).find('a').props().to).toEqual({ name: 'playlist', params: { id: 3 } })
 })
 
-test('When click on a specific playlist', async () => {
+test('When click on a specific playlist', () => {
   const wrapper = factory({
-    store: new Vuex.Store({ modules: { player } }),
-    fetchState: { pending: false }
+    props,
+    store: new Vuex.Store({ modules: { player } })
   })
-  await wrapper.setData(data)
-
   const $store = wrapper.vm.$store
   expect($store.state.player.loading).toBe(false)
 
@@ -77,13 +56,11 @@ test('When click on a specific playlist', async () => {
   expect($store.state.player.loading).toBe(true)
 })
 
-test('When click a playlist with the same ID as the player', async () => {
+test('When click a playlist with the same ID as the player', () => {
   const wrapper = factory({
-    store: new Vuex.Store({ modules: { player } }),
-    fetchState: { pending: false }
+    props,
+    store: new Vuex.Store({ modules: { player } })
   })
-  await wrapper.setData(data)
-
   const $store = wrapper.vm.$store
   expect($store.state.player.loading).toBe(false)
 
