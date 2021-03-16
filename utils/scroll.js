@@ -4,7 +4,3 @@ export const scrollToTop = () => {
     document.documentElement.scrollTop = 0
   }
 }
-
-export const dropdownResetScrollTop = (event) => {
-  event.target.parentNode.parentNode.scrollTop = 0
-}
