@@ -11,12 +11,27 @@
       <SearchDropdown label="Tags" query="tag" items="bookmarks/tags" />
       <SearchForm class="d-lg-none mt-1 mb-3" />
     </div>
-    <ListBookmarks />
+    <div class="col-lg-8">
+      <ListBookmarks :bookmarks="bookmarks" />
+      <PaginationMinimal :current-page="pagination.currentPage" :page-count="pagination.pageCount" />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  async asyncData ({ $axios, query, store }) {
+    const bookmarks = await $axios.$get(
+      `bookmarks${query.q ? '/search' : ''}?expand=tags`,
+      { params: query }
+    )
+
+    store.dispatch('pagination/fetchItem', bookmarks._meta)
+
+    return {
+      bookmarks: bookmarks.items
+    }
+  },
   head () {
     return {
       title: 'Bookmarks'
@@ -26,6 +41,7 @@ export default {
     pagination () {
       return this.$store.state.pagination
     }
-  }
+  },
+  watchQuery: ['country', 'page', 'tag']
 }
 </script>
