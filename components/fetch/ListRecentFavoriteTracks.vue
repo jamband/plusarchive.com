@@ -1,29 +1,6 @@
 <template>
   <div>
-    <div v-if="$fetchState.pending" class="row row-cols-1 row-cols-md-3 text-center card-container">
-      <div v-for="(pending, index) in Array(3)" :key="index" class="col mb-md-4">
-        <div class="card">
-          <div class="card-img-wrap">
-            <img
-              class="card-img-top"
-              data-aspectratio="1/1"
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII="
-              alt=""
-            >
-          </div>
-          <div class="card-body">
-            <h6 class="card-title">&nbsp;</h6>
-            <div class="card-text">&nbsp;</div>
-            <div class="card-info">&nbsp;</div>
-          </div>
-        </div>
-        <hr class="d-md-none">
-      </div>
-    </div>
-    <div v-else-if="$fetchState.error">
-      Request failure.
-    </div>
-    <div v-else class="row row-cols-1 row-cols-md-3 text-center card-container">
+    <div class="row row-cols-1 row-cols-md-3 text-center card-container">
       <div v-for="track in tracks" :key="track.id" class="col mb-md-4">
         <div class="card">
           <div class="card-img-wrap">
@@ -59,14 +36,11 @@
 
 <script>
 export default {
-  data () {
-    return {
-      tracks: []
+  props: {
+    tracks: {
+      type: Array,
+      required: true
     }
-  },
-  async fetch () {
-    const { items } = await this.$axios.$get('tracks/favorites?expand=genres')
-    this.tracks = items
   },
   computed: {
     player () {

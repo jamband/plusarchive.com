@@ -1,39 +1,19 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import ListSearchByGenres from './ListSearchByGenres'
 
-const factory = ({ fetchState }) => {
+const factory = ({ props }) => {
   return shallowMount(ListSearchByGenres, {
+    propsData: props,
     stubs: {
       NLink: RouterLinkStub,
       AppLoading: { template: '<div>...</div>' }
-    },
-    mocks: {
-      $fetchState: fetchState
     }
   })
 }
 
-test('fetchState.pending: true', () => {
-  const wrapper = factory({
-    fetchState: { pending: true }
-  })
-  expect(wrapper.text()).toBe('...')
-})
-
-test('fetchState.error: true', () => {
-  const wrapper = factory({
-    fetchState: { error: true }
-  })
-  expect(wrapper.text()).toBe('Request failure.')
-})
-
-test('fetchState.pending: false', async () => {
-  const wrapper = factory({
-    fetchState: { pending: false }
-  })
-  await wrapper.setData({
-    genres: ['Foo', 'Bar', 'Baz']
-  })
+test('genres', () => {
+  const props = { genres: ['Foo', 'Bar', 'Baz'] }
+  const wrapper = factory({ props })
 
   const a = wrapper.findAll('a')
   expect(a.length).toBe(3)

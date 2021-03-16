@@ -8,8 +8,9 @@ const localVue = createLocalVue()
 
 localVue.use(Vuex)
 
-const factory = ({ store, fetchState }) => {
+const factory = ({ props, store }) => {
   return shallowMount(ListRecentFavoriteTracks, {
+    propsData: props,
     store,
     localVue,
     stubs: {
@@ -17,9 +18,6 @@ const factory = ({ store, fetchState }) => {
       AppLoading: { template: '<div>...</div>' },
       CardLazyImage: true,
       fa: true
-    },
-    mocks: {
-      $fetchState: fetchState
     }
   })
 }
@@ -29,7 +27,7 @@ const stub = {
   image: 'cardlazyimage-stub'
 }
 
-const data = {
+const props = {
   tracks: [
     {
       id: 1,
@@ -64,30 +62,14 @@ const data = {
   ]
 }
 
-test('fetchState.pending: true', () => {
-  const wrapper = factory({
-    fetchState: { pending: true }
-  })
-  const card = wrapper.findAll('.card')
-  expect(card.length).toBe(3)
-})
-
-test('fetchState.error: true', () => {
-  const wrapper = factory({
-    fetchState: { error: true }
-  })
-  expect(wrapper.text()).toBe('Request failure.')
-})
-
 const player = klona(storePlayer)
 player.namespaced = true
 
-test('fetchState.pending: false', async () => {
+test('tracks', () => {
   const wrapper = factory({
-    store: new Vuex.Store({ modules: { player } }),
-    fetchState: { pending: false }
+    props,
+    store: new Vuex.Store({ modules: { player } })
   })
-  await wrapper.setData(data)
 
   const card = wrapper.findAll('.card')
   expect(card.length).toBe(3)
@@ -120,12 +102,11 @@ test('fetchState.pending: false', async () => {
   expect(card3.findAll(stub.icon).at(1).attributes().icon).toBe('fab,youtube-square')
 })
 
-test('When click on a specific track', async () => {
+test('When click on a specific track', () => {
   const wrapper = factory({
-    store: new Vuex.Store({ modules: { player } }),
-    fetchState: { pending: false }
+    props,
+    store: new Vuex.Store({ modules: { player } })
   })
-  await wrapper.setData(data)
   const card = wrapper.findAll('.card')
   const card1 = card.at(0)
   const card2 = card.at(1)
