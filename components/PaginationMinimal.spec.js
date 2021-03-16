@@ -1,6 +1,10 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import PaginationMinimal from '~/components/PaginationMinimal'
 
+window.matchMedia = () => {
+  return { matches: false }
+}
+
 const factory = ({ props }) => {
   return shallowMount(PaginationMinimal, {
     propsData: props,

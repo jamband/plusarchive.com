@@ -94,8 +94,9 @@ $dropdown-divider-bg:               $gray-800;
 // Pagination
 $pagination-bg:             transparent;
 $pagination-border-color:   none;
-$pagination-hover-color:    $link-hover-color;
-$pagination-hover-bg:       color.scale($dark, $lightness: 0%, $alpha: -60%);
+$pagination-focus-color:    $link-hover-color;
+$pagination-focus-bg:       color.scale($dark, $lightness: 0%, $alpha: -60%);
+$pagination-hover-bg:       $pagination-bg;
 $pagination-disabled-bg:    transparent;
 
 // Cards

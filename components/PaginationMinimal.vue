@@ -1,6 +1,6 @@
 <template>
   <nav v-if="hasPage()" class="text-center" aria-label="Page navigation">
-    <ul class="pagination d-flex">
+    <ul class="pagination d-flex" @click="blur">
       <li :class="disabledSelector('first')" class="page-item flex-fill">
         <NLink
           :to="pageLink(1)"
@@ -8,6 +8,7 @@
           :aria-disabled="disabled('first')"
           :tabindex="disabled('first') ? -1 : 0"
           class="page-link"
+          :class="{ 'pagination-minimal-link': !hasTouchScreen }"
           aria-label="First"
         >
           <fa icon="angle-double-left" />
@@ -20,6 +21,7 @@
           :aria-disabled="disabled('prev')"
           :tabindex="disabled('prev') ? -1 : 0"
           class="page-link"
+          :class="{ 'pagination-minimal-link': !hasTouchScreen }"
           aria-label="Previous"
         >
           <fa icon="angle-left" />
@@ -32,6 +34,7 @@
           :aria-disabled="disabled('next')"
           :tabindex="disabled('next') ? -1 : 0"
           class="page-link"
+          :class="{ 'pagination-minimal-link': !hasTouchScreen }"
           aria-label="Next"
         >
           <fa icon="angle-right" />
@@ -44,6 +47,7 @@
           :aria-disabled="disabled('last')"
           :tabindex="disabled('last') ? -1 : 0"
           class="page-link"
+          :class="{ 'pagination-minimal-link': !hasTouchScreen }"
           aria-label="Last"
         >
           <fa icon="angle-double-right" />
@@ -58,6 +62,7 @@
 
 <script>
 import { scrollToTop } from '~/plugins/scroll'
+import { hasTouchScreen } from '~/utils/screen'
 
 export default {
   props: {
@@ -70,6 +75,14 @@ export default {
       required: true
     }
   },
+  data () {
+    return {
+      hasTouchScreen: false
+    }
+  },
+  mounted () {
+    this.hasTouchScreen = hasTouchScreen()
+  },
   methods: {
     disabled (part) {
       return ['first', 'prev'].includes(part)
@@ -78,6 +91,9 @@ export default {
     },
     disabledSelector (part) {
       return this.disabled(part) ? 'disabled' : ''
+    },
+    blur (event) {
+      event.target.blur()
     },
     pageLink (page) {
       scrollToTop()
@@ -108,6 +124,13 @@ export default {
     @include media-breakpoint-up(sm) {
       bottom: 3.1em;
       font-size: 85%;
+    }
+  }
+
+  &-link {
+    &:hover {
+      background-color: $pagination-focus-bg;
+      color: $primary;
     }
   }
 }

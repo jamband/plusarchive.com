@@ -5,3 +5,11 @@
     }
   }
 }
+
+.page-link {
+  &:active {
+    background-color: $pagination-focus-bg;
+    box-shadow: $pagination-focus-box-shadow;
+    color: $pagination-focus-color;
+  }
+}
