@@ -1,6 +1,6 @@
-<template functional>
+<template>
   <span class="badge text-muted pl-3">
-    {{ props.total === 0 ? 'No results found' : `${props.total} results` }}
+    {{ total === 0 ? 'No results found' : `${total} results` }}
   </span>
 </template>
 

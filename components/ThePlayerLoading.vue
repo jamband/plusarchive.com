@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div class="player-loading">
     <span>.</span><span>.</span><span>.</span>
   </div>

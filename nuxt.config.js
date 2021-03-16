@@ -7,7 +7,10 @@ import {
 
 export default {
   ssr: true,
-  components: true,
+  components: [
+    { path: '~/components', pathPrefix: false },
+    { path: '~/fetch', pathPrefix: false }
+  ],
   head: {
     titleTemplate: `%s - ${APP_NAME}`,
     meta: [
