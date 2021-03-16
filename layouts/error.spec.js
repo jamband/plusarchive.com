@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 import Error from '~/layouts/error'
-import { APP_NAME } from '~/plugins/constants'
+import { APP_NAME } from '~/constants/app'
 
 const factory = ({ props }) => {
   return shallowMount(Error, {

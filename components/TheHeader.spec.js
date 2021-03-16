@@ -1,7 +1,7 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import { BNavItem } from 'bootstrap-vue'
 import TheHeader from '~/components/TheHeader'
-import { APP_NAME } from '~/plugins/constants'
+import { APP_NAME } from '~/constants/app'
 
 const factory = (route = {}) => {
   return shallowMount(TheHeader, {

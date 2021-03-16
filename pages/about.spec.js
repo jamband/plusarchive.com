@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 import About from '~/pages/about'
-import { APP_NAME } from '~/plugins/constants'
+import { APP_NAME } from '~/constants/app'
 
 const factory = () => {
   return shallowMount(About, {

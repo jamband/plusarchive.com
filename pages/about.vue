@@ -3,7 +3,7 @@
     <div class="col-md-5 offset-md-1">
       <h2>About</h2>
       <p>
-        {{ app.name }} is music archive website for everyday.<br>
+        {{ appName }} is music archive website for everyday.<br>
         This website is an open source project.
       </p>
       <a href="https://github.com/jamband/plusarchive.com" rel="noopener" target="_blank">
@@ -14,14 +14,12 @@
 </template>
 
 <script>
-import { APP_NAME } from '~/plugins/constants'
+import { APP_NAME } from '~/constants/app'
 
 export default {
   data () {
     return {
-      app: {
-        name: APP_NAME
-      }
+      appName: APP_NAME
     }
   },
   head () {

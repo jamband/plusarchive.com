@@ -12,20 +12,18 @@
       <fa icon="times" />
     </button>
     <div class="d-md-none pt-1 text-muted">
-      {{ app.name }}
+      {{ appName }}
     </div>
   </div>
 </template>
 
 <script>
-import { APP_NAME } from '~/plugins/constants'
+import { APP_NAME } from '~/constants/app'
 
 export default {
   data () {
     return {
-      app: {
-        name: APP_NAME
-      }
+      appName: APP_NAME
     }
   },
   computed: {

@@ -3,7 +3,7 @@ import {
   APP_URL,
   APP_DESCRIPTION,
   APP_COLOR_PRIMARY
-} from './plugins/constants'
+} from './constants/app'
 
 export default {
   ssr: true,

@@ -1,4 +1,4 @@
-import { APP_COLOR_PRIMARY } from '~/plugins/constants'
+import { APP_COLOR_PRIMARY } from '~/constants/app'
 
 const state = () => ({
   loading: false,

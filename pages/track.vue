@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { APP_NAME } from '~/plugins/constants'
+import { APP_NAME } from '~/constants/app'
 
 export default {
   async asyncData ({ $axios, store, params, error }) {

@@ -1,7 +1,7 @@
 <template>
   <b-navbar toggleable="md" type="dark" variant="dark" class="mb-3">
     <div class="container">
-      <NLink class="navbar-brand" :to="{ name:'home' }">{{ app.name }}</NLink>
+      <NLink class="navbar-brand" :to="{ name:'home' }">{{ appName }}</NLink>
       <b-navbar-toggle target="nav-collapse" />
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
@@ -38,14 +38,12 @@
 </template>
 
 <script>
-import { APP_NAME } from '~/plugins/constants'
+import { APP_NAME } from '~/constants/app'
 
 export default {
   data () {
     return {
-      app: {
-        name: APP_NAME
-      }
+      appName: APP_NAME
     }
   },
   methods: {

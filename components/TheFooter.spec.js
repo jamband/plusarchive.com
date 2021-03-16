@@ -2,7 +2,7 @@ import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import Vuex from 'vuex'
 import { klona } from 'klona'
 import TheFooter from '~/components/TheFooter'
-import { APP_NAME } from '~/plugins/constants'
+import { APP_NAME } from '~/constants/app'
 import storeTracking from '~/store/tracking'
 import storePlayer from '~/store/player'
 
