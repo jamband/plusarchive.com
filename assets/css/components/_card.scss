@@ -4,6 +4,7 @@
 
     @include media-breakpoint-down(sm) {
       background-color: $body-bg;
+      border: none;
       flex-direction: row;
     }
 
