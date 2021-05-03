@@ -1,12 +1,12 @@
 .navbar-nav {
   a.active {
     @include media-breakpoint-down(sm) {
-      border-left: 0.2rem solid $primary;
+      border-left: 0.2rem solid var(--primary);
       padding-left: 0.5rem;
     }
 
     @include media-breakpoint-up(md) {
-      background: linear-gradient(transparent 92%, $primary 92%);
+      background: linear-gradient(transparent 92%, var(--primary) 92%);
     }
   }
 
