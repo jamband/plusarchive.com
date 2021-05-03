@@ -18,6 +18,18 @@ $secondary:     $gray-500;
 $light:         $gray-100;
 $dark:          $gray-800;
 
+$colors: (
+  "white":      $white,
+  "black":      $black,
+);
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "light":      $light,
+  "dark":       $dark,
+);
+
 // Options
 $enable-caret:              false;
 $enable-shadows:            true;
