@@ -1,5 +1,9 @@
 <template>
-  <div class="row row-cols-1 row-cols-md-3 text-center card-container">
+  <div
+    ref="container"
+    class="row row-cols-1 row-cols-md-3 text-center card-container"
+    @load.capture="masonry()"
+  >
     <div v-for="track in tracks" :key="track.id" class="col mb-md-4">
       <div class="card">
         <div class="card-img-wrap">
@@ -48,10 +52,7 @@ export default {
     }
   },
   mounted () {
-    this.masonryLoaded()
-  },
-  updated () {
-    this.masonryLoaded()
+    this.masonry()
   },
   methods: {
     load (id) {
@@ -69,16 +70,13 @@ export default {
         ? 'pause-circle'
         : 'play-circle'
     },
-    masonryLoaded () {
-      const Masonry = require('masonry-layout')
-      const container = document.querySelector('.card-container')
-
-      if (container) {
-        container.addEventListener('load', () => {
-        /* eslint-disable no-new */
-          new Masonry(container, { transitionDuration: 0 })
-        }, true)
-      }
+    masonry () {
+      import('masonry-layout').then((module) => {
+        /* eslint-disable no-new, new-cap */
+        new module.default(this.$refs.container, {
+          transitionDuration: 0
+        })
+      })
     }
   }
 }
