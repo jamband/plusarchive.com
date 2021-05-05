@@ -42,6 +42,6 @@ export default {
       return ['Bandcamp', 'SoundCloud', 'Vimeo', 'YouTube']
     }
   },
-  watchQuery: ['genre', 'page', 'provider']
+  watchQuery: ['genre', 'page', 'provider', 'q']
 }
 </script>

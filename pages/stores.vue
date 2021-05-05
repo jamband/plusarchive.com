@@ -42,6 +42,6 @@ export default {
       return this.$store.state.pagination
     }
   },
-  watchQuery: ['country', 'page', 'tag']
+  watchQuery: ['country', 'page', 'q', 'tag']
 }
 </script>
