@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <ul class="list-unstyled text-truncate">
       <li v-for="playlist in playlists" :key="playlist.id" class="h5">
-        <NLink :to="{ name: 'playlist', params: { id: playlist.id } }" @click.native="load(playlist.id)">
+        <NLink :to="{ name: 'playlist', params: { id: playlist.id } }" @click.native="setPlayer(playlist.id)">
           {{ playlist.title }} <fa icon="angle-right" fixed-width />
         </NLink>
       </li>
@@ -24,7 +24,7 @@ export default {
     }
   },
   methods: {
-    load (id) {
+    setPlayer (id) {
       if (id !== this.player.id) {
         this.$store.dispatch('player/loading', { status: true })
       }

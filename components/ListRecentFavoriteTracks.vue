@@ -7,7 +7,7 @@
             <NLink
               :to="{ name: 'track', params: { id: track.id } }"
               :aria-label="track.title"
-              @click.native="load(track.id)"
+              @click.native="setPlayer(track.id)"
             >
               <CardLazyImage :image="track.image" :aspectratio="aspectRatio(track.provider)" />
               <fa :icon="audioStatusIcon(track.id)" class="card-play" />
@@ -48,7 +48,7 @@ export default {
     }
   },
   methods: {
-    load (id) {
+    setPlayer (id) {
       if (id !== this.player.id) {
         this.$store.dispatch('player/loading', { status: true })
       }
