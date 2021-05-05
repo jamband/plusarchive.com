@@ -22,6 +22,7 @@ export default {
       { hid: 'og:url', property: 'og:url', content: APP_URL }
     ],
     link: [
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
