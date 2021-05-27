@@ -1,17 +1,23 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
-import { BDropdown, BDropdownItem } from 'bootstrap-vue'
-import SearchDropdown from '~/components/SearchDropdown'
+import AppDropdown from './AppDropdown'
+import AppDropdownDivider from './AppDropdownDivider'
+import AppDropdownLink from './AppDropdownLink'
+import AppDropdownText from './AppDropdownText'
+import SearchDropdown from './SearchDropdown'
 
 const factory = ({ route, fetchState }) => {
   return shallowMount(SearchDropdown, {
     propsData: {
+      id: 'foo',
       label: 'Tags',
       query: 'tag',
       items: []
     },
     stubs: {
-      BDropdown,
-      BDropdownItem,
+      AppDropdown,
+      AppDropdownDivider,
+      AppDropdownLink,
+      AppDropdownText,
       fa: true,
       AppLoading: { template: '<div>...</div>' },
       NLink: RouterLinkStub
@@ -29,7 +35,7 @@ test('fetchState.pending: true', async () => {
     fetchState: { pending: true }
   })
   await wrapper.setData({ list: ['tag1'] })
-  expect(wrapper.findAll('a').length).toBe(1)
+  expect(wrapper.findAll('a.dropdown-item').length).toBe(1)
   expect(wrapper.text()).toContain('...')
 })
 
@@ -39,7 +45,7 @@ test('fetchState.error: true', async () => {
     fetchState: { error: true }
   })
   await wrapper.setData({ list: ['tag1'] })
-  expect(wrapper.findAll('a').length).toBe(1)
+  expect(wrapper.findAll('a.dropdown-item').length).toBe(1)
   expect(wrapper.text()).toContain('Request failure')
 })
 
@@ -49,7 +55,7 @@ test('fetchState.pending: false', async () => {
     fetchState: { pending: false }
   })
   await wrapper.setData({ list: ['tag1'] })
-  expect(wrapper.findAll('a').length).toBe(2)
+  expect(wrapper.findAll('a.dropdown-item').length).toBe(2)
 })
 
 test('label when route.query: {}', async () => {
@@ -58,7 +64,7 @@ test('label when route.query: {}', async () => {
     fetchState: { pending: false }
   })
   await wrapper.setData({ list: ['tag1'] })
-  expect(wrapper.find('button').text()).toBe('Tags')
+  expect(wrapper.find('a').text()).toBe('Tags')
 })
 
 test('label when route.query: { tag: "tag1" }', async () => {
@@ -67,7 +73,7 @@ test('label when route.query: { tag: "tag1" }', async () => {
     fetchState: { pending: false }
   })
   await wrapper.setData({ list: ['tag1'] })
-  expect(wrapper.find('button').text()).toBe('tag1')
+  expect(wrapper.find('a').text()).toBe('tag1')
 })
 
 test('a.href/text and text when route.query: { country: "country1" }', async () => {
@@ -76,10 +82,10 @@ test('a.href/text and text when route.query: { country: "country1" }', async () 
     fetchState: { pending: false }
   })
   await wrapper.setData({ list: ['tag1'] })
-  const a = wrapper.findAll('a')
-  expect(a.at(0).attributes('href')).toBe('?country=country1')
+  const a = wrapper.findAllComponents(RouterLinkStub)
+  expect(a.at(0).props().to).toEqual({ query: { country: 'country1' } })
   expect(a.at(0).text()).toBe('Reset')
-  expect(a.at(1).attributes('href')).toBe('?country=country1&tag=tag1')
+  expect(a.at(1).props().to).toEqual({ query: { country: 'country1', tag: 'tag1' } })
   expect(a.at(1).text()).toBe('tag1')
 })
 
@@ -89,10 +95,10 @@ test('a.href/text when route.query: { country: "country1", tag: "tag2" }', async
     fetchState: { pending: false }
   })
   await wrapper.setData({ list: ['tag1'] })
-  const a = wrapper.findAll('a')
-  expect(a.at(0).attributes('href')).toBe('?country=country1')
+  const a = wrapper.findAllComponents(RouterLinkStub)
+  expect(a.at(0).props().to).toEqual({ query: { country: 'country1' } })
   expect(a.at(0).text()).toBe('Reset')
-  expect(a.at(1).attributes('href')).toBe('?country=country1&tag=tag1')
+  expect(a.at(1).props().to).toEqual({ query: { country: 'country1', tag: 'tag1' } })
   expect(a.at(1).text()).toBe('tag1')
 })
 
@@ -102,10 +108,10 @@ test('a.href/text when route.query: { page: "2" }', async () => {
     fetchState: { pending: false }
   })
   await wrapper.setData({ list: ['tag1'] })
-  const a = wrapper.findAll('a')
-  expect(a.at(0).attributes('href')).toBe('/')
+  const a = wrapper.findAllComponents(RouterLinkStub)
+  expect(a.at(0).props().to).toEqual({ query: {} })
   expect(a.at(0).text()).toBe('Reset')
-  expect(a.at(1).attributes('href')).toBe('?tag=tag1')
+  expect(a.at(1).props().to).toEqual({ query: { tag: 'tag1' } })
   expect(a.at(1).text()).toBe('tag1')
 })
 
@@ -116,7 +122,7 @@ test('resetLink.href/text when route: { name: tracks-search, q: foo }', async ()
   })
 
   await wrapper.setData({ list: ['tag1'] })
-  const a = wrapper.findAll('a')
+  const a = wrapper.findAllComponents(RouterLinkStub)
   expect(a.at(0).text()).toBe('Reset')
   expect(a.at(0).props().to).toEqual({ name: 'tracks' })
 })

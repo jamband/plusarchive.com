@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-6">
     <ul class="list-unstyled text-truncate">
-      <li v-for="playlist in playlists" :key="playlist.id" class="h5">
+      <li v-for="playlist in playlists" :key="playlist.id" class="h5 fw-bold">
         <NLink :to="{ name: 'playlist', params: { id: playlist.id } }" @click.native="setPlayer(playlist.id)">
           {{ playlist.title }} <fa icon="angle-right" fixed-width />
         </NLink>

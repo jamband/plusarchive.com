@@ -1,24 +1,23 @@
 <template>
-  <div class="player-loading" role="status">
+  <div :class="$style.loading" role="status">
     <span>.</span><span>.</span><span>.</span>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 @keyframes loading {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
 
-.player-loading {
-  color: var(--secondary);
-  font-size: 150%;
+.loading {
+  align-items: center;
+  color: var(--bs-secondary);
+  display: flex;
+  font-size: 180%;
   font-weight: bold;
-  left: 50%;
+  justify-content: center;
   pointer-events: none;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
 
   > span {
     animation-duration: 0.5s;
@@ -31,4 +30,5 @@
     &:nth-child(3) { animation-delay: 0.3s; }
   }
 }
+
 </style>

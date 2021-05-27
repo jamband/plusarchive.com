@@ -1,18 +1,9 @@
 // vendor
 @import "vendor/fontawesome";
 @import "vendor/bootstrap";
-@import "vendor/bootstrap-vue";
 @import "vendor/lazysizes";
 
-// mixins
-@import "mixins/focus-visible";
-
 // components
-@import "components/button";
-@import "components/card";
 @import "components/dropdown";
-@import "components/embed";
-@import "components/layout";
 @import "components/navbar";
-@import "components/pagination";
-@import "components/type";
+@import "components/tag";

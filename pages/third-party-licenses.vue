@@ -1,9 +1,10 @@
 <template>
   <div class="row">
-    <div class="col-md-5 offset-md-1">
-      <h2>Third-Party Licenses</h2>
+    <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+      <h1>Third-Party Licenses</h1>
       <p>
-        You can check the license of the third-party libraries used on this site by the following link.
+        You can check the license of the third-party libraries used on this site
+        by the following link.
       </p>
       <a href="/_nuxt/licenses.txt" target="_blank">licenses.txt</a>
     </div>

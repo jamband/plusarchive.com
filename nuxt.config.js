@@ -42,18 +42,15 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
     '@nuxtjs/router',
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
+    'nuxt-purgecss'
   ],
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    'bootstrap-vue/nuxt'
+    '@nuxtjs/pwa'
   ],
   build: {
     // analyze: true,
-    babel: {
-      compact: true
-    },
     terser: {
       extractComments: {
         filename: 'licenses.txt'
@@ -61,16 +58,6 @@ export default {
     }
   },
   // top level options for packages
-  bootstrapVue: {
-    components: [
-      'BNav', 'BNavItem', 'BNavItemDropdown',
-      'BNavbar', 'BNavbarNav', 'BNavbarToggle',
-      'BDropdown', 'BDropdownItem',
-      'BCollapse'
-    ],
-    bootstrapCSS: false,
-    bootstrapVueCSS: false
-  },
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
     disabled: true,
@@ -86,5 +73,13 @@ export default {
     background_color: '#222',
     display: 'standalone',
     start_url: '/'
+  },
+  purgeCSS: {
+    paths: [
+      './node_modules/@fortawesome/fontawesome-svg-core/index.js',
+      './node_modules/bootstrap/js/dist/collapse.js',
+      './node_modules/bootstrap/js/dist/dropdown.js'
+    ],
+    extractors: () => []
   }
 }

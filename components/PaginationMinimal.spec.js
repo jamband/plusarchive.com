@@ -37,17 +37,17 @@ test('current page: first', () => {
     pageCount: 10
   }
   const wrapper = factory({ props })
-  const li = wrapper.findAll('ul > li')
+  const links = wrapper.findAll('a')
 
-  expect(li.at(FIRST).classes()).toContain('disabled')
-  expect(li.at(PREV).classes()).toContain('disabled')
-  expect(li.at(NEXT).classes()).not.toContain('disabled')
-  expect(li.at(LAST).classes()).not.toContain('disabled')
+  expect(links.at(FIRST).classes()).toContain('disabled')
+  expect(links.at(PREV).classes()).toContain('disabled')
+  expect(links.at(NEXT).classes()).not.toContain('disabled')
+  expect(links.at(LAST).classes()).not.toContain('disabled')
 
-  expect(li.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
-  expect(li.at(PREV).find('a').props().to).toEqual({ query: { page: 0 } })
-  expect(li.at(NEXT).find('a').props().to).toEqual({ query: { page: 2 } })
-  expect(li.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
+  expect(links.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(links.at(PREV).find('a').props().to).toEqual({ query: { page: 0 } })
+  expect(links.at(NEXT).find('a').props().to).toEqual({ query: { page: 2 } })
+  expect(links.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
 
   expect(wrapper.text()).toContain('1/10')
 })
@@ -58,17 +58,17 @@ test('current page: second', () => {
     pageCount: 10
   }
   const wrapper = factory({ props })
-  const li = wrapper.findAll('ul > li')
+  const links = wrapper.findAll('a')
 
-  expect(li.at(FIRST).classes()).not.toContain('disabled')
-  expect(li.at(PREV).classes()).not.toContain('disabled')
-  expect(li.at(NEXT).classes()).not.toContain('disabled')
-  expect(li.at(LAST).classes()).not.toContain('disabled')
+  expect(links.at(FIRST).classes()).not.toContain('disabled')
+  expect(links.at(PREV).classes()).not.toContain('disabled')
+  expect(links.at(NEXT).classes()).not.toContain('disabled')
+  expect(links.at(LAST).classes()).not.toContain('disabled')
 
-  expect(li.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
-  expect(li.at(PREV).find('a').props().to).toEqual({ query: { page: 1 } })
-  expect(li.at(NEXT).find('a').props().to).toEqual({ query: { page: 3 } })
-  expect(li.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
+  expect(links.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(links.at(PREV).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(links.at(NEXT).find('a').props().to).toEqual({ query: { page: 3 } })
+  expect(links.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
 
   expect(wrapper.text()).toContain('2/10')
 })
@@ -79,17 +79,17 @@ test('current page: last', () => {
     pageCount: 10
   }
   const wrapper = factory({ props })
-  const li = wrapper.findAll('ul > li')
+  const links = wrapper.findAll('a')
 
-  expect(li.at(FIRST).classes()).not.toContain('disabled')
-  expect(li.at(PREV).classes()).not.toContain('disabled')
-  expect(li.at(NEXT).classes()).toContain('disabled')
-  expect(li.at(LAST).classes()).toContain('disabled')
+  expect(links.at(FIRST).classes()).not.toContain('disabled')
+  expect(links.at(PREV).classes()).not.toContain('disabled')
+  expect(links.at(NEXT).classes()).toContain('disabled')
+  expect(links.at(LAST).classes()).toContain('disabled')
 
-  expect(li.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
-  expect(li.at(PREV).find('a').props().to).toEqual({ query: { page: 9 } })
-  expect(li.at(NEXT).find('a').props().to).toEqual({ query: { page: 11 } })
-  expect(li.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
+  expect(links.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(links.at(PREV).find('a').props().to).toEqual({ query: { page: 9 } })
+  expect(links.at(NEXT).find('a').props().to).toEqual({ query: { page: 11 } })
+  expect(links.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
 
   expect(wrapper.text()).toContain('10/10')
 })

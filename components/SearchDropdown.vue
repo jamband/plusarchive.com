@@ -1,28 +1,33 @@
 <template>
-  <b-dropdown variant="link" toggle-class="badge badge-secondary" menu-class="menu" no-caret>
-    <template slot="button-content">
-      {{ $route.query[query] || label }}
-      <fa icon="angle-down" fixed-width />
-    </template>
-    <b-dropdown-item :to="resetLink(query)" exact>
+  <AppDropdown :id="id" :label="$route.query[query] || label">
+    <AppDropdownLink :to="resetLink(query)">
       Reset
-    </b-dropdown-item>
-    <div class="dropdown-divider" />
-    <div v-if="$fetchState.pending">
+    </AppDropdownLink>
+    <AppDropdownDivider />
+    <AppDropdownText v-if="$fetchState.pending">
       <AppLoading />
-    </div>
-    <div v-else-if="$fetchState.error">
+    </AppDropdownText>
+    <AppDropdownText v-else-if="$fetchState.error">
       Request failure.
-    </div>
-    <b-dropdown-item v-for="(item, index) in list" v-else :key="index" :to="itemLink(query, item)" append exact @click="dropdownResetScrollTop">
+    </AppDropdownText>
+    <AppDropdownLink
+      v-for="(item, index) in list"
+      v-else
+      :key="index"
+      :to="itemLink(query, item)"
+    >
       {{ item }}
-    </b-dropdown-item>
-  </b-dropdown>
+    </AppDropdownLink>
+  </AppDropdown>
 </template>
 
 <script>
 export default {
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     label: {
       type: String,
       required: true
@@ -47,9 +52,6 @@ export default {
       : this.items
   },
   methods: {
-    dropdownResetScrollTop (event) {
-      event.target.parentNode.parentNode.scrollTop = 0
-    },
     resetLink (key) {
       if (this.$route.name.endsWith('-search')) {
         return {

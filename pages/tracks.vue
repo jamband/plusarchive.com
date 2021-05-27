@@ -1,17 +1,59 @@
 <template>
   <div>
-    <div class="text-center mb-3">
+    <div class="mb-md-4 text-center">
       <NLink :to="{ name: 'tracks' }" class="text-light">
-        <fa icon="redo-alt" fixed-width /> Reset All
+        <fa icon="redo-alt" size="sm" fixed-width /> Reset All
       </NLink>
-      <TotalCount :total="pagination.totalCount" />
+      <TotalCount class="mx-3" :total="pagination.totalCount" />
       <br class="d-sm-none">
-      <SearchDropdown label="Providers" query="provider" :items="providers" />
-      <SearchDropdown label="Genres" query="genre" items="tracks/genres" />
-      <SearchForm class="d-lg-none mb-3" />
+      <SearchDropdown
+        id="searchTracksProviders"
+        class="d-inline-block"
+        label="Providers"
+        query="provider"
+        :items="providers"
+      />
+      <SearchDropdown
+        id="searchTracksGenres"
+        class="d-inline-block"
+        label="Genres"
+        query="genre"
+        items="tracks/genres"
+      />
+      <SearchForm class="d-md-none my-2" />
     </div>
-    <ListTracks :tracks="tracks" />
-    <PaginationMinimal :current-page="pagination.currentPage" :page-count="pagination.pageCount" />
+    <div
+      ref="container"
+      class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-md-4"
+      @load.capture="masonry()"
+    >
+      <div v-for="track in tracks" :key="track.id">
+        <TrackCard
+          :id="track.id"
+          :provider="track.provider"
+          :image="track.image"
+          :title="track.title"
+          :footer="track.created_at"
+        >
+          <NLink :to="{ query: { provider: track.provider } }" class="tag">
+            {{ track.provider }}
+          </NLink>
+          <NLink
+            v-for="genre in track.genres"
+            :key="genre.id"
+            :to="{ query: { genre: genre.name } }"
+            class="tag"
+          >
+            {{ genre.name }}
+          </NLink>
+        </TrackCard>
+      </div>
+    </div>
+    <PaginationMinimal
+      class="mt-4"
+      :current-page="pagination.currentPage"
+      :page-count="pagination.pageCount"
+    />
   </div>
 </template>
 
@@ -38,10 +80,26 @@ export default {
     pagination () {
       return this.$store.state.pagination
     },
+    player () {
+      return this.$store.state.player
+    },
     providers () {
       return ['Bandcamp', 'SoundCloud', 'Vimeo', 'YouTube']
     }
   },
-  watchQuery: ['genre', 'page', 'provider', 'q']
+  watchQuery: ['genre', 'page', 'provider', 'q'],
+  mounted () {
+    this.masonry()
+  },
+  methods: {
+    masonry () {
+      import('masonry-layout').then((module) => {
+        /* eslint-disable no-new, new-cap */
+        new module.default(this.$refs.container, {
+          transitionDuration: 0
+        })
+      })
+    }
+  }
 }
 </script>

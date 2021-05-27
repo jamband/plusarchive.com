@@ -1,7 +1,7 @@
 <template>
   <div class="row">
-    <div class="col-md-5 offset-md-1">
-      <h2>About</h2>
+    <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+      <h1>About</h1>
       <p>
         {{ appName }} is music archive website for everyday.<br>
         This website is an open source project.

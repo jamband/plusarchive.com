@@ -1,19 +1,39 @@
 <template>
   <div>
-    <div :class="aspectRatio" class="embed-responsive">
-      <ThePlayerLoading v-if="player.loading" />
-      <iframe :key="player.id" :src="player.src" class="embed-responsive-item" frameborder="0" allowfullscreen @load="load()" />
+    <div v-if="is1x1Ratio()" class="row">
+      <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+        <div class="ratio ratio-1x1">
+          <ThePlayerLoading v-if="player.loading" />
+          <iframe
+            :key="player.id"
+            :src="player.src"
+            class="rounded"
+            allowfullscreen
+            @load="load()"
+          />
+        </div>
+      </div>
     </div>
-
-    <h5 class="text-center my-2">
-      {{ player.title }} <small class="text-muted">via {{ player.provider }}</small>
+    <div v-else class="ratio ratio-16x9">
+      <ThePlayerLoading v-if="player.loading" />
+      <iframe
+        :key="player.id"
+        :src="player.src"
+        class="rounded"
+        allowfullscreen
+        @load="load()"
+      />
+    </div>
+    <h5 class="mt-3 mb-2 text-center fw-bold">
+      {{ player.title }}
+      <small class="text-muted">via {{ player.provider }}</small>
     </h5>
-
-    <p class="text-center small">
-      <NLink :to="backTo">
-        <fa icon="angle-left" fixed-width />Back to {{ backToLabel }}
+    <p class="text-center">
+      <NLink :to="{ name: backTo() }">
+        <fa icon="angle-left" size="sm" fixed-width />
+        Back to {{ backToLabel() }}
       </NLink>
-      <span class="text-muted px-1">or</span>
+      <span class="mx-1 text-muted">or</span>
       <NLink :to="{ name: 'home' }">Recent Favorites</NLink>
     </p>
   </div>
@@ -24,28 +44,24 @@ export default {
   computed: {
     player () {
       return this.$store.state.player
+    }
+  },
+  methods: {
+    is1x1Ratio () {
+      return ['Bandcamp', 'SoundCloud'].includes(this.player.provider)
     },
-    aspectRatio () {
-      return ['Vimeo', 'YouTube'].includes(this.player.provider)
-        ? 'embed-responsive-16by9'
-        : 'embed-responsive-1by1-half'
+    load () {
+      this.$store.dispatch('player/loading', { status: false })
     },
     backTo () {
-      const name = this.$route.name === 'track'
+      return this.$route.name === 'track'
         ? 'tracks'
         : 'playlists'
-
-      return { name }
     },
     backToLabel () {
       return this.player.type === 'track'
         ? 'Tracks'
         : 'Playlists'
-    }
-  },
-  methods: {
-    load () {
-      this.$store.dispatch('player/loading', { status: false })
     }
   }
 }

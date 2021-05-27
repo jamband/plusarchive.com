@@ -1,19 +1,34 @@
 <template>
   <div class="row">
     <div class="col-lg-4">
-      <h2 class="my-2">Labels</h2>
+      <h1 class="mt-0 mb-3">Labels</h1>
       <NLink :to="{ name: 'labels' }" class="text-light">
-        <fa icon="redo-alt" fixed-width /> Reset All
+        <fa icon="redo-alt" size="sm" fixed-width /> Reset All
       </NLink>
-      <TotalCount :total="pagination.totalCount" />
-      <br>
-      <SearchDropdown label="Countries" query="country" items="labels/countries" />
-      <SearchDropdown label="Tags" query="tag" items="labels/tags" />
-      <SearchForm class="d-lg-none mt-1 mb-3" />
+      <TotalCount class="mx-3" :total="pagination.totalCount" />
+      <br class="d-md-none d-lg-block">
+      <SearchDropdown
+        id="searchLabelsCountries"
+        class="d-inline-block"
+        label="Countries"
+        query="country"
+        items="labels/countries"
+      />
+      <SearchDropdown
+        id="searchLabelsTags"
+        class="d-inline-block"
+        label="Tags"
+        query="tag"
+        items="labels/tags"
+      />
+      <SearchForm class="d-md-none my-2" />
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-8 mt-md-3 mt-lg-0">
       <ListLabels :labels="labels" />
-      <PaginationMinimal :current-page="pagination.currentPage" :page-count="pagination.pageCount" />
+      <PaginationMinimal
+        :current-page="pagination.currentPage"
+        :page-count="pagination.pageCount"
+      />
     </div>
   </div>
 </template>

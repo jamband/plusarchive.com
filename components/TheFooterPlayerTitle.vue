@@ -1,16 +1,14 @@
 <template>
   <div>
-    <fa icon="volume-up" fixed-width />
-    <NLink :to="linkTo" :title="player.title" class="text-light px-3">
+    <fa icon="volume-up" size="sm" fixed-width />
+    <NLink :to="linkTo" :title="player.title" class="mx-3 text-body">
       {{ title() }}
     </NLink>
     <button
-      class="btn btn-link align-baseline m-0 p-0 font-weight-bold text-light"
-      style="font-size: 100%;"
+      class="btn-close btn-sm align-text-top"
+      aria-label="Close"
       @click="clear()"
-    >
-      <fa icon="times" />
-    </button>
+    />
     <div class="d-md-none pt-1 text-muted">
       {{ appName }}
     </div>
@@ -39,7 +37,7 @@ export default {
   },
   methods: {
     title () {
-      const maxLength = 40
+      const maxLength = 30
 
       return this.player.title.length <= maxLength
         ? this.player.title

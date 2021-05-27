@@ -1,5 +1,5 @@
 <template>
-  <fieldset class="py-lg-0 py-2">
+  <fieldset :disabled="disabled()">
     <input
       v-model="q"
       class="form-control"
@@ -32,6 +32,18 @@ export default {
     this.resetValue()
   },
   methods: {
+    disabled () {
+      return ![
+        'tracks',
+        'tracks-search',
+        'labels',
+        'labels-search',
+        'stores',
+        'stores-search',
+        'bookmarks',
+        'bookmarks-search'
+      ].includes(this.$route.name || '')
+    },
     onSubmit () {
       this.$router.push({
         name: this.$route.name.endsWith('-search')

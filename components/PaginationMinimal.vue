@@ -1,60 +1,66 @@
 <template>
   <nav v-if="hasPage()" class="text-center" aria-label="Page navigation">
-    <ul class="pagination d-flex" @click="blur">
-      <li :class="disabledSelector('first')" class="page-item flex-fill">
-        <NLink
-          :to="pageLink(1)"
-          :aria-current-value="null"
-          :aria-disabled="disabled('first')"
-          :tabindex="disabled('first') ? -1 : 0"
-          class="page-link"
-          :class="{ 'pagination-minimal-link': !hasTouchScreen }"
-          aria-label="First"
-        >
-          <fa icon="angle-double-left" />
-        </NLink>
-      </li>
-      <li :class="disabledSelector('prev')" class="page-item flex-fill">
-        <NLink
-          :to="pageLink(currentPage - 1)"
-          :aria-current-value="null"
-          :aria-disabled="disabled('prev')"
-          :tabindex="disabled('prev') ? -1 : 0"
-          class="page-link"
-          :class="{ 'pagination-minimal-link': !hasTouchScreen }"
-          aria-label="Previous"
-        >
-          <fa icon="angle-left" />
-        </NLink>
-      </li>
-      <li :class="disabledSelector('next')" class="page-item flex-fill">
-        <NLink
-          :to="pageLink(currentPage + 1)"
-          :aria-current-value="null"
-          :aria-disabled="disabled('next')"
-          :tabindex="disabled('next') ? -1 : 0"
-          class="page-link"
-          :class="{ 'pagination-minimal-link': !hasTouchScreen }"
-          aria-label="Next"
-        >
-          <fa icon="angle-right" />
-        </NLink>
-      </li>
-      <li :class="disabledSelector('next')" class="page-item flex-fill">
-        <NLink
-          :to="pageLink(pageCount)"
-          :aria-current-value="null"
-          :aria-disabled="disabled('last')"
-          :tabindex="disabled('last') ? -1 : 0"
-          class="page-link"
-          :class="{ 'pagination-minimal-link': !hasTouchScreen }"
-          aria-label="Last"
-        >
-          <fa icon="angle-double-right" />
-        </NLink>
-      </li>
-    </ul>
-    <div class="pagination-minimal-info" aria-label="Page information">
+    <div class="d-flex" role="presentation" @click="blur">
+      <NLink
+        :to="pageLink(1)"
+        class="flex-fill py-2"
+        :class="[
+          $style.first,
+          $style.touch,
+          { [$style.link]: !hasTouchScreen },
+          { [$style.disabled]: disabled('first') }
+        ]"
+        aria-label="First"
+        :aria-disabled="disabled('first')"
+        :tabindex="disabled('first') ? -1 : 0"
+      >
+        <fa icon="angle-double-left" />
+      </NLink>
+      <NLink
+        :to="pageLink(currentPage - 1)"
+        class="flex-fill py-2"
+        :class="[
+          $style.touch,
+          { [$style.link]: !hasTouchScreen },
+          { [$style.disabled]: disabled('previous') }
+        ]"
+        aria-label="Previous"
+        :aria-disabled="disabled('previous')"
+        :tabindex="disabled('previous') ? -1 : 0"
+      >
+        <fa icon="angle-left" />
+      </NLink>
+      <NLink
+        :to="pageLink(currentPage + 1)"
+        class="flex-fill py-2"
+        :class="[
+          $style.touch,
+          { [$style.link]: !hasTouchScreen },
+          { [$style.disabled]: disabled('next') }
+        ]"
+        aria-label="Next"
+        :aria-disabled="disabled('next')"
+        :tabindex="disabled('next') ? -1 : 0"
+      >
+        <fa icon="angle-right" />
+      </NLink>
+      <NLink
+        :to="pageLink(pageCount)"
+        class="flex-fill py-2"
+        :class="[
+          $style.last,
+          $style.touch,
+          { [$style.link]: !hasTouchScreen },
+          { [$style.disabled]: disabled('last') }
+        ]"
+        aria-label="Last"
+        :aria-disabled="disabled('last')"
+        :tabindex="disabled('last') ? -1 : 0"
+      >
+        <fa icon="angle-double-right" />
+      </NLink>
+    </div>
+    <div :class="$style.information" aria-label="Page information">
       {{ currentPage }}/{{ pageCount }}
     </div>
   </nav>
@@ -85,12 +91,9 @@ export default {
   },
   methods: {
     disabled (part) {
-      return ['first', 'prev'].includes(part)
+      return ['first', 'previous'].includes(part)
         ? this.currentPage < 2
         : this.currentPage >= this.pageCount
-    },
-    disabledSelector (part) {
-      return this.disabled(part) ? 'disabled' : ''
     },
     blur (event) {
       event.target.blur()
@@ -106,32 +109,60 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 @import "../assets/css/variables";
-@import "~bootstrap/scss/mixins/breakpoints";
+@import "../node_modules/bootstrap/scss/mixins/breakpoints";
 
-.pagination-minimal {
-  &-info {
-    color: #474747;
-    position: relative;
-    z-index: -1;
+.first {
+  border-bottom-left-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+}
 
-    @include media-breakpoint-only(xs) {
-      bottom: 3.4em;
-      font-size: 75%;
-    }
+.last {
+  border-bottom-right-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
 
-    @include media-breakpoint-up(sm) {
-      bottom: 3.1em;
-      font-size: 85%;
-    }
+.touch {
+  &:hover {
+    color: $link-color;
   }
 
-  &-link {
-    &:hover {
-      background-color: $pagination-focus-bg;
-      color: $primary;
-    }
+  &:active {
+    background-color: rgba(white, 0.05);
+    color: $link-hover-color;
+  }
+}
+
+.link {
+  &:hover {
+    background-color: rgba(white, 0.05);
+    color: $link-hover-color;
+  }
+}
+
+.disabled {
+  color: var(--bs-secondary);
+  pointer-events: none;
+
+  &:hover {
+    color: var(--bs-secondary);
+  }
+}
+
+.information {
+  color: var(--bs-secondary);
+  position: relative;
+  z-index: -1;
+
+  @include media-breakpoint-down(sm) {
+    bottom: 2.4em;
+    font-size: 75%;
+  }
+
+  @include media-breakpoint-up(sm) {
+    bottom: 2.2em;
+    font-size: 85%;
   }
 }
 </style>

@@ -1,11 +1,13 @@
 <template>
   <div class="row">
-    <div class="col-md-5 offset-md-1">
-      <h2>Privacy Policy</h2>
+    <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+      <h1>Privacy Policy</h1>
       <p>
         This site uses Google Analytics.
-        The Google Analytics tool collects internet log information and visitor behavior information in an anonymous form.
-        About the information collected by Google Analytics, please see the following links.
+        The Google Analytics tool collects internet log information and visitor
+        behavior information in an anonymous form.
+        About the information collected by Google Analytics,
+        please see the following links.
       </p>
       <a href="https://policies.google.com/privacy?hl=en" rel="noopener" target="_blank">
         <fa icon="external-link-alt" /> Google Privacy & Terms
@@ -37,7 +39,6 @@
 
       <div class="my-5" />
     </div>
-    <div class="col-md-5" />
   </div>
 </template>
 

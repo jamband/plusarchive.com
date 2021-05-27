@@ -45,10 +45,10 @@ test('title route', () => {
 })
 
 test('title', () => {
-  fixture.player.title = 'a'.repeat(50)
+  fixture.player.title = 'a'.repeat(40)
   store.commit('player/setItem', fixture.player)
   const wrapper = factory(store)
-  expect(/^a{40}\.\.\.$/.test(wrapper.find('a').text()))
+  expect(/^a{30}\.\.\.$/.test(wrapper.find('a').text()))
     .toBe(true)
 })
 

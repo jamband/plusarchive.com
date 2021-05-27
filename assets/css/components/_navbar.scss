@@ -1,18 +1,10 @@
-.navbar-nav {
-  a.active {
-    @include media-breakpoint-down(sm) {
-      border-left: 0.2rem solid var(--primary);
-      padding-left: 0.5rem;
-    }
-
-    @include media-breakpoint-up(md) {
-      background: linear-gradient(transparent 92%, var(--primary) 92%);
-    }
+.nav-link.active {
+  @include media-breakpoint-down(sm) {
+    border-left: 0.2rem solid var(--bs-primary);
+    padding-left: 0.5rem;
   }
 
-  li {
-    @include media-breakpoint-up(sm) {
-      font-size: 90%;
-    }
+  @include media-breakpoint-up(md) {
+    background: linear-gradient(transparent 92%, var(--bs-primary) 92%);
   }
 }

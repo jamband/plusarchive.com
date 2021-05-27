@@ -42,21 +42,22 @@ beforeEach(() => {
 
 test('title', () => {
   store.commit('player/setItem', fixture.player)
-  expect(factory({ store }).text())
-    .toContain(`${fixture.player.title} via ${fixture.player.provider}`)
+  const title = factory({ store }).find('h5')
+  expect(title.text()).toContain(fixture.player.title)
+  expect(title.text()).toContain(fixture.player.provider)
 })
 
-test('aspectRatio', () => {
-  const aspectRatio = {
-    Bandcamp: '1by1',
-    SoundCloud: '1by1',
-    Vimeo: '16by9',
-    YouTube: '16by9'
+test('ratio', () => {
+  const ratios = {
+    Bandcamp: '1x1',
+    SoundCloud: '1x1',
+    Vimeo: '16x9',
+    YouTube: '16x9'
   }
-  for (const [provider, ratio] of Object.entries(aspectRatio)) {
+  for (const [provider, ratio] of Object.entries(ratios)) {
     fixture.player.provider = provider
     store.commit('player/setItem', fixture.player)
-    expect(factory({ store }).find('.embed-responsive').attributes().class)
+    expect(factory({ store }).find('.ratio').attributes().class)
       .toContain(ratio)
   }
 })

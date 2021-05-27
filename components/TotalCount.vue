@@ -1,6 +1,7 @@
 <template>
-  <span class="badge text-muted pl-3">
-    {{ total === 0 ? 'No results found' : `${total} results` }}
+  <span class="text-muted">
+    <fa icon="database" size="sm" fixed-width />
+    {{ text() }}
   </span>
 </template>
 
@@ -10,6 +11,13 @@ export default {
     total: {
       type: Number,
       required: true
+    }
+  },
+  methods: {
+    text () {
+      return this.total === 0
+        ? 'No results found'
+        : `${this.total} results`
     }
   }
 }

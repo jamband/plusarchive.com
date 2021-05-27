@@ -1,19 +1,34 @@
 <template>
   <div class="row">
     <div class="col-lg-4">
-      <h2 class="my-2">Bookmarks</h2>
+      <h1 class="mt-0 mb-3">Bookmarks</h1>
       <NLink :to="{ name: 'bookmarks' }" class="text-light">
-        <fa icon="redo-alt" fixed-width /> Reset All
+        <fa icon="redo-alt" size="sm" fixed-width /> Reset All
       </NLink>
-      <TotalCount :total="pagination.totalCount" />
-      <br>
-      <SearchDropdown label="Countries" query="country" items="bookmarks/countries" />
-      <SearchDropdown label="Tags" query="tag" items="bookmarks/tags" />
-      <SearchForm class="d-lg-none mt-1 mb-3" />
+      <TotalCount class="mx-3" :total="pagination.totalCount" />
+      <br class="d-md-none d-lg-block">
+      <SearchDropdown
+        id="searchBookmarkCountries"
+        class="d-inline-block"
+        label="Countries"
+        query="country"
+        items="bookmarks/countries"
+      />
+      <SearchDropdown
+        id="searchBookmarkTags"
+        class="d-inline-block"
+        label="Tags"
+        query="tag"
+        items="bookmarks/tags"
+      />
+      <SearchForm class="d-md-none my-2" />
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-8 mt-md-3 mt-lg-0">
       <ListBookmarks :bookmarks="bookmarks" />
-      <PaginationMinimal :current-page="pagination.currentPage" :page-count="pagination.pageCount" />
+      <PaginationMinimal
+        :current-page="pagination.currentPage"
+        :page-count="pagination.pageCount"
+      />
     </div>
   </div>
 </template>

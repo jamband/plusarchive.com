@@ -1,8 +1,5 @@
 <template>
-  <footer
-    class="footer fixed-bottom p-3 text-center font-weight-bold bg-dark"
-    style="font-size: 85%;"
-  >
+  <footer class="footer fixed-bottom p-3 text-center fw-bold bg-dark">
     <TheFooterPlayerTitle v-if="hasTitle()" key="player" />
     <TheFooterTracking v-else-if="tracking.disable" key="tracking" />
     <div v-else key="default">{{ appName }}</div>

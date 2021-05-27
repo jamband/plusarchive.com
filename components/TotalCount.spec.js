@@ -3,7 +3,10 @@ import TotalCount from '~/components/TotalCount'
 
 const factory = (props = {}) => {
   return shallowMount(TotalCount, {
-    propsData: props
+    propsData: props,
+    stubs: {
+      fa: true
+    }
   })
 }
 

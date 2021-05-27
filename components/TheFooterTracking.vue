@@ -3,13 +3,12 @@
     <fa icon="info-circle" fixed-width />
     This site uses Google Analytics to provide better experience. By pressing
     <button
-      class="btn btn-link align-baseline m-0 p-0 font-weight-bold"
+      class="btn btn-link align-baseline m-0 p-0 fw-bold"
       style="font-size: 100%;"
       @click="optIn()"
     >
       I ACCEPT
-    </button>
-    , you consent. See
+    </button>, you consent. See
     <NLink :to="{ name: 'privacy' }">
       Privacy Policy
     </NLink>
