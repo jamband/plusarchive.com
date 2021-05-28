@@ -1,13 +1,11 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
-import AppDropdown from '~/components/AppDropdown'
-import AppDropdownLink from '~/components/AppDropdownLink'
-import TheHeader from '~/components/TheHeader'
+import TheHeader from './TheHeader'
 
 const factory = (route = {}) => {
   return shallowMount(TheHeader, {
     stubs: {
-      AppDropdown,
-      AppDropdownLink,
+      AppDropdown: true,
+      AppDropdownLink: true,
       fa: true,
       NLink: RouterLinkStub,
       SearchForm: true

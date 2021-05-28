@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import AppLoading from '~/components/AppLoading'
+import AppLoading from './AppLoading'
 
 const factory = () => {
   return shallowMount(AppLoading, {

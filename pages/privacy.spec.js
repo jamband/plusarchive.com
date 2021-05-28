@@ -1,8 +1,8 @@
 import Vuex from 'vuex'
 import { klona } from 'klona'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
+import PagePrivacy from './privacy'
 import storeTracking from '~/store/tracking'
-import PagePrivacy from '~/pages/privacy'
 
 const localVue = createLocalVue()
 

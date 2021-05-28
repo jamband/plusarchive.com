@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
 import { klona } from 'klona'
-import storeTracking from '~/store/tracking'
+import storeTracking from './tracking'
 
 const localVue = createLocalVue()
 

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import Contact from '~/pages/contact'
+import Contact from './contact'
 
 const factory = () => {
   return shallowMount(Contact, {

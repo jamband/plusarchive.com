@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import BrandIconLink from '~/components/BrandIconLink'
+import BrandIconLink from './BrandIconLink'
 
 const factory = ({ links }) => {
   return shallowMount(BrandIconLink, {

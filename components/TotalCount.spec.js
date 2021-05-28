@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import TotalCount from '~/components/TotalCount'
+import TotalCount from './TotalCount'
 
 const factory = (props = {}) => {
   return shallowMount(TotalCount, {

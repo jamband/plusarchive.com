@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
 import { klona } from 'klona'
-import storePagination from '~/store/pagination'
+import storePagination from './pagination'
 
 const localVue = createLocalVue()
 

@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
 import { klona } from 'klona'
-import storePlayer from '~/store/player'
+import storePlayer from './player'
 
 const localVue = createLocalVue()
 
