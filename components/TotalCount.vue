@@ -1,7 +1,6 @@
 <template>
   <span class="text-secondary">
-    <fa icon="database" size="sm" fixed-width />
-    {{ text() }}
+    <fa icon="database" size="sm" fixed-width /> {{ text() }}
   </span>
 </template>
 

@@ -3,7 +3,7 @@
     <div class="col-lg-4">
       <h1 class="mt-0 mb-3">Bookmarks</h1>
       <NLink :to="{ name: 'bookmarks' }" class="tag">
-        <fa icon="redo-alt" size="sm" fixed-width /> Reset All
+        <fa icon="redo-alt" size="sm" /> Reset All
       </NLink>
       <TotalCount class="me-3" :total="pagination.totalCount" />
       <br class="d-md-none d-lg-block">
@@ -26,10 +26,11 @@
     <div class="col-lg-8 mt-md-3 mt-lg-0">
       <div class="row">
         <div v-for="bookmark in bookmarks" :key="bookmark.id" class="col-lg-6 mb-3 mb-sm-4">
-          <a :href="bookmark.url" class="d-block fw-bold" rel="noopener" target="_blank">
+          <a :href="bookmark.url" class="fw-bold" rel="noopener" target="_blank">
             <fa icon="external-link-alt" size="sm" fixed-width />
             {{ bookmark.name }}
           </a>
+          <br>
           <span class="me-2 text-body">Country:</span>
           {{ bookmark.country }}
           <br>

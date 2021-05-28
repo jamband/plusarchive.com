@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-lg-4">
       <h1 class="mt-0 mb-3">Stores</h1>
-      <NLink :to="{ name: 'stores' }" class="text-light">
-        <fa icon="redo-alt" size="sm" fixed-width /> Reset All
+      <NLink :to="{ name: 'stores' }" class="tag">
+        <fa icon="redo-alt" size="sm" /> Reset All
       </NLink>
-      <TotalCount class="mx-3" :total="pagination.totalCount" />
+      <TotalCount class="me-3" :total="pagination.totalCount" />
       <br class="d-md-none d-lg-block">
       <SearchDropdown
         id="searchStoresCountries"
@@ -26,10 +26,11 @@
     <div class="col-lg-8 mt-md-3 mt-lg-0">
       <div class="row">
         <div v-for="store in stores" :key="store.id" class="col-lg-6 mb-3 mb-sm-4">
-          <a :href="store.url" class="d-block fw-bold" rel="noopener" target="_blank">
+          <a :href="store.url" class="fw-bold" rel="noopener" target="_blank">
             <fa icon="external-link-alt" size="sm" fixed-width />
             {{ store.name }}
           </a>
+          <br>
           <span class="me-2 text-body">Country:</span>
           {{ store.country }}
           <br>
