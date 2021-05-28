@@ -176,7 +176,7 @@ export default {
 }
 
 .text {
-  padding: 0 0.3rem;
+  padding: 0 0.5rem;
 
   @include media-breakpoint-down(sm) {
     padding-bottom: 1.5rem;
@@ -187,9 +187,10 @@ export default {
   color: $text-muted;
 
   @include media-breakpoint-down(sm) {
-    bottom: 0.4rem;
+    bottom: 0.5rem;
+    font-size: 94%;
     position: absolute;
-    right: 0;
+    right: 0.5rem;
   }
 
   @include media-breakpoint-up(sm) {
