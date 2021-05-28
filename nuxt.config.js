@@ -29,7 +29,7 @@ export default {
   },
   loading: {
     color: `#${APP_COLOR_PRIMARY}`,
-    height: '3px'
+    throttle: 0
   },
   css: [
     '~/assets/css/app.scss'
