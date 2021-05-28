@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-md-5 offset-md-1">
+    <div class="col-md-5 offset-md-1 mb-2 mb-md-0">
       <h2>Playlists <small class="text-muted">via SoundCloud or YouTube</small></h2>
     </div>
     <ListPlaylists :playlists="playlists" />
