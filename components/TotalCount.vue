@@ -1,5 +1,5 @@
 <template>
-  <span class="text-muted">
+  <span class="text-secondary">
     <fa icon="database" size="sm" fixed-width />
     {{ text() }}
   </span>

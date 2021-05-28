@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="mb-md-4 text-center">
-      <NLink :to="{ name: 'tracks' }" class="text-light">
+      <NLink :to="{ name: 'tracks' }" class="tag">
         <fa icon="redo-alt" size="sm" fixed-width /> Reset All
       </NLink>
-      <TotalCount class="mx-3" :total="pagination.totalCount" />
+      <TotalCount class="me-3" :total="pagination.totalCount" />
       <br class="d-sm-none">
       <SearchDropdown
         id="searchTracksProviders"

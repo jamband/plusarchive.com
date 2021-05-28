@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-lg-4">
       <h1 class="mt-0 mb-3">Bookmarks</h1>
-      <NLink :to="{ name: 'bookmarks' }" class="text-light">
+      <NLink :to="{ name: 'bookmarks' }" class="tag">
         <fa icon="redo-alt" size="sm" fixed-width /> Reset All
       </NLink>
-      <TotalCount class="mx-3" :total="pagination.totalCount" />
+      <TotalCount class="me-3" :total="pagination.totalCount" />
       <br class="d-md-none d-lg-block">
       <SearchDropdown
         id="searchBookmarkCountries"
@@ -24,7 +24,30 @@
       <SearchForm class="d-md-none my-2" />
     </div>
     <div class="col-lg-8 mt-md-3 mt-lg-0">
-      <ListBookmarks :bookmarks="bookmarks" />
+      <div class="row">
+        <div v-for="bookmark in bookmarks" :key="bookmark.id" class="col-lg-6 mb-3 mb-sm-4">
+          <a :href="bookmark.url" class="d-block fw-bold" rel="noopener" target="_blank">
+            <fa icon="external-link-alt" size="sm" fixed-width />
+            {{ bookmark.name }}
+          </a>
+          <span class="me-2 text-body">Country:</span>
+          {{ bookmark.country }}
+          <br>
+          <span class="me-2 text-body">Link:</span>
+          <BrandIconLink :links="bookmark.link" />
+          <br>
+          <span class="me-2 text-body">Tag:</span>
+          <NLink
+            v-for="tag in bookmark.tags"
+            :key="tag.id"
+            class="tag"
+            :to="{ query: { tag: tag.name } }"
+          >
+            {{ tag.name }}
+          </NLink>
+          <hr class="text-muted">
+        </div>
+      </div>
       <PaginationMinimal
         :current-page="pagination.currentPage"
         :page-count="pagination.pageCount"
