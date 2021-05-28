@@ -78,7 +78,8 @@ export default {
     paths: [
       './node_modules/@fortawesome/fontawesome-svg-core/index.js',
       './node_modules/bootstrap/js/dist/collapse.js',
-      './node_modules/bootstrap/js/dist/dropdown.js'
+      './node_modules/bootstrap/js/dist/dropdown.js',
+      './node_modules/lazysizes/lazysizes.js'
     ],
     extractors: () => []
   }
