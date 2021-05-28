@@ -1,6 +1,0 @@
-@mixin focus-visible() {
-  &:focus:not(.focus-visible) {
-    box-shadow: none;
-    outline: none;
-  }
-}
