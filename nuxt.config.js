@@ -8,7 +8,7 @@ import {
 export default {
   ssr: true,
   components: [
-    { path: './components', pathPrefix: false }
+    { path: '~/components', pathPrefix: false }
   ],
   head: {
     titleTemplate: `%s - ${APP_NAME}`,
