@@ -1,13 +1,21 @@
 <template>
-  <div>
-    <h1>{{ title }}</h1>
-    <fa icon="info-circle" /> {{ message }}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+        <h1>{{ title }}</h1>
+        <fa icon="info-circle" size="sm" /> {{ message }}
+        <p class="mt-5 text-center">
+          <NLink :to="{ name: 'home' }">
+            <fa icon="angle-left" size="sm" fixed-width />
+            Back to Home
+          </NLink>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { APP_NAME } from '~/constants/app'
-
 export default {
   layout: 'minimal',
   props: {
@@ -23,11 +31,9 @@ export default {
   },
   computed: {
     title () {
-      const title = this.isNotFound
+      return this.isNotFound
         ? 'Not Found'
         : 'An Error Occurred'
-
-      return `${title} (#${this.error.statusCode}) - ${APP_NAME}`
     },
     message () {
       return this.isNotFound
