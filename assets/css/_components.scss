@@ -1,0 +1,50 @@
+// lazysizes
+.lazyload {
+  width: 100%;
+}
+
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+
+.lazyloaded {
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+// Navbar
+.nav-link.active {
+  @include media-breakpoint-down(sm) {
+    border-left: 0.2rem solid var(--bs-primary);
+    padding-left: 0.5rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    background: linear-gradient(transparent 92%, var(--bs-primary) 92%);
+  }
+}
+
+// Dropdown
+.dropdown-menu {
+  height: auto;
+  max-height: 352px;
+  overflow-x: hidden;
+}
+
+// Tag
+.tag {
+  color: var(--bs-secondary);
+  display: inline-block;
+  line-height: 1;
+  margin-right: 0.8rem;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+
+  &:hover {
+    color: $body-color;
+  }
+}
+
+//

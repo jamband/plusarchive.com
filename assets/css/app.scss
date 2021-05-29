@@ -1,9 +1,3 @@
-// vendor
-@import "vendor/fontawesome";
-@import "vendor/bootstrap";
-@import "vendor/lazysizes";
-
-// components
-@import "components/dropdown";
-@import "components/navbar";
-@import "components/tag";
+@import "./fontawesome";
+@import "./bootstrap";
+@import "./components";
