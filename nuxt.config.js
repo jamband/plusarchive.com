@@ -8,7 +8,7 @@ import {
 export default {
   ssr: true,
   components: [
-    { path: '~/components', pathPrefix: false }
+    { path: './components', pathPrefix: false }
   ],
   head: {
     titleTemplate: `%s - ${APP_NAME}`,
@@ -32,11 +32,11 @@ export default {
     throttle: 0
   },
   css: [
-    '~/assets/css/app.scss'
+    './assets/css/app.scss'
   ],
   plugins: [
-    '~/plugins/fontawesome',
-    '~/plugins/init.client.js'
+    './plugins/fontawesome',
+    './plugins/app.client'
   ],
   buildModules: [
     '@nuxtjs/eslint-module',
