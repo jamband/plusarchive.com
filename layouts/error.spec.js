@@ -1,26 +1,28 @@
-import { shallowMount } from '@vue/test-utils'
+import { RouterLinkStub, shallowMount } from '@vue/test-utils'
 import ErrorPage from './error'
-import { APP_NAME } from '~/constants/app'
 
 const factory = ({ props }) => {
   return shallowMount(ErrorPage, {
     propsData: props,
     stubs: {
-      fa: true
+      fa: true,
+      NLink: RouterLinkStub
     }
   })
 }
 
 test('when 404', () => {
   const props = { error: { statusCode: 404 } }
-  const text = factory({ props }).text()
-  expect(text).toContain(`Not Found (#404) - ${APP_NAME}`)
-  expect(text).toContain('Page not found.')
+  const wrapper = factory({ props })
+  expect(wrapper.find('h1').text()).toBe('Not Found')
+  expect(wrapper.text()).toContain('Page not found.')
+  expect(wrapper.findComponent(RouterLinkStub).props().to).toEqual({ name: 'home' })
 })
 
 test('when 500', () => {
   const props = { error: { statusCode: 500 } }
-  const text = factory({ props }).text()
-  expect(text).toContain(`An Error Occurred (#500) - ${APP_NAME}`)
-  expect(text).toContain('An error occurred.')
+  const wrapper = factory({ props })
+  expect(wrapper.find('h1').text()).toBe('An Error Occurred')
+  expect(wrapper.text()).toContain('An error occurred.')
+  expect(wrapper.findComponent(RouterLinkStub).props().to).toEqual({ name: 'home' })
 })
