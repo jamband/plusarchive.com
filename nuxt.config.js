@@ -22,8 +22,6 @@ export default {
       { hid: 'og:url', property: 'og:url', content: APP_URL }
     ],
     link: [
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
@@ -41,6 +39,7 @@ export default {
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
+    '@nuxtjs/google-fonts',
     '@nuxtjs/router',
     '@nuxtjs/stylelint-module',
     'nuxt-purgecss'
@@ -64,6 +63,14 @@ export default {
     set: [
       { field: 'anonymizeIp', value: true }
     ]
+  },
+  googleFonts: {
+    families: {
+      'Source+Sans+Pro': [400, 600]
+    },
+    display: 'swap',
+    download: true,
+    stylePath: 'fonts/fonts.css'
   },
   manifest: {
     name: APP_NAME,
