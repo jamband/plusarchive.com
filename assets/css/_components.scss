@@ -42,9 +42,9 @@
   vertical-align: baseline;
   white-space: nowrap;
 
+  @include transition();
+
   &:hover {
     color: $body-color;
   }
 }
-
-//
