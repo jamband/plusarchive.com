@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import { klona } from 'klona'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import PagePrivacy from './privacy'
+import PrivacyPage from './privacy'
 import storeTracking from '~/store/tracking'
 
 const localVue = createLocalVue()
@@ -9,7 +9,7 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 
 const factory = (store = {}) => {
-  return shallowMount(PagePrivacy, {
+  return shallowMount(PrivacyPage, {
     store,
     localVue,
     stubs: {

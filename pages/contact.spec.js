@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils'
-import Contact from './contact'
+import ContactPage from './contact'
 
 const factory = () => {
-  return shallowMount(Contact, {
+  return shallowMount(ContactPage, {
     stubs: {
       fa: true
     }
