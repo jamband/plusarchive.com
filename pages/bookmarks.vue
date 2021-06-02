@@ -25,29 +25,40 @@
     </div>
     <div class="col-lg-8 mt-md-3 mt-lg-0">
       <div class="row">
-        <div v-for="bookmark in bookmarks" :key="bookmark.id" class="col-lg-6 mb-3 mb-sm-4">
-          <a :href="bookmark.url" class="fw-bold" rel="noopener" target="_blank">
-            <fa icon="external-link-alt" size="sm" fixed-width />
-            {{ bookmark.name }}
-          </a>
-          <br>
-          <span class="me-2 text-body">Country:</span>
-          {{ bookmark.country }}
-          <br>
-          <span class="me-2 text-body">Link:</span>
-          <BrandIconLink :links="bookmark.link" />
-          <br>
-          <span class="me-2 text-body">Tag:</span>
-          <NLink
-            v-for="tag in bookmark.tags"
-            :key="tag.id"
-            class="tag"
-            :to="{ query: { tag: tag.name } }"
-          >
-            {{ tag.name }}
-          </NLink>
+        <article
+          v-for="bookmark in bookmarks"
+          :key="bookmark.id"
+          class="col-lg-6 mb-3"
+        >
+          <section class="mb-1">
+            <a :href="bookmark.url" rel="noopener" target="_blank">
+              <strong>
+                <fa icon="external-link-alt" size="sm" fixed-width />
+                {{ bookmark.name }}
+              </strong>
+            </a>
+          </section>
+          <section class="mb-1">
+            <span class="me-2 text-body">Country:</span>
+            {{ bookmark.country }}
+          </section>
+          <section class="mb-1">
+            <span class="me-2 text-body">Link:</span>
+            <BrandIconLink :links="bookmark.link" />
+          </section>
+          <section class="mb-1">
+            <span class="me-2 text-body">Tag:</span>
+            <NLink
+              v-for="tag in bookmark.tags"
+              :key="tag.id"
+              class="tag"
+              :to="{ query: { tag: tag.name } }"
+            >
+              {{ tag.name }}
+            </NLink>
+          </section>
           <hr class="text-muted">
-        </div>
+        </article>
       </div>
       <PaginationMinimal
         :current-page="pagination.currentPage"
