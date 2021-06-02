@@ -65,20 +65,14 @@ export default {
       { params: query }
     )
 
-    store.dispatch('pagination/fetchItem', stores._meta)
-
     return {
-      stores: stores.items
+      stores: stores.items,
+      pagination: stores._meta
     }
   },
   head () {
     return {
       title: 'Stores'
-    }
-  },
-  computed: {
-    pagination () {
-      return this.$store.state.pagination
     }
   },
   watchQuery: ['country', 'page', 'q', 'tag']

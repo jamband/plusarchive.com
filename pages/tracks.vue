@@ -65,10 +65,9 @@ export default {
       { params: query }
     )
 
-    store.dispatch('pagination/fetchItem', tracks._meta)
-
     return {
-      tracks: tracks.items
+      tracks: tracks.items,
+      pagination: tracks._meta
     }
   },
   head () {
@@ -77,9 +76,6 @@ export default {
     }
   },
   computed: {
-    pagination () {
-      return this.$store.state.pagination
-    },
     player () {
       return this.$store.state.player
     },

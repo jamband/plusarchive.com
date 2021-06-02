@@ -65,20 +65,14 @@ export default {
       { params: query }
     )
 
-    store.dispatch('pagination/fetchItem', bookmarks._meta)
-
     return {
-      bookmarks: bookmarks.items
+      bookmarks: bookmarks.items,
+      pagination: bookmarks._meta
     }
   },
   head () {
     return {
       title: 'Bookmarks'
-    }
-  },
-  computed: {
-    pagination () {
-      return this.$store.state.pagination
     }
   },
   watchQuery: ['country', 'page', 'q', 'tag']
