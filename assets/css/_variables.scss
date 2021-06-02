@@ -84,13 +84,5 @@ $dropdown-link-hover-color:         $light;
 $dropdown-link-hover-bg:            $dark;
 $dropdown-divider-bg:               $secondary;
 
-// Pagination
-$pagination-bg:                     transparent;
-$pagination-border-color:           none;
-$pagination-focus-color:            $link-hover-color;
-$pagination-focus-bg:               color.scale($dark, $lightness: 0%, $alpha: -60%);
-$pagination-hover-bg:               $pagination-bg;
-$pagination-disabled-bg:            transparent;
-
 // Close
 $btn-close-color:            $light;
