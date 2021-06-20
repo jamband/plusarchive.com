@@ -43,11 +43,11 @@
             {{ label.country }}
           </section>
           <section class="mb-1">
-            <span class="me-2 text-body">Link:</span>
+            <span class="me-2 text-body">Links:</span>
             <BrandIconLink :links="label.link" />
           </section>
           <section class="mb-1">
-            <span class="me-2 text-body">Tag:</span>
+            <span class="me-2 text-body">Tags:</span>
             <NLink
               v-for="tag in label.tags"
               :key="tag.id"
