@@ -20,22 +20,22 @@
           @click="hideNavigation()"
         >
           <NLink :to="{ name: 'home' }" :class="linkClass('home')">Home</NLink>
-          <NLink :to="{ name: 'tracks' }" :class="linkClass('track')">Track</NLink>
-          <NLink :to="{ name: 'playlists' }" :class="linkClass('playlist')">Playlist</NLink>
-          <NLink :to="{ name: 'labels' }" :class="linkClass('label')">Label</NLink>
-          <NLink :to="{ name: 'stores' }" :class="linkClass('store')">Store</NLink>
-          <NLink :to="{ name: 'bookmarks' }" :class="linkClass('bookmark')">Bookmark</NLink>
+          <NLink :to="{ name: 'tracks' }" :class="linkClass('track')">Tracks</NLink>
+          <NLink :to="{ name: 'playlists' }" :class="linkClass('playlist')">Playlists</NLink>
+          <NLink :to="{ name: 'labels' }" :class="linkClass('label')">Labels</NLink>
+          <NLink :to="{ name: 'stores' }" :class="linkClass('store')">Stores</NLink>
+          <NLink :to="{ name: 'bookmarks' }" :class="linkClass('bookmark')">Bookmarks</NLink>
           <NLink :to="{ name: 'about' }" :class="linkClass('about')">About</NLink>
           <NLink :to="{ name: 'privacy' }" :class="linkClass('privacy')">Privacy</NLink>
           <NLink :to="{ name: 'contact' }" :class="linkClass('contact')">Contact</NLink>
           <NLink :to="{ name: 'third-party-licenses' }" :class="linkClass('third-party-licenses')">Third-Party Licenses</NLink>
         </div>
         <div class="d-none d-md-flex navbar-nav">
-          <NLink :to="{ name: 'tracks' }" :class="linkClass('track')">Track</NLink>
-          <NLink :to="{ name: 'playlists' }" :class="linkClass('playlist')">Playlist</NLink>
-          <NLink :to="{ name: 'labels' }" :class="linkClass('label')">Label</NLink>
-          <NLink :to="{ name: 'stores' }" :class="linkClass('store')">Store</NLink>
-          <NLink :to="{ name: 'bookmarks' }" :class="linkClass('bookmark')">Bookmark</NLink>
+          <NLink :to="{ name: 'tracks' }" :class="linkClass('track')">Tracks</NLink>
+          <NLink :to="{ name: 'playlists' }" :class="linkClass('playlist')">Playlists</NLink>
+          <NLink :to="{ name: 'labels' }" :class="linkClass('label')">Labels</NLink>
+          <NLink :to="{ name: 'stores' }" :class="linkClass('store')">Stores</NLink>
+          <NLink :to="{ name: 'bookmarks' }" :class="linkClass('bookmark')">Bookmarks</NLink>
           <AppDropdown id="headerMoreLinks" nav>
             <AppDropdownLink :to="{ name: 'about' }">About</AppDropdownLink>
             <AppDropdownLink :to="{ name: 'privacy' }">Privacy</AppDropdownLink>
