@@ -11,7 +11,7 @@ export default {
     { path: '~/components', pathPrefix: false }
   ],
   head: {
-    titleTemplate: `%s - ${APP_NAME}`,
+    titleTemplate: `%s · ${APP_NAME}`,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
