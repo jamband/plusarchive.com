@@ -33,7 +33,7 @@
           <section class="mb-1">
             <a :href="label.url" rel="noopener" target="_blank">
               <strong>
-                <fa icon="external-link-alt" size="sm" fixed-width />
+                <fa icon="external-link-alt" fixed-width />
                 {{ label.name }}
               </strong>
             </a>
