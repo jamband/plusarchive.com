@@ -1,7 +1,12 @@
 <template>
   <div>
     <fa icon="volume-up" size="sm" fixed-width />
-    <NLink :to="linkTo" :title="player.title" class="mx-3 text-body">
+    <NLink
+      :to="linkTo"
+      :title="player.title"
+      class="mx-3 text-body"
+      :class="$style.title"
+    >
       {{ title() }}
     </NLink>
     <button
@@ -49,3 +54,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" module>
+.title {
+  text-decoration: underline;
+  text-decoration-color: var(--bs-primary);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.3em;
+}
+</style>
