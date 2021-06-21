@@ -37,6 +37,7 @@
           <NLink :to="{ name: 'stores' }" :class="linkClass('store')">Stores</NLink>
           <NLink :to="{ name: 'bookmarks' }" :class="linkClass('bookmark')">Bookmarks</NLink>
           <AppDropdown id="headerMoreLinks" nav>
+            <AppDropdownHeader>More Links</AppDropdownHeader>
             <AppDropdownLink :to="{ name: 'about' }">About</AppDropdownLink>
             <AppDropdownLink :to="{ name: 'privacy' }">Privacy</AppDropdownLink>
             <AppDropdownLink :to="{ name: 'contact' }">Contact</AppDropdownLink>

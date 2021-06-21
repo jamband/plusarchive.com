@@ -5,7 +5,9 @@
       href="#"
       role="button"
       :class="labelClass"
+      :title="nav ? 'More' : null"
       data-bs-toggle="dropdown"
+      :aria-label="nav ? 'More' : null"
       aria-expanded="false"
     >
       <template v-if="label">

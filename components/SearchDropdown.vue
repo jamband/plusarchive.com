@@ -1,9 +1,11 @@
 <template>
   <AppDropdown :id="id" :label="$route.query[query] || label">
+    <AppDropdownHeader>Actions</AppDropdownHeader>
     <AppDropdownLink :to="resetLink(query)">
       Reset
     </AppDropdownLink>
     <AppDropdownDivider />
+    <AppDropdownHeader>{{ label }}</AppDropdownHeader>
     <AppDropdownText v-if="$fetchState.pending">
       <AppLoading />
     </AppDropdownText>
