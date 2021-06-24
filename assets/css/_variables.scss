@@ -27,8 +27,8 @@ $spacer: 1rem;
 
 $spacers: (
   0: 0,
-  1: $spacer / 4,
-  2: $spacer / 2,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
   3: $spacer,
   4: $spacer * 1.5,
   5: $spacer * 3,
@@ -62,7 +62,7 @@ $box-shadow-sm:               0 0.125rem 0.25rem color.scale(black, $lightness: 
 $font-family-sans-serif:      "Source Sans Pro", "Yu Gothic", YuGothic sans-serif;
 $text-muted:                  #5e5e5e;
 $hr-border-color:             color.scale(white, $lightness: 0%, $alpha: -92%);
-$hr-margin-y:                 $spacer / 2;
+$hr-margin-y:                 $spacer * 0.5;
 $small-font-size:             0.675em;
 
 // Forms
