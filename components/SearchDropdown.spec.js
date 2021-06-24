@@ -1,6 +1,7 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import AppDropdown from './AppDropdown'
 import AppDropdownDivider from './AppDropdownDivider'
+import AppDropdownHeader from './AppDropdownHeader'
 import AppDropdownLink from './AppDropdownLink'
 import AppDropdownText from './AppDropdownText'
 import SearchDropdown from './SearchDropdown'
@@ -16,6 +17,7 @@ const factory = ({ route, fetchState }) => {
     stubs: {
       AppDropdown,
       AppDropdownDivider,
+      AppDropdownHeader,
       AppDropdownLink,
       AppDropdownText,
       fa: true,

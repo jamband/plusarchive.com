@@ -5,6 +5,7 @@ const factory = (route = {}) => {
   return shallowMount(TheHeader, {
     stubs: {
       AppDropdown: true,
+      AppDropdownHeader: true,
       AppDropdownLink: true,
       fa: true,
       NLink: RouterLinkStub,
