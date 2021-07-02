@@ -70,7 +70,7 @@
 
 <script>
 export default {
-  async asyncData ({ $axios, query, store }) {
+  async asyncData ({ $axios, query }) {
     const labels = await $axios.$get(
       `labels${query.q ? '/search' : ''}?expand=tags`,
       { params: query }
