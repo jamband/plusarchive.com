@@ -41,7 +41,7 @@ test('title route', () => {
   store.commit('player/setItem', fixture.player)
   const wrapper = factory(store)
   expect(wrapper.find('a').props().to)
-    .toEqual({ name: 'track', params: { id: 'id1' } })
+    .toEqual({ name: 'tracks-id', params: { id: 'id1' } })
 })
 
 test('title', () => {

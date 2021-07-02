@@ -13,7 +13,7 @@
 export default {
   methods: {
     playerShow () {
-      return ['track', 'playlist'].includes(this.$route.name || '')
+      return ['tracks-id', 'playlists-id'].includes(this.$route.name || '')
     }
   }
 }

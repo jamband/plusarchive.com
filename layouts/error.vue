@@ -5,7 +5,7 @@
         <h1>{{ title }}</h1>
         <fa icon="info-circle" size="sm" /> {{ message }}
         <p class="mt-5 text-center">
-          <NLink :to="{ name: 'home' }">
+          <NLink :to="{ name: 'index' }">
             <fa icon="angle-left" size="sm" fixed-width />
             Back to Home
           </NLink>

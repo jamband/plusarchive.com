@@ -19,11 +19,11 @@ const factory = (route = {}) => {
 
 test('link active', () => {
   const links = {
-    home: 'Home',
+    index: 'Home',
     tracks: 'Tracks',
-    track: 'Tracks',
+    'tracks-id': 'Tracks',
     playlists: 'Playlists',
-    playlist: 'Playlists',
+    'playlist-id': 'Playlists',
     labels: 'Labels',
     stores: 'Stores',
     bookmarks: 'Bookmarks',

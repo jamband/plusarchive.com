@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     hasTitle () {
-      if (this.player.title !== '' && !this.player.loading && !['track', 'playlist'].includes(this.$route.name)) {
+      if (this.player.title !== '' && !this.player.loading && !['tracks-id', 'playlists-id'].includes(this.$route.name)) {
         if (this.$route.name !== 'privacy' || !this.tracking.disable) {
           return true
         }

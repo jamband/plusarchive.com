@@ -16,7 +16,7 @@ test('when 404', () => {
   const wrapper = factory({ props })
   expect(wrapper.find('h1').text()).toBe('Not Found')
   expect(wrapper.text()).toContain('Page not found.')
-  expect(wrapper.findComponent(RouterLinkStub).props().to).toEqual({ name: 'home' })
+  expect(wrapper.findComponent(RouterLinkStub).props().to).toEqual({ name: 'index' })
 })
 
 test('when 500', () => {
@@ -24,5 +24,5 @@ test('when 500', () => {
   const wrapper = factory({ props })
   expect(wrapper.find('h1').text()).toBe('An Error Occurred')
   expect(wrapper.text()).toContain('An error occurred.')
-  expect(wrapper.findComponent(RouterLinkStub).props().to).toEqual({ name: 'home' })
+  expect(wrapper.findComponent(RouterLinkStub).props().to).toEqual({ name: 'index' })
 })

@@ -34,8 +34,14 @@ export default {
       return this.$store.state.player
     },
     linkTo () {
+      let routeName = ''
+      if (this.player.type === 'track') {
+        routeName = 'tracks-id'
+      } else if (this.player.type === 'playlist') {
+        routeName = 'playlists-id'
+      }
       return {
-        name: this.player.type,
+        name: routeName,
         params: { id: this.player.id }
       }
     }

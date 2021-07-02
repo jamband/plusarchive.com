@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.card">
     <NLink
-      :to="{ name: 'track', params: { id } }"
+      :to="{ name: 'tracks-id', params: { id } }"
       :class="[$style.imagewrap, ratioSelector()]"
       :aria-label="title"
       @click.native="play()"

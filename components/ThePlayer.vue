@@ -34,7 +34,7 @@
         Back to {{ backToLabel() }}
       </NLink>
       <span class="mx-1 text-muted">or</span>
-      <NLink :to="{ name: 'home' }">Recent Favorites</NLink>
+      <NLink :to="{ name: 'index' }">Recent Favorites</NLink>
     </p>
   </div>
 </template>
@@ -54,7 +54,7 @@ export default {
       this.$store.dispatch('player/loading', { status: false })
     },
     backTo () {
-      return this.$route.name === 'track'
+      return this.$route.name === 'tracks-id'
         ? 'tracks'
         : 'playlists'
     },

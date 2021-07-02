@@ -1,3 +1,4 @@
+import { sortRoutes } from '@nuxt/utils'
 import {
   APP_NAME,
   APP_URL,
@@ -25,6 +26,47 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  router: {
+    extendRoutes (routes, resolve) {
+      // search
+      routes.push({
+        name: 'tracks-search',
+        path: '/tracks/search',
+        component: resolve(__dirname, 'pages/tracks/index')
+      })
+
+      routes.push({
+        name: 'labels-search',
+        path: '/labels/search',
+        component: resolve(__dirname, 'pages/labels/index')
+      })
+
+      routes.push({
+        name: 'stores-search',
+        path: '/stores/search',
+        component: resolve(__dirname, 'pages/stores/index')
+      })
+
+      routes.push({
+        name: 'bookmarks-search',
+        path: '/bookmarks/search',
+        component: resolve(__dirname, 'pages/bookmarks/index')
+      })
+
+      // redirects
+      routes.push({
+        path: '/track/:id',
+        redirect: '/tracks/:id'
+      })
+
+      routes.push({
+        path: '/playlist/:id',
+        redirect: '/playlists/:id'
+      })
+
+      sortRoutes(routes)
+    }
+  },
   loading: {
     color: `#${APP_COLOR_PRIMARY}`,
     throttle: 0
@@ -40,7 +82,6 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-analytics',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/router',
     '@nuxtjs/stylelint-module',
     'nuxt-purgecss'
   ],

@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-      <NLink class="navbar-brand" :to="{ name:'home' }">{{ appName }}</NLink>
+      <NLink class="navbar-brand" :to="{ name: 'index' }">{{ appName }}</NLink>
       <button
         class="navbar-toggler"
         type="button"
@@ -19,7 +19,7 @@
           role="presentation"
           @click="hideNavigation()"
         >
-          <NLink :to="{ name: 'home' }" :class="linkClass('home')">Home</NLink>
+          <NLink :to="{ name: 'index' }" :class="linkClass('index')">Home</NLink>
           <NLink :to="{ name: 'tracks' }" :class="linkClass('track')">Tracks</NLink>
           <NLink :to="{ name: 'playlists' }" :class="linkClass('playlist')">Playlists</NLink>
           <NLink :to="{ name: 'labels' }" :class="linkClass('label')">Labels</NLink>

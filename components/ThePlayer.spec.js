@@ -63,24 +63,24 @@ test('ratio', () => {
 })
 
 test('backTo', () => {
-  const backTo = {
-    track: 'tracks',
-    playlist: 'playlists'
-  }
-  for (const [type, route] of Object.entries(backTo)) {
+  const items = [
+    { type: 'track', currentRoute: 'tracks-id', backTo: 'tracks' },
+    { type: 'playlist', currentRoute: 'playlists-id', backTo: 'playlists' }
+  ]
+  for (const { type, currentRoute, backTo } of items) {
     fixture.player.type = type
     store.commit('player/setItem', fixture.player)
-    const wrapper = factory({ store, route: { name: type } })
-    expect(wrapper.find('a').props().to).toEqual({ name: route })
+    const wrapper = factory({ store, route: { name: currentRoute } })
+    expect(wrapper.find('a').props().to).toEqual({ name: backTo })
   }
 })
 
 test('backToLabel', () => {
-  const backToLabel = {
-    track: 'Tracks',
-    playlist: 'Playlists'
-  }
-  for (const [type, label] of Object.entries(backToLabel)) {
+  const items = [
+    { type: 'track', label: 'Tracks' },
+    { type: 'playlist', label: 'Playlists' }
+  ]
+  for (const { type, label } of items) {
     fixture.player.type = type
     store.commit('player/setItem', fixture.player)
     expect(factory({ store }).text()).toContain(`Back to ${label}`)
