@@ -4,7 +4,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "eslint": "eslint .",
+    "eslint": "eslint --ext .js,.vue .",
     "stylelint": "stylelint **/*.{css,scss}",
     "test": "jest",
     "clean": "rm -rf .eslintcache .nuxt assets/fonts node_modules"
