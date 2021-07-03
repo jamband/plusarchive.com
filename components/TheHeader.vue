@@ -31,7 +31,7 @@
           </h5>
           <button
             type="button"
-            class="me-1 btn-close"
+            class="me-2 btn-close"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           />
