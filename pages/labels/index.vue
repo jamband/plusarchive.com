@@ -51,7 +51,7 @@
             <NLink
               v-for="tag in label.tags"
               :key="tag.id"
-              :to="{ query: { tag: tag.name } }"
+              :to="{ name: 'labels', query: { tag: tag.name } }"
               class="tag"
             >
               {{ tag.name }}

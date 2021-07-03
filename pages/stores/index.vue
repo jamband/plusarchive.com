@@ -52,7 +52,7 @@
               v-for="tag in store.tags"
               :key="tag.id"
               class="tag"
-              :to="{ query: { tag: tag.name } }"
+              :to="{ name: 'stores', query: { tag: tag.name } }"
             >
               {{ tag.name }}
             </NLink>

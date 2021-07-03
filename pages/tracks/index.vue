@@ -35,13 +35,13 @@
           :title="track.title"
           :footer="track.created_at"
         >
-          <NLink :to="{ query: { provider: track.provider } }" class="tag">
+          <NLink :to="{ name: 'tracks', query: { provider: track.provider } }" class="tag">
             {{ track.provider }}
           </NLink>
           <NLink
             v-for="genre in track.genres"
             :key="genre.id"
-            :to="{ query: { genre: genre.name } }"
+            :to="{ name: 'tracks', query: { genre: genre.name } }"
             class="tag"
           >
             {{ genre.name }}

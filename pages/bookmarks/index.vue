@@ -52,7 +52,7 @@
               v-for="tag in bookmark.tags"
               :key="tag.id"
               class="tag"
-              :to="{ query: { tag: tag.name } }"
+              :to="{ name: 'bookmarks', query: { tag: tag.name } }"
             >
               {{ tag.name }}
             </NLink>
