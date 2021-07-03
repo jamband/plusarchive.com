@@ -19,21 +19,34 @@ const factory = (route = {}) => {
 
 test('link active', () => {
   const links = {
-    index: 'Home',
     tracks: 'Tracks',
+    'tracks-search': 'Tracks',
     'tracks-id': 'Tracks',
     playlists: 'Playlists',
-    'playlist-id': 'Playlists',
+    'playlists-id': 'Playlists',
     labels: 'Labels',
+    'labels-search': 'Labels',
     stores: 'Stores',
+    'stores-search': 'Stores',
     bookmarks: 'Bookmarks',
+    'bookmarks-search': 'Bookmarks'
+  }
+  for (const [routeName, text] of Object.entries(links)) {
+    const links = factory({ name: routeName }).findAll('.nav-link.active')
+    expect(links.length).toBe(2)
+    expect(links.at(0).text()).toBe(text)
+    expect(links.at(1).text()).toBe(text)
+  }
+
+  const moreLinks = {
     about: 'About',
     privacy: 'Privacy',
     contact: 'Contact',
     'third-party-licenses': 'Third-Party Licenses'
   }
-  for (const [route, text] of Object.entries(links)) {
-    const links = factory({ name: route }).findAll('.nav-link.active')
+  for (const [routeName, text] of Object.entries(moreLinks)) {
+    const links = factory({ name: routeName }).findAll('.nav-link.active')
+    expect(links.length).toBe(1)
     expect(links.at(0).text()).toBe(text)
   }
 })

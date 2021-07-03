@@ -16,8 +16,15 @@
 // Navbar
 .nav-link.active {
   @include media-breakpoint-down(sm) {
-    border-left: 0.2rem solid var(--bs-primary);
-    padding-left: 0.5rem;
+    &::before {
+      color: var(--bs-primary);
+      content: "\025cf";
+      font-size: 50%;
+      margin-left: -11px;
+      padding-right: 3px;
+      position: relative;
+      top: -2px;
+    }
   }
 
   @include media-breakpoint-up(md) {
