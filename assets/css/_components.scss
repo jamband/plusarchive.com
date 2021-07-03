@@ -14,16 +14,26 @@
 }
 
 // Navbar
-.nav-link.active {
-  @include media-breakpoint-down(sm) {
+.nav-link {
+  @include media-breakpoint-down(md) {
     &::before {
-      color: var(--bs-primary);
-      content: "\025cf";
-      font-size: 50%;
-      margin-left: -11px;
-      padding-right: 3px;
-      position: relative;
-      top: -2px;
+      content: "";
+      display: inline-block;
+      margin-right: 0.9rem;
+    }
+  }
+}
+
+.nav-link.active {
+  @include media-breakpoint-down(md) {
+    &::before {
+      background-color: var(--bs-primary);
+      border-radius: 50%;
+      content: "";
+      display: inline-block;
+      height: 10px;
+      margin-right: 0.3rem;
+      width: 10px;
     }
   }
 
