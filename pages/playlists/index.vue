@@ -16,8 +16,6 @@
 </template>
 
 <script>
-import { scrollToTop } from '~/utils/scroll'
-
 export default {
   async asyncData ({ $axios }) {
     const playlists = await $axios.$get('playlists')
@@ -35,9 +33,6 @@ export default {
     player () {
       return this.$store.state.player
     }
-  },
-  mounted () {
-    scrollToTop()
   },
   methods: {
     play (id) {

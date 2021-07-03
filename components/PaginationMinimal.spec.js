@@ -45,7 +45,7 @@ test('current page: first', () => {
   expect(links.at(LAST).classes()).not.toContain('disabled')
 
   expect(links.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
-  expect(links.at(PREVIOUS).find('a').props().to).toEqual({ query: { page: 0 } })
+  expect(links.at(PREVIOUS).find('a').props().to).toEqual({ query: { page: 1 } })
   expect(links.at(NEXT).find('a').props().to).toEqual({ query: { page: 2 } })
   expect(links.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
 
@@ -88,7 +88,7 @@ test('current page: last', () => {
 
   expect(links.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
   expect(links.at(PREVIOUS).find('a').props().to).toEqual({ query: { page: 9 } })
-  expect(links.at(NEXT).find('a').props().to).toEqual({ query: { page: 11 } })
+  expect(links.at(NEXT).find('a').props().to).toEqual({ query: { page: 10 } })
   expect(links.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
 
   expect(wrapper.text()).toContain('10/10')

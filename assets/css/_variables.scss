@@ -18,8 +18,10 @@ $theme-colors: (
 
 // Options
 $enable-caret:              false;
+$enable-reduced-motion:     true;
 $enable-shadows:            true;
 $enable-smooth-scroll:      false;
+$enable-transitions:        true;
 $enable-validation-icons:   false;
 
 // Spacing
@@ -83,6 +85,12 @@ $dropdown-link-color:               $secondary;
 $dropdown-link-hover-color:         $light;
 $dropdown-link-hover-bg:            $dark;
 $dropdown-divider-bg:               $secondary;
+
+// Pagination
+$pagination-focus-box-shadow:       0 0 0 0.25rem color.scale($primary, $lightness: 0%, $alpha: -75%);
+$pagination-hover-bg:               color.scale(white, $lightness: 0%, $alpha: -95%);
+$pagination-disabled-color:         color.scale(white, $lightness: 0%, $alpha: -75%);
+$pagination-transition:             color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
 // Close
 $btn-close-color:            $light;
