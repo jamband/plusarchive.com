@@ -65,7 +65,7 @@ export default {
 .title {
   text-decoration: underline;
   text-decoration-color: var(--bs-primary);
-  text-decoration-thickness: 3px;
+  text-decoration-thickness: 2px;
   text-underline-offset: 0.3em;
 }
 </style>
