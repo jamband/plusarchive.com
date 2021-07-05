@@ -1,43 +1,55 @@
 <template>
   <nav v-if="hasPage()" class="text-center" aria-label="Page navigation">
-    <div class="d-flex" @click.capture="blur">
-      <NLink
-        :to="link('first')"
-        :class="linkClass('first')"
-        aria-label="First"
-        :aria-disabled="disabled('first')"
-        :tabindex="disabled('first') ? -1 : 0"
-      >
-        <fa icon="angle-double-left" />
-      </NLink>
-      <NLink
-        :to="link('previous')"
-        :class="linkClass('previous')"
-        aria-label="Previous"
-        :aria-disabled="disabled('previous')"
-        :tabindex="disabled('previous') ? -1 : 0"
-      >
-        <fa icon="angle-left" />
-      </NLink>
-      <NLink
-        :to="link('next')"
-        :class="linkClass('next')"
-        aria-label="Next"
-        :aria-disabled="disabled('next')"
-        :tabindex="disabled('next') ? -1 : 0"
-      >
-        <fa icon="angle-right" />
-      </NLink>
-      <NLink
-        :to="link('last')"
-        :class="linkClass('last')"
-        aria-label="Last"
-        :aria-disabled="disabled('last')"
-        :tabindex="disabled('last') ? -1 : 0"
-      >
-        <fa icon="angle-double-right" />
-      </NLink>
-    </div>
+    <ul class="pagination">
+      <li :class="itemClass('first')">
+        <NLink
+          :to="link('first')"
+          :class="linkClass()"
+          aria-label="First"
+          :aria-disabled="disabled('first')"
+          :tabindex="disabled('first') ? -1 : 0"
+          @click.native.capture="blur"
+        >
+          <fa icon="angle-double-left" />
+        </NLink>
+      </li>
+      <li :class="itemClass('previous')">
+        <NLink
+          :to="link('previous')"
+          :class="linkClass()"
+          aria-label="Previous"
+          :aria-disabled="disabled('previous')"
+          :tabindex="disabled('previous') ? -1 : 0"
+          @click.native.capture="blur"
+        >
+          <fa icon="angle-left" />
+        </NLink>
+      </li>
+      <li :class="itemClass('next')">
+        <NLink
+          :to="link('next')"
+          :class="linkClass()"
+          aria-label="Next"
+          :aria-disabled="disabled('next')"
+          :tabindex="disabled('next') ? -1 : 0"
+          @click.native.capture="blur"
+        >
+          <fa icon="angle-right" />
+        </NLink>
+      </li>
+      <li :class="itemClass('last')">
+        <NLink
+          :to="link('last')"
+          :class="linkClass()"
+          aria-label="Last"
+          :aria-disabled="disabled('last')"
+          :tabindex="disabled('last') ? -1 : 0"
+          @click.native.capture="blur"
+        >
+          <fa icon="angle-double-right" />
+        </NLink>
+      </li>
+    </ul>
     <div :class="$style.information" aria-label="Page information">
       {{ currentPage }}/{{ pageCount }}
     </div>
@@ -73,7 +85,7 @@ export default {
         : this.currentPage >= this.pageCount
     },
     blur (event) {
-      event.target.blur()
+      event.currentTarget.blur()
     },
     link (part) {
       let page = 1
@@ -93,25 +105,20 @@ export default {
         query: { ...this.$route.query, page }
       }
     },
-    linkClass (part) {
-      let selector = `flex-fill py-2 ${this.$style.link}`
-
-      if (part === 'first') {
-        selector += ` ${this.$style.first}`
-      } else if (part === 'last') {
-        selector += ` ${this.$style.last}`
+    itemClass (part) {
+      let selector = 'page-item flex-fill'
+      if (this.disabled(part)) {
+        selector += ' disabled'
       }
-
+      return selector
+    },
+    linkClass () {
+      let selector = 'page-link'
       if (this.hasTouchScreen) {
         selector += ` ${this.$style.touchable}`
       } else {
         selector += ` ${this.$style.clickable}`
       }
-
-      if (this.disabled(part)) {
-        selector += ` ${this.$style.disabled}`
-      }
-
       return selector
     },
     hasPage () {
@@ -124,20 +131,11 @@ export default {
 <style lang="scss" module>
 @import "../assets/css/variables";
 @import "../node_modules/bootstrap/scss/mixins/breakpoints";
-@import "../node_modules/bootstrap/scss/mixins/transition";
 
-.first {
-  border-bottom-left-radius: $border-radius;
-  border-top-left-radius: $border-radius;
-}
-
-.last {
-  border-bottom-right-radius: $border-radius;
-  border-top-right-radius: $border-radius;
-}
-
-.link {
-  @include transition($pagination-transition);
+.clickable {
+  &:hover {
+    background-color: $pagination-focus-bg;
+  }
 }
 
 .touchable {
@@ -146,28 +144,8 @@ export default {
   }
 
   &:active {
-    background-color: $pagination-hover-bg;
+    background-color: $pagination-focus-bg;
     box-shadow: $pagination-focus-box-shadow;
-  }
-}
-
-.clickable {
-  &:hover {
-    background-color: $pagination-hover-bg;
-  }
-
-  &:focus {
-    box-shadow: $pagination-focus-box-shadow;
-    outline: 0;
-  }
-}
-
-.disabled {
-  color: $pagination-disabled-color;
-  pointer-events: none;
-
-  &:hover {
-    color: $pagination-disabled-color;
   }
 }
 
@@ -177,12 +155,12 @@ export default {
   z-index: -1;
 
   @include media-breakpoint-down(sm) {
-    bottom: 2.4em;
+    bottom: 3.8em;
     font-size: 75%;
   }
 
   @include media-breakpoint-up(sm) {
-    bottom: 2.2em;
+    bottom: 3.3em;
     font-size: 85%;
   }
 }
