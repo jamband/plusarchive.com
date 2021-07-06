@@ -18,10 +18,8 @@ $theme-colors: (
 
 // Options
 $enable-caret:              false;
-$enable-reduced-motion:     true;
 $enable-shadows:            true;
 $enable-smooth-scroll:      false;
-$enable-transitions:        true;
 $enable-validation-icons:   false;
 
 // Spacing
@@ -59,7 +57,6 @@ $grid-breakpoints: (
 // Components
 $border-radius:               0.25rem;
 $box-shadow-sm:               0 0.125rem 0.25rem color.scale(black, $lightness: 10%);
-$component-active-bg:         $primary;
 
 // Typography
 $font-family-sans-serif:      "Source Sans Pro", "Yu Gothic", YuGothic sans-serif;
@@ -78,8 +75,9 @@ $input-border-color:                    $dark;
 $navbar-nav-link-padding-x:         0.8rem;
 $navbar-dark-hover-color:           $light;
 $navbar-dark-toggler-border-color:  none;
+$navbar-toggler-padding-x:          0.5rem;
 $navbar-toggler-font-size:          1rem;
-$navbar-toggler-focus-width:        0;
+$navbar-toggler-focus-width:        0.1rem;
 
 // Dropdowns
 $dropdown-bg:                       $body-bg;
@@ -99,7 +97,3 @@ $pagination-disabled-bg:            transparent;
 
 // Close
 $btn-close-color:            $light;
-
-// Offcanvas
-$offcanvas-padding-y:               0.8rem;
-$offcanvas-padding-x:               0.8rem;

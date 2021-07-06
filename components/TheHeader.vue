@@ -3,72 +3,49 @@
     <div class="container">
       <NLink class="navbar-brand" :to="{ name: 'index' }">{{ appName }}</NLink>
       <button
-        class="navbar-toggler ms-auto"
+        class="navbar-toggler"
         type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#navbar"
         aria-controls="navbar"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        @click.capture="toggleNavigation()"
       >
         <span class="navbar-toggler-icon" />
       </button>
-      <div
-        id="navbar"
-        class="navbar-nav offcanvas offcanvas-end"
-        tabindex="-1"
-        aria-labelledby="navbarLabel"
-      >
-        <div class="offcanvas-header bg-dark">
-          <h5 class="offcanvas-title">
-            <NLink
-              class="navbar-brand"
-              :to="{ name: 'index' }"
-              data-bs-dismiss="offcanvas"
-            >
-              {{ appName }}
-            </NLink>
-          </h5>
-          <button
-            type="button"
-            class="me-2 btn-close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          />
-        </div>
-        <div class="offcanvas-body bg-body">
+      <div id="navbar" ref="collapse" class="collapse navbar-collapse">
+        <div class="d-md-none navbar-nav">
           <NLink
             v-for="link in links.concat(moreLinks)"
             :key="link.routeName"
             :to="{ name: link.routeName }"
             :class="linkClass(link.active)"
-            data-bs-dismiss="offcanvas"
+            @click.native.capture="toggleNavigation()"
           >
             {{ link.text }}
           </NLink>
         </div>
-      </div>
-      <div class="d-none d-md-flex navbar-nav">
-        <NLink
-          v-for="link in links"
-          :key="link.routeName"
-          :to="{ name: link.routeName }"
-          :class="linkClass(link.active)"
-        >
-          {{ link.text }}
-        </NLink>
-        <AppDropdown id="headerMoreLinks" nav>
-          <AppDropdownHeader>More Links</AppDropdownHeader>
-          <AppDropdownLink
-            v-for="link in moreLinks"
+        <div class="d-none d-md-flex navbar-nav me-auto">
+          <NLink
+            v-for="link in links"
             :key="link.routeName"
             :to="{ name: link.routeName }"
+            :class="linkClass(link.active)"
           >
             {{ link.text }}
-          </AppDropdownLink>
-        </AppDropdown>
+          </NLink>
+          <AppDropdown id="headerMoreLinks" nav>
+            <AppDropdownHeader>More Links</AppDropdownHeader>
+            <AppDropdownLink
+              v-for="link in moreLinks"
+              :key="link.routeName"
+              :to="{ name: link.routeName }"
+            >
+              {{ link.text }}
+            </AppDropdownLink>
+          </AppDropdown>
+        </div>
+        <SearchForm class="ms-auto d-none d-md-flex" />
       </div>
-      <SearchForm class="ms-auto d-none d-md-flex" />
     </div>
   </nav>
 </template>
@@ -96,6 +73,12 @@ export default {
     }
   },
   methods: {
+    toggleNavigation () {
+      import('bootstrap/js/dist/collapse').then((module) => {
+        /* eslint-disable-next-line new-cap */
+        new module.default(this.$refs.collapse).toggle()
+      })
+    },
     linkClass (routeNames) {
       let selector = 'nav-link'
       if (routeNames.includes(this.$route.name || '')) {
