@@ -113,10 +113,8 @@ export default {
       return selector
     },
     linkClass () {
-      let selector = 'page-link'
-      if (this.hasTouchScreen) {
-        selector += ` ${this.$style.touchable}`
-      } else {
+      let selector = `page-link ${this.$style.link}`
+      if (!this.hasTouchScreen) {
         selector += ` ${this.$style.clickable}`
       }
       return selector
@@ -132,20 +130,15 @@ export default {
 @import "../assets/css/variables";
 @import "../node_modules/bootstrap/scss/mixins/breakpoints";
 
-.clickable {
-  &:hover {
-    background-color: $pagination-focus-bg;
+.link {
+  @include media-breakpoint-down(sm) {
+    font-size: 85%;
   }
 }
 
-.touchable {
+.clickable {
   &:hover {
-    color: $link-color;
-  }
-
-  &:active {
     background-color: $pagination-focus-bg;
-    box-shadow: $pagination-focus-box-shadow;
   }
 }
 
@@ -155,7 +148,7 @@ export default {
   z-index: -1;
 
   @include media-breakpoint-down(sm) {
-    bottom: 3.8em;
+    bottom: 3.7em;
     font-size: 75%;
   }
 

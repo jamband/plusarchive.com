@@ -37,17 +37,17 @@ test('current page: first', () => {
     pageCount: 10
   }
   const wrapper = factory({ props })
-  const links = wrapper.findAll('a')
+  const list = wrapper.findAll('li')
 
-  expect(links.at(FIRST).classes()).toContain('disabled')
-  expect(links.at(PREVIOUS).classes()).toContain('disabled')
-  expect(links.at(NEXT).classes()).not.toContain('disabled')
-  expect(links.at(LAST).classes()).not.toContain('disabled')
+  expect(list.at(FIRST).classes()).toContain('disabled')
+  expect(list.at(PREVIOUS).classes()).toContain('disabled')
+  expect(list.at(NEXT).classes()).not.toContain('disabled')
+  expect(list.at(LAST).classes()).not.toContain('disabled')
 
-  expect(links.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
-  expect(links.at(PREVIOUS).find('a').props().to).toEqual({ query: { page: 1 } })
-  expect(links.at(NEXT).find('a').props().to).toEqual({ query: { page: 2 } })
-  expect(links.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
+  expect(list.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(list.at(PREVIOUS).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(list.at(NEXT).find('a').props().to).toEqual({ query: { page: 2 } })
+  expect(list.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
 
   expect(wrapper.text()).toContain('1/10')
 })
@@ -58,17 +58,17 @@ test('current page: second', () => {
     pageCount: 10
   }
   const wrapper = factory({ props })
-  const links = wrapper.findAll('a')
+  const list = wrapper.findAll('li')
 
-  expect(links.at(FIRST).classes()).not.toContain('disabled')
-  expect(links.at(PREVIOUS).classes()).not.toContain('disabled')
-  expect(links.at(NEXT).classes()).not.toContain('disabled')
-  expect(links.at(LAST).classes()).not.toContain('disabled')
+  expect(list.at(FIRST).classes()).not.toContain('disabled')
+  expect(list.at(PREVIOUS).classes()).not.toContain('disabled')
+  expect(list.at(NEXT).classes()).not.toContain('disabled')
+  expect(list.at(LAST).classes()).not.toContain('disabled')
 
-  expect(links.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
-  expect(links.at(PREVIOUS).find('a').props().to).toEqual({ query: { page: 1 } })
-  expect(links.at(NEXT).find('a').props().to).toEqual({ query: { page: 3 } })
-  expect(links.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
+  expect(list.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(list.at(PREVIOUS).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(list.at(NEXT).find('a').props().to).toEqual({ query: { page: 3 } })
+  expect(list.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
 
   expect(wrapper.text()).toContain('2/10')
 })
@@ -79,17 +79,17 @@ test('current page: last', () => {
     pageCount: 10
   }
   const wrapper = factory({ props })
-  const links = wrapper.findAll('a')
+  const list = wrapper.findAll('li')
 
-  expect(links.at(FIRST).classes()).not.toContain('disabled')
-  expect(links.at(PREVIOUS).classes()).not.toContain('disabled')
-  expect(links.at(NEXT).classes()).toContain('disabled')
-  expect(links.at(LAST).classes()).toContain('disabled')
+  expect(list.at(FIRST).classes()).not.toContain('disabled')
+  expect(list.at(PREVIOUS).classes()).not.toContain('disabled')
+  expect(list.at(NEXT).classes()).toContain('disabled')
+  expect(list.at(LAST).classes()).toContain('disabled')
 
-  expect(links.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
-  expect(links.at(PREVIOUS).find('a').props().to).toEqual({ query: { page: 9 } })
-  expect(links.at(NEXT).find('a').props().to).toEqual({ query: { page: 10 } })
-  expect(links.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
+  expect(list.at(FIRST).find('a').props().to).toEqual({ query: { page: 1 } })
+  expect(list.at(PREVIOUS).find('a').props().to).toEqual({ query: { page: 9 } })
+  expect(list.at(NEXT).find('a').props().to).toEqual({ query: { page: 10 } })
+  expect(list.at(LAST).find('a').props().to).toEqual({ query: { page: 10 } })
 
   expect(wrapper.text()).toContain('10/10')
 })
