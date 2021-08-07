@@ -91,6 +91,11 @@ export default {
   ],
   build: {
     // analyze: true,
+    babel: {
+      plugins: [
+        ['@babel/plugin-proposal-private-property-in-object', { loose: true }]
+      ]
+    },
     terser: {
       extractComments: {
         filename: 'licenses.txt'
