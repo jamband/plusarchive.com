@@ -89,8 +89,7 @@ export default {
     'nuxt-purgecss'
   ],
   modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/axios'
   ],
   build: {
     // analyze: true,
@@ -113,15 +112,6 @@ export default {
     display: 'swap',
     download: true,
     stylePath: 'fonts/fonts.css'
-  },
-  manifest: {
-    name: APP_NAME,
-    short_name: APP_NAME,
-    description: APP_DESCRIPTION,
-    lang: 'en',
-    background_color: '#222',
-    display: 'standalone',
-    start_url: '/'
   },
   purgeCSS: {
     paths: [
