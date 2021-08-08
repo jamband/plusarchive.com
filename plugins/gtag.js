@@ -6,7 +6,6 @@ export default ({ $config, app }, inject) => {
     config: {
       id: $config.googleAnalyticsTrackingId,
       params: {
-        // cookieDomain: 'none',
         anonymize_ip: true
       }
     },
