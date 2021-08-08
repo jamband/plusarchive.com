@@ -60,7 +60,7 @@ export default {
         alert('Google Analytics tracking is not yet enabled.')
       } else {
         this.$store.dispatch('tracking/disable')
-        this.$ga.disable()
+        this.$gtag.optOut()
         alert('Opt-Out has been complete.')
       }
     }

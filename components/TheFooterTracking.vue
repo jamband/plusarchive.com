@@ -21,7 +21,7 @@ export default {
   methods: {
     optIn () {
       this.$store.dispatch('tracking/enable')
-      this.$ga.enable()
+      this.$gtag.optIn()
     }
   }
 }

@@ -8,6 +8,9 @@ import {
 
 export default {
   ssr: true,
+  publicRuntimeConfig: {
+    googleAnalyticsTrackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID
+  },
   components: [
     { path: '~/components', pathPrefix: false }
   ],
@@ -75,12 +78,12 @@ export default {
     './assets/css/app.scss'
   ],
   plugins: [
+    './plugins/app.client',
     './plugins/fontawesome',
-    './plugins/app.client'
+    './plugins/gtag'
   ],
   buildModules: [
     '@nuxtjs/eslint-module',
-    '@nuxtjs/google-analytics',
     '@nuxtjs/google-fonts',
     '@nuxtjs/stylelint-module',
     'nuxt-purgecss'
@@ -103,13 +106,6 @@ export default {
     }
   },
   // top level options for packages
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-    disabled: true,
-    set: [
-      { field: 'anonymizeIp', value: true }
-    ]
-  },
   googleFonts: {
     families: {
       'Source+Sans+Pro': [400, 600]

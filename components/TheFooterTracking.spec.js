@@ -17,7 +17,9 @@ const factory = (store = {}) => {
       NLink: RouterLinkStub
     },
     mocks: {
-      $ga: { enable () {} }
+      $gtag: {
+        optIn: () => jest.fn()
+      }
     }
   })
 }

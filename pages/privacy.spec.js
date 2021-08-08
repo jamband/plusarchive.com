@@ -16,8 +16,8 @@ const factory = (store = {}) => {
       fa: true
     },
     mocks: {
-      $ga: {
-        disable: jest.fn()
+      $gtag: {
+        optOut: () => jest.fn()
       }
     }
   })
