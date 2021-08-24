@@ -14,9 +14,6 @@
       aria-label="Close"
       @click="clear()"
     />
-    <div class="d-md-none pt-1 text-muted">
-      {{ appName }}
-    </div>
   </div>
 </template>
 

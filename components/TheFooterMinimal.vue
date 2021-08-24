@@ -1,6 +1,8 @@
 <template>
   <footer class="footer fixed-bottom p-3 text-center fw-bold bg-dark">
-    {{ appName }}
+    <div :class="$style.contents">
+      {{ appName }}
+    </div>
   </footer>
 </template>
 
@@ -15,3 +17,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" module>
+.contents {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+</style>

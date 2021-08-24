@@ -1,8 +1,10 @@
 <template>
   <footer class="footer fixed-bottom p-3 text-center fw-bold bg-dark">
-    <TheFooterPlayerTitle v-if="hasTitle()" key="player" />
-    <TheFooterTracking v-else-if="tracking.disable" key="tracking" />
-    <div v-else key="default">{{ appName }}</div>
+    <div :class="$style.contents">
+      <TheFooterPlayerTitle v-if="hasTitle()" key="player" />
+      <TheFooterTracking v-else-if="tracking.disable" key="tracking" />
+      <div v-else key="default">{{ appName }}</div>
+    </div>
   </footer>
 </template>
 
@@ -35,3 +37,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" module>
+.contents {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+</style>
