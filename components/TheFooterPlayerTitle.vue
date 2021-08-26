@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <fa icon="volume-up" size="sm" fixed-width />
+  <div class="p-2 d-flex align-items-center justify-content-center">
+    <fa icon="volume-up" size="sm" fixed-width class="mx-3" />
     <NLink
       :to="linkTo"
       :title="player.title"
-      class="mx-3 text-body"
+      class="py-2 px-1 text-body text-truncate"
       :class="$style.title"
     >
-      {{ title() }}
+      {{ player.title }}
     </NLink>
     <button
-      class="btn-close btn-sm align-text-top"
+      class="p-3 btn-close btn-sm align-text-top"
       aria-label="Close"
       @click="clear()"
     />
@@ -44,13 +44,6 @@ export default {
     }
   },
   methods: {
-    title () {
-      const maxLength = 30
-
-      return this.player.title.length <= maxLength
-        ? this.player.title
-        : `${this.player.title.substring(0, maxLength)}...`
-    },
     clear () {
       this.$store.dispatch('player/clear')
     }
@@ -62,7 +55,7 @@ export default {
 .title {
   text-decoration: underline;
   text-decoration-color: var(--bs-primary);
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 0.125em;
   text-underline-offset: 0.3em;
 }
 </style>

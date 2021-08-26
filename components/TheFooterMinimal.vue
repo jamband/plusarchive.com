@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer fixed-bottom p-3 text-center fw-bold bg-dark">
+  <footer class="p-3 fixed-bottom text-center fw-bold bg-dark">
     <div :class="$style.contents">
       {{ appName }}
     </div>

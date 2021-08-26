@@ -1,14 +1,11 @@
 <template>
-  <div>
+  <div class="px-1 py-3 text-center">
     <fa icon="info-circle" fixed-width />
     This site uses Google Analytics to provide better experience. By pressing
-    <button
-      class="btn btn-link align-baseline m-0 p-0 fw-bold"
-      style="font-size: 100%;"
-      @click="optIn()"
-    >
+    <button class="m-0 p-0 btn btn-link fw-bold" @click="optIn()">
       I ACCEPT
-    </button>, you consent. See
+    </button>,
+    you consent. See
     <NLink :to="{ name: 'privacy' }">
       Privacy Policy
     </NLink>

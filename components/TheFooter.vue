@@ -1,9 +1,9 @@
 <template>
-  <footer class="footer fixed-bottom p-3 text-center fw-bold bg-dark">
+  <footer class="fixed-bottom fw-bold bg-dark">
     <div :class="$style.contents">
       <TheFooterPlayerTitle v-if="hasTitle()" key="player" />
       <TheFooterTracking v-else-if="tracking.disable" key="tracking" />
-      <div v-else key="default">{{ appName }}</div>
+      <div v-else key="default" class="p-3 text-center">{{ appName }}</div>
     </div>
   </footer>
 </template>

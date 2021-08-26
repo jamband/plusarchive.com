@@ -1,5 +1,5 @@
 import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 import { klona } from 'klona'
 import TheFooterPlayerTitle from './TheFooterPlayerTitle'
 import storePlayer from '~/store/player'
@@ -25,7 +25,7 @@ player.namespaced = true
 let fixture, store
 
 beforeEach(() => {
-  store = new Vuex.Store({ modules: { player } })
+  store = new Store({ modules: { player } })
 
   fixture = {}
   fixture.player = {
@@ -42,14 +42,6 @@ test('title route', () => {
   const wrapper = factory(store)
   expect(wrapper.find('a').props().to)
     .toEqual({ name: 'tracks-id', params: { id: 'id1' } })
-})
-
-test('title', () => {
-  fixture.player.title = 'a'.repeat(40)
-  store.commit('player/setItem', fixture.player)
-  const wrapper = factory(store)
-  expect(/^a{30}\.\.\.$/.test(wrapper.find('a').text()))
-    .toBe(true)
 })
 
 test('click clear', async () => {
