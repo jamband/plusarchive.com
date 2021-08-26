@@ -1,4 +1,4 @@
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 import { klona } from 'klona'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import PrivacyPage from './privacy'
@@ -29,7 +29,7 @@ tracking.namespaced = true
 let wrapper
 
 beforeEach(() => {
-  const store = new Vuex.Store({ modules: { tracking } })
+  const store = new Store({ modules: { tracking } })
   wrapper = factory(store)
 })
 

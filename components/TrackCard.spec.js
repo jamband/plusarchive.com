@@ -1,6 +1,6 @@
 import { createLocalVue, RouterLinkStub, shallowMount } from '@vue/test-utils'
 import { klona } from 'klona'
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 import TrackCard from './TrackCard'
 import storePlayer from '~/store/player'
 
@@ -24,7 +24,7 @@ player.namespaced = true
 let store, props
 
 beforeEach(() => {
-  store = new Vuex.Store({ modules: { player } })
+  store = new Store({ modules: { player } })
 
   props = {
     id: '',

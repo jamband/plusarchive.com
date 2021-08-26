@@ -1,4 +1,4 @@
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
 import { klona } from 'klona'
 import storePlayer from './player'
@@ -13,7 +13,7 @@ player.namespaced = true
 let store, item
 
 beforeEach(() => {
-  store = new Vuex.Store({ modules: { player } })
+  store = new Store({ modules: { player } })
 
   item = {}
   item.track = {

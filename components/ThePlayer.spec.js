@@ -1,4 +1,4 @@
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 import { klona } from 'klona'
 import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import ThePlayer from './ThePlayer'
@@ -28,7 +28,7 @@ player.namespaced = true
 let store, fixture
 
 beforeEach(() => {
-  store = new Vuex.Store({ modules: { player } })
+  store = new Store({ modules: { player } })
 
   fixture = {}
   fixture.player = {

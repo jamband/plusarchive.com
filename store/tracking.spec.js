@@ -1,4 +1,4 @@
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
 import { klona } from 'klona'
 import storeTracking from './tracking'
@@ -13,7 +13,7 @@ tracking.namespaced = true
 let store
 
 beforeEach(() => {
-  store = new Vuex.Store({ modules: { tracking } })
+  store = new Store({ modules: { tracking } })
 })
 
 test('state: default values', () => {

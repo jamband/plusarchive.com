@@ -1,5 +1,5 @@
 import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 import { klona } from 'klona'
 import TheFooter from './TheFooter'
 import { APP_NAME } from '~/constants/app'
@@ -35,7 +35,7 @@ player.namespaced = true
 let store, fixture
 
 beforeEach(() => {
-  store = new Vuex.Store({ modules: { tracking, player } })
+  store = new Store({ modules: { tracking, player } })
 
   fixture = {}
   fixture.player = {
