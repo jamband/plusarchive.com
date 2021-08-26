@@ -5,8 +5,11 @@
     </div>
     <div class="col-md-6">
       <ul class="list-unstyled text-truncate">
-        <li v-for="playlist in playlists" :key="playlist.id" class="h5 fw-bold">
-          <NLink :to="{ name: 'playlists-id', params: { id: playlist.id } }" @click.native="play(playlist.id)">
+        <li v-for="playlist in playlists" :key="playlist.id" class="ms-1 mt-1 h5 fw-bold">
+          <NLink
+            :to="{ name: 'playlists-id', params: { id: playlist.id } }"
+            @click.native="play(playlist.id)"
+          >
             {{ playlist.title }} <fa icon="angle-right" fixed-width />
           </NLink>
         </li>
