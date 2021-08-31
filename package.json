@@ -7,6 +7,7 @@
     "eslint": "eslint --ext .js,.vue .",
     "stylelint": "stylelint **/*.{css,scss,vue}",
     "test": "jest",
+    "clear": "rm -rf .nuxt assets/fonts",
     "clean": "rm -rf .eslintcache .nuxt assets/fonts node_modules"
   },
   "dependencies": {
