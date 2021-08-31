@@ -58,7 +58,20 @@
 </template>
 
 <script>
+import { PaginationMinimal } from '~/components/pagination-minimal'
+import { SearchDropdown } from '~/components/search-dropdown'
+import { SearchForm } from '~/components/search-form'
+import { TotalCount } from '~/components/total-count'
+import { TrackCard } from '~/components/track-card'
+
 export default {
+  components: {
+    PaginationMinimal,
+    SearchDropdown,
+    SearchForm,
+    TotalCount,
+    TrackCard
+  },
   async asyncData ({ $axios, query }) {
     const tracks = await $axios.$get(
       `tracks${query.q ? '/search' : ''}?expand=genres`,

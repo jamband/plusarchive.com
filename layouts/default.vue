@@ -10,7 +10,17 @@
 </template>
 
 <script>
+import { TheFooter } from '~/components/the-footer'
+import { TheHeader } from '~/components/the-header'
+import { ThePlayer } from '~/components/the-player'
+
 export default {
+  name: 'LayoutsDefault',
+  components: {
+    TheFooter,
+    TheHeader,
+    ThePlayer
+  },
   methods: {
     playerShow () {
       return ['tracks-id', 'playlists-id'].includes(this.$route.name || '')

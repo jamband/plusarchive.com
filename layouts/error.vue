@@ -17,6 +17,7 @@
 
 <script>
 export default {
+  name: 'LayoutsError',
   layout: 'minimal',
   props: {
     error: {

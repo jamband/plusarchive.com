@@ -69,7 +69,20 @@
 </template>
 
 <script>
+import { BrandIconLink } from '~/components/brand-icon-link'
+import { PaginationMinimal } from '~/components/pagination-minimal'
+import { TotalCount } from '~/components/total-count'
+import { SearchDropdown } from '~/components/search-dropdown'
+import { SearchForm } from '~/components/search-form'
+
 export default {
+  components: {
+    BrandIconLink,
+    PaginationMinimal,
+    TotalCount,
+    SearchDropdown,
+    SearchForm
+  },
   async asyncData ({ $axios, query }) {
     const bookmarks = await $axios.$get(
       `bookmarks${query.q ? '/search' : ''}?expand=tags`,

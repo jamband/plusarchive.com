@@ -11,9 +11,6 @@ export default {
   publicRuntimeConfig: {
     googleAnalyticsTrackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID
   },
-  components: [
-    { path: '~/components', pathPrefix: false }
-  ],
   head: {
     titleTemplate: `%s · ${APP_NAME}`,
     meta: [

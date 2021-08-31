@@ -55,9 +55,13 @@
 </template>
 
 <script>
+import { TrackCard } from '~/components/track-card'
 import { APP_NAME } from '~/constants/app'
 
 export default {
+  components: {
+    TrackCard
+  },
   async asyncData ({ $axios }) {
     const [tracks, genres] = await Promise.all([
       $axios.$get('tracks/favorites?expand=genres'),
