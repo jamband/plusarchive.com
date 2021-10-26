@@ -80,9 +80,7 @@ export default {
     './plugins/gtag'
   ],
   buildModules: [
-    '@nuxtjs/eslint-module',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/stylelint-module',
     'nuxt-purgecss'
   ],
   modules: [
