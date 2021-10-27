@@ -1,14 +1,13 @@
 {
   "extends": [
-    "stylelint-config-standard"
+    "stylelint-config-standard-scss",
+    "stylelint-config-recommended-vue"
   ],
-  "plugins": [
-    "stylelint-order",
-    "stylelint-scss"
-  ],
+  "plugins": ["stylelint-order"],
   "rules": {
-    "at-rule-no-unknown": null,
+    "alpha-value-notation": "number",
     "value-keyword-case": ["lower", { "ignoreKeywords": ["YuGothic"] }],
-    "order/properties-alphabetical-order": true
+    "order/properties-alphabetical-order": true,
+    "scss/dollar-variable-colon-space-after": "at-least-one-space"
   }
 }
