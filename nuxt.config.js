@@ -80,6 +80,7 @@ export default {
     './plugins/gtag'
   ],
   buildModules: [
+    '@nuxt/postcss8',
     '@nuxtjs/google-fonts',
     'nuxt-purgecss'
   ],
