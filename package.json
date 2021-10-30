@@ -7,8 +7,8 @@
     "lint": "eslint --ext .js,.vue .",
     "stylelint": "stylelint \"src/**/*.{css,scss,vue}\"",
     "test": "jest -i",
-    "clear": "rm -rf .nuxt assets/fonts",
-    "clean": "rm -rf .nuxt assets/fonts node_modules"
+    "clear": "rm -rf .nuxt src/assets/fonts",
+    "clean": "rm -rf .nuxt src/assets/fonts node_modules"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
