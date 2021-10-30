@@ -1,5 +1,5 @@
 @import "../../assets/css/variables";
-@import "../../node_modules/bootstrap/scss/mixins/breakpoints";
+@import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
 .link {
   @include media-breakpoint-down(sm) {

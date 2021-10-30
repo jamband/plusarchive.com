@@ -4,10 +4,11 @@ import {
   APP_URL,
   APP_DESCRIPTION,
   APP_COLOR_PRIMARY
-} from './constants/app'
+} from './src/constants/app'
 
 export default {
   components: true,
+  srcDir: 'src/',
   ssr: true,
   publicRuntimeConfig: {
     googleAnalyticsTrackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID
@@ -33,25 +34,25 @@ export default {
       routes.push({
         name: 'tracks-search',
         path: '/tracks/search',
-        component: resolve(__dirname, 'pages/tracks/index')
+        component: resolve(__dirname, 'src/pages/tracks/index')
       })
 
       routes.push({
         name: 'labels-search',
         path: '/labels/search',
-        component: resolve(__dirname, 'pages/labels/index')
+        component: resolve(__dirname, 'src/pages/labels/index')
       })
 
       routes.push({
         name: 'stores-search',
         path: '/stores/search',
-        component: resolve(__dirname, 'pages/stores/index')
+        component: resolve(__dirname, 'src/pages/stores/index')
       })
 
       routes.push({
         name: 'bookmarks-search',
         path: '/bookmarks/search',
-        component: resolve(__dirname, 'pages/bookmarks/index')
+        component: resolve(__dirname, 'src/pages/bookmarks/index')
       })
 
       // redirects
@@ -107,9 +108,9 @@ export default {
   },
   purgeCSS: {
     paths: [
-      './node_modules/@fortawesome/fontawesome-svg-core/index.js',
-      './node_modules/bootstrap/js/dist/collapse.js',
-      './node_modules/bootstrap/js/dist/dropdown.js'
+      '../node_modules/@fortawesome/fontawesome-svg-core/index.js',
+      '../node_modules/bootstrap/js/dist/collapse.js',
+      '../node_modules/bootstrap/js/dist/dropdown.js'
     ],
     extractors: () => []
   }

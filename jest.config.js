@@ -1,7 +1,7 @@
 module.exports = {
   moduleFileExtensions: ['js', 'vue'],
   moduleNameMapper: {
-    '^~/(.*)$': '<rootDir>/$1',
+    '^~/(.*)$': '<rootDir>/src/$1',
     '^vue$': 'vue/dist/vue.common.js'
   },
   transform: {
