@@ -60,10 +60,10 @@
 <script>
 export default {
   async asyncData ({ $axios, query }) {
-    const tracks = await $axios.$get(
-      `tracks${query.q ? '/search' : ''}?expand=genres`,
-      { params: query }
-    )
+    const url = query.q ? 'tracks/search' : 'tracks'
+    const tracks = await $axios.$get(`${url}?expand=genre`, {
+      params: query
+    })
 
     return {
       tracks: tracks.items,

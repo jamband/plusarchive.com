@@ -71,10 +71,10 @@
 <script>
 export default {
   async asyncData ({ $axios, query }) {
-    const stores = await $axios.$get(
-      `stores${query.q ? '/search' : ''}?expand=tags`,
-      { params: query }
-    )
+    const url = query.q ? 'stores/search' : 'stores'
+    const stores = await $axios.$get(`${url}?expand=tags`, {
+      params: query
+    })
 
     return {
       stores: stores.items,

@@ -71,10 +71,10 @@
 <script>
 export default {
   async asyncData ({ $axios, query }) {
-    const bookmarks = await $axios.$get(
-      `bookmarks${query.q ? '/search' : ''}?expand=tags`,
-      { params: query }
-    )
+    const url = query.q ? 'bookmarks/search' : 'bookmarks'
+    const bookmarks = await $axios.$get(`${url}?expand=tage`, {
+      params: query
+    })
 
     return {
       bookmarks: bookmarks.items,
