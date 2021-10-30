@@ -1,3 +1,4 @@
+/** @jest-environment jsdom */
 import { RouterLinkStub, shallowMount } from '@vue/test-utils'
 import AppDropdownLink from '.'
 

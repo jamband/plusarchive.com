@@ -1,3 +1,4 @@
+/** @jest-environment jsdom */
 import { createLocalVue, RouterLinkStub, shallowMount } from '@vue/test-utils'
 import { klona } from 'klona'
 import Vuex, { Store } from 'vuex'

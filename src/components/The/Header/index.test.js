@@ -1,3 +1,4 @@
+/** @jest-environment jsdom */
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import TheHeader from '.'
 

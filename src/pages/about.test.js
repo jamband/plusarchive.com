@@ -1,3 +1,4 @@
+/** @jest-environment jsdom */
 import { shallowMount } from '@vue/test-utils'
 import AboutPage from './about'
 import { APP_NAME } from '~/constants/app'
