@@ -79,24 +79,6 @@ test('play', () => {
   expect(store.state.player.loading).toBe(true)
 })
 
-test('ratio', () => {
-  props.provider = 'Bandcamp'
-  expect(factory({ store, props }).find('img').attributes('data-aspectratio'))
-    .toBe('1/1')
-
-  props.provider = 'SoundCloud'
-  expect(factory({ store, props }).find('img').attributes('data-aspectratio'))
-    .toBe('1/1')
-
-  props.provider = 'Vimeo'
-  expect(factory({ store, props }).find('img').attributes('data-aspectratio'))
-    .toBe('16/9')
-
-  props.provider = 'YouTube'
-  expect(factory({ store, props }).find('img').attributes('data-aspectratio'))
-    .toBe('16/9')
-})
-
 test('audioStatusIcon', () => {
   props.provider = 'Bandcamp'
 
