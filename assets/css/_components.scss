@@ -1,18 +1,3 @@
-// lazysizes
-.lazyload {
-  width: 100%;
-}
-
-.lazyload,
-.lazyloading {
-  opacity: 0;
-}
-
-.lazyloaded {
-  opacity: 0.8;
-  transition: opacity 0.3s;
-}
-
 // Navbar
 .nav-link {
   @include media-breakpoint-down(md) {

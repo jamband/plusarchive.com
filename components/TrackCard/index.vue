@@ -7,12 +7,10 @@
       @click.native="play()"
     >
       <img
-        class="lazyload"
         :class="$style.image"
-        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNQqgcAAMYAogMXSH0AAAAASUVORK5CYII="
-        :data-src="image"
-        :data-aspectratio="ratio()"
+        :src="image"
         alt=""
+        loading="lazy"
       >
       <div :class="$style.play">
         <fa :icon="audioStatusIcon()" />
