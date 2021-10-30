@@ -61,7 +61,7 @@
 export default {
   async asyncData ({ $axios, query }) {
     const url = query.q ? 'tracks/search' : 'tracks'
-    const tracks = await $axios.$get(`${url}?expand=genre`, {
+    const tracks = await $axios.$get(`${url}?expand=genres`, {
       params: query
     })
 
