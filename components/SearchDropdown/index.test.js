@@ -1,10 +1,10 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
 import SearchDropdown from '.'
-import AppDropdownText from '~/components/app-dropdown-text'
-import AppDropdownLink from '~/components/app-dropdown-link'
-import AppDropdownHeader from '~/components/app-dropdown-header'
-import AppDropdownDivider from '~/components/app-dropdown-divider'
-import AppDropdown from '~/components/app-dropdown'
+import AppDropdown from '~/components/AppDropdown'
+import AppDropdownDivider from '~/components/AppDropdownDivider'
+import AppDropdownHeader from '~/components/AppDropdownHeader'
+import AppDropdownLink from '~/components/AppDropdownLink'
+import AppDropdownText from '~/components/AppDropdownText'
 
 const factory = ({ route, fetchState }) => {
   return shallowMount(SearchDropdown, {
