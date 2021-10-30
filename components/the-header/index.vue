@@ -51,20 +51,10 @@
 </template>
 
 <script>
-import { AppDropdown } from '~/components/app-dropdown'
-import { AppDropdownHeader } from '~/components/app-dropdown-header'
-import { AppDropdownLink } from '~/components/app-dropdown-link'
-import { SearchForm } from '~/components/search-form'
 import { APP_NAME } from '~/constants/app'
 
 export default {
   name: 'TheHeader',
-  components: {
-    AppDropdown,
-    AppDropdownHeader,
-    AppDropdownLink,
-    SearchForm
-  },
   data () {
     return {
       appName: APP_NAME,

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import { AppDropdown } from '.'
+import AppDropdown from '.'
 
 const factory = ({ props }) => {
   return shallowMount(AppDropdown, {

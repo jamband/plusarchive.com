@@ -1,5 +1,5 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
-import { PaginationMinimal } from '.'
+import PaginationMinimal from '.'
 
 window.matchMedia = () => {
   return { matches: false }

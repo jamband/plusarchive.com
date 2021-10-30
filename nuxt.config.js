@@ -7,6 +7,7 @@ import {
 } from './constants/app'
 
 export default {
+  components: true,
   ssr: true,
   publicRuntimeConfig: {
     googleAnalyticsTrackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID

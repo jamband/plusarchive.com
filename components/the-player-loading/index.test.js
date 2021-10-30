@@ -1,12 +1,12 @@
 import { shallowMount } from '@vue/test-utils'
-import { AppLoading } from '.'
+import ThePlayerLoading from '.'
 
 const factory = () => {
-  return shallowMount(AppLoading, {
+  return shallowMount(ThePlayerLoading, {
   })
 }
 
-test('text', () => {
+test('...', () => {
   const wrapper = factory()
   expect(wrapper.text()).toBe('...')
 })

@@ -1,5 +1,5 @@
 import { RouterLinkStub, shallowMount } from '@vue/test-utils'
-import { AppDropdownLink } from '.'
+import AppDropdownLink from '.'
 
 const factory = ({ to, slot }) => {
   return shallowMount(AppDropdownLink, {

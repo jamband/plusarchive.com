@@ -24,23 +24,8 @@
 </template>
 
 <script>
-import { AppDropdown } from '~/components/app-dropdown'
-import { AppDropdownDivider } from '~/components/app-dropdown-divider'
-import { AppDropdownHeader } from '~/components/app-dropdown-header'
-import { AppDropdownLink } from '~/components/app-dropdown-link'
-import { AppDropdownText } from '~/components/app-dropdown-text'
-import { AppLoading } from '~/components/app-loading'
-
 export default {
   name: 'SearchDropdown',
-  components: {
-    AppDropdown,
-    AppDropdownDivider,
-    AppDropdownHeader,
-    AppDropdownLink,
-    AppDropdownText,
-    AppLoading
-  },
   props: {
     id: {
       type: String,

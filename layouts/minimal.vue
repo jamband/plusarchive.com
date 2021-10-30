@@ -7,14 +7,7 @@
 </template>
 
 <script>
-import { TheFooterMinimal } from '~/components/the-footer-minimal'
-import { TheHeader } from '~/components/the-header'
-
 export default {
-  name: 'LayoutsMinimal',
-  components: {
-    TheFooterMinimal,
-    TheHeader
-  }
+  name: 'LayoutsMinimal'
 }
 </script>

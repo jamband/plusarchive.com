@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import { SearchForm } from '.'
+import SearchForm from '.'
 
 const factory = ({ props, route }) => {
   return shallowMount(SearchForm, {

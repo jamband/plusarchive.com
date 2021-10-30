@@ -1,7 +1,7 @@
 import Vuex, { Store } from 'vuex'
 import { klona } from 'klona'
 import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
-import { ThePlayer } from '.'
+import ThePlayer from '.'
 import storePlayer from '~/store/player'
 
 const localVue = createLocalVue()

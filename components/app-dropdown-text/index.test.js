@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { AppDropdownText } from '.'
+import AppDropdownText from '.'
 
 const factory = ({ slot }) => {
   return mount(AppDropdownText, {

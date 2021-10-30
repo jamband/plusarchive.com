@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { AppDropdownHeader } from '.'
+import AppDropdownHeader from '.'
 
 const factory = ({ slot }) => {
   return mount(AppDropdownHeader, {

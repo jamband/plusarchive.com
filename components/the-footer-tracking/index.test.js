@@ -1,7 +1,7 @@
 import Vuex, { Store } from 'vuex'
 import { klona } from 'klona'
 import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
-import { TheFooterTracking } from '.'
+import TheFooterTracking from '.'
 import storeTracking from '~/store/tracking'
 
 const localVue = createLocalVue()

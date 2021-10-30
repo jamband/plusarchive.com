@@ -9,16 +9,10 @@
 </template>
 
 <script>
-import { TheFooterPlayerTitle } from '~/components/the-footer-player-title'
-import { TheFooterTracking } from '~/components/the-footer-tracking'
 import { APP_NAME } from '~/constants/app'
 
 export default {
   name: 'TheFooter',
-  components: {
-    TheFooterPlayerTitle,
-    TheFooterTracking
-  },
   data () {
     return {
       appName: APP_NAME

@@ -1,5 +1,5 @@
 import { shallowMount, RouterLinkStub } from '@vue/test-utils'
-import { TheHeader } from '.'
+import TheHeader from '.'
 
 const factory = (route = {}) => {
   return shallowMount(TheHeader, {

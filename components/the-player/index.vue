@@ -40,13 +40,9 @@
 </template>
 
 <script>
-import { ThePlayerLoading } from '~/components/the-player-loading'
 
 export default {
   name: 'ThePlayer',
-  components: {
-    ThePlayerLoading
-  },
   computed: {
     player () {
       return this.$store.state.player

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { AppDropdownDivider } from '.'
+import AppDropdownDivider from '.'
 
 const factory = () => {
   return mount(AppDropdownDivider)
