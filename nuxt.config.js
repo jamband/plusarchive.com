@@ -83,8 +83,7 @@ export default {
   ],
   buildModules: [
     '@nuxt/postcss8',
-    '@nuxtjs/google-fonts',
-    'nuxt-purgecss'
+    '@nuxtjs/google-fonts'
   ],
   modules: [
     '@nuxtjs/axios'
@@ -105,13 +104,5 @@ export default {
     display: 'swap',
     download: true,
     stylePath: 'fonts/fonts.css'
-  },
-  purgeCSS: {
-    paths: [
-      '../node_modules/@fortawesome/fontawesome-svg-core/index.js',
-      '../node_modules/bootstrap/js/dist/collapse.js',
-      '../node_modules/bootstrap/js/dist/dropdown.js'
-    ],
-    extractors: () => []
   }
 }
