@@ -1,4 +1,5 @@
 import { sortRoutes } from '@nuxt/utils'
+import purgecssConfig from './purgecss.config'
 import {
   APP_NAME,
   APP_URL,
@@ -90,6 +91,11 @@ export default {
   ],
   build: {
     // analyze: true,
+    postcss: {
+      plugins: {
+        '@fullhuman/postcss-purgecss': purgecssConfig
+      }
+    },
     terser: {
       extractComments: {
         filename: 'licenses.txt'
