@@ -5,7 +5,6 @@
   ],
   "plugins": ["stylelint-order"],
   "rules": {
-    "alpha-value-notation": "number",
     "value-keyword-case": ["lower", { "ignoreKeywords": ["YuGothic"] }],
     "order/properties-alphabetical-order": true,
     "scss/dollar-variable-colon-space-after": "at-least-one-space"
