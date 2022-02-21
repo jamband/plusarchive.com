@@ -5,12 +5,11 @@
       :to="linkTo"
       :title="player.title"
       class="py-2 px-1 text-body text-truncate"
-      :class="$style.title"
     >
       {{ player.title }}
     </NLink>
     <button
-      class="p-3 btn-close btn-sm align-text-top"
+      class="p-3 btn-close btn-sm"
       aria-label="Close"
       @click="clear()"
     />
@@ -51,5 +50,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" src="./style.scss" module></style>
