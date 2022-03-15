@@ -83,8 +83,7 @@ export default {
     './plugins/gtag'
   ],
   buildModules: [
-    '@nuxt/postcss8',
-    '@nuxtjs/google-fonts'
+    '@nuxt/postcss8'
   ],
   modules: [
     '@nuxtjs/axios'
@@ -101,14 +100,6 @@ export default {
         filename: 'licenses.txt'
       }
     }
-  },
-  // top level options for packages
-  googleFonts: {
-    families: {
-      'Source+Sans+Pro': [400, 600]
-    },
-    display: 'swap',
-    download: true,
-    stylePath: 'fonts/fonts.css'
   }
+  // top level options for packages
 }

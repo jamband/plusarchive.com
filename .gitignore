@@ -1,4 +1,3 @@
 /.nuxt
-/src/assets/fonts
 /node_modules
 .env

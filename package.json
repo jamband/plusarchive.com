@@ -30,7 +30,6 @@
     "@fullhuman/postcss-purgecss": "^4.1.3",
     "@nuxt/postcss8": "^1.1.3",
     "@nuxtjs/eslint-config": "^9.0.0",
-    "@nuxtjs/google-fonts": "^1.3.0",
     "@types/bootstrap": "^5.1.9",
     "@types/masonry-layout": "^4.2.4",
     "@vue/test-utils": "^1.3.0",
