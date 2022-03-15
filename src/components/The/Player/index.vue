@@ -24,18 +24,18 @@
         @load="load()"
       />
     </div>
-    <h5 class="mt-3 mb-2 text-center fw-bold">
-      {{ player.title }}
-      <small class="text-muted">via {{ player.provider }}</small>
-    </h5>
-    <p class="text-center">
+    <section class="mt-3 mb-4 text-center">
+      <h1 class="h5 fw-bold">{{ player.title }}</h1>
+      <p>via {{ player.provider }}</p>
+    </section>
+    <div class="text-center">
       <NLink :to="{ name: backTo() }">
         <fa icon="angle-left" size="sm" fixed-width />
         Back to {{ backToLabel() }}
       </NLink>
       <span class="mx-1 text-muted">or</span>
       <NLink :to="{ name: 'index' }">Recent Favorites</NLink>
-    </p>
+    </div>
   </div>
 </template>
 

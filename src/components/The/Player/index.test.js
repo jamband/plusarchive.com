@@ -43,8 +43,13 @@ beforeEach(() => {
 
 test('title', () => {
   store.commit('player/setItem', fixture.player)
-  const title = factory({ store }).find('h5')
+  const title = factory({ store }).find('h1')
   expect(title.text()).toContain(fixture.player.title)
+})
+
+test('provider', () => {
+  store.commit('player/setItem', fixture.player)
+  const title = factory({ store }).find('h1 + p')
   expect(title.text()).toContain(fixture.player.provider)
 })
 

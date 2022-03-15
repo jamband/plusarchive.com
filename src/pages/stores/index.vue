@@ -39,15 +39,20 @@
             </a>
           </section>
           <section class="mb-1">
-            <span class="me-2 text-body">Country:</span>
-            {{ store.country }}
+            <span class="me-2 text-light">Country:</span>
+            <NLink
+              :to="{ name: 'stores', query: { country: store.country } }"
+              class="tag"
+            >
+              {{ store.country }}
+            </NLink>
           </section>
           <section class="mb-1">
-            <span class="me-2 text-body">Links:</span>
+            <span class="me-2 text-light">Links:</span>
             <BrandIconLink :links="store.link" />
           </section>
           <section class="mb-1">
-            <span class="me-2 text-body">Tags:</span>
+            <span class="me-2 text-light">Tags:</span>
             <NLink
               v-for="tag in store.tags"
               :key="tag.id"
@@ -57,7 +62,7 @@
               {{ tag.name }}
             </NLink>
           </section>
-          <hr class="text-muted">
+          <hr>
         </article>
       </div>
       <PaginationMinimal

@@ -96,10 +96,10 @@
 
 .footer {
   color: $text-muted;
+  font-size: 0.9rem;
 
   @include media-breakpoint-down(sm) {
     bottom: 0.5rem;
-    font-size: 94%;
     position: absolute;
     right: 0.5rem;
   }

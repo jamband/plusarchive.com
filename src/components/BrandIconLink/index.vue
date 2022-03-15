@@ -5,7 +5,7 @@
       :key="index"
       :href="url"
       :aria-label="url"
-      class="text-light"
+      class="tag"
       style="margin-right: 0.7rem;"
       rel="noopener"
       target="_blank"

@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-      <NLink class="navbar-brand" :to="{ name: 'index' }">{{ appName }}</NLink>
+      <NLink class="fw-bold navbar-brand" :to="{ name: 'index' }">{{ appName }}</NLink>
       <button
         class="navbar-toggler"
         type="button"

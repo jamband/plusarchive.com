@@ -36,7 +36,7 @@
 
 // Tag
 .tag {
-  color: var(--bs-secondary);
+  color: var(--bs-body-color);
   display: inline-block;
   line-height: 1;
   margin-right: 0.8rem;
@@ -44,9 +44,7 @@
   vertical-align: baseline;
   white-space: nowrap;
 
-  @include transition;
-
   &:hover {
-    color: $body-color;
+    color: var(--bs-light);
   }
 }

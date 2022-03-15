@@ -2,7 +2,7 @@
   <div class="px-1 py-3 text-center">
     <fa icon="info-circle" fixed-width />
     This site uses Google Analytics to provide better experience. By pressing
-    <button class="m-0 p-0 btn btn-link fw-bold" @click="optIn()">
+    <button class="m-0 p-0 btn btn-link" @click="optIn()">
       I ACCEPT
     </button>,
     you consent. See

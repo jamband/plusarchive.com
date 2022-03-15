@@ -4,7 +4,7 @@
     <NLink
       :to="linkTo"
       :title="player.title"
-      class="py-2 px-1 text-body text-truncate"
+      class="py-2 px-1 fw-bold text-light text-truncate"
     >
       {{ player.title }}
     </NLink>

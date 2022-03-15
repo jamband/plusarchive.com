@@ -2,7 +2,7 @@
   <div>
     <h2 class="mb-2">
       Recent
-      <small class="text-muted">favorite tracks</small>
+      <small class="fw-normal text-muted">favorite tracks</small>
     </h2>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-md-4">
       <div v-for="track in tracks" :key="track.id">
@@ -32,7 +32,7 @@
     </div>
     <h2 class="mt-4 mb-2">
       Search
-      <small class="text-muted">by genres</small>
+      <small class="fw-normal text-muted">by genres</small>
     </h2>
     <NLink
       v-for="genre in genres"
@@ -46,7 +46,7 @@
       <NLink :to="{ name: 'tracks' }">
         Go to Tracks
       </NLink>
-      <span class="mx-1 text-muted">or</span>
+      <span class="mx-1">or</span>
       <NLink :to="{ name: 'playlists' }">
         Playlists <fa icon="angle-right" size="sm" fixed-width />
       </NLink>
