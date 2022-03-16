@@ -15,7 +15,7 @@ export default {
     text () {
       return this.total === 0
         ? 'No results found'
-        : `${this.total} results`
+        : `${new Intl.NumberFormat('en-US').format(this.total)} results`
     }
   }
 }

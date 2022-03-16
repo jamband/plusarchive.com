@@ -17,3 +17,8 @@ test('case: 100', () => {
   const wrapper = factory({ total: 100 })
   expect(wrapper.text()).toBe('100 results')
 })
+
+test('case: 1000', () => {
+  const wrapper = factory({ total: 1000 })
+  expect(wrapper.text()).toBe('1,000 results')
+})
