@@ -11,7 +11,6 @@ import {
   faAngleRight,
   faAngleUp,
   faClock,
-  faDatabase,
   faEllipsisH,
   faExternalLinkAlt,
   faInfoCircle,
@@ -19,8 +18,7 @@ import {
   faPauseCircle,
   faPlayCircle,
   faRedoAlt,
-  faTimes,
-  faVolumeUp
+  faTimes
 } from '@fortawesome/free-solid-svg-icons'
 
 // import free-brands
@@ -52,7 +50,6 @@ library.add(
   faAngleRight,
   faAngleUp,
   faClock,
-  faDatabase,
   faEllipsisH,
   faExternalLinkAlt,
   faInfoCircle,
@@ -61,7 +58,6 @@ library.add(
   faPlayCircle,
   faRedoAlt,
   faTimes,
-  faVolumeUp,
 
   // add free-brands
   faBandcamp,

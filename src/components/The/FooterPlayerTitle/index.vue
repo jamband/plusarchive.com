@@ -1,6 +1,5 @@
 <template>
   <div class="p-2 d-flex align-items-center justify-content-center">
-    <fa icon="volume-up" size="sm" fixed-width class="mx-3" />
     <NLink
       :to="linkTo"
       :title="player.title"

@@ -32,7 +32,7 @@
     </div>
     <h2 class="mt-4 mb-2">
       Search
-      <small class="fw-normal text-muted">by genres</small>
+      <small class="fw-normal text-body">by genres</small>
     </h2>
     <NLink
       v-for="genre in genres"

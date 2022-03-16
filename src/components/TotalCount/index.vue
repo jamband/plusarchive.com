@@ -1,7 +1,5 @@
 <template>
-  <span class="text-body">
-    <fa icon="database" size="sm" fixed-width /> {{ text() }}
-  </span>
+  <span class="text-body">{{ text() }}</span>
 </template>
 
 <script>

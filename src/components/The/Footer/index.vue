@@ -1,5 +1,5 @@
 <template>
-  <footer class="fixed-bottom text-light bg-dark">
+  <footer class="fixed-bottom text-light bg-dark" :class="$style.footer">
     <div :class="$style.contents">
       <TheFooterPlayerTitle v-if="hasTitle()" key="player" />
       <TheFooterTracking v-else-if="tracking.disable" key="tracking" />

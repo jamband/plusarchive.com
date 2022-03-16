@@ -14,7 +14,6 @@ const factory = (store = {}) => {
     localVue,
     store,
     stubs: {
-      fa: true,
       NLink: RouterLinkStub
     }
   })

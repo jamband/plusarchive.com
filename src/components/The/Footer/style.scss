@@ -1,3 +1,7 @@
 .contents {
   padding-bottom: env(safe-area-inset-bottom);
 }
+
+.footer {
+  box-shadow: 0 0 0.1rem 0.05rem var(--bs-black);
+}

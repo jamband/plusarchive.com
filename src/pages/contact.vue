@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
-      <h1>Contact <small class="text-muted">for bugs and question</small></h1>
+      <h1>Contact <small class="fw-normal text-body">for bugs and question</small></h1>
       Please to the message via
       <a href="https://twitter.com/livejam_db" rel="noopener" target="_blank">
         <fa :icon="['fab', 'twitter']" fixed-width />Twitter

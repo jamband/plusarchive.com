@@ -49,8 +49,9 @@ $body-bg:     $gray-900;
 $body-color:  $gray-300;
 
 // Links
-$link-color:                              $primary;
 $link-decoration:                         none;
+$link-color:                              $primary;
+$link-shade-percentage:                   0%;
 
 // Grid breakpoints
 $grid-breakpoints: (
@@ -64,13 +65,16 @@ $grid-breakpoints: (
 $border-radius:               0.25rem;
 $box-shadow:                  0 0.5rem 1rem $black;
 $box-shadow-sm:               0 0.125rem 0.1rem $black;
-$component-active-bg:         $primary;
+$component-active-bg:         $light;
 
 // Typography
 $headings-color:              $light;
 $text-muted:                  #9491a5;
 $hr-margin-y:                 $spacer * 0.5;
 $small-font-size:             0.675em;
+
+// Buttons + Forms
+$input-btn-focus-box-shadow:            0 0 0 0.2rem color.scale($light, $lightness: 0%, $alpha: -40%);
 
 // Forms
 $input-bg:                              $black;
@@ -96,7 +100,6 @@ $dropdown-box-shadow:               $box-shadow;
 $dropdown-link-color:               $body-color;
 $dropdown-link-hover-color:         $light;
 $dropdown-link-hover-bg:            $dark;
-$dropdown-link-active-color:        $dark;
 $dropdown-link-active-bg:           $primary;
 $dropdown-header-color:             $text-muted;
 
@@ -110,4 +113,6 @@ $pagination-disabled-color:         $text-muted;
 $pagination-disabled-bg:            transparent;
 
 // Close
-$btn-close-color:            $light;
+$btn-close-color:            $body-color;
+$btn-close-opacity:          1;
+$btn-close-hover-opacity:    1;
