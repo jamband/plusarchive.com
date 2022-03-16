@@ -15,6 +15,9 @@ export default {
     googleAnalyticsTrackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID
   },
   head: {
+    htmlAttrs: {
+      lang: 'en'
+    },
     titleTemplate: `%s · ${APP_NAME}`,
     meta: [
       { charset: 'utf-8' },
