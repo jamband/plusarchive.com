@@ -3,7 +3,7 @@
     <NLink
       :to="linkTo"
       :title="player.title"
-      class="py-2 px-1 fw-bold text-light text-truncate"
+      class="ms-3 py-2 px-1 fw-bold text-light text-truncate"
     >
       {{ player.title }}
     </NLink>
