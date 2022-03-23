@@ -6,7 +6,6 @@
       :href="url"
       :aria-label="url"
       class="tag"
-      style="margin-right: 0.7rem;"
       rel="noopener"
       target="_blank"
     >

@@ -45,7 +45,7 @@
               </AppDropdownLink>
             </AppDropdown>
           </div>
-          <SearchForm class="ms-auto d-none d-md-flex" />
+          <SearchForm class="ms-auto d-none d-md-flex ps-0 ps-md-2" />
         </div>
       </div>
     </nav>

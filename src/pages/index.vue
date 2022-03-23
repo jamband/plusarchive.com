@@ -23,7 +23,7 @@
             v-for="genre in track.genres"
             :key="genre.id"
             :to="{ name: 'tracks', query: { genre: genre.name }}"
-            class="tag"
+            class="mb-2 tag"
           >
             {{ genre.name }}
           </NLink>
@@ -38,7 +38,7 @@
       v-for="genre in genres"
       :key="genre.id"
       :to="{ name: 'tracks', query: { genre } }"
-      class="tag"
+      class="mb-2 tag"
     >
       {{ genre }}
     </NLink>

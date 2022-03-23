@@ -6,7 +6,7 @@
   position: relative;
 
   @include media-breakpoint-down(sm) {
-    border-bottom: 1px solid var(--bs-dark);
+    border-bottom: 1px solid var(--bs-gray-700);
     display: flex;
     padding: 0.8rem 0;
   }
