@@ -11,9 +11,9 @@
     "clean": "rm -rf .nuxt node_modules"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.1.0",
-    "@fortawesome/free-brands-svg-icons": "^6.1.0",
-    "@fortawesome/free-solid-svg-icons": "^6.1.0",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/vue-fontawesome": "^2.0.6",
     "@nuxtjs/axios": "^5.13.6",
     "@popperjs/core": "^2.11.4",
