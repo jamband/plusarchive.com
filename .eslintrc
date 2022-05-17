@@ -2,7 +2,8 @@
   "root": true,
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest/globals": true
   },
   "parserOptions": {
     "parser": "@babel/eslint-parser",
@@ -12,6 +13,7 @@
     "@nuxtjs",
     "plugin:nuxt/recommended"
   ],
+  "plugins": ["jest"],
   "rules": {
     "vue/max-attributes-per-line": "off",
     "vue/multi-word-component-names": "off",
