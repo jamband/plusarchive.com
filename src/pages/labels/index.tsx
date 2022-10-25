@@ -187,7 +187,7 @@ const Page: PageComponent<Props> = (props) => {
                     <Link
                       key={tag}
                       href={{
-                        pathname: "/label",
+                        pathname: "/labels",
                         query: { tag },
                       }}
                     >
