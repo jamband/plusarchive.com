@@ -10,6 +10,20 @@ const nextConfig = {
   },
   reactStrictMode: true,
   swcMinify: true,
+  async redirects() {
+    return [
+      {
+        source: "/track/:id",
+        destination: "/tracks/:id",
+        permanent: true,
+      },
+      {
+        source: "/playlist/:id",
+        destination: "/playlists/:id",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
