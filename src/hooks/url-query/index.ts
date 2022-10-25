@@ -4,17 +4,18 @@ export const useUrlQuery = () => {
   const { query } = useRouter();
 
   const appendUrlQuery = (key: string, value: string) => {
-    const q = { ...query };
-    delete q.page;
-    return { ...q, [key]: value };
+    const _query = { ...query };
+    delete _query.q;
+    delete _query.page;
+    return { ..._query, [key]: value };
   };
 
   const resetUrlQuery = (key: string) => {
-    const q = { ...query };
-    delete q.page;
-    delete q.q;
-    delete q[key];
-    return q;
+    const _query = { ...query };
+    delete _query.q;
+    delete _query.page;
+    delete _query[key];
+    return _query;
   };
 
   return {

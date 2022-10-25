@@ -9,32 +9,33 @@ jest.mock("next/router", () => ({
 test("appendUrlQuery", () => {
   router.mockReturnValue({
     query: {
-      foo: "foo",
+      foo: "foo_value",
+      q: "q_value",
       page: 10,
     },
   });
 
   const { result } = renderHook(useUrlQuery);
 
-  expect(result.current.appendUrlQuery("bar", "bar")).toStrictEqual({
-    foo: "foo",
-    bar: "bar",
+  expect(result.current.appendUrlQuery("bar", "bar_value")).toStrictEqual({
+    foo: "foo_value",
+    bar: "bar_value",
   });
 });
 
 test("resetUrlQuery", () => {
   router.mockReturnValue({
     query: {
-      foo: "foo",
-      bar: "bar",
+      foo: "foo_value",
+      bar: "bar_value",
+      q: "q_value",
       page: 10,
-      q: "baz",
     },
   });
 
   const { result } = renderHook(useUrlQuery);
 
   expect(result.current.resetUrlQuery("foo")).toStrictEqual({
-    bar: "bar",
+    bar: "bar_value",
   });
 });
