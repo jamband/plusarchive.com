@@ -1,32 +1,48 @@
-import { useId, useState } from "react";
+import { useId } from "react";
 import { Component } from "./component";
 import type { Props } from "./types";
 
 export const Dropdown: React.FC<Props> = (props) => {
   const id = useId();
-  const [open, setOpen] = useState(false);
 
   const onClick = (event: React.FormEvent) => {
-    event.stopPropagation();
+    const current = event.currentTarget;
+    const firstChild = current.firstElementChild;
 
-    setTimeout(() => {
-      setOpen((previous) => !previous);
-    });
+    if (current.hasAttribute("open")) {
+      setTimeout(() => {
+        current.removeAttribute("open");
+        firstChild?.setAttribute("aria-expanded", "false");
+      }, 100);
+    } else {
+      firstChild?.setAttribute("aria-expanded", "true");
+    }
   };
 
   const onBlur = (event: React.FocusEvent) => {
-    const element = event.relatedTarget?.parentNode?.parentNode as HTMLElement;
+    const current = event.currentTarget;
+    const firstChild = current.firstElementChild;
 
-    if (open && id !== element?.id) {
+    if (
+      current.hasAttribute("open") &&
+      id !== event.relatedTarget?.parentElement?.parentElement?.id
+    ) {
       setTimeout(() => {
-        setOpen(false);
-      });
+        current.removeAttribute("open");
+        firstChild?.setAttribute("aria-expanded", "false");
+      }, 100);
     }
   };
 
   const onKeyDown = (event: React.KeyboardEvent) => {
-    if (open && event.key === "Escape") {
-      setOpen(false);
+    if (event.key === "Escape") {
+      const current = event.currentTarget;
+      const firstChild = current.firstElementChild;
+
+      if (current.hasAttribute("open")) {
+        current.removeAttribute("open");
+        firstChild?.setAttribute("aria-expanded", "false");
+      }
     }
   };
 
@@ -37,7 +53,6 @@ export const Dropdown: React.FC<Props> = (props) => {
       onClick={onClick}
       onBlur={onBlur}
       onKeyDown={onKeyDown}
-      open={open}
     />
   );
 };

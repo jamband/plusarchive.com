@@ -10,11 +10,10 @@ export const Component: React.FC<_Props> = (props) => (
     onClick={props.onClick}
     onBlur={props.onBlur}
     onKeyDown={props.onKeyDown}
-    open={props.open}
   >
     <summary
       className={`block cursor-pointer rounded ${props.className || ""}`}
-      aria-expanded={props.open}
+      aria-expanded={false}
       aria-label={props.label ? undefined : "More"}
     >
       {props.label ? (

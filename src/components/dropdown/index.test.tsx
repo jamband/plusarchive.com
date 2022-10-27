@@ -31,17 +31,21 @@ test("click event", async () => {
   const group = screen.getByRole("group");
   expect(group).not.toBeVisible();
 
-  fireEvent.click(group);
-  await waitFor(() => expect(group).toBeVisible());
+  fireEvent.click(screen.getByRole("button", { expanded: false }));
+  await screen.findByRole("button", { expanded: true });
+  expect(group).toBeVisible();
 
-  fireEvent.click(group);
-  await waitFor(() => expect(group).not.toBeVisible());
+  fireEvent.click(screen.getByRole("button", { expanded: true }));
+  await screen.findByRole("button", { expanded: false });
+  expect(group).not.toBeVisible();
 
-  fireEvent.click(group);
-  await waitFor(() => expect(group).toBeVisible());
+  fireEvent.click(screen.getByRole("button", { expanded: false }));
+  await screen.findByRole("button", { expanded: true });
+  expect(group).toBeVisible();
 
   fireEvent.click(screen.getByRole("link", { name: "foo" }));
-  await waitFor(() => expect(group).not.toBeVisible());
+  await screen.findByRole("button", { expanded: false });
+  expect(group).not.toBeVisible();
 });
 
 test("focus event", async () => {
@@ -56,17 +60,23 @@ test("focus event", async () => {
   expect(foo).not.toBeVisible();
   expect(bar).not.toBeVisible();
 
-  fireEvent.click(foo);
-  await waitFor(() => expect(foo).toBeVisible());
-  await waitFor(() => expect(bar).not.toBeVisible());
+  const [fooButton, barButton] = screen.getAllByRole("button", {
+    expanded: false,
+  });
+
+  fireEvent.click(fooButton);
+  await screen.findByRole("button", { expanded: true });
+  expect(foo).toBeVisible();
+  expect(bar).not.toBeVisible();
 
   fireEvent.blur(foo);
   await waitFor(() => expect(foo).not.toBeVisible());
   await waitFor(() => expect(bar).not.toBeVisible());
 
-  fireEvent.click(bar);
-  await waitFor(() => expect(foo).not.toBeVisible());
-  await waitFor(() => expect(bar).toBeVisible());
+  fireEvent.click(barButton);
+  await screen.findByRole("button", { expanded: true });
+  expect(foo).not.toBeVisible();
+  expect(bar).toBeVisible();
 
   fireEvent.blur(bar);
   await waitFor(() => expect(foo).not.toBeVisible());
@@ -79,9 +89,11 @@ test("keyboard event", async () => {
   const group = screen.getByRole("group");
   expect(group).not.toBeVisible();
 
-  fireEvent.click(group);
-  await waitFor(() => expect(group).toBeVisible());
+  fireEvent.click(screen.getByRole("button", { expanded: false }));
+  await screen.findByRole("button", { expanded: true });
+  expect(group).toBeVisible();
 
   fireEvent.keyDown(group, { key: "Escape" });
-  await waitFor(() => expect(group).not.toBeVisible());
+  await screen.findByRole("button", { expanded: false });
+  expect(group).not.toBeVisible();
 });
