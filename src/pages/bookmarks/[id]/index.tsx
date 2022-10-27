@@ -1,3 +1,4 @@
+import { ActionButton } from "~/components/action-button";
 import { BrandIconLinks } from "~/components/brand-icon-links";
 import { CenteredLoading } from "~/components/centered-loading";
 import { DetailColumn } from "~/components/detail/column";
@@ -54,9 +55,8 @@ const Page: PageComponent = () => {
         <DetailContent>{bookmark.data.updated_at}</DetailContent>
       </DetailContainer>
       <div className="flex justify-center">
-        <button
-          type="button"
-          className="rounded px-4 py-1 hover:bg-gray-700 hover:text-gray-100"
+        <ActionButton
+          className="hover:bg-gray-700 hover:text-gray-100"
           onClick={() => {
             confirm("Are you sure?") &&
               !!bookmark.data &&
@@ -65,7 +65,7 @@ const Page: PageComponent = () => {
         >
           <IconTrash className="mr-1 h-4 w-4 align-[-0.125em]" />
           Delete
-        </button>
+        </ActionButton>
       </div>
     </>
   );
