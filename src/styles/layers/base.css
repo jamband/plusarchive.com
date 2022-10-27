@@ -27,7 +27,7 @@
   input[type="text"],
   input[type="search"],
   input[type="password"] {
-    @apply w-full rounded border px-3 py-1 placeholder:text-gray-500;
+    @apply w-full appearance-none rounded border px-3 py-1 placeholder:text-gray-500;
   }
 
   textarea {
