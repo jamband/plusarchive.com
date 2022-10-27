@@ -1,4 +1,7 @@
 import { CenteredLoading } from "~/components/centered-loading";
+import { DetailColumn } from "~/components/detail/column";
+import { DetailContainer } from "~/components/detail/container";
+import { DetailContent } from "~/components/detail/content";
 import { FailedToFetch } from "~/components/failed-to-fetch";
 import { useRequireAdmin } from "~/hooks/require";
 import { useDeleteStoreTag, useStoreTag } from "~/hooks/store-tags";
@@ -26,12 +29,12 @@ const Page: PageComponent = () => {
 
   return (
     <>
-      <div className="mb-10 grid grid-flow-col grid-rows-2 gap-0.5 text-sm leading-normal">
-        <div className="bg-gray-600 px-4 py-2 text-gray-200">ID</div>
-        <div className="bg-gray-600 px-4 py-2 text-gray-200">Name</div>
-        <div className="bg-gray-700 px-4 py-2">{tag.data.id}</div>
-        <div className="bg-gray-700 px-4 py-2">{tag.data.name}</div>
-      </div>
+      <DetailContainer className="mb-10 grid-rows-2">
+        <DetailColumn>ID</DetailColumn>
+        <DetailColumn>Name</DetailColumn>
+        <DetailContent>{tag.data.id}</DetailContent>
+        <DetailContent>{tag.data.name}</DetailContent>
+      </DetailContainer>
       <div className="flex justify-center">
         <button
           type="button"

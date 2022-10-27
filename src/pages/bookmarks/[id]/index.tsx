@@ -1,5 +1,8 @@
 import { BrandIconLinks } from "~/components/brand-icon-links";
 import { CenteredLoading } from "~/components/centered-loading";
+import { DetailColumn } from "~/components/detail/column";
+import { DetailContainer } from "~/components/detail/container";
+import { DetailContent } from "~/components/detail/content";
 import { ExternalLink } from "~/components/external-link";
 import { FailedToFetch } from "~/components/failed-to-fetch";
 import { useBookmark, useDeleteBookmark } from "~/hooks/bookmarks";
@@ -29,29 +32,27 @@ const Page: PageComponent = () => {
 
   return (
     <>
-      <div className="mb-8 grid grid-flow-col grid-rows-6 gap-0.5 text-sm leading-normal">
-        <div className="bg-gray-600 px-4 py-2 text-gray-200">Name</div>
-        <div className="bg-gray-600 px-4 py-2 text-gray-200">Country</div>
-        <div className="bg-gray-600 px-4 py-2 text-gray-200">Links</div>
-        <div className="bg-gray-600 px-4 py-2 text-gray-200">Tags</div>
-        <div className="bg-gray-600 px-4 py-2 text-gray-200">Created at</div>
-        <div className="bg-gray-600 px-4 py-2 text-gray-200">Updated at</div>
-        <div className="bg-gray-700 px-4 py-2">
+      <DetailContainer className="mb-10 grid-rows-6">
+        <DetailColumn>Name</DetailColumn>
+        <DetailColumn>Country</DetailColumn>
+        <DetailColumn>Links</DetailColumn>
+        <DetailColumn>Tags</DetailColumn>
+        <DetailColumn>Created at</DetailColumn>
+        <DetailColumn>Updated at</DetailColumn>
+        <DetailContent>
           <ExternalLink href={bookmark.data.url} className="text-rose-500">
             <IconUpRightFromSquare className="mr-1 h-4 w-4 align-[-0.125em]" />
             {bookmark.data.name}
           </ExternalLink>
-        </div>
-        <div className="bg-gray-700 px-4 py-2">{bookmark.data.country}</div>
-        <div className="bg-gray-700 px-4 py-2">
+        </DetailContent>
+        <DetailContent>{bookmark.data.country}</DetailContent>
+        <DetailContent>
           <BrandIconLinks links={bookmark.data.links} />
-        </div>
-        <div className="bg-gray-700 px-4 py-2">
-          {bookmark.data.tags.join(", ")}
-        </div>
-        <div className="bg-gray-700 px-4 py-2">{bookmark.data.created_at}</div>
-        <div className="bg-gray-700 px-4 py-2">{bookmark.data.updated_at}</div>
-      </div>
+        </DetailContent>
+        <DetailContent>{bookmark.data.tags.join(", ")}</DetailContent>
+        <DetailContent>{bookmark.data.created_at}</DetailContent>
+        <DetailContent>{bookmark.data.updated_at}</DetailContent>
+      </DetailContainer>
       <div className="flex justify-center">
         <button
           type="button"
