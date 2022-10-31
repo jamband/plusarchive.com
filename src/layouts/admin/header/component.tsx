@@ -13,6 +13,7 @@ export const Component: React.FC<_Props> = (props) => (
                 props.navigation && props.toggleNavigation()
               }
               className="rounded py-2 text-base font-bold text-gray-100"
+              aria-current={props.current("/admin")}
             >
               Admin
             </a>
@@ -26,7 +27,10 @@ export const Component: React.FC<_Props> = (props) => (
             }`}
           >
             <Link href={link.href}>
-              <a className="rounded px-3 py-2 text-sm hover:bg-gray-600 hover:text-gray-100 active:bg-gray-600">
+              <a
+                className="rounded px-3 py-2 text-sm hover:bg-gray-600/50 hover:text-gray-100 aria-[current=page]:bg-gray-600 aria-[current=page]:text-gray-100"
+                aria-current={props.current(link.href)}
+              >
                 {link.text}
               </a>
             </Link>
@@ -55,7 +59,8 @@ export const Component: React.FC<_Props> = (props) => (
           <li key={link.href}>
             <Link href={link.href}>
               <a
-                className="my-0.5 block px-4 py-1 text-sm active:bg-gray-600 active:text-gray-100"
+                className="my-0.5 block px-4 py-1 text-sm active:bg-gray-600 active:text-gray-100 aria-[current=page]:text-rose-500"
+                aria-current={props.current(link.href)}
                 onClickCapture={props.toggleNavigation}
               >
                 {link.text}

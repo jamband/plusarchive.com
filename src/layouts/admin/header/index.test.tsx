@@ -1,20 +1,30 @@
 import { render, screen } from "@testing-library/react";
-import { APP_NAME } from "~/constants/app";
+import { router } from "~/mocks/router";
 import { AdminHeader } from ".";
 
-test("", () => {
+jest.mock("next/router", () => ({
+  useRouter: jest.fn(),
+}));
+
+test("current: /admin", () => {
+  router.mockReturnValue({ pathname: "/admin" });
+
   render(<AdminHeader />);
 
-  expect(screen.getAllByRole("link")).toHaveLength(5);
+  const link = screen.getByRole("link", { current: "page" });
+  expect(link).toHaveTextContent("Admin");
+  expect(link).toHaveAttribute("href", "/admin");
+});
 
-  const adminLink = screen.getByRole("link", { name: "Admin" });
-  expect(adminLink).toHaveAttribute("href", "/admin");
+test("current: /logout", () => {
+  router.mockReturnValue({ pathname: "/admin/logout" });
 
-  const homeLinks = screen.getAllByRole("link", { name: APP_NAME });
-  expect(homeLinks[0]).toHaveAttribute("href", "/");
-  expect(homeLinks[1]).toHaveAttribute("href", "/");
+  render(<AdminHeader />);
 
-  const logoutLinks = screen.getAllByRole("link", { name: "Logout" });
-  expect(logoutLinks[0]).toHaveAttribute("href", "/admin/logout");
-  expect(logoutLinks[1]).toHaveAttribute("href", "/admin/logout");
+  const links = screen.getAllByRole("link", { current: "page" });
+  expect(links).toHaveLength(2);
+  expect(links[0]).toHaveTextContent("Logout");
+  expect(links[0]).toHaveAttribute("href", "/admin/logout");
+  expect(links[1]).toHaveTextContent("Logout");
+  expect(links[1]).toHaveAttribute("href", "/admin/logout");
 });

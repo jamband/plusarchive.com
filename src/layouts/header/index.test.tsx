@@ -11,31 +11,24 @@ jest.mock("./search-form", () => ({
   HeaderSearchForm: () => null,
 }));
 
-test("links", () => {
+test("current: /", () => {
   router.mockReturnValue({ pathname: "/" });
 
   render(<Header />);
 
-  const links = screen.getAllByRole("link", { name: APP_NAME });
-  expect(links[0]).toHaveAttribute("href", "/");
+  const link = screen.getByRole("link", { current: "page" });
+  expect(link).toHaveTextContent(APP_NAME);
+  expect(link).toHaveAttribute("href", "/");
 });
 
-test("not active link styles", () => {
-  router.mockReturnValue({ pathname: "/foo" });
-
-  render(<Header />);
-
-  const links = screen.getAllByRole("link");
-  expect(links[1]).toHaveTextContent("Tracks");
-  expect(links[1]).not.toHaveClass("bg-gray-600");
-});
-
-test("active link styles", () => {
+test("current: /tracks", () => {
   router.mockReturnValue({ pathname: "/tracks" });
 
   render(<Header />);
 
-  const links = screen.getAllByRole("link");
+  const links = screen.getAllByRole("link", { current: "page" });
+  expect(links[0]).toHaveTextContent("Tracks");
+  expect(links[0]).toHaveAttribute("href", "/tracks");
   expect(links[1]).toHaveTextContent("Tracks");
-  expect(links[1]).toHaveClass("bg-gray-600");
+  expect(links[1]).toHaveAttribute("href", "/tracks");
 });

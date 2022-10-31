@@ -5,7 +5,7 @@ export type _Props = {
   subLinks: Array<Link>;
   moreLinks: Array<Link>;
   allLinks: Array<Link>;
-  active: (href: string) => boolean;
+  current: (href: string) => "page" | undefined;
   navigation: boolean;
   toggleNavigation: () => void;
 };

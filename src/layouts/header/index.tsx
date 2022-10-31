@@ -24,9 +24,9 @@ export const Header: React.FC = () => {
 
   const allLinks = [...mainLinks, ...subLinks, ...moreLinks];
 
-  const active = (href: string) => {
+  const current = (href: string) => {
     const [first, second] = pathname.split("/", 2);
-    return `/${first}${second}` === href;
+    return `/${first}${second}` === href ? "page" : undefined;
   };
 
   const togglegleNavigation = () => {
@@ -39,7 +39,7 @@ export const Header: React.FC = () => {
       subLinks={subLinks}
       moreLinks={moreLinks}
       allLinks={allLinks}
-      active={active}
+      current={current}
       navigation={navigation}
       toggleNavigation={togglegleNavigation}
     />
