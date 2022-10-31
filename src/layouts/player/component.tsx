@@ -4,10 +4,7 @@ import { IconAngleLeft } from "~/icons/angle-left";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  <article
-    className={props.isVisible ? undefined : "hidden"}
-    aria-hidden={!props.isVisible}
-  >
+  <article className="aria-hidden:hidden" aria-hidden={!props.isVisible}>
     <div className="mb-3 grid grid-cols-12">
       <div
         className={`relative col-span-12 ${
