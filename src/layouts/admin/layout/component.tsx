@@ -3,11 +3,11 @@ import { NotificationProvider } from "~/contexts/notification";
 import { ServerStateProvider } from "~/contexts/server-state";
 import { Loading } from "~/layouts/loading";
 import { Notification } from "~/layouts/notification";
-import { Title } from "~/layouts/title";
 import { AdminFooter } from "../footer";
 import { AdminHeader } from "../header";
 import { AdminLinks } from "../links";
 import { AdminPages } from "../pages";
+import { AdminTitle } from "../title";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
@@ -17,7 +17,7 @@ export const Component: React.FC<_Props> = (props) => (
     </Head>
     <ServerStateProvider>
       <NotificationProvider>
-        <Title title={props.title} />
+        <AdminTitle title={props.title} />
         <Loading />
         <Notification />
         <div className="flex min-h-screen flex-col">
