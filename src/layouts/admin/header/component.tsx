@@ -36,7 +36,7 @@ export const Component: React.FC<_Props> = (props) => (
           <button
             type="button"
             onClick={props.toggleNavigation}
-            className="-mr-2 rounded py-1 px-3 focus:bg-gray-600 focus:text-gray-100"
+            className="-mr-2 rounded py-1 px-3 focus:bg-gray-600 focus:text-gray-100 aria-expanded:bg-gray-600 aria-expanded:text-gray-100"
             aria-controls="header-navigation"
             aria-expanded={props.navigation}
             aria-label="Toggle navigation"
@@ -55,7 +55,7 @@ export const Component: React.FC<_Props> = (props) => (
           <li key={link.href}>
             <Link href={link.href}>
               <a
-                className="block px-4 py-1 text-sm active:bg-rose-500 active:text-gray-100"
+                className="my-0.5 block px-4 py-1 text-sm active:bg-gray-600 active:text-gray-100"
                 onClickCapture={props.toggleNavigation}
               >
                 {link.text}
