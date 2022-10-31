@@ -30,12 +30,12 @@ export const Component: React.FC<_Props> = (props) => (
       </div>
     </div>
     <section className="mb-5 text-center">
-      <h1 className="mb-0 text-[1.4rem] leading-normal">
+      <h1 className="mb-0 text-[1.2rem] leading-normal md:text-[1.4rem]">
         {props.player.title}
       </h1>
-      <p>via {props.player.provider}</p>
+      <p className="text-sm md:text-base">via {props.player.provider}</p>
     </section>
-    <div className="text-center">
+    <div className="text-center text-sm md:text-base">
       <Link href={props.player.type === "track" ? "/tracks" : "/playlists"}>
         <a className="text-rose-500 active:text-rose-500">
           <IconAngleLeft className="mr-0.5 h-4 w-4 align-[-0.125em]" />
