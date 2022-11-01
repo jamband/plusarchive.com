@@ -8,6 +8,7 @@ export const Component: React.FC<_Props> = (props) => (
       {props.parts.map((part) => (
         <Fragment key={part}>
           {props.disabled(part) ? (
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
               role="link"
               className="pointer-events-none z-10 w-full rounded py-2 text-gray-500"
@@ -18,13 +19,12 @@ export const Component: React.FC<_Props> = (props) => (
               {props.icon(part)}
             </a>
           ) : (
-            <Link href={props.href(part)}>
-              <a
-                className="z-10 w-full rounded py-2 hover:bg-gray-500/10 hover:text-gray-100 active:bg-gray-500/10"
-                aria-label={part}
-              >
-                {props.icon(part)}
-              </a>
+            <Link
+              href={props.href(part)}
+              className="z-10 w-full rounded py-2 hover:bg-gray-500/10 hover:text-gray-100 active:bg-gray-500/10"
+              aria-label={part}
+            >
+              {props.icon(part)}
             </Link>
           )}
         </Fragment>

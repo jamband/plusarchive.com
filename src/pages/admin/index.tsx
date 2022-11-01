@@ -27,8 +27,8 @@ const Page: PageComponent = () => {
         <div className="text-amber-500">
           <IconCircleInfo className="mr-1 h-4 w-4 align-[-0.125em]" />
           Not exists.{" "}
-          <Link href="/tracks/admin">
-            <a className="text-amber-500 underline">Digging?</a>
+          <Link href="/tracks/admin" className="text-amber-500 underline">
+            Digging?
           </Link>
         </div>
       )}
@@ -37,11 +37,12 @@ const Page: PageComponent = () => {
           <div className="mb-8 md:grid md:grid-cols-2 md:gap-6 xl:grid-cols-3">
             {tracks.data.map((track) => (
               <TrackCard key={track.id} track={track}>
-                <Link href={`/tracks/${track.id}/update`}>
-                  <a className="hover:text-gray-100">
-                    <IconPencil className="mr-1.5 h-3 w-3 align-[-0.06em]" />
-                    Update
-                  </a>
+                <Link
+                  href={`/tracks/${track.id}/update`}
+                  className="hover:text-gray-100"
+                >
+                  <IconPencil className="mr-1.5 h-3 w-3 align-[-0.06em]" />
+                  Update
                 </Link>
               </TrackCard>
             ))}

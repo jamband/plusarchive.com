@@ -5,23 +5,24 @@ import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   <div className="mb-3 flex rounded-none border-b border-gray-600 md:mb-0 md:flex-col md:rounded md:border-none md:bg-gray-700 md:shadow md:shadow-gray-900">
-    <Link href={`/tracks/${props.track.id}`}>
-      <a className="relative mb-3 w-1/3 rounded bg-gray-700 active:text-gray-400 md:mb-4 md:w-full">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={props.track.image}
-          className={`w-full rounded-t rounded-b object-cover opacity-60 md:rounded-b-none ${props.aspectRatio}`}
-          alt=""
-          loading="lazy"
-        />
-        <div className="absolute inset-0 flex items-center justify-center opacity-80">
-          {props.isPlaying ? (
-            <IconCirclePause className="h-6 w-6 md:h-10 md:w-10 lg:h-12 lg:w-12" />
-          ) : (
-            <IconCirclePlay className="h-6 w-6 md:h-10 md:w-10 lg:h-12 lg:w-12" />
-          )}
-        </div>
-      </a>
+    <Link
+      href={`/tracks/${props.track.id}`}
+      className="relative mb-3 w-1/3 rounded bg-gray-700 active:text-gray-400 md:mb-4 md:w-full"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={props.track.image}
+        className={`w-full rounded-t rounded-b object-cover opacity-60 md:rounded-b-none ${props.aspectRatio}`}
+        alt=""
+        loading="lazy"
+      />
+      <div className="absolute inset-0 flex items-center justify-center opacity-80">
+        {props.isPlaying ? (
+          <IconCirclePause className="h-6 w-6 md:h-10 md:w-10 lg:h-12 lg:w-12" />
+        ) : (
+          <IconCirclePlay className="h-6 w-6 md:h-10 md:w-10 lg:h-12 lg:w-12" />
+        )}
+      </div>
     </Link>
     <div className="flex w-2/3 flex-col md:w-full">
       <div className="mb-1 truncate px-2 text-center font-semibold leading-normal text-gray-100 md:mb-2 md:px-3 md:text-[1.125rem]">
@@ -33,8 +34,9 @@ export const Component: React.FC<_Props> = (props) => (
             pathname: "/tracks",
             query: { provider: props.track.provider },
           }}
+          className="hover:text-gray-100"
         >
-          <a className="hover:text-gray-100">{props.track.provider}</a>
+          {props.track.provider}
         </Link>
         {props.track.genres.map((genre) => (
           <Link
@@ -43,8 +45,9 @@ export const Component: React.FC<_Props> = (props) => (
               pathname: "/tracks",
               query: { genre },
             }}
+            className="hover:text-gray-100"
           >
-            <a className="hover:text-gray-100">{genre}</a>
+            {genre}
           </Link>
         ))}
       </div>

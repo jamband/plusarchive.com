@@ -63,11 +63,12 @@ const Page: PageComponent<Props> = (props) => {
           <h1 className="flex justify-center">Bookmarks</h1>
           <div className="mb-3 text-sm md:mb-8 md:flex md:items-center md:justify-center md:text-base">
             <div className="flex justify-center">
-              <Link href="/bookmarks">
-                <a className="rounded px-2 py-0.5 hover:bg-gray-700 hover:text-gray-100 active:bg-gray-700 md:px-3 md:py-1">
-                  <IconRotateRight className="mr-1 h-4 w-4 align-[-0.125em]" />
-                  Reset All
-                </a>
+              <Link
+                href="/bookmarks"
+                className="rounded px-2 py-0.5 hover:bg-gray-700 hover:text-gray-100 active:bg-gray-700 md:px-3 md:py-1"
+              >
+                <IconRotateRight className="mr-1 h-4 w-4 align-[-0.125em]" />
+                Reset All
               </Link>
             </div>
             <TotalCount
@@ -173,8 +174,9 @@ const Page: PageComponent<Props> = (props) => {
                       pathname: "/bookmarks",
                       query: { country: bookmark.country },
                     }}
+                    className="hover:text-gray-100"
                   >
-                    <a className="hover:text-gray-100">{bookmark.country}</a>
+                    {bookmark.country}
                   </Link>
                 </section>
                 <section className="flex flex-wrap gap-x-3">
@@ -190,8 +192,9 @@ const Page: PageComponent<Props> = (props) => {
                         pathname: "/bookmarks",
                         query: { tag },
                       }}
+                      className="hover:text-gray-100"
                     >
-                      <a className="hover:text-gray-100">{tag}</a>
+                      {tag}
                     </Link>
                   ))}
                 </section>

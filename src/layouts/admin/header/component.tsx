@@ -7,16 +7,13 @@ export const Component: React.FC<_Props> = (props) => (
     <nav aria-label="Header navigation">
       <ul className="container mx-auto flex flex-wrap items-center justify-between gap-x-1">
         <li className="my-3 mr-4">
-          <Link href="/admin">
-            <a
-              onClickCapture={() =>
-                props.navigation && props.toggleNavigation()
-              }
-              className="rounded py-2 text-base font-bold text-gray-100"
-              aria-current={props.current("/admin")}
-            >
-              Admin
-            </a>
+          <Link
+            href="/admin"
+            onClickCapture={() => props.navigation && props.toggleNavigation()}
+            className="rounded py-2 text-base font-bold text-gray-100"
+            aria-current={props.current("/admin")}
+          >
+            Admin
           </Link>
         </li>
         {props.links.map((link) => (
@@ -26,13 +23,12 @@ export const Component: React.FC<_Props> = (props) => (
               link.text === "Logout" ? "ml-auto" : ""
             }`}
           >
-            <Link href={link.href}>
-              <a
-                className="rounded px-3 py-2 text-sm hover:bg-gray-600/50 hover:text-gray-100 aria-[current=page]:bg-gray-600 aria-[current=page]:text-gray-100"
-                aria-current={props.current(link.href)}
-              >
-                {link.text}
-              </a>
+            <Link
+              href={link.href}
+              className="rounded px-3 py-2 text-sm hover:bg-gray-600/50 hover:text-gray-100 aria-[current=page]:bg-gray-600 aria-[current=page]:text-gray-100"
+              aria-current={props.current(link.href)}
+            >
+              {link.text}
             </Link>
           </li>
         ))}
@@ -57,14 +53,13 @@ export const Component: React.FC<_Props> = (props) => (
       >
         {props.links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href}>
-              <a
-                className="my-0.5 block px-4 py-1 text-sm active:bg-gray-600 active:text-gray-100 aria-[current=page]:text-rose-500"
-                aria-current={props.current(link.href)}
-                onClickCapture={props.toggleNavigation}
-              >
-                {link.text}
-              </a>
+            <Link
+              href={link.href}
+              className="my-0.5 block px-4 py-1 text-sm active:bg-gray-600 active:text-gray-100 aria-[current=page]:text-rose-500"
+              aria-current={props.current(link.href)}
+              onClickCapture={props.toggleNavigation}
+            >
+              {link.text}
             </Link>
           </li>
         ))}

@@ -42,11 +42,12 @@ const Page: PageComponent<Props> = (props) => {
         <ul className="flex flex-col gap-y-2">
           {props.playlists.map((playlist) => (
             <li key={playlist.id}>
-              <Link href={`/playlists/${playlist.id}`}>
-                <a className="inline-flex items-center justify-start text-[24px] font-semibold text-rose-500 active:text-rose-500">
-                  {playlist.title}
-                  <IconAngleRight className="mx-1 h-4 w-4" />
-                </a>
+              <Link
+                href={`/playlists/${playlist.id}`}
+                className="inline-flex items-center justify-start text-[24px] font-semibold text-rose-500 active:text-rose-500"
+              >
+                {playlist.title}
+                <IconAngleRight className="mx-1 h-4 w-4" />
               </Link>
             </li>
           ))}

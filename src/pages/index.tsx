@@ -65,23 +65,22 @@ const Page: PageComponent<Props> = (props) => {
                   pathname: "/tracks",
                   query: { genre },
                 }}
+                className="hover:text-gray-100"
               >
-                <a className="hover:text-gray-100">{genre}</a>
+                {genre}
               </Link>
             </li>
           ))}
         </ul>
       </section>
       <div className="flex justify-center">
-        <Link href="/tracks">
-          <a className="text-rose-500 active:text-rose-500">Go to Tracks</a>
+        <Link href="/tracks" className="text-rose-500 active:text-rose-500">
+          Go to Tracks
         </Link>
         <span className="mx-2">or</span>
-        <Link href="/playlists">
-          <a className="text-rose-500 active:text-rose-500">
-            Playlists
-            <IconAngleRight className="ml-0.5 h-4 w-4 align-[-0.125em]" />
-          </a>
+        <Link href="/playlists" className="text-rose-500 active:text-rose-500">
+          Playlists
+          <IconAngleRight className="ml-0.5 h-4 w-4 align-[-0.125em]" />
         </Link>
       </div>
     </>

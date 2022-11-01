@@ -60,11 +60,12 @@ const Page: PageComponent<Props> = (props) => {
       <div className="-mt-4 -mb-6">
         <div className="text-sm md:mb-5 md:flex md:items-center md:justify-center md:text-base">
           <div className="flex justify-center">
-            <Link href="/tracks">
-              <a className="rounded py-0.5 px-2 hover:bg-gray-700 hover:text-gray-100 active:bg-gray-700 md:px-3 md:py-1">
-                <IconRotateRight className="mr-1 h-4 w-4 align-[-0.125em]" />
-                Reset All
-              </a>
+            <Link
+              href="/tracks"
+              className="rounded py-0.5 px-2 hover:bg-gray-700 hover:text-gray-100 active:bg-gray-700 md:px-3 md:py-1"
+            >
+              <IconRotateRight className="mr-1 h-4 w-4 align-[-0.125em]" />
+              Reset All
             </Link>
           </div>
           <TotalCount

@@ -33,15 +33,16 @@ export const Component: React.FC<_Props> = (props) => (
       <p className="text-sm md:text-base">via {props.player.provider}</p>
     </section>
     <div className="text-center text-sm md:text-base">
-      <Link href={props.player.type === "track" ? "/tracks" : "/playlists"}>
-        <a className="text-rose-500 active:text-rose-500">
-          <IconAngleLeft className="mr-0.5 h-4 w-4 align-[-0.125em]" />
-          Back to {props.player.type === "track" ? "Tracks" : "Playlists"}
-        </a>
+      <Link
+        href={props.player.type === "track" ? "/tracks" : "/playlists"}
+        className="text-rose-500 active:text-rose-500"
+      >
+        <IconAngleLeft className="mr-0.5 h-4 w-4 align-[-0.125em]" />
+        Back to {props.player.type === "track" ? "Tracks" : "Playlists"}
       </Link>
       <span className="mx-2">or</span>
-      <Link href="/">
-        <a className="text-rose-500 active:text-rose-500">Recent Favorites</a>
+      <Link href="/" className="text-rose-500 active:text-rose-500">
+        Recent Favorites
       </Link>
     </div>
   </article>

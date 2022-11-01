@@ -7,8 +7,5 @@
     "plugin:testing-library/react",
     "next/core-web-vitals",
     "prettier"
-  ],
-  "rules": {
-    "jsx-a11y/anchor-is-valid": "off"
-  }
+  ]
 }

@@ -19,11 +19,9 @@ const Page: PageComponent = () => {
           <IconCircleInfo className="mr-1.5 h-4 w-4 align-[-0.125em]" />
           Page not found.
         </div>
-        <Link href="/">
-          <a className="text-rose-500 active:text-rose-500">
-            <IconAngleLeft className="mr-0.5 h-4 w-4 align-[-0.125em]" />
-            Back to Home
-          </a>
+        <Link href="/" className="text-rose-500 active:text-rose-500">
+          <IconAngleLeft className="mr-0.5 h-4 w-4 align-[-0.125em]" />
+          Back to Home
         </Link>
       </div>
     </>

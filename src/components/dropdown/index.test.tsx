@@ -24,7 +24,7 @@ test("with label", () => {
 test("click event", async () => {
   render(
     <Dropdown>
-      <a href="#">foo</a>
+      <a href=".">foo</a>
     </Dropdown>
   );
 
