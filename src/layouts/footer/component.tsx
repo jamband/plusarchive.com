@@ -14,7 +14,7 @@ export const Component: React.FC<_Props> = (props) => (
           {props.player.title}
         </Link>
         <CloseButton
-          className="mr-2 rounded px-2 py-1 hover:bg-gray-600 hover:text-gray-100 focus:bg-gray-600 focus:text-rose-500"
+          className="mr-2 rounded px-2 py-1 hover:bg-gray-600 hover:text-gray-100 active:bg-gray-600 active:text-rose-500"
           iconClass="h-5 w-5 align-[-0.4em] md:align-[-0.25em]"
           onClick={props.resetPlayer}
         />
