@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useReducer, useState } from "react";
+import { useState } from "react";
 import { APP_NAME } from "~/constants/app";
 import { Component } from "./component";
 
