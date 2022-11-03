@@ -19,7 +19,7 @@ export const Component: React.FC<_Props> = (props) => (
       {props.label ? (
         <>
           <span className="mr-1.5">{props.label}</span>
-          <IconAngleDown className="h-3 w-3 align-[0em]" />
+          <IconAngleDown className="h-3 w-3 align-[-0.075em] md:align-[0em]" />
         </>
       ) : (
         <IconEllipsis className="h-4 w-4 align-[-0.125em]" />
