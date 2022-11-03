@@ -165,7 +165,7 @@ const Page: PageComponent = () => {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={track.image}
-                    className={`mr-2 inline h-6 w-6 rounded-full bg-gray-600`}
+                    className="mr-2 inline h-6 w-6 rounded-full bg-gray-600"
                     alt=""
                     loading="lazy"
                   />
