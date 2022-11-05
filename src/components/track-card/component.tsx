@@ -13,7 +13,7 @@ export const Component: React.FC<_Props> = (props) => (
       <img
         src={props.track.image}
         className={`w-full rounded-t rounded-b object-cover opacity-60 md:rounded-b-none ${props.aspectRatio}`}
-        alt=""
+        alt={props.track.title}
         loading="lazy"
       />
       <div className="absolute inset-0 flex items-center justify-center opacity-80">
