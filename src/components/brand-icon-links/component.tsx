@@ -7,8 +7,8 @@ export const Component: React.FC<_Props> = (props) => (
       <li key={index}>
         <ExternalLink key={index} href={link} className="hover:text-gray-100">
           {props.icon(link).component}
+          <span className="sr-only">{props.icon(link).name}</span>
         </ExternalLink>
-        <span className="sr-only">{props.icon(link).name}</span>
       </li>
     ))}
   </ul>
