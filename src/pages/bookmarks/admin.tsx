@@ -140,7 +140,7 @@ const Page: PageComponent = () => {
                 </ExternalLink>
               </GridContent>
               <GridContent className="truncate">{bookmark.country}</GridContent>
-              <GridContent className="truncate">
+              <GridContent>
                 <BrandIconLinks links={bookmark.links} />
               </GridContent>
               <GridContent className="truncate">
