@@ -28,7 +28,7 @@ export const Component: React.FC<_Props> = (props) => (
       <div className="mb-1 truncate px-2 text-center font-semibold leading-normal text-gray-100 md:mb-2 md:px-3 md:text-[1.125rem]">
         {props.track.title}
       </div>
-      <div className="mx-2 mb-1 flex flex-wrap justify-center gap-x-3 text-sm leading-7 md:mb-2 md:text-base">
+      <div className="mx-2 mb-1 flex flex-wrap justify-center gap-x-4 text-sm leading-7 md:mb-2 md:gap-y-1 md:text-base">
         <Link
           href={{
             pathname: "/tracks",

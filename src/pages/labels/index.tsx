@@ -157,7 +157,7 @@ const Page: PageComponent<Props> = (props) => {
           </div>
           <div className="lg:grid lg:grid-cols-2 lg:gap-6">
             {props.labelCollection.data.map((label) => (
-              <article key={label.name} className="mb-8 lg:mb-0">
+              <article key={label.name} className="mb-10 lg:mb-2">
                 <section>
                   <ExternalLink
                     href={label.url}

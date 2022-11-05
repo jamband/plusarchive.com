@@ -157,7 +157,7 @@ const Page: PageComponent<Props> = (props) => {
           </div>
           <div className="lg:grid lg:grid-cols-2 lg:gap-6">
             {props.bookmarkCollection.data.map((bookmark) => (
-              <article key={bookmark.name} className="mb-8 lg:mb-0">
+              <article key={bookmark.name} className="mb-10 lg:mb-2">
                 <section>
                   <ExternalLink
                     href={bookmark.url}

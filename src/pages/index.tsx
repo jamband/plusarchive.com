@@ -57,7 +57,7 @@ const Page: PageComponent<Props> = (props) => {
         <h2 className="mb-2 text-4xl">
           Search <small className="text-base text-gray-400">by genres</small>
         </h2>
-        <ul className="flex flex-wrap gap-x-5">
+        <ul className="flex flex-wrap gap-x-5 gap-y-1">
           {props.genres.map((genre) => (
             <li key={genre}>
               <Link
