@@ -4,7 +4,6 @@ import { CenteredLoading } from "~/components/centered-loading";
 import { DetailColumn } from "~/components/detail/column";
 import { DetailContainer } from "~/components/detail/container";
 import { DetailContent } from "~/components/detail/content";
-import { ExternalLink } from "~/components/external-link";
 import { FailedToFetch } from "~/components/failed-to-fetch";
 import { useDeleteLabel, useLabel } from "~/hooks/labels";
 import { useRequireAdmin } from "~/hooks/require";
@@ -41,10 +40,15 @@ const Page: PageComponent = () => {
         <DetailColumn>Created at</DetailColumn>
         <DetailColumn>Updated at</DetailColumn>
         <DetailContent>
-          <ExternalLink href={label.data.url} className="text-rose-500">
+          <a
+            href={label.data.url}
+            className="text-rose-500"
+            target="_blank"
+            rel="noreferrer"
+          >
             <IconUpRightFromSquare className="mr-1 h-4 w-4 align-[-0.125em]" />
             {label.data.name}
-          </ExternalLink>
+          </a>
         </DetailContent>
         <DetailContent>{label.data.country}</DetailContent>
         <DetailContent>

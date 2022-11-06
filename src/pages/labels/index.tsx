@@ -8,7 +8,6 @@ import { DropdownDivider } from "~/components/dropdown/divider";
 import { DropdownHeader } from "~/components/dropdown/header";
 import { DropdownLink } from "~/components/dropdown/link";
 import { DropdownText } from "~/components/dropdown/text";
-import { ExternalLink } from "~/components/external-link";
 import { Pagination } from "~/components/pagination";
 import { SearchForm } from "~/components/search-form";
 import { TotalCount } from "~/components/total-count";
@@ -159,13 +158,15 @@ const Page: PageComponent<Props> = (props) => {
             {props.labelCollection.data.map((label) => (
               <article key={label.name} className="mb-10 lg:mb-2">
                 <section>
-                  <ExternalLink
+                  <a
                     href={label.url}
                     className="font-semibold text-rose-500 active:text-rose-500"
+                    target="_blank"
+                    rel="noreferrer"
                   >
                     <IconUpRightFromSquare className="mr-1 h-4 w-4 align-[-0.05em]" />
                     {label.name}
-                  </ExternalLink>
+                  </a>
                 </section>
                 <section className="flex flex-wrap gap-x-3">
                   <span className="text-gray-100">Country:</span>

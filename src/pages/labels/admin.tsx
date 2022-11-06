@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import { BrandIconLinks } from "~/components/brand-icon-links";
 import { CenteredLoading } from "~/components/centered-loading";
-import { ExternalLink } from "~/components/external-link";
 import { FailedToFetch } from "~/components/failed-to-fetch";
 import { GridActions } from "~/components/grid/actions";
 import { GridContainer } from "~/components/grid/container";
@@ -131,13 +130,15 @@ const Page: PageComponent = () => {
           labels.data.data.map((label) => (
             <Fragment key={label.id}>
               <GridContent>
-                <ExternalLink
+                <a
                   href={label.url}
                   className="text-rose-500 active:text-rose-500"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <IconUpRightFromSquare className="mr-1 h-3 w-3 align-baseline" />
                   {label.name}
-                </ExternalLink>
+                </a>
               </GridContent>
               <GridContent className="truncate">{label.country}</GridContent>
               <GridContent>

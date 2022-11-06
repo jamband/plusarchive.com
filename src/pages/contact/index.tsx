@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { ExternalLink } from "~/components/external-link";
 import { APP_DESCRIPTION, APP_REPOSITORY_URL } from "~/constants/app";
 import { IconGitHub } from "~/icons/github";
 import { IconTwitter } from "~/icons/twitter";
@@ -22,21 +21,25 @@ const Page: PageComponent = () => {
         </h1>
         <p>
           Please to the message via{" "}
-          <ExternalLink
+          <a
             href="https://twitter.com/livejam_db"
             className="text-rose-500 underline active:text-rose-500"
+            target="_blank"
+            rel="noreferrer"
           >
             <IconTwitter className="mr-1 h-4 w-4 align-[-0.125em]" />
             Twitter
-          </ExternalLink>{" "}
+          </a>{" "}
           or{" "}
-          <ExternalLink
+          <a
             href={`${APP_REPOSITORY_URL}/issues`}
             className="text-rose-500 underline active:text-rose-500"
+            target="_blank"
+            rel="noreferrer"
           >
             <IconGitHub className="mr-1 h-4 w-4 align-[-0.125em]" />
             GitHub
-          </ExternalLink>{" "}
+          </a>{" "}
           Issues. Thank you.
         </p>
       </div>

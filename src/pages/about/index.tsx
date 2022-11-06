@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { ExternalLink } from "~/components/external-link";
 import {
   APP_DESCRIPTION,
   APP_NAME,
@@ -21,13 +20,15 @@ const Page: PageComponent = () => {
         <h1>About</h1>
         <p>{APP_NAME} is music archive website for everyday.</p>
         <p>This website is an open source project.</p>
-        <ExternalLink
+        <a
           href={APP_REPOSITORY_URL}
           className="text-rose-500 underline active:text-rose-500"
+          target="_blank"
+          rel="noreferrer"
         >
           <IconGitHub className="mr-1 h-4 w-4 align-[-0.125em]" />
           GitHub: {APP_REPOSITORY_NAME}
-        </ExternalLink>{" "}
+        </a>{" "}
       </div>
     </>
   );

@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import { CenteredLoading } from "~/components/centered-loading";
-import { ExternalLink } from "~/components/external-link";
 import { FailedToFetch } from "~/components/failed-to-fetch";
 import { GridActions } from "~/components/grid/actions";
 import { GridContainer } from "~/components/grid/container";
@@ -158,9 +157,11 @@ const Page: PageComponent = () => {
           tracks.data.data.map((track) => (
             <Fragment key={track.id}>
               <GridContent>
-                <ExternalLink
+                <a
                   href={track.url}
                   className="text-rose-500 active:text-rose-500"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -170,7 +171,7 @@ const Page: PageComponent = () => {
                     loading="lazy"
                   />
                   {track.title}
-                </ExternalLink>
+                </a>
               </GridContent>
               <GridContent className="truncate">{track.provider}</GridContent>
               <GridContent>
