@@ -1,5 +1,5 @@
 {
-  "[javascript][json][jsonc][typescript][typescriptreact]": {
+  "[css][javascript][json][jsonc][typescript][typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "css.validate": false,
