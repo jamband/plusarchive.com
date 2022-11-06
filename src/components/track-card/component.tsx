@@ -7,7 +7,7 @@ export const Component: React.FC<_Props> = (props) => (
   <div className="mb-3 flex rounded-none border-b border-gray-600 md:mb-0 md:flex-col md:rounded md:border-none md:bg-gray-700 md:shadow md:shadow-gray-900">
     <Link
       href={`/tracks/${props.track.id}`}
-      className="relative mb-3 w-1/3 rounded bg-gray-700 active:text-gray-400 md:mb-4 md:w-full"
+      className="relative mb-3 h-max w-1/3 rounded bg-gray-700 active:text-gray-400 md:mb-4 md:w-full"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
