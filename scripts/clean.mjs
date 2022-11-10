@@ -1,6 +1,6 @@
-import { rmSync } from "fs";
+import { rm } from "node:fs/promises";
 
-rmSync(".next", { recursive: true, force: true });
-rmSync(".swc", { recursive: true, force: true });
-rmSync("node_modules", { recursive: true, force: true });
-rmSync("tsconfig.tsbuildinfo", { recursive: true, force: true });
+await rm(".next", { recursive: true, force: true });
+await rm(".swc", { recursive: true, force: true });
+await rm("node_modules", { recursive: true, force: true });
+await rm("tsconfig.tsbuildinfo", { recursive: true, force: true });
