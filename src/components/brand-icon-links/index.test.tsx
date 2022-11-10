@@ -18,10 +18,10 @@ test("links", () => {
   const links = screen.getAllByRole("link");
   expect(links).toHaveLength(2);
   expect(links[0]).toHaveAttribute("href", "https://example.com/foo");
-  expect(links[0]).toHaveAttribute("rel", "noopener noreferrer");
+  expect(links[0]).toHaveAttribute("rel", "noreferrer");
   expect(links[0]).toHaveAttribute("target", "_blank");
   expect(links[1]).toHaveAttribute("href", "https://example.com/bar");
-  expect(links[1]).toHaveAttribute("rel", "noopener noreferrer");
+  expect(links[1]).toHaveAttribute("rel", "noreferrer");
   expect(links[1]).toHaveAttribute("target", "_blank");
 });
 

@@ -8,6 +8,6 @@ test("", () => {
 
   const link = screen.getByRole("link", { name: "foo" });
   expect(link).toHaveAttribute("href", "https://example.com");
-  expect(link).toHaveAttribute("rel", "noopener noreferrer");
+  expect(link).toHaveAttribute("rel", "noreferrer");
   expect(link).toHaveAttribute("target", "_blank");
 });
