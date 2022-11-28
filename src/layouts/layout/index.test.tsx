@@ -10,10 +10,6 @@ jest.mock("../loading", () => ({
   Loading: jest.fn(() => null),
 }));
 
-jest.mock("../notification", () => ({
-  Notification: jest.fn(() => null),
-}));
-
 jest.mock("../header", () => ({
   Header: jest.fn(() => null),
 }));
