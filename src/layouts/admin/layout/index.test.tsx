@@ -5,8 +5,8 @@ jest.mock("~/layouts/loading", () => ({
   Loading: jest.fn(() => null),
 }));
 
-jest.mock("~/layouts/notification", () => ({
-  Notification: jest.fn(() => null),
+jest.mock("../notification", () => ({
+  AdminNotification: jest.fn(() => null),
 }));
 
 jest.mock("../header", () => ({

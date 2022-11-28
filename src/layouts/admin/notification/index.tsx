@@ -4,7 +4,7 @@ import {
 } from "~/hooks/notification";
 import { Component } from "./component";
 
-export const Notification: React.FC = () => {
+export const AdminNotification: React.FC = () => {
   const notification = useNotificationState();
   const { resetNotification } = useNotificationAction();
 

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { useNotificationState } from "~/hooks/notification";
-import { Notification } from ".";
+import { AdminNotification } from ".";
 
 jest.mock("~/hooks/notification", () => ({
   useNotificationState: jest.fn(),
@@ -26,14 +26,14 @@ beforeEach(() => {
 test("", () => {
   notification.mockReturnValue("");
 
-  const { container } = render(<Notification />);
+  const { container } = render(<AdminNotification />);
   expect(container).toBeEmptyDOMElement();
 });
 
 test("show", () => {
   notification.mockReturnValue("foo");
 
-  render(<Notification />);
+  render(<AdminNotification />);
 
   expect(screen.getByText("icon-info foo")).toBeInTheDocument();
   expect(screen.getByText("close")).toBeInTheDocument();
