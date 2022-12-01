@@ -61,7 +61,7 @@ const Page: PageComponent<Props> = (props) => {
         <div className="mb-8">
           <h1 className="flex justify-center">Labels</h1>
           <div className="mb-3 text-sm md:mb-8 md:flex md:items-center md:justify-center md:text-base">
-            <div className="flex justify-center">
+            <div className="mb-1 flex justify-center md:mb-0">
               <Link
                 href="/labels"
                 className="rounded px-2 py-0.5 hover:bg-gray-700 hover:text-gray-100 active:bg-gray-700 md:px-3 md:py-1"
