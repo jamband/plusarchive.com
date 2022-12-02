@@ -13,12 +13,7 @@ const Page: PageComponent = () => {
         <meta property="og:description" content={APP_DESCRIPTION} />
       </Head>
       <div className="lg:px-40">
-        <h1>
-          Contact{" "}
-          <small className="text-base text-gray-400">
-            for bugs and questions
-          </small>
-        </h1>
+        <h1>Contact</h1>
         <p>
           Please to the message via{" "}
           <a
