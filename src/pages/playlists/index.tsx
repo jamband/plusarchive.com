@@ -44,10 +44,10 @@ const Page: PageComponent<Props> = (props) => {
             <li key={playlist.id}>
               <Link
                 href={`/playlists/${playlist.id}`}
-                className="inline-flex items-center justify-start text-[24px] font-semibold text-rose-500 active:text-rose-500"
+                className="inline-flex items-center text-[24px] font-semibold text-rose-500 active:text-rose-500"
               >
                 {playlist.title}
-                <IconAngleRight className="mx-1 h-4 w-4" />
+                <IconAngleRight className="mx-2 h-4 w-4 text-rose-500/60" />
               </Link>
             </li>
           ))}

@@ -5,11 +5,11 @@
   }
 
   h1 {
-    @apply mb-2 text-4xl font-semibold text-gray-100;
+    @apply mb-2 text-5xl font-semibold text-gray-100;
   }
 
   h2 {
-    @apply mb-2 text-3xl font-semibold text-gray-100;
+    @apply mb-2 text-4xl font-semibold text-gray-100;
   }
 
   a {

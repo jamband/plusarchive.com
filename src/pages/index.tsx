@@ -80,7 +80,7 @@ const Page: PageComponent<Props> = (props) => {
         <span className="mx-2">or</span>
         <Link href="/playlists" className="text-rose-500 active:text-rose-500">
           Playlists
-          <IconAngleRight className="ml-0.5 h-4 w-4 align-[-0.125em]" />
+          <IconAngleRight className="ml-1 h-4 w-4 align-[-0.125em] text-rose-500/60 md:align-[-0.1em]" />
         </Link>
       </div>
     </>
