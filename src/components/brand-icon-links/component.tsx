@@ -5,7 +5,6 @@ export const Component: React.FC<_Props> = (props) => (
     {props.links.map((link, index) => (
       <li key={index}>
         <a
-          key={index}
           href={link}
           className="hover:text-gray-100"
           target="_blank"
