@@ -16,11 +16,11 @@ const Page: PageComponent = () => {
       <div className="flex h-[70vh] flex-col items-center justify-center">
         <h1>An error occurred</h1>
         <div className="mb-10">
-          <IconCircleInfo className="mr-1 h-4 w-4 align-[-0.125em]" />
+          <IconCircleInfo className="mr-1.5 h-4 w-4 align-[-0.125em]" />
           An error occurred.
         </div>
         <Link href="/" className="text-rose-500 active:text-rose-500">
-          <IconAngleLeft className="mr-0.5 h-4 w-4 align-[-0.125em]" />
+          <IconAngleLeft className="mr-1 h-4 w-4 align-[-0.1em] text-rose-500/60" />
           Back to Home
         </Link>
       </div>

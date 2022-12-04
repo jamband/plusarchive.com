@@ -37,7 +37,7 @@ export const Component: React.FC<_Props> = (props) => (
         href={props.player.type === "track" ? "/tracks" : "/playlists"}
         className="text-rose-500 active:text-rose-500"
       >
-        <IconAngleLeft className="mr-1 h-4 w-4 align-[-0.15em] text-rose-500/60 md:align-[-0.125em]" />
+        <IconAngleLeft className="mr-1 h-4 w-4 align-[-0.2em] text-rose-500/60 md:align-[-0.125em]" />
         Back to {props.player.type === "track" ? "Tracks" : "Playlists"}
       </Link>
       <span className="mx-2">or</span>

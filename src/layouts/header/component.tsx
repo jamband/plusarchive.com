@@ -97,7 +97,7 @@ export const Component: React.FC<_Props> = (props) => (
           <li key={link.href}>
             <Link
               href={link.href}
-              className="my-0.5 block px-4 py-1 text-sm active:bg-gray-600 active:text-gray-100 aria-[current=page]:text-rose-500"
+              className="my-0.5 block px-4 py-1 text-sm active:bg-gray-600 active:text-gray-100 aria-[current=page]:font-bold aria-[current=page]:text-gray-100"
               aria-current={props.current(link.href)}
               onClickCapture={props.toggleNavigation}
             >

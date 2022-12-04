@@ -20,7 +20,7 @@ const Page: PageComponent = () => {
           Page not found.
         </div>
         <Link href="/" className="text-rose-500 active:text-rose-500">
-          <IconAngleLeft className="mr-0.5 h-4 w-4 align-[-0.125em]" />
+          <IconAngleLeft className="mr-1 h-4 w-4 align-[-0.1em] text-rose-500/60" />
           Back to Home
         </Link>
       </div>
