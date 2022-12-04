@@ -132,12 +132,12 @@ const Page: PageComponent = () => {
               <GridContent>
                 <a
                   href={bookmark.url}
-                  className="text-rose-500 active:text-rose-500"
+                  className="font-semibold text-rose-500 active:text-rose-500"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <IconUpRightFromSquare className="mr-1 h-3 w-3 align-baseline" />
                   {bookmark.name}
+                  <IconUpRightFromSquare className="ml-1 h-3 w-3 align-baseline text-rose-500/60" />
                 </a>
               </GridContent>
               <GridContent className="truncate">{bookmark.country}</GridContent>

@@ -42,12 +42,12 @@ const Page: PageComponent = () => {
         <DetailContent>
           <a
             href={store.data.url}
-            className="text-rose-500"
+            className="font-bold text-rose-500"
             target="_blank"
             rel="noreferrer"
           >
-            <IconUpRightFromSquare className="mr-1 h-4 w-4 align-[-0.125em]" />
             {store.data.name}
+            <IconUpRightFromSquare className="ml-1.5 h-4 w-4 align-[-0.125em] text-rose-500/60" />
           </a>
         </DetailContent>
         <DetailContent>{store.data.country}</DetailContent>

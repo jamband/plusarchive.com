@@ -5,7 +5,7 @@ import {
   APP_REPOSITORY_NAME,
   APP_REPOSITORY_URL,
 } from "~/constants/app";
-import { IconGitHub } from "~/icons/github";
+import { IconUpRightFromSquare } from "~/icons/up-right-from-square";
 import { Layout } from "~/layouts/layout";
 import type { PageComponent } from "../_app";
 
@@ -26,8 +26,8 @@ const Page: PageComponent = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <IconGitHub className="mr-1 h-4 w-4 align-[-0.125em]" />
           GitHub: {APP_REPOSITORY_NAME}
+          <IconUpRightFromSquare className="ml-1 h-4 w-4 align-[-0.125em] text-rose-500/70" />
         </a>{" "}
       </div>
     </>

@@ -1,6 +1,7 @@
 export type Props = {
   label?: string;
   className?: string;
+  iconClass?: string;
   children: React.ReactNode;
 };
 

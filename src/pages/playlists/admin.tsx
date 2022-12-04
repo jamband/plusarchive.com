@@ -95,7 +95,9 @@ const Page: PageComponent = () => {
         {!!playlists.data &&
           playlists.data.data.map((playlist) => (
             <Fragment key={playlist.id}>
-              <GridContent className="truncate">{playlist.title}</GridContent>
+              <GridContent className="truncate font-semibold">
+                {playlist.title}
+              </GridContent>
               <GridContent className="truncate">
                 {playlist.provider}
               </GridContent>

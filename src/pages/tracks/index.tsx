@@ -62,9 +62,9 @@ const Page: PageComponent<Props> = (props) => {
           <div className="mb-1 flex justify-center md:mb-0">
             <Link
               href="/tracks"
-              className="rounded py-0.5 px-2 hover:bg-gray-700 hover:text-gray-100 active:bg-gray-700 md:px-3 md:py-1"
+              className="group rounded py-0.5 px-2 hover:bg-gray-700 hover:text-gray-100 active:bg-gray-700 md:px-3 md:py-1"
             >
-              <IconRotateRight className="mr-1 h-4 w-4 align-[-0.125em]" />
+              <IconRotateRight className="mr-1.5 h-4 w-4 align-[-0.125em] text-gray-400/70 group-hover:text-gray-400" />
               Reset All
             </Link>
           </div>
@@ -76,6 +76,7 @@ const Page: PageComponent<Props> = (props) => {
             <Dropdown
               label={`${query.provider || "Providers"}`}
               className="px-2 py-0.5 hover:bg-gray-700 hover:text-gray-100 focus:bg-gray-700 focus:text-gray-100 md:px-3 md:py-1"
+              iconClass="text-gray-400/70 group-hover:text-gray-400 group-focus:text-gray-400"
             >
               <DropdownHeader>Actions</DropdownHeader>
               <DropdownLink
@@ -111,6 +112,7 @@ const Page: PageComponent<Props> = (props) => {
             <Dropdown
               label={`${query.genre || "Genres"}`}
               className="px-2 py-0.5 hover:bg-gray-700 hover:text-gray-100 focus:bg-gray-700 focus:text-gray-100 md:px-3 md:py-1"
+              iconClass="text-gray-400/70 group-hover:text-gray-400 group-focus:text-gray-400"
             >
               <DropdownHeader>Actions</DropdownHeader>
               <DropdownLink

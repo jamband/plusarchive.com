@@ -20,6 +20,7 @@ import {
   useTrackToggleUrge,
 } from "~/hooks/tracks";
 import { IconAngleDown } from "~/icons/angle-down";
+import { IconUpRightFromSquare } from "~/icons/up-right-from-square";
 import { AdminLayout } from "~/layouts/admin/layout";
 import type { PageComponent } from "../_app";
 
@@ -159,7 +160,7 @@ const Page: PageComponent = () => {
               <GridContent>
                 <a
                   href={track.url}
-                  className="text-rose-500 active:text-rose-500"
+                  className="font-semibold text-rose-500 active:text-rose-500"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -171,6 +172,7 @@ const Page: PageComponent = () => {
                     loading="lazy"
                   />
                   {track.title}
+                  <IconUpRightFromSquare className="ml-1 h-3 w-3 align-baseline text-rose-500/60" />
                 </a>
               </GridContent>
               <GridContent className="truncate">{track.provider}</GridContent>

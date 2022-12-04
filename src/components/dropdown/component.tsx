@@ -12,14 +12,18 @@ export const Component: React.FC<_Props> = (props) => (
     onKeyDown={props.onKeyDown}
   >
     <summary
-      className={`block cursor-pointer rounded ${props.className || ""}`}
+      className={`group block cursor-pointer rounded ${props.className || ""}`}
       aria-expanded={false}
       aria-label={props.label ? undefined : "More"}
     >
       {props.label ? (
         <>
           <span className="mr-1.5">{props.label}</span>
-          <IconAngleDown className="h-3 w-3 align-[-0.075em] md:align-[0em]" />
+          <IconAngleDown
+            className={`h-3 w-3 align-[-0.075em] md:align-[0em] ${
+              props.iconClass || ""
+            }`}
+          />
         </>
       ) : (
         <IconEllipsis className="h-4 w-4 align-[-0.125em]" />

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { APP_DESCRIPTION, APP_REPOSITORY_URL } from "~/constants/app";
-import { IconGitHub } from "~/icons/github";
-import { IconTwitter } from "~/icons/twitter";
+import { IconUpRightFromSquare } from "~/icons/up-right-from-square";
 import { Layout } from "~/layouts/layout";
 import type { PageComponent } from "../_app";
 
@@ -22,8 +21,8 @@ const Page: PageComponent = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <IconTwitter className="mr-1 h-4 w-4 align-[-0.125em]" />
             Twitter
+            <IconUpRightFromSquare className="ml-1 h-4 w-4 align-[-0.125em] text-rose-500/70" />
           </a>{" "}
           or{" "}
           <a
@@ -32,8 +31,8 @@ const Page: PageComponent = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <IconGitHub className="mr-1 h-4 w-4 align-[-0.125em]" />
             GitHub
+            <IconUpRightFromSquare className="ml-1 h-4 w-4 align-[-0.125em] text-rose-500/70" />
           </a>{" "}
           Issues. Thank you.
         </p>
