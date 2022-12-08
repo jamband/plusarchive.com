@@ -47,7 +47,7 @@ const Page: PageComponent<Props> = (props) => {
         <div className="md:grid md:grid-cols-2 md:gap-6 xl:grid-cols-3">
           {props.tracks.map((track) => (
             <TrackCard key={track.id} track={track}>
-              <IconClock className="mr-1.5 h-3 w-3 align-[-0.125em] md:align-[-0.07em]" />
+              <IconClock className="h-4 w-4 align-[-0.175em] md:h-4 md:w-4 md:align-[-0.175em]" />
               {track.created_at}
             </TrackCard>
           ))}

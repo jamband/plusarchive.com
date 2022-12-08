@@ -41,7 +41,7 @@ const Page: PageComponent = () => {
                   href={`/tracks/${track.id}/update`}
                   className="hover:text-gray-100"
                 >
-                  <IconPencil className="mr-1.5 h-3 w-3 align-[-0.06em]" />
+                  <IconPencil className="mr-1 h-4 w-4 align-[-0.175em] md:h-4 md:w-4 md:align-[-0.175em]" />
                   Update
                 </Link>
               </TrackCard>

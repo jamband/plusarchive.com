@@ -51,11 +51,11 @@ export const Component: React.FC<_Props> = (props) => (
           </Link>
         ))}
       </div>
-      <div className="mb-0 mt-auto mr-2 block text-right text-xs text-gray-500 md:hidden">
+      <div className="mb-0 mt-auto mr-2 flex items-center justify-end gap-x-1 text-sm text-gray-500 md:hidden">
         {props.children}
       </div>
     </div>
-    <div className="mt-auto mr-2 hidden p-1 text-right text-sm text-gray-500 md:block">
+    <div className="mt-auto mr-2 hidden p-1 text-sm text-gray-500 md:flex md:items-center md:justify-end md:gap-x-1">
       {props.children}
     </div>
   </div>
