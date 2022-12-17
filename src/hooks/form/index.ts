@@ -1,17 +1,21 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
-import type { FieldValues, Path } from "react-hook-form";
+import type {
+  FieldValues,
+  Path,
+  UnPackAsyncDefaultValues,
+} from "react-hook-form";
 import { useForm } from "react-hook-form";
 import type { AnyObjectSchema } from "yup";
 
 type PostForm<T> = {
   schema: AnyObjectSchema;
-  focus: Path<T>;
+  focus: Path<UnPackAsyncDefaultValues<T>>;
 };
 
 type PutForm<T> = {
   schema: AnyObjectSchema;
-  focus: Path<T>;
+  focus: Path<UnPackAsyncDefaultValues<T>>;
   data: T | undefined;
 };
 
