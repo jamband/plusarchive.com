@@ -1,5 +1,5 @@
+import { usePlayerState } from "@/hooks/player";
 import { useRouter } from "next/router";
-import { usePlayerState } from "~/hooks/player";
 import { Component } from "./component";
 import type { Props } from "./types";
 

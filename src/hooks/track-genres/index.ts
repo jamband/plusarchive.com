@@ -1,11 +1,11 @@
-import { useQueryClient } from "@tanstack/react-query";
-import { useRouter } from "next/router";
-import type { FieldValues } from "react-hook-form";
-import { mutation } from "~/contexts/server-state";
+import { mutation } from "@/contexts/server-state";
 import type {
   TrackGenreAdmin,
   TrackGenreCollection,
-} from "~/types/track-genres";
+} from "@/types/track-genres";
+import { useQueryClient } from "@tanstack/react-query";
+import { useRouter } from "next/router";
+import type { FieldValues } from "react-hook-form";
 import { useNotificationAction } from "../notification";
 import type { Variables } from "../server-state";
 import { useMutation, useQuery } from "../server-state";

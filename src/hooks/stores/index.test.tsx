@@ -2,10 +2,10 @@ import { renderHook, waitFor } from "@testing-library/react";
 import { rest } from "msw";
 import { useRouter } from "next/router";
 import "whatwg-fetch";
-import { notificationAction } from "~/mocks/notification-action";
-import { router } from "~/mocks/router";
-import { csrfCookieHandler, server } from "~/mocks/server";
-import { isInvalidated, queryClient, wrapper } from "~/mocks/server-state";
+import { notificationAction } from "@/mocks/notification-action";
+import { router } from "@/mocks/router";
+import { csrfCookieHandler, server } from "@/mocks/server";
+import { isInvalidated, queryClient, wrapper } from "@/mocks/server-state";
 import {
   useCreateStore,
   useDeleteStore,
@@ -21,7 +21,7 @@ jest.mock("next/router", () => ({
   useRouter: jest.fn(),
 }));
 
-jest.mock("~/hooks/notification", () => ({
+jest.mock("@/hooks/notification", () => ({
   useNotificationAction: jest.fn(),
 }));
 

@@ -1,25 +1,25 @@
+import { router } from "@/mocks/router";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { useRouter } from "next/router";
-import { router } from "~/mocks/router";
 import { GridHeaderSort } from ".";
 
 jest.mock("next/router", () => ({
   useRouter: jest.fn(),
 }));
 
-jest.mock("~/icons/arrow-down-1-9", () => ({
+jest.mock("@/icons/arrow-down-1-9", () => ({
   IconArrowDown19: () => <span>19</span>,
 }));
 
-jest.mock("~/icons/arrow-down-9-1", () => ({
+jest.mock("@/icons/arrow-down-9-1", () => ({
   IconArrowDown91: () => <span>91</span>,
 }));
 
-jest.mock("~/icons/arrow-down-a-z", () => ({
+jest.mock("@/icons/arrow-down-a-z", () => ({
   IconArrowDownAZ: () => <span>az</span>,
 }));
 
-jest.mock("~/icons/arrow-down-z-a", () => ({
+jest.mock("@/icons/arrow-down-z-a", () => ({
   IconArrowDownZA: () => <span>za</span>,
 }));
 

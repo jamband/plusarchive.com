@@ -1,10 +1,10 @@
+import { IconAngleRight } from "@/icons/angle-right";
+import { Layout } from "@/layouts/layout";
+import type { Playlist } from "@/types/playlists";
+import { http } from "@/utils/api";
 import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { IconAngleRight } from "~/icons/angle-right";
-import { Layout } from "~/layouts/layout";
-import type { Playlist } from "~/types/playlists";
-import { http } from "~/utils/api";
 import type { PageComponent } from "../_app";
 
 type Props = {

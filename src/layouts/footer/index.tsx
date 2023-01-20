@@ -1,5 +1,5 @@
+import { usePlayerAction, usePlayerState } from "@/hooks/player";
 import { useRouter } from "next/router";
-import { usePlayerAction, usePlayerState } from "~/hooks/player";
 import { Component } from "./component";
 
 export const Footer: React.FC = () => {

@@ -1,5 +1,5 @@
+import { APP_URL } from "@/constants/app";
 import { useRouter } from "next/router";
-import { APP_URL } from "~/constants/app";
 import { Component } from "./component";
 import type { Props } from "./types";
 

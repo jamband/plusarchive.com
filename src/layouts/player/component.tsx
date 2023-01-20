@@ -1,6 +1,6 @@
+import { CenteredLoading } from "@/components/centered-loading";
+import { IconAngleLeft } from "@/icons/angle-left";
 import Link from "next/link";
-import { CenteredLoading } from "~/components/centered-loading";
-import { IconAngleLeft } from "~/icons/angle-left";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

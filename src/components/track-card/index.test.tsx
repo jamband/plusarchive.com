@@ -1,22 +1,22 @@
+import { playerState } from "@/mocks/player-state";
+import { router } from "@/mocks/router";
+import type { Track } from "@/types/tracks";
 import { cleanup, render, screen } from "@testing-library/react";
-import { playerState } from "~/mocks/player-state";
-import { router } from "~/mocks/router";
-import type { Track } from "~/types/tracks";
 import { TrackCard } from ".";
 
 jest.mock("next/router", () => ({
   useRouter: jest.fn(),
 }));
 
-jest.mock("~/hooks/player", () => ({
+jest.mock("@/hooks/player", () => ({
   usePlayerState: jest.fn(),
 }));
 
-jest.mock("~/icons/circle-pause", () => ({
+jest.mock("@/icons/circle-pause", () => ({
   IconCirclePause: () => "status:pause",
 }));
 
-jest.mock("~/icons/circle-play", () => ({
+jest.mock("@/icons/circle-play", () => ({
   IconCirclePlay: () => "status:play",
 }));
 

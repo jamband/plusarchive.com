@@ -1,6 +1,6 @@
+import { APP_NAME } from "@/constants/app";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { APP_NAME } from "~/constants/app";
 import { Component } from "./component";
 
 export const AdminHeader: React.FC = () => {

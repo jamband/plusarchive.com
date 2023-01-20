@@ -1,6 +1,6 @@
+import type { StoreCollection } from "@/types/stores";
+import { http, searchParams } from "@/utils/api";
 import type { GetServerSideProps } from "next";
-import type { StoreCollection } from "~/types/stores";
-import { http, searchParams } from "~/utils/api";
 import Page from ".";
 
 type Props = {

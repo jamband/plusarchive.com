@@ -1,8 +1,8 @@
+import { API_USER_KEY } from "@/constants/api";
+import { mutation } from "@/contexts/server-state";
+import type { Auth } from "@/types/auth";
 import { useRouter } from "next/router";
 import type { FieldValues } from "react-hook-form";
-import { API_USER_KEY } from "~/constants/api";
-import { mutation } from "~/contexts/server-state";
-import type { Auth } from "~/types/auth";
 import type { Variables } from "../server-state";
 import { useMutation, useQuery } from "../server-state";
 

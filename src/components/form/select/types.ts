@@ -1,5 +1,5 @@
+import type { useQuery } from "@/hooks/server-state";
 import type { UseFormRegisterReturn } from "react-hook-form";
-import type { useQuery } from "~/hooks/server-state";
 import type { Props as FeedbackProps } from "../feedback/types";
 
 export type Props = {

@@ -1,10 +1,10 @@
+import { Dropdown } from "@/components/dropdown";
+import { DropdownDivider } from "@/components/dropdown/divider";
+import { DropdownHeader } from "@/components/dropdown/header";
+import { DropdownLink } from "@/components/dropdown/link";
+import { APP_NAME } from "@/constants/app";
+import { IconBars } from "@/icons/bars";
 import Link from "next/link";
-import { Dropdown } from "~/components/dropdown";
-import { DropdownDivider } from "~/components/dropdown/divider";
-import { DropdownHeader } from "~/components/dropdown/header";
-import { DropdownLink } from "~/components/dropdown/link";
-import { APP_NAME } from "~/constants/app";
-import { IconBars } from "~/icons/bars";
 import { HeaderSearchForm } from "./search-form";
 import type { _Props } from "./types";
 

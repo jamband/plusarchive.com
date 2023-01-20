@@ -1,6 +1,6 @@
+import type { Dispatch, State } from "@/reducers/notification";
+import { initialState, reducer } from "@/reducers/notification";
 import { createContext, useReducer } from "react";
-import type { Dispatch, State } from "~/reducers/notification";
-import { initialState, reducer } from "~/reducers/notification";
 
 export const StateContext = createContext<State>({} as State);
 export const DispatchContext = createContext<Dispatch>({} as Dispatch);

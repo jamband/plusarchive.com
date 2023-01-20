@@ -1,4 +1,4 @@
-import type { MusicProvider } from "~/types/music-providers";
+import type { MusicProvider } from "@/types/music-providers";
 
 export type State = {
   id: string;

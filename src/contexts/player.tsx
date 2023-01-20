@@ -1,6 +1,6 @@
+import type { Dispatch, State } from "@/reducers/player";
+import { initialState, reducer } from "@/reducers/player";
 import { createContext, useReducer } from "react";
-import type { Dispatch, State } from "~/reducers/player";
-import { initialState, reducer } from "~/reducers/player";
 
 export const StateContext = createContext<State>({} as State);
 export const DispatchContext = createContext<Dispatch>({} as Dispatch);

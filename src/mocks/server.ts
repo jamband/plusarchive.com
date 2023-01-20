@@ -1,7 +1,7 @@
+import { API_CSRF_COOKIE } from "@/constants/api";
+import { queryClient } from "@/mocks/server-state";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-import { API_CSRF_COOKIE } from "~/constants/api";
-import { queryClient } from "~/mocks/server-state";
 
 export const server = setupServer();
 

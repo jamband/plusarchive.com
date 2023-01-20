@@ -1,5 +1,5 @@
+import type { Pagination } from "@/types/pagination";
 import type { UrlObject } from "url";
-import type { Pagination } from "~/types/pagination";
 
 export type Part = "First" | "Previous" | "Next" | "Last";
 

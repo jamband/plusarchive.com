@@ -8,7 +8,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "paths": { "~/*": ["src/*"] },
+    "paths": { "@/*": ["./src/*"] },
     "esModuleInterop": true,
     "module": "ESNext",
     "moduleResolution": "Node",

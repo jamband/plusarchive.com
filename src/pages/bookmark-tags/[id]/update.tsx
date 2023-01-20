@@ -1,17 +1,17 @@
+import { CenteredLoading } from "@/components/centered-loading";
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { FormInformation } from "@/components/form/information";
+import { FormInput } from "@/components/form/input";
+import { FormSubmit } from "@/components/form/submit";
+import { useBookmarkTag, useUpdateBookmarkTag } from "@/hooks/bookmark-tags";
+import { usePutForm } from "@/hooks/form";
+import { useRequireAdmin } from "@/hooks/require";
+import { AdminLayout } from "@/layouts/admin/layout";
+import type { PageComponent } from "@/pages/_app";
+import type { Schema } from "@/rules/track-genre/update";
+import { label, schema } from "@/rules/track-genre/update";
+import { setErrors } from "@/utils/form";
 import type { SubmitHandler } from "react-hook-form";
-import { CenteredLoading } from "~/components/centered-loading";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { FormInformation } from "~/components/form/information";
-import { FormInput } from "~/components/form/input";
-import { FormSubmit } from "~/components/form/submit";
-import { useBookmarkTag, useUpdateBookmarkTag } from "~/hooks/bookmark-tags";
-import { usePutForm } from "~/hooks/form";
-import { useRequireAdmin } from "~/hooks/require";
-import { AdminLayout } from "~/layouts/admin/layout";
-import type { PageComponent } from "~/pages/_app";
-import type { Schema } from "~/rules/track-genre/update";
-import { label, schema } from "~/rules/track-genre/update";
-import { setErrors } from "~/utils/form";
 
 const Page: PageComponent = () => {
   useRequireAdmin();

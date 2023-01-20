@@ -1,7 +1,7 @@
-import { IconArrowDown19 } from "~/icons/arrow-down-1-9";
-import { IconArrowDown91 } from "~/icons/arrow-down-9-1";
-import { IconArrowDownAZ } from "~/icons/arrow-down-a-z";
-import { IconArrowDownZA } from "~/icons/arrow-down-z-a";
+import { IconArrowDown19 } from "@/icons/arrow-down-1-9";
+import { IconArrowDown91 } from "@/icons/arrow-down-9-1";
+import { IconArrowDownAZ } from "@/icons/arrow-down-a-z";
+import { IconArrowDownZA } from "@/icons/arrow-down-z-a";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

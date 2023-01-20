@@ -1,7 +1,7 @@
+import { NotificationProvider } from "@/contexts/notification";
+import { ServerStateProvider } from "@/contexts/server-state";
+import { Loading } from "@/layouts/loading";
 import Head from "next/head";
-import { NotificationProvider } from "~/contexts/notification";
-import { ServerStateProvider } from "~/contexts/server-state";
-import { Loading } from "~/layouts/loading";
 import { AdminFooter } from "../footer";
 import { AdminHeader } from "../header";
 import { AdminLinks } from "../links";

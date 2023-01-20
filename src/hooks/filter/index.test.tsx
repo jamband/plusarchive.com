@@ -1,5 +1,5 @@
+import { router } from "@/mocks/router";
 import { fireEvent, render, renderHook, screen } from "@testing-library/react";
-import { router } from "~/mocks/router";
 import { useSelectFilter, useTextFilter } from ".";
 
 jest.mock("next/router", () => ({

@@ -1,6 +1,6 @@
+import { router } from "@/mocks/router";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { useRouter } from "next/router";
-import { router } from "~/mocks/router";
 import { SearchForm } from ".";
 
 jest.mock("next/router", () => ({

@@ -1,6 +1,6 @@
+import { IconCirclePause } from "@/icons/circle-pause";
+import { IconCirclePlay } from "@/icons/circle-play";
 import Link from "next/link";
-import { IconCirclePause } from "~/icons/circle-pause";
-import { IconCirclePlay } from "~/icons/circle-play";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

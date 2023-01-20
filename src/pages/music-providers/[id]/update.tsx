@@ -1,20 +1,20 @@
-import type { SubmitHandler } from "react-hook-form";
-import { CenteredLoading } from "~/components/centered-loading";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { FormInformation } from "~/components/form/information";
-import { FormInput } from "~/components/form/input";
-import { FormSubmit } from "~/components/form/submit";
-import { usePutForm } from "~/hooks/form";
+import { CenteredLoading } from "@/components/centered-loading";
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { FormInformation } from "@/components/form/information";
+import { FormInput } from "@/components/form/input";
+import { FormSubmit } from "@/components/form/submit";
+import { usePutForm } from "@/hooks/form";
 import {
   useMusicProvider,
   useUpdateMusicProvider,
-} from "~/hooks/music-providers";
-import { useRequireAdmin } from "~/hooks/require";
-import { AdminLayout } from "~/layouts/admin/layout";
-import type { PageComponent } from "~/pages/_app";
-import type { Schema } from "~/rules/music-provider/update";
-import { label, schema } from "~/rules/music-provider/update";
-import { setErrors } from "~/utils/form";
+} from "@/hooks/music-providers";
+import { useRequireAdmin } from "@/hooks/require";
+import { AdminLayout } from "@/layouts/admin/layout";
+import type { PageComponent } from "@/pages/_app";
+import type { Schema } from "@/rules/music-provider/update";
+import { label, schema } from "@/rules/music-provider/update";
+import { setErrors } from "@/utils/form";
+import type { SubmitHandler } from "react-hook-form";
 
 const Page: PageComponent = () => {
   useRequireAdmin();

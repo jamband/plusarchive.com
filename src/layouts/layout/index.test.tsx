@@ -1,5 +1,5 @@
+import { router } from "@/mocks/router";
 import { render, screen } from "@testing-library/react";
-import { router } from "~/mocks/router";
 import { Layout } from ".";
 
 jest.mock("next/router", () => ({

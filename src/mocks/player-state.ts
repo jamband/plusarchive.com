@@ -1,4 +1,4 @@
-import { usePlayerState } from "~/hooks/player";
+import { usePlayerState } from "@/hooks/player";
 
 export const playerState = usePlayerState as jest.Mock;
 

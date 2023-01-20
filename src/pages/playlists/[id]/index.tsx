@@ -1,11 +1,11 @@
+import { usePlayerAction } from "@/hooks/player";
+import { Layout } from "@/layouts/layout";
+import type { PageComponent } from "@/pages/_app";
+import type { Playlist } from "@/types/playlists";
+import { http } from "@/utils/api";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useEffect } from "react";
-import { usePlayerAction } from "~/hooks/player";
-import { Layout } from "~/layouts/layout";
-import type { PageComponent } from "~/pages/_app";
-import type { Playlist } from "~/types/playlists";
-import { http } from "~/utils/api";
 
 type Props = {
   playlist: Playlist;

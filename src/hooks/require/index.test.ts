@@ -1,7 +1,7 @@
+import { auth } from "@/mocks/auth";
+import { router } from "@/mocks/router";
 import { renderHook } from "@testing-library/react";
 import { useRouter } from "next/router";
-import { auth } from "~/mocks/auth";
-import { router } from "~/mocks/router";
 import { useRequireAdmin, useRequireGuest } from ".";
 
 jest.mock("../auth", () => ({

@@ -1,15 +1,15 @@
-import { IconBandcamp } from "~/icons/bandcamp";
-import { IconFacebookSquare } from "~/icons/facebook-square";
-import { IconInstagram } from "~/icons/instagram";
-import { IconMixcloud } from "~/icons/mixcloud";
-import { IconPinterestSquare } from "~/icons/pinterest-square";
-import { IconSoundCloud } from "~/icons/soundcloud";
-import { IconSpotify } from "~/icons/spotify";
-import { IconTumblrSquare } from "~/icons/tumblr-square";
-import { IconTwitterSquare } from "~/icons/twitter-square";
-import { IconUpRightFromSquare } from "~/icons/up-right-from-square";
-import { IconVimeoSquare } from "~/icons/vimeo-square";
-import { IconYouTubeSquare } from "~/icons/youtube-square";
+import { IconBandcamp } from "@/icons/bandcamp";
+import { IconFacebookSquare } from "@/icons/facebook-square";
+import { IconInstagram } from "@/icons/instagram";
+import { IconMixcloud } from "@/icons/mixcloud";
+import { IconPinterestSquare } from "@/icons/pinterest-square";
+import { IconSoundCloud } from "@/icons/soundcloud";
+import { IconSpotify } from "@/icons/spotify";
+import { IconTumblrSquare } from "@/icons/tumblr-square";
+import { IconTwitterSquare } from "@/icons/twitter-square";
+import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
+import { IconVimeoSquare } from "@/icons/vimeo-square";
+import { IconYouTubeSquare } from "@/icons/youtube-square";
 import { Component } from "./component";
 import type { Props } from "./types";
 

@@ -1,4 +1,4 @@
-import { IconUpRightFromSquare } from "~/icons/up-right-from-square";
+import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

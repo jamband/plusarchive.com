@@ -1,8 +1,8 @@
+import { IconAngleLeft } from "@/icons/angle-left";
+import { IconAngleRight } from "@/icons/angle-right";
+import { IconAnglesLeft } from "@/icons/angles-left";
+import { IconAnglesRight } from "@/icons/angles-right";
 import { useRouter } from "next/router";
-import { IconAngleLeft } from "~/icons/angle-left";
-import { IconAngleRight } from "~/icons/angle-right";
-import { IconAnglesLeft } from "~/icons/angles-left";
-import { IconAnglesRight } from "~/icons/angles-right";
 import { Component } from "./component";
 import type { Part, Props } from "./types";
 

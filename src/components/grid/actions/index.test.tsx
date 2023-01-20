@@ -1,15 +1,15 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { GridActions } from ".";
 
-jest.mock("~/icons/eye", () => ({
+jest.mock("@/icons/eye", () => ({
   IconEye: () => "view",
 }));
 
-jest.mock("~/icons/pencil", () => ({
+jest.mock("@/icons/pencil", () => ({
   IconPencil: () => "update",
 }));
 
-jest.mock("~/icons/trash", () => ({
+jest.mock("@/icons/trash", () => ({
   IconTrash: () => "delete",
 }));
 

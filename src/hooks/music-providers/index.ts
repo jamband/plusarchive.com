@@ -1,9 +1,9 @@
+import { mutation } from "@/contexts/server-state";
+import type { CountryAdmin } from "@/types/countries";
+import type { MusicProviderAdmin } from "@/types/music-providers";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import type { FieldValues } from "react-hook-form";
-import { mutation } from "~/contexts/server-state";
-import type { CountryAdmin } from "~/types/countries";
-import type { MusicProviderAdmin } from "~/types/music-providers";
 import { useNotificationAction } from "../notification";
 import type { Variables } from "../server-state";
 import { useMutation, useQuery } from "../server-state";

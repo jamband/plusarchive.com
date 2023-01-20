@@ -1,12 +1,12 @@
+import { TrackCard } from "@/components/track-card";
+import { IconAngleRight } from "@/icons/angle-right";
+import { IconClock } from "@/icons/clock";
+import { Layout } from "@/layouts/layout";
+import type { TrackCollection } from "@/types/tracks";
+import { http } from "@/utils/api";
 import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import { TrackCard } from "~/components/track-card";
-import { IconAngleRight } from "~/icons/angle-right";
-import { IconClock } from "~/icons/clock";
-import { Layout } from "~/layouts/layout";
-import type { TrackCollection } from "~/types/tracks";
-import { http } from "~/utils/api";
 import type { PageComponent } from "./_app";
 
 type Props = {

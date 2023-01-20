@@ -1,6 +1,6 @@
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { Loading } from "~/components/loading";
-import { IconAngleDown } from "~/icons/angle-down";
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { Loading } from "@/components/loading";
+import { IconAngleDown } from "@/icons/angle-down";
 import { FormFakeInput } from "../fake-input";
 import { FormFeedback } from "../feedback";
 import { FormLabel } from "../label";

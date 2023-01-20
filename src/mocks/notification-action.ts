@@ -1,4 +1,4 @@
-import { useNotificationAction } from "~/hooks/notification";
+import { useNotificationAction } from "@/hooks/notification";
 
 export const notificationAction = useNotificationAction as jest.Mock;
 

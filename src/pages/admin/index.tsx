@@ -1,12 +1,12 @@
+import { CenteredLoading } from "@/components/centered-loading";
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { TrackCard } from "@/components/track-card";
+import { useRequireAdmin } from "@/hooks/require";
+import { useTracksFavorites, useTrackStopAllUrges } from "@/hooks/tracks";
+import { IconCircleInfo } from "@/icons/circle-info";
+import { IconPencil } from "@/icons/pencil";
+import { AdminLayout } from "@/layouts/admin/layout";
 import Link from "next/link";
-import { CenteredLoading } from "~/components/centered-loading";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { TrackCard } from "~/components/track-card";
-import { useRequireAdmin } from "~/hooks/require";
-import { useTracksFavorites, useTrackStopAllUrges } from "~/hooks/tracks";
-import { IconCircleInfo } from "~/icons/circle-info";
-import { IconPencil } from "~/icons/pencil";
-import { AdminLayout } from "~/layouts/admin/layout";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

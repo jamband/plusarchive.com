@@ -1,14 +1,14 @@
-import { ActionButton } from "~/components/action-button";
-import { CenteredLoading } from "~/components/centered-loading";
-import { DetailColumn } from "~/components/detail/column";
-import { DetailContainer } from "~/components/detail/container";
-import { DetailContent } from "~/components/detail/content";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { useBookmarkTag, useDeleteBookmarkTag } from "~/hooks/bookmark-tags";
-import { useRequireAdmin } from "~/hooks/require";
-import { IconTrash } from "~/icons/trash";
-import { AdminLayout } from "~/layouts/admin/layout";
-import type { PageComponent } from "~/pages/_app";
+import { ActionButton } from "@/components/action-button";
+import { CenteredLoading } from "@/components/centered-loading";
+import { DetailColumn } from "@/components/detail/column";
+import { DetailContainer } from "@/components/detail/container";
+import { DetailContent } from "@/components/detail/content";
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { useBookmarkTag, useDeleteBookmarkTag } from "@/hooks/bookmark-tags";
+import { useRequireAdmin } from "@/hooks/require";
+import { IconTrash } from "@/icons/trash";
+import { AdminLayout } from "@/layouts/admin/layout";
+import type { PageComponent } from "@/pages/_app";
 
 const Page: PageComponent = () => {
   useRequireAdmin();

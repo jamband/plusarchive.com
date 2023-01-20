@@ -1,12 +1,12 @@
+import { router } from "@/mocks/router";
 import { render, screen } from "@testing-library/react";
-import { router } from "~/mocks/router";
 import { HeaderSearchForm } from ".";
 
 jest.mock("next/router", () => ({
   useRouter: jest.fn(),
 }));
 
-jest.mock("~/components/search-form", () => ({
+jest.mock("@/components/search-form", () => ({
   SearchForm: jest.fn(),
 }));
 

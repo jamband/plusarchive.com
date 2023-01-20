@@ -1,7 +1,7 @@
-import { useLogout } from "~/hooks/auth";
-import { useRequireAdmin } from "~/hooks/require";
-import { IconCircleInfo } from "~/icons/circle-info";
-import { AdminLayout } from "~/layouts/admin/layout";
+import { useLogout } from "@/hooks/auth";
+import { useRequireAdmin } from "@/hooks/require";
+import { IconCircleInfo } from "@/icons/circle-info";
+import { AdminLayout } from "@/layouts/admin/layout";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

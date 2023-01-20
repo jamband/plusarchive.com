@@ -1,8 +1,8 @@
+import { APP_NAME } from "@/constants/app";
 import { render, screen } from "@testing-library/react";
-import { APP_NAME } from "~/constants/app";
 import { AdminFooter } from ".";
 
-jest.mock("~/icons/lock", () => ({
+jest.mock("@/icons/lock", () => ({
   IconLock: () => "icon ",
 }));
 

@@ -1,7 +1,7 @@
+import { APP_DESCRIPTION, APP_REPOSITORY_URL } from "@/constants/app";
+import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
+import { Layout } from "@/layouts/layout";
 import Head from "next/head";
-import { APP_DESCRIPTION, APP_REPOSITORY_URL } from "~/constants/app";
-import { IconUpRightFromSquare } from "~/icons/up-right-from-square";
-import { Layout } from "~/layouts/layout";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

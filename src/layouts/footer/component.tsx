@@ -1,6 +1,6 @@
+import { CloseButton } from "@/components/close-button";
+import { APP_NAME } from "@/constants/app";
 import Link from "next/link";
-import { CloseButton } from "~/components/close-button";
-import { APP_NAME } from "~/constants/app";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

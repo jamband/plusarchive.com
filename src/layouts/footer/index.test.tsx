@@ -1,10 +1,10 @@
+import { APP_NAME } from "@/constants/app";
+import { playerState } from "@/mocks/player-state";
+import { router } from "@/mocks/router";
 import { render, screen } from "@testing-library/react";
-import { APP_NAME } from "~/constants/app";
-import { playerState } from "~/mocks/player-state";
-import { router } from "~/mocks/router";
 import { Footer } from ".";
 
-jest.mock("~/hooks/player", () => ({
+jest.mock("@/hooks/player", () => ({
   usePlayerState: jest.fn(),
   usePlayerAction: () => ({
     resetPlayer: () => undefined,

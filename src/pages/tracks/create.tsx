@@ -1,18 +1,18 @@
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { FormCheck } from "@/components/form/check";
+import { FormChecks } from "@/components/form/checks";
+import { FormInformation } from "@/components/form/information";
+import { FormInput } from "@/components/form/input";
+import { FormSubmit } from "@/components/form/submit";
+import { Loading } from "@/components/loading";
+import { usePostForm } from "@/hooks/form";
+import { useRequireAdmin } from "@/hooks/require";
+import { useCreateTrack, useTracksGenres } from "@/hooks/tracks";
+import { AdminLayout } from "@/layouts/admin/layout";
+import type { Schema } from "@/rules/track/create";
+import { label, schema } from "@/rules/track/create";
+import { setErrors } from "@/utils/form";
 import type { SubmitHandler } from "react-hook-form";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { FormCheck } from "~/components/form/check";
-import { FormChecks } from "~/components/form/checks";
-import { FormInformation } from "~/components/form/information";
-import { FormInput } from "~/components/form/input";
-import { FormSubmit } from "~/components/form/submit";
-import { Loading } from "~/components/loading";
-import { usePostForm } from "~/hooks/form";
-import { useRequireAdmin } from "~/hooks/require";
-import { useCreateTrack, useTracksGenres } from "~/hooks/tracks";
-import { AdminLayout } from "~/layouts/admin/layout";
-import type { Schema } from "~/rules/track/create";
-import { label, schema } from "~/rules/track/create";
-import { setErrors } from "~/utils/form";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

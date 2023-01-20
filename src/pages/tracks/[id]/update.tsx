@@ -1,20 +1,20 @@
+import { CenteredLoading } from "@/components/centered-loading";
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { FormCheck } from "@/components/form/check";
+import { FormChecks } from "@/components/form/checks";
+import { FormInformation } from "@/components/form/information";
+import { FormInput } from "@/components/form/input";
+import { FormSubmit } from "@/components/form/submit";
+import { Loading } from "@/components/loading";
+import { usePutForm } from "@/hooks/form";
+import { useRequireAdmin } from "@/hooks/require";
+import { useTrack, useTracksGenres, useUpdateTrack } from "@/hooks/tracks";
+import { AdminLayout } from "@/layouts/admin/layout";
+import type { PageComponent } from "@/pages/_app";
+import type { Schema } from "@/rules/track/update";
+import { label, schema } from "@/rules/track/update";
+import { setErrors } from "@/utils/form";
 import type { SubmitHandler } from "react-hook-form";
-import { CenteredLoading } from "~/components/centered-loading";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { FormCheck } from "~/components/form/check";
-import { FormChecks } from "~/components/form/checks";
-import { FormInformation } from "~/components/form/information";
-import { FormInput } from "~/components/form/input";
-import { FormSubmit } from "~/components/form/submit";
-import { Loading } from "~/components/loading";
-import { usePutForm } from "~/hooks/form";
-import { useRequireAdmin } from "~/hooks/require";
-import { useTrack, useTracksGenres, useUpdateTrack } from "~/hooks/tracks";
-import { AdminLayout } from "~/layouts/admin/layout";
-import type { PageComponent } from "~/pages/_app";
-import type { Schema } from "~/rules/track/update";
-import { label, schema } from "~/rules/track/update";
-import { setErrors } from "~/utils/form";
 
 const Page: PageComponent = () => {
   useRequireAdmin();

@@ -1,7 +1,7 @@
+import { APP_NAME } from "@/constants/app";
+import { PlayerProvider } from "@/contexts/player";
+import { ServerStateProvider } from "@/contexts/server-state";
 import Head from "next/head";
-import { APP_NAME } from "~/constants/app";
-import { PlayerProvider } from "~/contexts/player";
-import { ServerStateProvider } from "~/contexts/server-state";
 import { Footer } from "../footer";
 import { Header } from "../header";
 import { Loading } from "../loading";

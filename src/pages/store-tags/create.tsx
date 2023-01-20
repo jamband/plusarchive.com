@@ -1,14 +1,14 @@
+import { FormInformation } from "@/components/form/information";
+import { FormInput } from "@/components/form/input";
+import { FormSubmit } from "@/components/form/submit";
+import { usePostForm } from "@/hooks/form";
+import { useRequireAdmin } from "@/hooks/require";
+import { useCreateStoreTag } from "@/hooks/store-tags";
+import { AdminLayout } from "@/layouts/admin/layout";
+import type { Schema } from "@/rules/store-tag/create";
+import { label, schema } from "@/rules/store-tag/create";
+import { setErrors } from "@/utils/form";
 import type { SubmitHandler } from "react-hook-form";
-import { FormInformation } from "~/components/form/information";
-import { FormInput } from "~/components/form/input";
-import { FormSubmit } from "~/components/form/submit";
-import { usePostForm } from "~/hooks/form";
-import { useRequireAdmin } from "~/hooks/require";
-import { useCreateStoreTag } from "~/hooks/store-tags";
-import { AdminLayout } from "~/layouts/admin/layout";
-import type { Schema } from "~/rules/store-tag/create";
-import { label, schema } from "~/rules/store-tag/create";
-import { setErrors } from "~/utils/form";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

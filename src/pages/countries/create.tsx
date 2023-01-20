@@ -1,14 +1,14 @@
+import { FormInformation } from "@/components/form/information";
+import { FormInput } from "@/components/form/input";
+import { FormSubmit } from "@/components/form/submit";
+import { useCreateCountry } from "@/hooks/countries";
+import { usePostForm } from "@/hooks/form";
+import { useRequireAdmin } from "@/hooks/require";
+import { AdminLayout } from "@/layouts/admin/layout";
+import type { Schema } from "@/rules/country/create";
+import { label, schema } from "@/rules/country/create";
+import { setErrors } from "@/utils/form";
 import type { SubmitHandler } from "react-hook-form";
-import { FormInformation } from "~/components/form/information";
-import { FormInput } from "~/components/form/input";
-import { FormSubmit } from "~/components/form/submit";
-import { useCreateCountry } from "~/hooks/countries";
-import { usePostForm } from "~/hooks/form";
-import { useRequireAdmin } from "~/hooks/require";
-import { AdminLayout } from "~/layouts/admin/layout";
-import type { Schema } from "~/rules/country/create";
-import { label, schema } from "~/rules/country/create";
-import { setErrors } from "~/utils/form";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

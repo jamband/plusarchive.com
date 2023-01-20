@@ -1,26 +1,26 @@
-import { Fragment } from "react";
-import { BrandIconLinks } from "~/components/brand-icon-links";
-import { CenteredLoading } from "~/components/centered-loading";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { GridActions } from "~/components/grid/actions";
-import { GridContainer } from "~/components/grid/container";
-import { GridContent } from "~/components/grid/content";
-import { GridFilter } from "~/components/grid/filter";
-import { GridHeader } from "~/components/grid/header";
-import { GridHeaderActions } from "~/components/grid/header-actions";
-import { GridHeaderSort } from "~/components/grid/header-sort";
-import { Pagination } from "~/components/pagination";
-import { useSelectFilter, useTextFilter } from "~/hooks/filter";
+import { BrandIconLinks } from "@/components/brand-icon-links";
+import { CenteredLoading } from "@/components/centered-loading";
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { GridActions } from "@/components/grid/actions";
+import { GridContainer } from "@/components/grid/container";
+import { GridContent } from "@/components/grid/content";
+import { GridFilter } from "@/components/grid/filter";
+import { GridHeader } from "@/components/grid/header";
+import { GridHeaderActions } from "@/components/grid/header-actions";
+import { GridHeaderSort } from "@/components/grid/header-sort";
+import { Pagination } from "@/components/pagination";
+import { useSelectFilter, useTextFilter } from "@/hooks/filter";
 import {
   useDeleteLabel,
   useLabelsAdmin,
   useLabelsCountries,
   useLabelsTags,
-} from "~/hooks/labels";
-import { useRequireAdmin } from "~/hooks/require";
-import { IconAngleDown } from "~/icons/angle-down";
-import { IconUpRightFromSquare } from "~/icons/up-right-from-square";
-import { AdminLayout } from "~/layouts/admin/layout";
+} from "@/hooks/labels";
+import { useRequireAdmin } from "@/hooks/require";
+import { IconAngleDown } from "@/icons/angle-down";
+import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
+import { AdminLayout } from "@/layouts/admin/layout";
+import { Fragment } from "react";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

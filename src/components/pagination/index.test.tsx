@@ -1,5 +1,5 @@
+import { router } from "@/mocks/router";
 import { render, screen } from "@testing-library/react";
-import { router } from "~/mocks/router";
 import { Pagination } from ".";
 
 jest.mock("next/router", () => ({

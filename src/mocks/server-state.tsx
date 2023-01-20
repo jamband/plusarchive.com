@@ -1,6 +1,6 @@
+import { queryFn } from "@/contexts/server-state";
 import type { QueryKey } from "@tanstack/react-query";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { queryFn } from "~/contexts/server-state";
 
 type Props = {
   children: React.ReactNode;

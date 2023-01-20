@@ -1,16 +1,16 @@
-import { ActionButton } from "~/components/action-button";
-import { BrandIconLinks } from "~/components/brand-icon-links";
-import { CenteredLoading } from "~/components/centered-loading";
-import { DetailColumn } from "~/components/detail/column";
-import { DetailContainer } from "~/components/detail/container";
-import { DetailContent } from "~/components/detail/content";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { useBookmark, useDeleteBookmark } from "~/hooks/bookmarks";
-import { useRequireAdmin } from "~/hooks/require";
-import { IconTrash } from "~/icons/trash";
-import { IconUpRightFromSquare } from "~/icons/up-right-from-square";
-import { AdminLayout } from "~/layouts/admin/layout";
-import type { PageComponent } from "~/pages/_app";
+import { ActionButton } from "@/components/action-button";
+import { BrandIconLinks } from "@/components/brand-icon-links";
+import { CenteredLoading } from "@/components/centered-loading";
+import { DetailColumn } from "@/components/detail/column";
+import { DetailContainer } from "@/components/detail/container";
+import { DetailContent } from "@/components/detail/content";
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { useBookmark, useDeleteBookmark } from "@/hooks/bookmarks";
+import { useRequireAdmin } from "@/hooks/require";
+import { IconTrash } from "@/icons/trash";
+import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
+import { AdminLayout } from "@/layouts/admin/layout";
+import type { PageComponent } from "@/pages/_app";
 
 const Page: PageComponent = () => {
   useRequireAdmin();

@@ -1,5 +1,5 @@
+import { router } from "@/mocks/router";
 import { renderHook } from "@testing-library/react";
-import { router } from "~/mocks/router";
 import { useUrlQuery } from ".";
 
 jest.mock("next/router", () => ({

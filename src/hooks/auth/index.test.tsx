@@ -1,10 +1,10 @@
+import { router } from "@/mocks/router";
+import { csrfCookieHandler, server } from "@/mocks/server";
+import { queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
 import { rest } from "msw";
 import { useRouter } from "next/router";
 import "whatwg-fetch";
-import { router } from "~/mocks/router";
-import { csrfCookieHandler, server } from "~/mocks/server";
-import { queryClient, wrapper } from "~/mocks/server-state";
 import { useAuth, useLogin, useLogout } from ".";
 
 jest.mock("next/router", () => ({

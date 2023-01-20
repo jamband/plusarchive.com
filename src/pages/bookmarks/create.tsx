@@ -1,21 +1,21 @@
+import { FailedToFetch } from "@/components/failed-to-fetch";
+import { FormCheck } from "@/components/form/check";
+import { FormChecks } from "@/components/form/checks";
+import { FormInformation } from "@/components/form/information";
+import { FormInput } from "@/components/form/input";
+import { FormSelect } from "@/components/form/select";
+import { FormSubmit } from "@/components/form/submit";
+import { FormTextarea } from "@/components/form/textarea";
+import { Loading } from "@/components/loading";
+import { useBookmarksTags, useCreateBookmark } from "@/hooks/bookmarks";
+import { useAdminCountries } from "@/hooks/countries";
+import { usePostForm } from "@/hooks/form";
+import { useRequireAdmin } from "@/hooks/require";
+import { AdminLayout } from "@/layouts/admin/layout";
+import type { Schema } from "@/rules/bookmark/create";
+import { label, schema } from "@/rules/bookmark/create";
+import { setErrors } from "@/utils/form";
 import type { SubmitHandler } from "react-hook-form";
-import { FailedToFetch } from "~/components/failed-to-fetch";
-import { FormCheck } from "~/components/form/check";
-import { FormChecks } from "~/components/form/checks";
-import { FormInformation } from "~/components/form/information";
-import { FormInput } from "~/components/form/input";
-import { FormSelect } from "~/components/form/select";
-import { FormSubmit } from "~/components/form/submit";
-import { FormTextarea } from "~/components/form/textarea";
-import { Loading } from "~/components/loading";
-import { useBookmarksTags, useCreateBookmark } from "~/hooks/bookmarks";
-import { useAdminCountries } from "~/hooks/countries";
-import { usePostForm } from "~/hooks/form";
-import { useRequireAdmin } from "~/hooks/require";
-import { AdminLayout } from "~/layouts/admin/layout";
-import type { Schema } from "~/rules/bookmark/create";
-import { label, schema } from "~/rules/bookmark/create";
-import { setErrors } from "~/utils/form";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

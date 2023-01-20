@@ -1,5 +1,5 @@
+import { NotificationProvider } from "@/contexts/notification";
 import { act, renderHook } from "@testing-library/react";
-import { NotificationProvider } from "~/contexts/notification";
 import { useNotificationAction, useNotificationState } from ".";
 
 const wrapper = ({ children }: { children: React.ReactNode }) => (

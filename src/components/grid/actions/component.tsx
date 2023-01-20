@@ -1,7 +1,7 @@
+import { IconEye } from "@/icons/eye";
+import { IconPencil } from "@/icons/pencil";
+import { IconTrash } from "@/icons/trash";
 import Link from "next/link";
-import { IconEye } from "~/icons/eye";
-import { IconPencil } from "~/icons/pencil";
-import { IconTrash } from "~/icons/trash";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

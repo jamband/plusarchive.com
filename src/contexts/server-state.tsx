@@ -1,9 +1,9 @@
+import type { Options } from "@/utils/api";
+import { http } from "@/utils/api";
 import type { QueryKey } from "@tanstack/react-query";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useState } from "react";
-import type { Options } from "~/utils/api";
-import { http } from "~/utils/api";
 
 type Props = {
   children: React.ReactNode;

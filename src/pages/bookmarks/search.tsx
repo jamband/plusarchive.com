@@ -1,6 +1,6 @@
+import type { BookmarkCollection } from "@/types/bookmarks";
+import { http, searchParams } from "@/utils/api";
 import type { GetServerSideProps } from "next";
-import type { BookmarkCollection } from "~/types/bookmarks";
-import { http, searchParams } from "~/utils/api";
 import Page from ".";
 
 type Props = {

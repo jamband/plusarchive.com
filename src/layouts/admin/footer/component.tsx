@@ -1,5 +1,5 @@
-import { APP_NAME } from "~/constants/app";
-import { IconLock } from "~/icons/lock";
+import { APP_NAME } from "@/constants/app";
+import { IconLock } from "@/icons/lock";
 
 export const Component: React.FC = () => (
   <footer className="fixed bottom-0 z-20 w-full bg-gray-700 text-sm text-rose-500 shadow-[0_-1px_2px] shadow-gray-900 md:text-base">

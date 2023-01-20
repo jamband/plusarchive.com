@@ -1,6 +1,6 @@
-import { Dropdown } from "~/components/dropdown";
-import { DropdownDivider } from "~/components/dropdown/divider";
-import { DropdownLink } from "~/components/dropdown/link";
+import { Dropdown } from "@/components/dropdown";
+import { DropdownDivider } from "@/components/dropdown/divider";
+import { DropdownLink } from "@/components/dropdown/link";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

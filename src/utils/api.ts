@@ -1,5 +1,5 @@
+import { API_CSRF_COOKIE, API_URL } from "@/constants/api";
 import type { ParsedUrlQuery } from "querystring";
-import { API_CSRF_COOKIE, API_URL } from "~/constants/api";
 
 export type Options = Pick<RequestInit, "headers"> & {
   method?: "POST" | "PUT" | "DELETE" | "PATCH";

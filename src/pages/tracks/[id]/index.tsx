@@ -1,11 +1,11 @@
+import { usePlayerAction } from "@/hooks/player";
+import { Layout } from "@/layouts/layout";
+import type { PageComponent } from "@/pages/_app";
+import type { Track } from "@/types/tracks";
+import { http } from "@/utils/api";
 import type { GetServerSideProps } from "next";
 import Head from "next/head";
 import { useEffect } from "react";
-import { usePlayerAction } from "~/hooks/player";
-import { Layout } from "~/layouts/layout";
-import type { PageComponent } from "~/pages/_app";
-import type { Track } from "~/types/tracks";
-import { http } from "~/utils/api";
 
 type Props = {
   track: Track;

@@ -1,7 +1,7 @@
+import { PlayerProvider } from "@/contexts/player";
+import type { State } from "@/reducers/player";
+import { initialState } from "@/reducers/player";
 import { act, renderHook } from "@testing-library/react";
-import { PlayerProvider } from "~/contexts/player";
-import type { State } from "~/reducers/player";
-import { initialState } from "~/reducers/player";
 import { usePlayerAction, usePlayerState } from ".";
 
 const wrapper = ({ children }: { children: React.ReactNode }) => (

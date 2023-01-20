@@ -1,19 +1,19 @@
+import { useNotificationState } from "@/hooks/notification";
 import { render, screen } from "@testing-library/react";
-import { useNotificationState } from "~/hooks/notification";
 import { AdminNotification } from ".";
 
-jest.mock("~/hooks/notification", () => ({
+jest.mock("@/hooks/notification", () => ({
   useNotificationState: jest.fn(),
   useNotificationAction: () => ({
     resetNotification: () => undefined,
   }),
 }));
 
-jest.mock("~/icons/circle-info", () => ({
+jest.mock("@/icons/circle-info", () => ({
   IconCircleInfo: () => "icon-info ",
 }));
 
-jest.mock("~/components/close-button", () => ({
+jest.mock("@/components/close-button", () => ({
   CloseButton: () => "close",
 }));
 

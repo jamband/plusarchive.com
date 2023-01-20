@@ -1,14 +1,14 @@
+import { FormInformation } from "@/components/form/information";
+import { FormInput } from "@/components/form/input";
+import { FormSubmit } from "@/components/form/submit";
+import { useLogin } from "@/hooks/auth";
+import { usePostForm } from "@/hooks/form";
+import { useRequireGuest } from "@/hooks/require";
+import { Layout } from "@/layouts/layout";
+import type { Schema } from "@/rules/auth/login";
+import { label, schema } from "@/rules/auth/login";
+import { setErrors } from "@/utils/form";
 import type { SubmitHandler } from "react-hook-form";
-import { FormInformation } from "~/components/form/information";
-import { FormInput } from "~/components/form/input";
-import { FormSubmit } from "~/components/form/submit";
-import { useLogin } from "~/hooks/auth";
-import { usePostForm } from "~/hooks/form";
-import { useRequireGuest } from "~/hooks/require";
-import { Layout } from "~/layouts/layout";
-import type { Schema } from "~/rules/auth/login";
-import { label, schema } from "~/rules/auth/login";
-import { setErrors } from "~/utils/form";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

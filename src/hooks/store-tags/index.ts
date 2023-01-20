@@ -1,8 +1,8 @@
+import { mutation } from "@/contexts/server-state";
+import type { StoreTagAdmin, StoreTagCollection } from "@/types/store-tags";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import type { FieldValues } from "react-hook-form";
-import { mutation } from "~/contexts/server-state";
-import type { StoreTagAdmin, StoreTagCollection } from "~/types/store-tags";
 import { useNotificationAction } from "../notification";
 import type { Variables } from "../server-state";
 import { useMutation, useQuery } from "../server-state";

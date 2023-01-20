@@ -1,7 +1,7 @@
+import { APP_PRIMARY_COLOR } from "@/constants/app";
+import { usePlayerState } from "@/hooks/player";
+import { usePlayerLoading } from "@/hooks/player-loading";
 import { useRouter } from "next/router";
-import { APP_PRIMARY_COLOR } from "~/constants/app";
-import { usePlayerState } from "~/hooks/player";
-import { usePlayerLoading } from "~/hooks/player-loading";
 import { Component } from "./component";
 
 export const Player: React.FC = () => {

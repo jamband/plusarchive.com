@@ -1,8 +1,8 @@
+import { playerState } from "@/mocks/player-state";
 import { act, renderHook } from "@testing-library/react";
-import { playerState } from "~/mocks/player-state";
 import { usePlayerLoading } from ".";
 
-jest.mock("~/hooks/player", () => ({
+jest.mock("@/hooks/player", () => ({
   usePlayerState: jest.fn(),
 }));
 

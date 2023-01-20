@@ -1,6 +1,6 @@
+import { APP_REPOSITORY_URL } from "@/constants/app";
+import { router } from "@/mocks/router";
 import { render, screen } from "@testing-library/react";
-import { APP_REPOSITORY_URL } from "~/constants/app";
-import { router } from "~/mocks/router";
 import { AdminLinks } from ".";
 
 jest.mock("next/router", () => ({

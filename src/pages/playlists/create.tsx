@@ -1,14 +1,14 @@
+import { FormInformation } from "@/components/form/information";
+import { FormInput } from "@/components/form/input";
+import { FormSubmit } from "@/components/form/submit";
+import { usePostForm } from "@/hooks/form";
+import { useCreatePlaylist } from "@/hooks/playlists";
+import { useRequireAdmin } from "@/hooks/require";
+import { AdminLayout } from "@/layouts/admin/layout";
+import type { Schema } from "@/rules/playlist/create";
+import { label, schema } from "@/rules/playlist/create";
+import { setErrors } from "@/utils/form";
 import type { SubmitHandler } from "react-hook-form";
-import { FormInformation } from "~/components/form/information";
-import { FormInput } from "~/components/form/input";
-import { FormSubmit } from "~/components/form/submit";
-import { usePostForm } from "~/hooks/form";
-import { useCreatePlaylist } from "~/hooks/playlists";
-import { useRequireAdmin } from "~/hooks/require";
-import { AdminLayout } from "~/layouts/admin/layout";
-import type { Schema } from "~/rules/playlist/create";
-import { label, schema } from "~/rules/playlist/create";
-import { setErrors } from "~/utils/form";
 import type { PageComponent } from "../_app";
 
 const Page: PageComponent = () => {

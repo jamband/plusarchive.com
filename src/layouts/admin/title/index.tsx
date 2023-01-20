@@ -1,4 +1,4 @@
-import { APP_NAME } from "~/constants/app";
+import { APP_NAME } from "@/constants/app";
 import { Component } from "./component";
 import type { Props } from "./types";
 

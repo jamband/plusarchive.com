@@ -1,7 +1,7 @@
-import { Dropdown } from "~/components/dropdown";
-import { DropdownExternalLink } from "~/components/dropdown/external-link";
-import { DropdownLink } from "~/components/dropdown/link";
-import { APP_REPOSITORY_URL } from "~/constants/app";
+import { Dropdown } from "@/components/dropdown";
+import { DropdownExternalLink } from "@/components/dropdown/external-link";
+import { DropdownLink } from "@/components/dropdown/link";
+import { APP_REPOSITORY_URL } from "@/constants/app";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (

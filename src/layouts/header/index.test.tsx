@@ -1,6 +1,6 @@
+import { APP_NAME } from "@/constants/app";
+import { router } from "@/mocks/router";
 import { render, screen } from "@testing-library/react";
-import { APP_NAME } from "~/constants/app";
-import { router } from "~/mocks/router";
 import { Header } from ".";
 
 jest.mock("next/router", () => ({

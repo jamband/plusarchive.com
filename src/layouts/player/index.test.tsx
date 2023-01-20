@@ -1,11 +1,11 @@
+import { APP_PRIMARY_COLOR } from "@/constants/app";
+import { loading } from "@/mocks/player-loading";
+import { playerState } from "@/mocks/player-state";
+import { router } from "@/mocks/router";
 import { cleanup, render, screen } from "@testing-library/react";
-import { APP_PRIMARY_COLOR } from "~/constants/app";
-import { loading } from "~/mocks/player-loading";
-import { playerState } from "~/mocks/player-state";
-import { router } from "~/mocks/router";
 import { Player } from ".";
 
-jest.mock("~/hooks/player", () => ({
+jest.mock("@/hooks/player", () => ({
   usePlayerState: jest.fn(),
 }));
 
@@ -13,11 +13,11 @@ jest.mock("next/router", () => ({
   useRouter: jest.fn(),
 }));
 
-jest.mock("~/hooks/player-loading", () => ({
+jest.mock("@/hooks/player-loading", () => ({
   usePlayerLoading: jest.fn(),
 }));
 
-jest.mock("~/icons/angle-left", () => ({
+jest.mock("@/icons/angle-left", () => ({
   IconAngleLeft: jest.fn(),
 }));
 

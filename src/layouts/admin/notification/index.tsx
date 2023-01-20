@@ -1,7 +1,7 @@
 import {
   useNotificationAction,
   useNotificationState,
-} from "~/hooks/notification";
+} from "@/hooks/notification";
 import { Component } from "./component";
 
 export const AdminNotification: React.FC = () => {

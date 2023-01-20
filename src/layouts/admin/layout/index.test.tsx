@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { AdminLayout } from ".";
 
-jest.mock("~/layouts/loading", () => ({
+jest.mock("@/layouts/loading", () => ({
   Loading: jest.fn(() => null),
 }));
 

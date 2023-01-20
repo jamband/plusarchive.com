@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { CloseButton } from ".";
 
-jest.mock("~/icons/xmark", () => ({
+jest.mock("@/icons/xmark", () => ({
   IconXMark: () => "x",
 }));
 

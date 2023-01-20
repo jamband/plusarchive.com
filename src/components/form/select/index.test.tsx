@@ -1,9 +1,9 @@
+import type { useQuery } from "@/hooks/server-state";
 import { render, screen } from "@testing-library/react";
 import type { UseFormRegisterReturn } from "react-hook-form";
-import type { useQuery } from "~/hooks/server-state";
 import { FormSelect } from ".";
 
-jest.mock("~/icons/angle-down", () => ({
+jest.mock("@/icons/angle-down", () => ({
   IconAngleDown: () => "angle-down-icon",
 }));
 
