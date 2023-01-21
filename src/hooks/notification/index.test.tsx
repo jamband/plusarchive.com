@@ -31,7 +31,7 @@ test("setNotification", () => {
   expect(result.current.state).toBe("foo");
 });
 
-test("resetPlayer", () => {
+test("resetNotification", () => {
   const { result } = renderHook(
     () => {
       const state = useNotificationState();
