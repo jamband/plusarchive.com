@@ -45,14 +45,14 @@ export const useTrack = () => {
   });
 };
 
-export const useTrackStopAllUrges = () => {
+export const useStopUrges = () => {
   const queryClient = useQueryClient();
   const { push } = useRouter();
   const { setNotification } = useNotificationAction();
 
   return useMutation<unknown, void>(
     async () =>
-      await mutation("/tracks/stop-all-urges", {
+      await mutation("/tracks/stop-urges", {
         method: "PATCH",
       }),
     {
@@ -66,7 +66,7 @@ export const useTrackStopAllUrges = () => {
   );
 };
 
-export const useTrackToggleUrge = () => {
+export const useToggleUrge = () => {
   const queryClient = useQueryClient();
   const { setNotification } = useNotificationAction();
 

@@ -13,10 +13,10 @@ import { useNotificationAction } from "@/hooks/notification";
 import { useRequireAdmin } from "@/hooks/require";
 import {
   useDeleteTrack,
+  useToggleUrge,
   useTracksAdmin,
   useTracksGenres,
   useTracksProviders,
-  useTrackToggleUrge,
 } from "@/hooks/tracks";
 import { IconAngleDown } from "@/icons/angle-down";
 import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
@@ -37,7 +37,7 @@ const Page: PageComponent = () => {
   const urge = useSelectFilter("urge");
   const genre = useSelectFilter("genre");
 
-  const toggleUrge = useTrackToggleUrge();
+  const toggleUrge = useToggleUrge();
   const { setNotification } = useNotificationAction();
 
   const onToggleUrge = (id: string) => {

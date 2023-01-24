@@ -2,7 +2,7 @@ import { CenteredLoading } from "@/components/centered-loading";
 import { FailedToFetch } from "@/components/failed-to-fetch";
 import { TrackCard } from "@/components/track-card";
 import { useRequireAdmin } from "@/hooks/require";
-import { useTracksFavorites, useTrackStopAllUrges } from "@/hooks/tracks";
+import { useStopUrges, useTracksFavorites } from "@/hooks/tracks";
 import { IconCircleInfo } from "@/icons/circle-info";
 import { IconPencil } from "@/icons/pencil";
 import { AdminLayout } from "@/layouts/admin/layout";
@@ -13,7 +13,7 @@ const Page: PageComponent = () => {
   useRequireAdmin();
 
   const tracks = useTracksFavorites();
-  const stopAllUrges = useTrackStopAllUrges();
+  const stopUrges = useStopUrges();
 
   return (
     <>
@@ -52,7 +52,7 @@ const Page: PageComponent = () => {
               type="button"
               className="rounded bg-rose-500 px-4 py-1 text-gray-100 shadow-sm shadow-gray-900"
               onClick={() => {
-                confirm("Are you sure?") && stopAllUrges.mutate();
+                confirm("Are you sure?") && stopUrges.mutate();
               }}
             >
               Stop All Urges

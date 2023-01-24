@@ -9,13 +9,13 @@ import "whatwg-fetch";
 import {
   useCreateTrack,
   useDeleteTrack,
+  useStopUrges,
+  useToggleUrge,
   useTrack,
   useTracksAdmin,
   useTracksFavorites,
   useTracksGenres,
   useTracksProviders,
-  useTrackStopAllUrges,
-  useTrackToggleUrge,
   useUpdateTrack,
 } from ".";
 import { useNotificationAction } from "../notification";
@@ -108,7 +108,7 @@ test("GET /tracks/[id]", async () => {
   expect(queries[0].queryKey).toStrictEqual(["/tracks", "foo"]);
 });
 
-test("PATCH /tracks/stop-all-urges", async () => {
+test("PATCH /tracks/stop-urges", async () => {
   router.mockReturnValue({
     push: jest.fn(),
   });
@@ -119,7 +119,7 @@ test("PATCH /tracks/stop-all-urges", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.patch("*/tracks/stop-all-urges", (_, response, context) =>
+    rest.patch("*/tracks/stop-urges", (_, response, context) =>
       response(context.status(204))
     )
   );
@@ -127,7 +127,7 @@ test("PATCH /tracks/stop-all-urges", async () => {
   queryClient.setQueryData(["/tracks/favorites"], null);
   queryClient.setQueryData(["/tracks/admin"], null);
 
-  const { result } = renderHook(useTrackStopAllUrges, { wrapper });
+  const { result } = renderHook(useStopUrges, { wrapper });
   const cache = queryClient.getQueryCache();
   expect(cache.findAll()).toHaveLength(2);
 
@@ -152,7 +152,7 @@ test("PATCH /tracks/[id]/toggle-urge", async () => {
   queryClient.setQueryData(["/tracks/favorites"], null);
   queryClient.setQueryData(["/tracks/admin"], null);
 
-  const { result } = renderHook(useTrackToggleUrge, { wrapper });
+  const { result } = renderHook(useToggleUrge, { wrapper });
   const cache = queryClient.getQueryCache();
   expect(cache.findAll()).toHaveLength(2);
 
