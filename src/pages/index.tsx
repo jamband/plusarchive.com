@@ -73,7 +73,7 @@ const Page: PageComponent<Props> = (props) => {
           ))}
         </ul>
       </section>
-      <div className="flex justify-center">
+      <div className="flex justify-center font-bold">
         <Link href="/tracks" className="text-rose-500 active:text-rose-500">
           Go to Tracks
         </Link>

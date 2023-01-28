@@ -32,7 +32,7 @@ export const Component: React.FC<_Props> = (props) => (
       </h1>
       <p className="text-sm md:text-base">via {props.player.provider}</p>
     </section>
-    <div className="text-center text-sm md:text-base">
+    <div className="text-center text-sm font-bold md:text-base">
       <Link
         href={props.player.type === "track" ? "/tracks" : "/playlists"}
         className="text-rose-500 active:text-rose-500"

@@ -3,7 +3,10 @@ import { Fragment } from "react";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  <nav className="text-center md:text-base" aria-label="Page navigation">
+  <nav
+    className="text-center font-bold md:text-base"
+    aria-label="Page navigation"
+  >
     <div className="flex justify-around gap-x-4">
       {props.parts.map((part) => (
         <Fragment key={part}>
