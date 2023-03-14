@@ -156,9 +156,9 @@ const Page: PageComponent<Props> = (props) => {
               className="flex justify-end text-sm"
             />
           </div>
-          <div className="lg:grid lg:grid-cols-2 lg:gap-6">
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-12 lg:gap-y-6">
             {props.storeCollection.data.map((store) => (
-              <article key={store.name} className="mb-10 lg:mb-2">
+              <article key={store.name} className="mt-6 lg:mt-0">
                 <section>
                   <a
                     href={store.url}
@@ -170,7 +170,7 @@ const Page: PageComponent<Props> = (props) => {
                     <IconUpRightFromSquare className="ml-1.5 h-4 w-4 align-[-0.05em] text-rose-500/60" />
                   </a>
                 </section>
-                <section className="flex flex-wrap gap-x-3">
+                <section className="flex gap-x-3">
                   <span className="text-gray-100">Country:</span>
                   <Link
                     href={{
@@ -182,11 +182,11 @@ const Page: PageComponent<Props> = (props) => {
                     {store.country}
                   </Link>
                 </section>
-                <section className="flex flex-wrap gap-x-3">
+                <section className="flex gap-x-3 overflow-scroll">
                   <span className="text-gray-100">Links:</span>
                   <BrandIconLinks links={store.links} />
                 </section>
-                <section className="mb-2 flex flex-wrap gap-x-3">
+                <section className="mb-2 flex gap-x-3 overflow-scroll whitespace-nowrap">
                   <span className="text-gray-100">Tags:</span>
                   {store.tags.map((tag) => (
                     <Link
@@ -201,7 +201,7 @@ const Page: PageComponent<Props> = (props) => {
                     </Link>
                   ))}
                 </section>
-                <hr className="border-b-1 border-gray-600" />
+                <hr className="border-b-1 mt-6 border-gray-600" />
               </article>
             ))}
           </div>
