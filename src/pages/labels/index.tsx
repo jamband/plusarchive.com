@@ -158,11 +158,14 @@ const Page: PageComponent<Props> = (props) => {
           </div>
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-12 lg:gap-y-6">
             {props.labelCollection.data.map((label) => (
-              <article key={label.name} className="mt-6 lg:mt-0">
+              <article
+                key={label.name}
+                className="mt-6 flex flex-col gap-0.5 lg:mt-0"
+              >
                 <section>
                   <a
                     href={label.url}
-                    className="text-[1.125rem] font-bold text-rose-500 active:text-rose-500"
+                    className="text-[1.2rem] font-bold text-rose-500 active:text-rose-500"
                     target="_blank"
                     rel="noreferrer"
                   >
