@@ -2,15 +2,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import type { FieldValues, Path } from "react-hook-form";
 import { useForm } from "react-hook-form";
-import type { AnyObjectSchema } from "yup";
+import type { AnyObject, ObjectSchema } from "yup";
 
 type PostForm<T> = {
-  schema: AnyObjectSchema;
+  schema: ObjectSchema<AnyObject>;
   focus: Path<T>;
 };
 
 type PutForm<T> = {
-  schema: AnyObjectSchema;
+  schema: ObjectSchema<AnyObject>;
   focus: Path<T>;
   data: T | undefined;
 };
@@ -25,7 +25,7 @@ export const usePostForm = <T extends FieldValues>(form: PostForm<T>) => {
   } = useForm<T>({
     resolver: yupResolver(form.schema),
     mode: "onChange",
-    defaultValues: form.schema.cast({}),
+    defaultValues: form.schema.getDefault(),
   });
 
   useEffect(() => {
