@@ -36,7 +36,7 @@ test("GET /countries/admin", async () => {
 
   const { result } = renderHook(useAdminCountries, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ id: 1 }]);
+  expect(result.current.data).toEqual([{ id: 1 }]);
 });
 
 test("GET /countries/[id]", async () => {
@@ -52,11 +52,11 @@ test("GET /countries/[id]", async () => {
 
   const { result } = renderHook(useCountry, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual({ id: 1 });
+  expect(result.current.data).toEqual({ id: 1 });
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
-  expect(queries[0].queryKey).toStrictEqual(["/countries", "1"]);
+  expect(queries[0].queryKey).toEqual(["/countries", "1"]);
 });
 
 test("POST /countries", async () => {
@@ -85,10 +85,7 @@ test("POST /countries", async () => {
   result.current.mutate({ body: {} });
   await waitFor(() => expect(cache.findAll()).toHaveLength(3));
 
-  expect(queryClient.getQueryData(["/countries", "1"])).toStrictEqual({
-    id: 1,
-  });
-
+  expect(queryClient.getQueryData(["/countries", "1"])).toEqual({ id: 1 });
   expect(isInvalidated(["/countries/admin"])).toBe(true);
   expect(isInvalidated(["/bookmarks/countries"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/countries/1");

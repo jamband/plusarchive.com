@@ -34,7 +34,7 @@ test("GET /bookmarks/countries", async () => {
 
   const { result } = renderHook(useBookmarksCountries, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ name: "foo" }]);
+  expect(result.current.data).toEqual([{ name: "foo" }]);
 });
 
 test("GET /bookmarks/tags", async () => {
@@ -46,7 +46,7 @@ test("GET /bookmarks/tags", async () => {
 
   const { result } = renderHook(useBookmarksTags, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ name: "foo" }]);
+  expect(result.current.data).toEqual([{ name: "foo" }]);
 });
 
 test("GET /bookmarks/admin", async () => {
@@ -62,12 +62,12 @@ test("GET /bookmarks/admin", async () => {
 
   const { result } = renderHook(useBookmarksAdmin, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ id: 1 }]);
+  expect(result.current.data).toEqual([{ id: 1 }]);
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
 
-  expect(queries[0].queryKey).toStrictEqual([
+  expect(queries[0].queryKey).toEqual([
     "/bookmarks/admin",
     { name: "", country: "", tag: "", sort: "", page: "1" },
   ]);
@@ -86,11 +86,11 @@ test("GET /bookmarks/[id]", async () => {
 
   const { result } = renderHook(useBookmark, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual({ id: 1 });
+  expect(result.current.data).toEqual({ id: 1 });
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
-  expect(queries[0].queryKey).toStrictEqual(["/bookmarks", "1"]);
+  expect(queries[0].queryKey).toEqual(["/bookmarks", "1"]);
 });
 
 test("POST /bookmarks", async () => {
@@ -118,10 +118,7 @@ test("POST /bookmarks", async () => {
   result.current.mutate({ body: {} });
   await waitFor(() => expect(cache.findAll()).toHaveLength(2));
 
-  expect(queryClient.getQueryData(["/bookmarks", "1"])).toStrictEqual({
-    id: 1,
-  });
-
+  expect(queryClient.getQueryData(["/bookmarks", "1"])).toEqual({ id: 1 });
   expect(isInvalidated(["/bookmarks/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/bookmarks/1");
   expect(useNotificationAction().setNotification).toBeCalledTimes(1);

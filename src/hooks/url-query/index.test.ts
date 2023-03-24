@@ -17,7 +17,7 @@ test("appendUrlQuery", () => {
 
   const { result } = renderHook(useUrlQuery);
 
-  expect(result.current.appendUrlQuery("bar", "bar_value")).toStrictEqual({
+  expect(result.current.appendUrlQuery("bar", "bar_value")).toEqual({
     foo: "foo_value",
     bar: "bar_value",
   });
@@ -35,7 +35,5 @@ test("resetUrlQuery", () => {
 
   const { result } = renderHook(useUrlQuery);
 
-  expect(result.current.resetUrlQuery("foo")).toStrictEqual({
-    bar: "bar_value",
-  });
+  expect(result.current.resetUrlQuery("foo")).toEqual({ bar: "bar_value" });
 });

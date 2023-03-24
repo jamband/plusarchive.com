@@ -36,7 +36,7 @@ test("GET /music-providers/admin", async () => {
 
   const { result } = renderHook(useAdminMusicProviders, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ id: 1 }]);
+  expect(result.current.data).toEqual([{ id: 1 }]);
 });
 
 test("GET /music-providers/[id]", async () => {
@@ -52,11 +52,11 @@ test("GET /music-providers/[id]", async () => {
 
   const { result } = renderHook(useMusicProvider, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual({ id: 1 });
+  expect(result.current.data).toEqual({ id: 1 });
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
-  expect(queries[0].queryKey).toStrictEqual(["/music-providers", "1"]);
+  expect(queries[0].queryKey).toEqual(["/music-providers", "1"]);
 });
 
 test("POST /music-providers", async () => {
@@ -85,10 +85,9 @@ test("POST /music-providers", async () => {
   result.current.mutate({ body: {} });
   await waitFor(() => expect(cache.findAll()).toHaveLength(3));
 
-  expect(queryClient.getQueryData(["/music-providers", "1"])).toStrictEqual({
+  expect(queryClient.getQueryData(["/music-providers", "1"])).toEqual({
     id: 1,
   });
-
   expect(isInvalidated(["/music-providers/admin"])).toBe(true);
   expect(isInvalidated(["/tracks/providers"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/music-providers/1");

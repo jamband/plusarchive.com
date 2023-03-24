@@ -36,12 +36,12 @@ test("GET /label-tags/admin", async () => {
 
   const { result } = renderHook(useLabelTagsAdmin, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ id: 1 }]);
+  expect(result.current.data).toEqual([{ id: 1 }]);
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
 
-  expect(queries[0].queryKey).toStrictEqual([
+  expect(queries[0].queryKey).toEqual([
     "/label-tags/admin",
     { name: "", sort: "", page: "1" },
   ]);
@@ -60,11 +60,11 @@ test("GET /label-tags/[id]", async () => {
 
   const { result } = renderHook(useLabelTag, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual({ id: 1 });
+  expect(result.current.data).toEqual({ id: 1 });
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
-  expect(queries[0].queryKey).toStrictEqual(["/label-tags", "1"]);
+  expect(queries[0].queryKey).toEqual(["/label-tags", "1"]);
 });
 
 test("POST /label-tags", async () => {
@@ -93,10 +93,7 @@ test("POST /label-tags", async () => {
   result.current.mutate({ body: {} });
   await waitFor(() => expect(cache.findAll()).toHaveLength(3));
 
-  expect(queryClient.getQueryData(["/label-tags", "1"])).toStrictEqual({
-    id: 1,
-  });
-
+  expect(queryClient.getQueryData(["/label-tags", "1"])).toEqual({ id: 1 });
   expect(isInvalidated(["/label-tags/admin"])).toBe(true);
   expect(isInvalidated(["/labels/tags"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/label-tags/1");

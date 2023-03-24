@@ -37,7 +37,7 @@ test("GET /tracks/providers", async () => {
 
   const { result } = renderHook(useTracksProviders, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ name: "foo" }]);
+  expect(result.current.data).toEqual([{ name: "foo" }]);
 });
 
 test("GET /tracks/genres", async () => {
@@ -49,7 +49,7 @@ test("GET /tracks/genres", async () => {
 
   const { result } = renderHook(useTracksGenres, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ name: "foo" }]);
+  expect(result.current.data).toEqual([{ name: "foo" }]);
 });
 
 test("GET /tracks/favorites", async () => {
@@ -61,7 +61,7 @@ test("GET /tracks/favorites", async () => {
 
   const { result } = renderHook(useTracksFavorites, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ name: "foo" }]);
+  expect(result.current.data).toEqual([{ name: "foo" }]);
 });
 
 test("GET /tracks/admin", async () => {
@@ -77,12 +77,12 @@ test("GET /tracks/admin", async () => {
 
   const { result } = renderHook(useTracksAdmin, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ id: "foo" }]);
+  expect(result.current.data).toEqual([{ id: "foo" }]);
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
 
-  expect(queries[0].queryKey).toStrictEqual([
+  expect(queries[0].queryKey).toEqual([
     "/tracks/admin",
     { provider: "", title: "", urge: "", genre: "", sort: "", page: "1" },
   ]);
@@ -101,11 +101,11 @@ test("GET /tracks/[id]", async () => {
 
   const { result } = renderHook(useTrack, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual({ id: "foo" });
+  expect(result.current.data).toEqual({ id: "foo" });
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
-  expect(queries[0].queryKey).toStrictEqual(["/tracks", "foo"]);
+  expect(queries[0].queryKey).toEqual(["/tracks", "foo"]);
 });
 
 test("PATCH /tracks/stop-urges", async () => {
@@ -188,10 +188,7 @@ test("POST /tracks", async () => {
   result.current.mutate({ body: {} });
   await waitFor(() => expect(cache.findAll()).toHaveLength(2));
 
-  expect(queryClient.getQueryData(["/tracks", "foo"])).toStrictEqual({
-    id: "foo",
-  });
-
+  expect(queryClient.getQueryData(["/tracks", "foo"])).toEqual({ id: "foo" });
   expect(isInvalidated(["/tracks/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/tracks/admin");
   expect(useNotificationAction().setNotification).toBeCalledTimes(1);

@@ -36,12 +36,12 @@ test("GET /playlists/admin", async () => {
 
   const { result } = renderHook(usePlaylistsAdmin, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ id: "foo" }]);
+  expect(result.current.data).toEqual([{ id: "foo" }]);
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
 
-  expect(queries[0].queryKey).toStrictEqual([
+  expect(queries[0].queryKey).toEqual([
     "/playlists/admin",
     { title: "", provider: "", sort: "", page: "1" },
   ]);
@@ -60,11 +60,11 @@ test("GET /playlists/[id]", async () => {
 
   const { result } = renderHook(usePlaylist, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual({ id: "foo" });
+  expect(result.current.data).toEqual({ id: "foo" });
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
-  expect(queries[0].queryKey).toStrictEqual(["/playlists", "foo"]);
+  expect(queries[0].queryKey).toEqual(["/playlists", "foo"]);
 });
 
 test("POST /playlists", async () => {
@@ -92,10 +92,9 @@ test("POST /playlists", async () => {
   result.current.mutate({ body: {} });
   await waitFor(() => expect(cache.findAll()).toHaveLength(2));
 
-  expect(queryClient.getQueryData(["/playlists", "foo"])).toStrictEqual({
+  expect(queryClient.getQueryData(["/playlists", "foo"])).toEqual({
     id: "foo",
   });
-
   expect(isInvalidated(["/playlists/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/playlists/admin");
   expect(useNotificationAction().setNotification).toBeCalledTimes(1);

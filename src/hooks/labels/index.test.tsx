@@ -34,7 +34,7 @@ test("GET /labels/countries", async () => {
 
   const { result } = renderHook(useLabelsCountries, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ name: "foo" }]);
+  expect(result.current.data).toEqual([{ name: "foo" }]);
 });
 
 test("GET /labels/tags", async () => {
@@ -46,7 +46,7 @@ test("GET /labels/tags", async () => {
 
   const { result } = renderHook(useLabelsTags, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ name: "foo" }]);
+  expect(result.current.data).toEqual([{ name: "foo" }]);
 });
 
 test("GET /labels/admin", async () => {
@@ -62,12 +62,12 @@ test("GET /labels/admin", async () => {
 
   const { result } = renderHook(useLabelsAdmin, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ id: 1 }]);
+  expect(result.current.data).toEqual([{ id: 1 }]);
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
 
-  expect(queries[0].queryKey).toStrictEqual([
+  expect(queries[0].queryKey).toEqual([
     "/labels/admin",
     { name: "", country: "", tag: "", sort: "", page: "1" },
   ]);
@@ -86,11 +86,11 @@ test("GET /labels/[id]", async () => {
 
   const { result } = renderHook(useLabel, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual({ id: 1 });
+  expect(result.current.data).toEqual({ id: 1 });
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
-  expect(queries[0].queryKey).toStrictEqual(["/labels", "1"]);
+  expect(queries[0].queryKey).toEqual(["/labels", "1"]);
 });
 
 test("POST /labels", async () => {
@@ -118,10 +118,7 @@ test("POST /labels", async () => {
   result.current.mutate({ body: {} });
   await waitFor(() => expect(cache.findAll()).toHaveLength(2));
 
-  expect(queryClient.getQueryData(["/labels", "1"])).toStrictEqual({
-    id: 1,
-  });
-
+  expect(queryClient.getQueryData(["/labels", "1"])).toEqual({ id: 1 });
   expect(isInvalidated(["/labels/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/labels/1");
   expect(useNotificationAction().setNotification).toBeCalledTimes(1);

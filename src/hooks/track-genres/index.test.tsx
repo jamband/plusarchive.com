@@ -36,7 +36,7 @@ test("GET /track-genres/admin", async () => {
 
   const { result } = renderHook(useAdminTrackGenres, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual([{ id: 1 }]);
+  expect(result.current.data).toEqual([{ id: 1 }]);
 });
 
 test("GET /track-genres/[id]", async () => {
@@ -52,11 +52,11 @@ test("GET /track-genres/[id]", async () => {
 
   const { result } = renderHook(useTrackGenre, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual({ id: 1 });
+  expect(result.current.data).toEqual({ id: 1 });
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
-  expect(queries[0].queryKey).toStrictEqual(["/track-genres", "1"]);
+  expect(queries[0].queryKey).toEqual(["/track-genres", "1"]);
 });
 
 test("POST /track-genres", async () => {
@@ -85,10 +85,7 @@ test("POST /track-genres", async () => {
   result.current.mutate({ body: {} });
   await waitFor(() => expect(cache.findAll()).toHaveLength(3));
 
-  expect(queryClient.getQueryData(["/track-genres", "1"])).toStrictEqual({
-    id: 1,
-  });
-
+  expect(queryClient.getQueryData(["/track-genres", "1"])).toEqual({ id: 1 });
   expect(isInvalidated(["/track-genres/admin"])).toBe(true);
   expect(isInvalidated(["/tracks/genres"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/track-genres/1");

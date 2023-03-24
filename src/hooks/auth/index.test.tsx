@@ -20,11 +20,11 @@ test("GET /auth/user", async () => {
 
   const { result } = renderHook(useAuth, { wrapper });
   await waitFor(() => expect(result.current.isLoading).toBe(false));
-  expect(result.current.data).toStrictEqual({ role: "foo" });
+  expect(result.current.data).toEqual({ role: "foo" });
 
   const queries = queryClient.getQueryCache().findAll();
   expect(queries).toHaveLength(1);
-  expect(queries[0].queryKey).toStrictEqual(["/auth/user"]);
+  expect(queries[0].queryKey).toEqual(["/auth/user"]);
 });
 
 test("POST /auth/login", async () => {

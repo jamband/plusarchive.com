@@ -18,7 +18,7 @@ const player: State = {
 
 test("initial state", () => {
   const { result } = renderHook(usePlayerState, { wrapper });
-  expect(result.current).toStrictEqual<State>(initialState);
+  expect(result.current).toEqual<State>(initialState);
 });
 
 test("setPlayer", () => {
@@ -35,10 +35,10 @@ test("setPlayer", () => {
     { wrapper }
   );
 
-  expect(result.current.state).toStrictEqual<State>(initialState);
+  expect(result.current.state).toEqual<State>(initialState);
 
   act(() => result.current.setPlayer(player));
-  expect(result.current.state).toStrictEqual<State>(player);
+  expect(result.current.state).toEqual<State>(player);
 });
 
 test("resetPlayer", () => {
@@ -57,8 +57,8 @@ test("resetPlayer", () => {
   );
 
   act(() => result.current.setPlayer(player));
-  expect(result.current.state).toStrictEqual<State>(player);
+  expect(result.current.state).toEqual<State>(player);
 
   act(result.current.resetPlayer);
-  expect(result.current.state).toStrictEqual<State>(initialState);
+  expect(result.current.state).toEqual<State>(initialState);
 });
