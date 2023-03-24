@@ -1,16 +1,14 @@
 /** @jest-environment node */
 import { label, schema } from "./update";
 
-const { fields } = schema;
-
 test("fields", () => {
-  expect(Object.keys(fields)).toStrictEqual(["name"]);
+  expect(Object.keys(schema.fields)).toEqual(["name"]);
 });
 
 test("name", () => {
-  expect(fields.name.spec.label).toBe("name");
-  expect(fields.name.isValidSync(0)).toBe(false);
-  expect(fields.name.isValidSync("")).toBe(false);
-  expect(fields.name.isValidSync("foo")).toBe(true);
+  const _ = schema.pick(["name"]);
+  expect(_.isValidSync({ name: 0 })).toBe(false);
+  expect(_.isValidSync({ name: "" })).toBe(false);
+  expect(_.isValidSync({ name: "foo" })).toBe(true);
   expect(label.name).toBe("Name");
 });

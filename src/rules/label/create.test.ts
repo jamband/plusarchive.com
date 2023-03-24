@@ -1,10 +1,8 @@
 /** @jest-environment node */
 import { label, schema } from "./create";
 
-const { fields } = schema;
-
 test("fields", () => {
-  expect(Object.keys(fields)).toStrictEqual([
+  expect(Object.keys(schema.fields)).toEqual([
     "name",
     "country",
     "url",
@@ -14,44 +12,44 @@ test("fields", () => {
 });
 
 test("name", () => {
-  expect(fields.name.spec.label).toBe("name");
-  expect(fields.name.isValidSync(0)).toBe(false);
-  expect(fields.name.isValidSync("")).toBe(false);
-  expect(fields.name.isValidSync("foo")).toBe(true);
+  const _ = schema.pick(["name"]);
+  expect(_.isValidSync({ name: 0 })).toBe(false);
+  expect(_.isValidSync({ name: "" })).toBe(false);
+  expect(_.isValidSync({ name: "foo" })).toBe(true);
   expect(label.name).toBe("Name");
 });
 
 test("country", () => {
-  expect(fields.country.spec.label).toBe("country");
-  expect(fields.country.getDefault()).toBe("Unknown");
-  expect(fields.country.isValidSync(0)).toBe(false);
-  expect(fields.country.isValidSync("")).toBe(false);
-  expect(fields.country.isValidSync("foo")).toBe(true);
+  const _ = schema.pick(["country"]);
+  expect(_.getDefault()).toEqual({ country: "Unknown" });
+  expect(_.isValidSync({ country: 0 })).toBe(false);
+  expect(_.isValidSync({ country: "" })).toBe(false);
+  expect(_.isValidSync({ country: "foo" })).toBe(true);
   expect(label.country).toBe("Country");
 });
 
 test("url", () => {
-  expect(fields.url.spec.label).toBe("URL");
-  expect(fields.url.isValidSync("")).toBe(false);
-  expect(fields.url.isValidSync("foo")).toBe(false);
-  expect(fields.url.isValidSync("https://example.com")).toBe(true);
+  const _ = schema.pick(["url"]);
+  expect(_.isValidSync({ url: "" })).toBe(false);
+  expect(_.isValidSync({ url: "foo" })).toBe(false);
+  expect(_.isValidSync({ url: "https://example.com" })).toBe(true);
   expect(label.url).toBe("URL");
 });
 
 test("links", () => {
-  expect(fields.links.spec.label).toBe("links");
-  expect(fields.links.isValidSync(0)).toBe(false);
-  expect(fields.links.isValidSync("")).toBe(true);
-  expect(fields.links.isValidSync("foo")).toBe(true);
+  const _ = schema.pick(["links"]);
+  expect(_.isValidSync({ links: 0 })).toBe(false);
+  expect(_.isValidSync({ links: "" })).toBe(true);
+  expect(_.isValidSync({ links: "foo" })).toBe(true);
   expect(label.links).toBe("Links");
 });
 
 test("tags", () => {
-  expect(fields.tags.spec.label).toBe("tags");
-  expect(fields.tags.getDefault()).toStrictEqual([]);
-  expect(fields.tags.isValidSync("foo")).toBe(false);
-  expect(fields.tags.isValidSync([0])).toBe(false);
-  expect(fields.tags.isValidSync([])).toBe(true);
-  expect(fields.tags.isValidSync(["foo", "bar"])).toBe(true);
+  const _ = schema.pick(["tags"]);
+  expect(_.getDefault()).toEqual({ tags: [] });
+  expect(_.isValidSync({ tags: "foo" })).toBe(false);
+  expect(_.isValidSync({ tags: [0] })).toBe(false);
+  expect(_.isValidSync({ tags: [] })).toBe(true);
+  expect(_.isValidSync({ tags: ["foo", "bar"] })).toBe(true);
   expect(label.tags).toBe("Tags");
 });
