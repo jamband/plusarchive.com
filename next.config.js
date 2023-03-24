@@ -8,20 +8,6 @@ const nextConfig = {
   },
   reactStrictMode: true,
   poweredByHeader: false,
-  async redirects() {
-    return [
-      {
-        source: "/track/:id",
-        destination: "/tracks/:id",
-        permanent: true,
-      },
-      {
-        source: "/playlist/:id",
-        destination: "/playlists/:id",
-        permanent: true,
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;
