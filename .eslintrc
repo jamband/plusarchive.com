@@ -7,5 +7,8 @@
     "plugin:testing-library/react",
     "next/core-web-vitals",
     "prettier"
-  ]
+  ],
+  "rules": {
+    "@typescript-eslint/consistent-type-imports": "error"
+  }
 }
