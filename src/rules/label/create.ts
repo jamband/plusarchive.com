@@ -7,7 +7,7 @@ export const schema = object({
   country: string().default("Unknown").strict().label("country").required(),
   url: string().url().strict().label("URL").required(),
   links: string().strict().label("links"),
-  tags: array().default([]).of(string().required()).strict().label("tags"),
+  tags: array(string().required()).default([]).strict().label("tags"),
 });
 
 export type Schema = InferType<typeof schema>;

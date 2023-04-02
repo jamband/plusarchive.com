@@ -6,7 +6,7 @@ export const schema = object({
   url: string().url().strict().label("URL").required(),
   title: string().strict().label("title"),
   image: string().url().strict().label("image"),
-  genres: array().of(string().required()).strict().label("genres"),
+  genres: array(string().required()).strict().label("genres"),
 });
 
 export type Schema = InferType<typeof schema>;
