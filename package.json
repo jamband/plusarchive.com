@@ -4,7 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "tsc": "tsc",
+    "typecheck": "tsc",
     "lint": "next lint",
     "format": "prettier --check .",
     "test": "jest",
