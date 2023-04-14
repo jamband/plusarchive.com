@@ -4,7 +4,7 @@ import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   <div
-    className="max-w-64 fixed top-3 left-3 right-3 z-50 mx-auto rounded border border-gray-600 bg-gray-700 py-3 px-5 text-gray-100 md:left-auto md:mx-0"
+    className="max-w-64 fixed left-3 right-3 top-3 z-50 mx-auto rounded border border-gray-600 bg-gray-700 px-5 py-3 text-gray-100 md:left-auto md:mx-0"
     role="alert"
     aria-live="assertive"
     aria-atomic="true"

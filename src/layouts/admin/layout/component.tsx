@@ -22,7 +22,7 @@ export const Component: React.FC<_Props> = (props) => (
         <AdminNotification />
         <div className="flex min-h-screen flex-col">
           <AdminHeader />
-          <main className="container mx-auto grow pt-6 pb-28">
+          <main className="container mx-auto grow pb-28 pt-6">
             <div className="mb-6 flex justify-center gap-x-2 text-sm md:text-base">
               <AdminPages />
               <AdminLinks />

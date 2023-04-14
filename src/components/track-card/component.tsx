@@ -12,7 +12,7 @@ export const Component: React.FC<_Props> = (props) => (
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={props.track.image}
-        className={`w-full rounded-t rounded-b object-cover opacity-60 md:rounded-b-none ${props.aspectRatio}`}
+        className={`w-full rounded-b rounded-t object-cover opacity-60 md:rounded-b-none ${props.aspectRatio}`}
         alt={props.track.title}
         loading="lazy"
       />
@@ -51,11 +51,11 @@ export const Component: React.FC<_Props> = (props) => (
           </Link>
         ))}
       </div>
-      <div className="mb-0 mt-auto mr-2 flex items-center justify-end gap-x-1 text-sm text-gray-500 md:hidden">
+      <div className="mb-0 mr-2 mt-auto flex items-center justify-end gap-x-1 text-sm text-gray-500 md:hidden">
         {props.children}
       </div>
     </div>
-    <div className="mt-auto mr-2 hidden p-1 text-sm text-gray-500 md:flex md:items-center md:justify-end md:gap-x-1">
+    <div className="mr-2 mt-auto hidden p-1 text-sm text-gray-500 md:flex md:items-center md:justify-end md:gap-x-1">
       {props.children}
     </div>
   </div>

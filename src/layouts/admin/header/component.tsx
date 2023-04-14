@@ -36,7 +36,7 @@ export const Component: React.FC<_Props> = (props) => (
           <button
             type="button"
             onClick={props.toggleNavigation}
-            className="-mr-2 rounded py-1 px-3 focus:bg-gray-600 focus:text-gray-100 aria-expanded:bg-gray-600 aria-expanded:text-gray-100"
+            className="-mr-2 rounded px-3 py-1 focus:bg-gray-600 focus:text-gray-100 aria-expanded:bg-gray-600 aria-expanded:text-gray-100"
             aria-controls="header-navigation"
             aria-expanded={props.navigation}
             aria-label="Toggle navigation"

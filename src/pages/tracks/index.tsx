@@ -57,12 +57,12 @@ const Page: PageComponent<Props> = (props) => {
         <meta name="description" content={description} />
         <meta property="og:description" content={description} />
       </Head>
-      <div className="-mt-4 -mb-6">
+      <div className="-mb-6 -mt-4">
         <div className="text-sm md:mb-5 md:flex md:items-center md:justify-center md:text-base">
           <div className="mb-1 flex justify-center md:mb-0">
             <Link
               href="/tracks"
-              className="group rounded py-0.5 px-2 hover:bg-gray-700 hover:text-gray-100 active:bg-gray-700 md:px-3 md:py-1"
+              className="group rounded px-2 py-0.5 hover:bg-gray-700 hover:text-gray-100 active:bg-gray-700 md:px-3 md:py-1"
             >
               <IconRotateRight className="mr-1.5 h-4 w-4 align-[-0.125em] text-gray-400/70 group-hover:text-gray-400" />
               Reset All
