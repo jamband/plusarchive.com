@@ -56,7 +56,7 @@ export const useCreateStore = <T extends FieldValues>() => {
         await push(`/stores/${data.id}`);
         setNotification("New store has been created.");
       },
-    }
+    },
   );
 };
 
@@ -78,7 +78,7 @@ export const useUpdateStore = <T extends FieldValues>() => {
         await push(`/stores/${data.id}`);
         setNotification("The store has been updated.");
       },
-    }
+    },
   );
 };
 
@@ -99,6 +99,6 @@ export const useDeleteStore = () => {
         await push("/stores/admin");
         setNotification("The store has been deleted.");
       },
-    }
+    },
   );
 };

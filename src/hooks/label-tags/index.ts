@@ -47,7 +47,7 @@ export const useCreateLabelTag = <T extends FieldValues>() => {
         await push(`/label-tags/${data.id}`);
         setNotification("The label tag has been created.");
       },
-    }
+    },
   );
 };
 
@@ -71,7 +71,7 @@ export const useUpdateLabelTag = <T extends FieldValues>() => {
         await push(`/label-tags/${data.id}`);
         setNotification("The label tag has been updated.");
       },
-    }
+    },
   );
 };
 
@@ -94,6 +94,6 @@ export const useDeleteLabelTag = () => {
         await push("/label-tags/admin");
         setNotification("The label tag has been deleted.");
       },
-    }
+    },
   );
 };

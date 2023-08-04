@@ -47,7 +47,7 @@ export const useCreateStoreTag = <T extends FieldValues>() => {
         await push(`/store-tags/${data.id}`);
         setNotification("The store tag has been created.");
       },
-    }
+    },
   );
 };
 
@@ -71,7 +71,7 @@ export const useUpdateStoreTag = <T extends FieldValues>() => {
         await push(`/store-tags/${data.id}`);
         setNotification("The store tag has been updated.");
       },
-    }
+    },
   );
 };
 
@@ -94,6 +94,6 @@ export const useDeleteStoreTag = () => {
         await push("/store-tags/admin");
         setNotification("The store tag has been deleted.");
       },
-    }
+    },
   );
 };

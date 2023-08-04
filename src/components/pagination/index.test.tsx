@@ -20,7 +20,7 @@ test("1/10", () => {
         perPage: 2,
         total: 20,
       }}
-    />
+    />,
   );
 
   const [first, previous, next, last] = screen.getAllByRole("link");
@@ -49,7 +49,7 @@ test("5/10", () => {
         perPage: 2,
         total: 20,
       }}
-    />
+    />,
   );
 
   const [first, previous, next, last] = screen.getAllByRole("link");
@@ -78,7 +78,7 @@ test("10/10", () => {
         perPage: 2,
         total: 20,
       }}
-    />
+    />,
   );
 
   const [first, previous, next, last] = screen.getAllByRole("link");
@@ -107,7 +107,7 @@ test("includes some query string", () => {
         perPage: 2,
         total: 20,
       }}
-    />
+    />,
   );
 
   const [first, previous, next, last] = screen.getAllByRole("link");

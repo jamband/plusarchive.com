@@ -25,7 +25,7 @@ test("click event", async () => {
   render(
     <Dropdown>
       <a href=".">foo</a>
-    </Dropdown>
+    </Dropdown>,
   );
 
   const group = screen.getByRole("group");
@@ -53,7 +53,7 @@ test("focus event", async () => {
     <>
       <Dropdown>foo</Dropdown>
       <Dropdown>bar</Dropdown>
-    </>
+    </>,
   );
 
   const [foo, bar] = screen.getAllByRole("group");

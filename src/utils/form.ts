@@ -2,7 +2,7 @@ import type { FieldValues, Path, UseFormSetError } from "react-hook-form";
 
 export const setErrors = async <T extends FieldValues>(
   response: Response,
-  setError: UseFormSetError<T>
+  setError: UseFormSetError<T>,
 ) => {
   const { errors }: Record<string, string> = await response.json();
 

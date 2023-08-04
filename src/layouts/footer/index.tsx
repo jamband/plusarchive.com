@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
   const { pathname } = useRouter();
 
   const isPlayerVisible = ["/tracks/[id]", "/playlists/[id]"].includes(
-    pathname
+    pathname,
   );
 
   return (

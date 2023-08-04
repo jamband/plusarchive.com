@@ -32,7 +32,7 @@ test("setPlayer", () => {
         setPlayer,
       };
     },
-    { wrapper }
+    { wrapper },
   );
 
   expect(result.current.state).toEqual<State>(initialState);
@@ -53,7 +53,7 @@ test("resetPlayer", () => {
         resetPlayer,
       };
     },
-    { wrapper }
+    { wrapper },
   );
 
   act(() => result.current.setPlayer(player));

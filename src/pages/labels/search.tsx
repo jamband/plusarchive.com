@@ -11,7 +11,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   query,
 }) => {
   const labels = await http(
-    `/labels/search?${searchParams(query, ["q", "page"])}`
+    `/labels/search?${searchParams(query, ["q", "page"])}`,
   );
 
   if (!labels.ok) {

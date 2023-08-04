@@ -51,7 +51,7 @@ export const useCreatePlaylist = <T extends FieldValues>() => {
         await push("/playlists/admin");
         setNotification("New playlist has been created.");
       },
-    }
+    },
   );
 };
 
@@ -73,7 +73,7 @@ export const useUpdatePlaylist = <T extends FieldValues>() => {
         await push("/playlists/admin");
         setNotification("The playlist has been updated.");
       },
-    }
+    },
   );
 };
 
@@ -94,6 +94,6 @@ export const useDeletePlaylist = () => {
         await push("/playlists/admin");
         setNotification("The playlist has been deleted.");
       },
-    }
+    },
   );
 };

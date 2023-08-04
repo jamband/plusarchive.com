@@ -13,7 +13,7 @@ export const usePlayerAction = () => {
     (payload: State) => {
       dispatch({ type: "set", payload });
     },
-    [dispatch]
+    [dispatch],
   );
 
   const resetPlayer = useCallback(() => {

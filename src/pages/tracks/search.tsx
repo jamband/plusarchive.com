@@ -11,7 +11,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   query,
 }) => {
   const tracks = await http(
-    `/tracks/search?${searchParams(query, ["q", "page"])}`
+    `/tracks/search?${searchParams(query, ["q", "page"])}`,
   );
 
   if (!tracks.ok) {

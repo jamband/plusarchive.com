@@ -3,7 +3,7 @@ import { DropdownExternalLink } from ".";
 
 test("", () => {
   render(
-    <DropdownExternalLink href="https://example.com">foo</DropdownExternalLink>
+    <DropdownExternalLink href="https://example.com">foo</DropdownExternalLink>,
   );
 
   const link = screen.getByRole("link", { name: "foo" });

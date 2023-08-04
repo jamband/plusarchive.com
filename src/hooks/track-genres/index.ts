@@ -50,7 +50,7 @@ export const useCreateTrackGenre = <T extends FieldValues>() => {
         await push(`/track-genres/${data.id}`);
         setNotification("New track genre has been created.");
       },
-    }
+    },
   );
 };
 
@@ -74,7 +74,7 @@ export const useUpdateTrackGenre = <T extends FieldValues>() => {
         await push(`/track-genres/${data.id}`);
         setNotification("The track genre has been updated.");
       },
-    }
+    },
   );
 };
 
@@ -97,6 +97,6 @@ export const useDeleteTrackGenre = () => {
         await push("/track-genres/admin");
         setNotification("The track genre has been deleted.");
       },
-    }
+    },
   );
 };

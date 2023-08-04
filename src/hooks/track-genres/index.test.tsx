@@ -30,8 +30,8 @@ test("GET /track-genres/admin", async () => {
 
   server.use(
     rest.get("*/track-genres/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }]))
-    )
+      response(context.json([{ id: 1 }])),
+    ),
   );
 
   const { result } = renderHook(useAdminTrackGenres, { wrapper });
@@ -46,8 +46,8 @@ test("GET /track-genres/[id]", async () => {
 
   server.use(
     rest.get("*/track-genres/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   const { result } = renderHook(useTrackGenre, { wrapper });
@@ -71,8 +71,8 @@ test("POST /track-genres", async () => {
   server.use(
     csrfCookieHandler,
     rest.post("*/track-genres", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 }))
-    )
+      response(context.status(201), context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/track-genres/admin"], null);
@@ -104,8 +104,8 @@ test("PUT /track-genres/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.put("*/track-genres/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/track-genres", "1"], null);
@@ -140,8 +140,8 @@ test("DELETE /track-genres/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.delete("*/track-genres/1", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   queryClient.setQueryData(["/track-genres", "1"], null);

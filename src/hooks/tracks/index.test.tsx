@@ -31,8 +31,8 @@ jest.mock("@/hooks/notification", () => ({
 test("GET /tracks/providers", async () => {
   server.use(
     rest.get("*/tracks/providers", (_, response, context) =>
-      response(context.json([{ name: "foo" }]))
-    )
+      response(context.json([{ name: "foo" }])),
+    ),
   );
 
   const { result } = renderHook(useTracksProviders, { wrapper });
@@ -43,8 +43,8 @@ test("GET /tracks/providers", async () => {
 test("GET /tracks/genres", async () => {
   server.use(
     rest.get("*/tracks/genres", (_, response, context) =>
-      response(context.json([{ name: "foo" }]))
-    )
+      response(context.json([{ name: "foo" }])),
+    ),
   );
 
   const { result } = renderHook(useTracksGenres, { wrapper });
@@ -55,8 +55,8 @@ test("GET /tracks/genres", async () => {
 test("GET /tracks/favorites", async () => {
   server.use(
     rest.get("*/tracks/favorites", (_, response, context) =>
-      response(context.json([{ name: "foo" }]))
-    )
+      response(context.json([{ name: "foo" }])),
+    ),
   );
 
   const { result } = renderHook(useTracksFavorites, { wrapper });
@@ -71,8 +71,8 @@ test("GET /tracks/admin", async () => {
 
   server.use(
     rest.get("*/tracks/admin", (_, response, context) =>
-      response(context.json([{ id: "foo" }]))
-    )
+      response(context.json([{ id: "foo" }])),
+    ),
   );
 
   const { result } = renderHook(useTracksAdmin, { wrapper });
@@ -95,8 +95,8 @@ test("GET /tracks/[id]", async () => {
 
   server.use(
     rest.get("*/tracks/foo", (_, response, context) =>
-      response(context.json({ id: "foo" }))
-    )
+      response(context.json({ id: "foo" })),
+    ),
   );
 
   const { result } = renderHook(useTrack, { wrapper });
@@ -120,8 +120,8 @@ test("PATCH /tracks/stop-urges", async () => {
   server.use(
     csrfCookieHandler,
     rest.patch("*/tracks/stop-urges", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   queryClient.setQueryData(["/tracks/favorites"], null);
@@ -145,8 +145,8 @@ test("PATCH /tracks/[id]/toggle-urge", async () => {
   server.use(
     csrfCookieHandler,
     rest.patch("*/tracks/foo/toggle-urge", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   queryClient.setQueryData(["/tracks/favorites"], null);
@@ -159,7 +159,7 @@ test("PATCH /tracks/[id]/toggle-urge", async () => {
   result.current.mutate("foo");
   await waitFor(() => expect(cache.findAll()).toHaveLength(2));
   await waitFor(() =>
-    expect(useNotificationAction().setNotification).toBeCalledTimes(1)
+    expect(useNotificationAction().setNotification).toBeCalledTimes(1),
   );
 });
 
@@ -175,8 +175,8 @@ test("POST /tracks", async () => {
   server.use(
     csrfCookieHandler,
     rest.post("*/tracks", (_, response, context) =>
-      response(context.status(201), context.json({ id: "foo" }))
-    )
+      response(context.status(201), context.json({ id: "foo" })),
+    ),
   );
 
   queryClient.setQueryData(["/tracks/admin"], null);
@@ -206,8 +206,8 @@ test("PUT /tracks/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.put("*/tracks/foo", (_, response, context) =>
-      response(context.json({ id: "foo" }))
-    )
+      response(context.json({ id: "foo" })),
+    ),
   );
 
   queryClient.setQueryData(["/tracks", "foo"], null);
@@ -238,8 +238,8 @@ test("DELETE /tracks/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.delete("*/tracks/foo", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   queryClient.setQueryData(["/tracks", "foo"], null);

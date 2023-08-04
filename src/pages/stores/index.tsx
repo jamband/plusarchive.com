@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   query,
 }) => {
   const stores = await http(
-    `/stores?${searchParams(query, ["country", "tag", "page"])}`
+    `/stores?${searchParams(query, ["country", "tag", "page"])}`,
   );
 
   if (!stores.ok) {

@@ -30,8 +30,8 @@ test("GET /bookmark-tags/admin", async () => {
 
   server.use(
     rest.get("*/bookmark-tags/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }]))
-    )
+      response(context.json([{ id: 1 }])),
+    ),
   );
 
   const { result } = renderHook(useBookmarkTagsAdmin, { wrapper });
@@ -54,8 +54,8 @@ test("GET /bookmark-tags/[id]", async () => {
 
   server.use(
     rest.get("*/bookmark-tags/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   const { result } = renderHook(useBookmarkTag, { wrapper });
@@ -79,8 +79,8 @@ test("POST /bookmark-tags", async () => {
   server.use(
     csrfCookieHandler,
     rest.post("*/bookmark-tags", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 }))
-    )
+      response(context.status(201), context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/bookmark-tags/admin"], null);
@@ -112,8 +112,8 @@ test("PUT /bookmark-tags/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.put("*/bookmark-tags/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/bookmark-tags", "1"], null);
@@ -129,7 +129,7 @@ test("PUT /bookmark-tags/[id]", async () => {
   await waitFor(() => expect(cache.findAll()).toHaveLength(4));
 
   await waitFor(() =>
-    expect(isInvalidated(["/bookmark-tags", "1"])).toBe(true)
+    expect(isInvalidated(["/bookmark-tags", "1"])).toBe(true),
   );
   expect(isInvalidated(["/bookmark-tags/admin"])).toBe(true);
   expect(isInvalidated(["/bookmarks/tags"])).toBe(true);
@@ -149,8 +149,8 @@ test("DELETE /bookmark-tags/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.delete("*/bookmark-tags/1", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   queryClient.setQueryData(["/bookmark-tags", "1"], null);

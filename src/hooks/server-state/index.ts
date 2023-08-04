@@ -16,7 +16,7 @@ export type Variables<T extends FieldValues> = {
 
 export const useQuery = <T>(
   queryKey: QueryKey,
-  options?: QueryObserverOptions<T>
+  options?: QueryObserverOptions<T>,
 ) => {
   const { isLoading, isError, data } = useBaseQuery<T>(queryKey, options);
 
@@ -29,7 +29,7 @@ export const useQuery = <T>(
 
 export const useMutation = <TData, TVariables>(
   mutationFn: (variables: TVariables) => Promise<TData>,
-  options: UseMutationOptions<TData, Response, TVariables>
+  options: UseMutationOptions<TData, Response, TVariables>,
 ) => {
   const { isLoading, error, mutate } = useBaseMutation(mutationFn, options);
 

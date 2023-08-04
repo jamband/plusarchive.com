@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   query,
 }) => {
   const bookmarks = await http(
-    `/bookmarks?${searchParams(query, ["country", "tag", "page"])}`
+    `/bookmarks?${searchParams(query, ["country", "tag", "page"])}`,
   );
 
   if (!bookmarks.ok) {

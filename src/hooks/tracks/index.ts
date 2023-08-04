@@ -62,7 +62,7 @@ export const useStopUrges = () => {
         await push("/admin");
         setNotification("All urges of tracks has been stopped.");
       },
-    }
+    },
   );
 };
 
@@ -81,7 +81,7 @@ export const useToggleUrge = () => {
         await queryClient.invalidateQueries(["/tracks/admin"]);
         setNotification("The urge has been toggled.");
       },
-    }
+    },
   );
 };
 
@@ -102,7 +102,7 @@ export const useCreateTrack = <T extends FieldValues>() => {
         await push("/tracks/admin");
         setNotification("New track has been created.");
       },
-    }
+    },
   );
 };
 
@@ -124,7 +124,7 @@ export const useUpdateTrack = <T extends FieldValues>() => {
         await push("/tracks/admin");
         setNotification("The track has been updated.");
       },
-    }
+    },
   );
 };
 
@@ -145,6 +145,6 @@ export const useDeleteTrack = () => {
         await push("/tracks/admin");
         setNotification("The track has been deleted.");
       },
-    }
+    },
   );
 };

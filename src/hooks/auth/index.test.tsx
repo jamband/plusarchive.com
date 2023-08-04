@@ -14,8 +14,8 @@ jest.mock("next/router", () => ({
 test("GET /auth/user", async () => {
   server.use(
     rest.get("*/auth/user", (_, response, context) =>
-      response(context.json({ role: "foo" }))
-    )
+      response(context.json({ role: "foo" })),
+    ),
   );
 
   const { result } = renderHook(useAuth, { wrapper });
@@ -35,8 +35,8 @@ test("POST /auth/login", async () => {
   server.use(
     csrfCookieHandler,
     rest.post("*/auth/login", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   const { result } = renderHook(useLogin, { wrapper });
@@ -52,8 +52,8 @@ test("POST /auth/logout", async () => {
   server.use(
     csrfCookieHandler,
     rest.post("*/auth/logout", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   const { result } = renderHook(useLogout, { wrapper });

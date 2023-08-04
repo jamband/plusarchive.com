@@ -7,7 +7,7 @@ export const server = setupServer();
 
 export const csrfCookieHandler = rest.get(
   `*${API_CSRF_COOKIE}`,
-  (_, response, context) => response(context.status(204))
+  (_, response, context) => response(context.status(204)),
 );
 
 beforeEach(() => {

@@ -30,8 +30,8 @@ test("GET /label-tags/admin", async () => {
 
   server.use(
     rest.get("*/label-tags/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }]))
-    )
+      response(context.json([{ id: 1 }])),
+    ),
   );
 
   const { result } = renderHook(useLabelTagsAdmin, { wrapper });
@@ -54,8 +54,8 @@ test("GET /label-tags/[id]", async () => {
 
   server.use(
     rest.get("*/label-tags/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   const { result } = renderHook(useLabelTag, { wrapper });
@@ -79,8 +79,8 @@ test("POST /label-tags", async () => {
   server.use(
     csrfCookieHandler,
     rest.post("*/label-tags", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 }))
-    )
+      response(context.status(201), context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/label-tags/admin"], null);
@@ -112,8 +112,8 @@ test("PUT /label-tags/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.put("*/label-tags/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/label-tags", "1"], null);
@@ -147,8 +147,8 @@ test("DELETE /label-tags/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.delete("*/label-tags/1", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   queryClient.setQueryData(["/label-tags", "1"], null);

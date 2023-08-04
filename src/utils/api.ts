@@ -41,7 +41,7 @@ export const searchParams = (query: ParsedUrlQuery, params: Array<string>) => {
         ...previous,
         [param]: `${query[param] || ""}`,
       }),
-      {}
-    )
+      {},
+    ),
   );
 };

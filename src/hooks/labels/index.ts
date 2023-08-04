@@ -56,7 +56,7 @@ export const useCreateLabel = <T extends FieldValues>() => {
         await push(`/labels/${data.id}`);
         setNotification("New label has been created.");
       },
-    }
+    },
   );
 };
 
@@ -78,7 +78,7 @@ export const useUpdateLabel = <T extends FieldValues>() => {
         await push(`/labels/${data.id}`);
         setNotification("The label has been updated.");
       },
-    }
+    },
   );
 };
 
@@ -99,6 +99,6 @@ export const useDeleteLabel = () => {
         await push("/labels/admin");
         setNotification("The label has been deleted.");
       },
-    }
+    },
   );
 };

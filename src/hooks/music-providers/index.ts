@@ -46,7 +46,7 @@ export const useCreateMusicProvider = <T extends FieldValues>() => {
         await push(`/music-providers/${data.id}`);
         setNotification("New music provider has been created.");
       },
-    }
+    },
   );
 };
 
@@ -70,7 +70,7 @@ export const useUpdateMusicProvider = <T extends FieldValues>() => {
         await push(`/music-providers/${data.id}`);
         setNotification("The music provider has been updated.");
       },
-    }
+    },
   );
 };
 
@@ -93,6 +93,6 @@ export const useDeleteMusicProvider = () => {
         await push("/music-providers/admin");
         setNotification("The music provider has been deleted.");
       },
-    }
+    },
   );
 };

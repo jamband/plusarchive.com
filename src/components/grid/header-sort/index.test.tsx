@@ -32,7 +32,7 @@ test("type: number", () => {
   render(
     <GridHeaderSort type="number" column="id">
       id
-    </GridHeaderSort>
+    </GridHeaderSort>,
   );
 
   fireEvent.click(screen.getByRole("button", { name: "id 19" }));
@@ -48,7 +48,7 @@ test("type: number and desc to asc", () => {
   render(
     <GridHeaderSort type="number" column="id">
       id
-    </GridHeaderSort>
+    </GridHeaderSort>,
   );
 
   fireEvent.click(screen.getByRole("button", { name: "id 91" }));
@@ -64,7 +64,7 @@ test("type: number and asc to desc", () => {
   render(
     <GridHeaderSort type="number" column="id">
       id
-    </GridHeaderSort>
+    </GridHeaderSort>,
   );
 
   fireEvent.click(screen.getByRole("button", { name: "id 19" }));
@@ -80,7 +80,7 @@ test("type: string", () => {
   render(
     <GridHeaderSort type="string" column="foo">
       foo
-    </GridHeaderSort>
+    </GridHeaderSort>,
   );
 
   fireEvent.click(screen.getByRole("button", { name: "foo az" }));
@@ -96,7 +96,7 @@ test("type: string and desc to asc", () => {
   render(
     <GridHeaderSort type="string" column="foo">
       foo
-    </GridHeaderSort>
+    </GridHeaderSort>,
   );
 
   fireEvent.click(screen.getByRole("button", { name: "foo za" }));
@@ -112,7 +112,7 @@ test("type: string and asc to desc", () => {
   render(
     <GridHeaderSort type="string" column="foo">
       foo
-    </GridHeaderSort>
+    </GridHeaderSort>,
   );
 
   fireEvent.click(screen.getByRole("button", { name: "foo az" }));

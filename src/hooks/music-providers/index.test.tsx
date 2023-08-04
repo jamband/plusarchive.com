@@ -30,8 +30,8 @@ test("GET /music-providers/admin", async () => {
 
   server.use(
     rest.get("*/music-providers/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }]))
-    )
+      response(context.json([{ id: 1 }])),
+    ),
   );
 
   const { result } = renderHook(useAdminMusicProviders, { wrapper });
@@ -46,8 +46,8 @@ test("GET /music-providers/[id]", async () => {
 
   server.use(
     rest.get("*/music-providers/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   const { result } = renderHook(useMusicProvider, { wrapper });
@@ -71,8 +71,8 @@ test("POST /music-providers", async () => {
   server.use(
     csrfCookieHandler,
     rest.post("*/music-providers", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 }))
-    )
+      response(context.status(201), context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/music-providers/admin"], null);
@@ -106,8 +106,8 @@ test("PUT /music-providers/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.put("*/music-providers/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/music-providers", "1"], null);
@@ -123,7 +123,7 @@ test("PUT /music-providers/[id]", async () => {
   await waitFor(() => expect(cache.findAll()).toHaveLength(4));
 
   await waitFor(() =>
-    expect(isInvalidated(["/music-providers", "1"])).toBe(true)
+    expect(isInvalidated(["/music-providers", "1"])).toBe(true),
   );
   expect(isInvalidated(["/music-providers/admin"])).toBe(true);
   expect(isInvalidated(["/tracks/admin"])).toBe(true);
@@ -144,8 +144,8 @@ test("DELETE /music-providers/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.delete("*/music-providers/1", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   queryClient.setQueryData(["/music-providers", "1"], null);

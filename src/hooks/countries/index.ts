@@ -46,7 +46,7 @@ export const useCreateCountry = <T extends FieldValues>() => {
         await push(`/countries/${data.id}`);
         setNotification("New country has been created.");
       },
-    }
+    },
   );
 };
 
@@ -70,7 +70,7 @@ export const useUpdateCountry = <T extends FieldValues>() => {
         await push(`/countries/${data.id}`);
         setNotification("The country has been updated.");
       },
-    }
+    },
   );
 };
 
@@ -93,6 +93,6 @@ export const useDeleteCountry = () => {
         await push("/countries/admin");
         setNotification("The country has been deleted.");
       },
-    }
+    },
   );
 };

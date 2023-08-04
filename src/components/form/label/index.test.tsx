@@ -6,7 +6,7 @@ test("", () => {
     <>
       <FormLabel htmlFor="foo">foo</FormLabel>
       <input id="foo" />
-    </>
+    </>,
   );
 
   const textbox = screen.getByRole("textbox", { name: "foo" });
@@ -23,7 +23,7 @@ test("required", () => {
         foo
       </FormLabel>
       <input id="foo" aria-required />
-    </>
+    </>,
   );
 
   const textbox = screen.getByRole("textbox", { name: "foo" });

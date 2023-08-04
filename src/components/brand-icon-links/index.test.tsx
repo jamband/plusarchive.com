@@ -12,7 +12,7 @@ test("links", () => {
   render(
     <BrandIconLinks
       links={"https://example.com/foo\nhttps://example.com/bar"}
-    />
+    />,
   );
 
   const links = screen.getAllByRole("link");
@@ -29,7 +29,7 @@ test("links that don't match as a brand", () => {
   render(
     <BrandIconLinks
       links={"https://example.com/foo\nhttps://example.com/bar"}
-    />
+    />,
   );
 
   const texts = screen.getAllByText("External");

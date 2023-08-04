@@ -28,8 +28,8 @@ jest.mock("@/hooks/notification", () => ({
 test("GET /bookmarks/countries", async () => {
   server.use(
     rest.get("*/bookmarks/countries", (_, response, context) =>
-      response(context.json([{ name: "foo" }]))
-    )
+      response(context.json([{ name: "foo" }])),
+    ),
   );
 
   const { result } = renderHook(useBookmarksCountries, { wrapper });
@@ -40,8 +40,8 @@ test("GET /bookmarks/countries", async () => {
 test("GET /bookmarks/tags", async () => {
   server.use(
     rest.get("*/bookmarks/tags", (_, response, context) =>
-      response(context.json([{ name: "foo" }]))
-    )
+      response(context.json([{ name: "foo" }])),
+    ),
   );
 
   const { result } = renderHook(useBookmarksTags, { wrapper });
@@ -56,8 +56,8 @@ test("GET /bookmarks/admin", async () => {
 
   server.use(
     rest.get("*/bookmarks/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }]))
-    )
+      response(context.json([{ id: 1 }])),
+    ),
   );
 
   const { result } = renderHook(useBookmarksAdmin, { wrapper });
@@ -80,8 +80,8 @@ test("GET /bookmarks/[id]", async () => {
 
   server.use(
     rest.get("*/bookmarks/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   const { result } = renderHook(useBookmark, { wrapper });
@@ -105,8 +105,8 @@ test("POST /bookmarks", async () => {
   server.use(
     csrfCookieHandler,
     rest.post("*/bookmarks", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 }))
-    )
+      response(context.status(201), context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/bookmarks/admin"], null);
@@ -136,8 +136,8 @@ test("PUT /bookmarks/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.put("*/bookmarks/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/bookmarks", "1"], null);
@@ -168,8 +168,8 @@ test("DELETE /bookmarks/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.delete("*/bookmarks/1", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   queryClient.setQueryData(["/bookmarks", "1"], null);

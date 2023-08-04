@@ -40,7 +40,7 @@ test("useSelectFilter", () => {
       <option value=""></option>
       <option value="foo1">foo1</option>
       <option value="foo2">foo2</option>
-    </select>
+    </select>,
   );
 
   const combobox = screen.getByRole("combobox");

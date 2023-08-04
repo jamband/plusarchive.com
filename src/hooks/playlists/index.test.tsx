@@ -30,8 +30,8 @@ test("GET /playlists/admin", async () => {
 
   server.use(
     rest.get("*/playlists/admin", (_, response, context) =>
-      response(context.json([{ id: "foo" }]))
-    )
+      response(context.json([{ id: "foo" }])),
+    ),
   );
 
   const { result } = renderHook(usePlaylistsAdmin, { wrapper });
@@ -54,8 +54,8 @@ test("GET /playlists/[id]", async () => {
 
   server.use(
     rest.get("*/playlists/foo", (_, response, context) =>
-      response(context.json({ id: "foo" }))
-    )
+      response(context.json({ id: "foo" })),
+    ),
   );
 
   const { result } = renderHook(usePlaylist, { wrapper });
@@ -79,8 +79,8 @@ test("POST /playlists", async () => {
   server.use(
     csrfCookieHandler,
     rest.post("*/playlists", (_, response, context) =>
-      response(context.status(201), context.json({ id: "foo" }))
-    )
+      response(context.status(201), context.json({ id: "foo" })),
+    ),
   );
 
   queryClient.setQueryData(["/playlists/admin"], null);
@@ -112,8 +112,8 @@ test("PUT /playlists/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.put("*/playlists/foo", (_, response, context) =>
-      response(context.json({ id: "foo" }))
-    )
+      response(context.json({ id: "foo" })),
+    ),
   );
 
   queryClient.setQueryData(["/playlists", "foo"], null);
@@ -144,8 +144,8 @@ test("DELETE /playlists/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.delete("*/playlists/foo", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   queryClient.setQueryData(["/playlists", "foo"], null);

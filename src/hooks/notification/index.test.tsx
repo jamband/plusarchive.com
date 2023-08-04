@@ -22,7 +22,7 @@ test("setNotification", () => {
         setNotification,
       };
     },
-    { wrapper }
+    { wrapper },
   );
 
   expect(result.current.state).toBe("");
@@ -43,7 +43,7 @@ test("resetNotification", () => {
         resetNotification,
       };
     },
-    { wrapper }
+    { wrapper },
   );
 
   act(() => result.current.setNotification("foo"));

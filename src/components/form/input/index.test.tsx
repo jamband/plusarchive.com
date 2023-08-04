@@ -10,7 +10,7 @@ test("", () => {
       inputClass=""
       register={{} as UseFormRegisterReturn}
       feedback={undefined}
-    />
+    />,
   );
 
   const textbox = screen.getByRole("textbox", { name: "foo" });
@@ -27,7 +27,7 @@ test("required", () => {
       register={{} as UseFormRegisterReturn}
       feedback={undefined}
       required
-    />
+    />,
   );
 
   const textbox = screen.getByRole("textbox", { name: "foo" });
@@ -42,7 +42,7 @@ test("feedback", () => {
       inputClass=""
       register={{} as UseFormRegisterReturn}
       feedback="feedback..."
-    />
+    />,
   );
 
   const textbox = screen.getByRole("textbox", {

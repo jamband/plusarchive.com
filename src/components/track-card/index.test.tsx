@@ -86,7 +86,7 @@ test("children", () => {
   render(
     <TrackCard track={track}>
       <div>foo</div>
-    </TrackCard>
+    </TrackCard>,
   );
 
   const texts = screen.getAllByText("foo");

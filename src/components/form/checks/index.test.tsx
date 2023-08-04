@@ -5,7 +5,7 @@ test("", () => {
   render(
     <FormChecks label="foo" inputClass="" feedback={undefined}>
       <input type="checkbox" />
-    </FormChecks>
+    </FormChecks>,
   );
 
   const foo = screen.getByText("foo");
@@ -19,7 +19,7 @@ test("feedback", () => {
   render(
     <FormChecks label="foo" inputClass="" feedback="feedback...">
       <input type="checkbox" />
-    </FormChecks>
+    </FormChecks>,
   );
 
   const foo = screen.getByText("foo");

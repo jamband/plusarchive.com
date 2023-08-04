@@ -13,7 +13,7 @@ export const useNotificationAction = () => {
     (payload: State) => {
       dispatch({ type: "set", payload });
     },
-    [dispatch]
+    [dispatch],
   );
 
   const resetNotification = useCallback(() => {

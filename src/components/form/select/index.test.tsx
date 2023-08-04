@@ -17,7 +17,7 @@ test("", () => {
       feedback={undefined}
     >
       <option value=""></option>
-    </FormSelect>
+    </FormSelect>,
   );
 
   const combobox = screen.getByRole("combobox", { name: "foo" });
@@ -36,7 +36,7 @@ test("required", () => {
       required
     >
       <option value=""></option>
-    </FormSelect>
+    </FormSelect>,
   );
 
   const combobox = screen.getByRole("combobox", { name: "foo" });
@@ -53,7 +53,7 @@ test("feedback", () => {
       feedback="feedback..."
     >
       <option value=""></option>
-    </FormSelect>
+    </FormSelect>,
   );
 
   const combobox = screen.getByRole("combobox", {

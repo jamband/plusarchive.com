@@ -56,7 +56,7 @@ export const useCreateBookmark = <T extends FieldValues>() => {
         await push(`/bookmarks/${data.id}`);
         setNotification("New bookmark has been created.");
       },
-    }
+    },
   );
 };
 
@@ -78,7 +78,7 @@ export const useUpdateBookmark = <T extends FieldValues>() => {
         await push(`/bookmarks/${data.id}`);
         setNotification("The bookmark has been updated.");
       },
-    }
+    },
   );
 };
 
@@ -99,6 +99,6 @@ export const useDeleteBookmark = () => {
         await push("/bookmarks/admin");
         setNotification("The bookmark has been deleted.");
       },
-    }
+    },
   );
 };

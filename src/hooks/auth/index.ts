@@ -22,7 +22,7 @@ export const useLogin = <T extends FieldValues>() => {
       onSuccess: async () => {
         await push("/admin");
       },
-    }
+    },
   );
 };
 
@@ -35,6 +35,6 @@ export const useLogout = () => {
       onSuccess: async () => {
         await push("/");
       },
-    }
+    },
   );
 };

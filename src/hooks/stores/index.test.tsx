@@ -28,8 +28,8 @@ jest.mock("@/hooks/notification", () => ({
 test("GET /stores/countries", async () => {
   server.use(
     rest.get("*/stores/countries", (_, response, context) =>
-      response(context.json([{ name: "foo" }]))
-    )
+      response(context.json([{ name: "foo" }])),
+    ),
   );
 
   const { result } = renderHook(useStoresCountries, { wrapper });
@@ -40,8 +40,8 @@ test("GET /stores/countries", async () => {
 test("GET /stores/tags", async () => {
   server.use(
     rest.get("*/stores/tags", (_, response, context) =>
-      response(context.json([{ name: "foo" }]))
-    )
+      response(context.json([{ name: "foo" }])),
+    ),
   );
 
   const { result } = renderHook(useStoresTags, { wrapper });
@@ -56,8 +56,8 @@ test("GET /stores/admin", async () => {
 
   server.use(
     rest.get("*/stores/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }]))
-    )
+      response(context.json([{ id: 1 }])),
+    ),
   );
 
   const { result } = renderHook(useStoresAdmin, { wrapper });
@@ -80,8 +80,8 @@ test("GET /stores/[id]", async () => {
 
   server.use(
     rest.get("*/stores/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   const { result } = renderHook(useStore, { wrapper });
@@ -105,8 +105,8 @@ test("POST /stores", async () => {
   server.use(
     csrfCookieHandler,
     rest.post("*/stores", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 }))
-    )
+      response(context.status(201), context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/stores/admin"], null);
@@ -136,8 +136,8 @@ test("PUT /stores/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.put("*/stores/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/stores", "1"], null);
@@ -168,8 +168,8 @@ test("DELETE /stores/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.delete("*/stores/1", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   queryClient.setQueryData(["/stores", "1"], null);

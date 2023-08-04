@@ -56,7 +56,7 @@ export const mutation = async (
   options?: {
     method?: Options["method"];
     body?: Options["body"];
-  }
+  },
 ) => {
   const response = await http(resource, {
     method: options?.method || "POST",

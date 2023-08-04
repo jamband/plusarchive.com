@@ -28,8 +28,8 @@ jest.mock("@/hooks/notification", () => ({
 test("GET /labels/countries", async () => {
   server.use(
     rest.get("*/labels/countries", (_, response, context) =>
-      response(context.json([{ name: "foo" }]))
-    )
+      response(context.json([{ name: "foo" }])),
+    ),
   );
 
   const { result } = renderHook(useLabelsCountries, { wrapper });
@@ -40,8 +40,8 @@ test("GET /labels/countries", async () => {
 test("GET /labels/tags", async () => {
   server.use(
     rest.get("*/labels/tags", (_, response, context) =>
-      response(context.json([{ name: "foo" }]))
-    )
+      response(context.json([{ name: "foo" }])),
+    ),
   );
 
   const { result } = renderHook(useLabelsTags, { wrapper });
@@ -56,8 +56,8 @@ test("GET /labels/admin", async () => {
 
   server.use(
     rest.get("*/labels/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }]))
-    )
+      response(context.json([{ id: 1 }])),
+    ),
   );
 
   const { result } = renderHook(useLabelsAdmin, { wrapper });
@@ -80,8 +80,8 @@ test("GET /labels/[id]", async () => {
 
   server.use(
     rest.get("*/labels/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   const { result } = renderHook(useLabel, { wrapper });
@@ -105,8 +105,8 @@ test("POST /labels", async () => {
   server.use(
     csrfCookieHandler,
     rest.post("*/labels", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 }))
-    )
+      response(context.status(201), context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/labels/admin"], null);
@@ -136,8 +136,8 @@ test("PUT /labels/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.put("*/labels/1", (_, response, context) =>
-      response(context.json({ id: 1 }))
-    )
+      response(context.json({ id: 1 })),
+    ),
   );
 
   queryClient.setQueryData(["/labels", "1"], null);
@@ -168,8 +168,8 @@ test("DELETE /labels/[id]", async () => {
   server.use(
     csrfCookieHandler,
     rest.delete("*/labels/1", (_, response, context) =>
-      response(context.status(204))
-    )
+      response(context.status(204)),
+    ),
   );
 
   queryClient.setQueryData(["/labels", "1"], null);
