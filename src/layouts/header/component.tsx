@@ -16,7 +16,7 @@ export const Component: React.FC<_Props> = (props) => (
           <Link
             href="/"
             onClickCapture={() => props.navigation && props.toggleNavigation()}
-            className="rounded py-2 text-base font-bold text-gray-100"
+            className="rounded py-2 text-base font-extrabold text-gray-100"
             aria-current={props.current("/")}
           >
             {APP_NAME}

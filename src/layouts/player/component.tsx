@@ -27,7 +27,7 @@ export const Component: React.FC<_Props> = (props) => (
       </div>
     </div>
     <section className="mb-5 text-center">
-      <h1 className="mb-0 text-[1.2rem] leading-normal md:text-[1.4rem]">
+      <h1 className="mb-0 mt-6 text-[1.2rem] leading-normal md:text-[1.4rem]">
         {props.player.title}
       </h1>
       <p className="text-sm md:text-base">via {props.player.provider}</p>

@@ -25,7 +25,7 @@ export const Component: React.FC<_Props> = (props) => (
       </div>
     </Link>
     <div className="flex w-2/3 flex-col md:w-full">
-      <div className="mb-1 truncate px-2 text-center font-semibold leading-normal text-gray-100 md:mb-2 md:px-3 md:text-[1.125rem]">
+      <div className="mb-1 truncate px-2 text-center font-bold leading-normal text-gray-100 md:mb-2 md:mt-1 md:px-3 md:text-[1.125rem]">
         {props.track.title}
       </div>
       <div className="mx-2 mb-1 flex flex-wrap justify-center gap-x-4 text-sm leading-7 md:mb-2 md:gap-y-1 md:text-base">
