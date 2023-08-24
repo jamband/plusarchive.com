@@ -2,7 +2,7 @@ import { APP_PRIMARY_COLOR } from "@/constants/app";
 import { loading } from "@/mocks/player-loading";
 import { playerState } from "@/mocks/player-state";
 import { router } from "@/mocks/router";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Player } from ".";
 
 jest.mock("@/hooks/player", () => ({
@@ -52,63 +52,141 @@ test("visible", () => {
   expect(article).toBeInTheDocument();
 });
 
-test("src and title for embed", () => {
-  const items = [
-    {
-      provider: "Bandcamp",
-      type: "track",
-      src: `https://bandcamp.com/EmbeddedPlayer/track=key1/size=large/tracklist=false/bgcol=333333/linkcol=${APP_PRIMARY_COLOR}`,
-    },
-    {
-      provider: "Bandcamp",
-      type: "playlist",
-      src: `https://bandcamp.com/EmbeddedPlayer/album=key1/size=large/tracklist=false/bgcol=333333/linkcol=${APP_PRIMARY_COLOR}`,
-    },
-    {
-      provider: "SoundCloud",
-      type: "track",
-      src: `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/key1&show_comments=false&color=${APP_PRIMARY_COLOR}&hide_related=true&visual=true`,
-    },
-    {
-      provider: "SoundCloud",
-      type: "playlist",
-      src: `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/key1&show_comments=false&color=${APP_PRIMARY_COLOR}&hide_related=true&show_playcount=false`,
-    },
-    {
-      provider: "Vimeo",
-      type: "track",
-      src: "https://player.vimeo.com/video/key1",
-    },
-    {
-      provider: "YouTube",
-      type: "track",
-      src: "https://www.youtube.com/embed/key1?playsinline=1&rel=0",
-    },
-    {
-      provider: "YouTube",
-      type: "playlist",
-      src: "https://www.youtube.com/embed/videoseries?list=key1&playsinline=1&rel=0",
-    },
-  ];
-
-  items.map(({ provider, type, src }) => {
-    playerState.mockReturnValue({
-      id: "id1",
-      type,
-      provider,
-      provider_key: "key1",
-    });
-
-    router.mockReturnValue({});
-    loading.mockReturnValue({});
-
-    render(<Player />);
-
-    const embed = screen.getByTitle(`${provider} player`);
-    expect(embed).toHaveAttribute("src", src);
-
-    cleanup();
+test("src and title for embed when track of Bandcamp", () => {
+  playerState.mockReturnValue({
+    id: "id1",
+    type: "track",
+    provider: "Bandcamp",
+    provider_key: "key1",
   });
+
+  router.mockReturnValue({});
+  loading.mockReturnValue({});
+
+  render(<Player />);
+
+  const embed = screen.getByTitle("Bandcamp player");
+  expect(embed).toHaveAttribute(
+    "src",
+    `https://bandcamp.com/EmbeddedPlayer/track=key1/size=large/tracklist=false/bgcol=333333/linkcol=${APP_PRIMARY_COLOR}`,
+  );
+});
+
+test("src and title for embed when playlist of Bandcamp", () => {
+  playerState.mockReturnValue({
+    id: "id1",
+    type: "playlist",
+    provider: "Bandcamp",
+    provider_key: "key1",
+  });
+
+  router.mockReturnValue({});
+  loading.mockReturnValue({});
+
+  render(<Player />);
+
+  const embed = screen.getByTitle("Bandcamp player");
+  expect(embed).toHaveAttribute(
+    "src",
+    `https://bandcamp.com/EmbeddedPlayer/album=key1/size=large/tracklist=false/bgcol=333333/linkcol=${APP_PRIMARY_COLOR}`,
+  );
+});
+
+test("src and title for embed when track of SoundCloud", () => {
+  playerState.mockReturnValue({
+    id: "id1",
+    type: "track",
+    provider: "SoundCloud",
+    provider_key: "key1",
+  });
+
+  router.mockReturnValue({});
+  loading.mockReturnValue({});
+
+  render(<Player />);
+
+  const embed = screen.getByTitle("SoundCloud player");
+  expect(embed).toHaveAttribute(
+    "src",
+    `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/key1&show_comments=false&color=${APP_PRIMARY_COLOR}&hide_related=true&visual=true`,
+  );
+});
+
+test("src and title for embed when playlist of SoundCloud", () => {
+  playerState.mockReturnValue({
+    id: "id1",
+    type: "playlist",
+    provider: "SoundCloud",
+    provider_key: "key1",
+  });
+
+  router.mockReturnValue({});
+  loading.mockReturnValue({});
+
+  render(<Player />);
+
+  const embed = screen.getByTitle("SoundCloud player");
+  expect(embed).toHaveAttribute(
+    "src",
+    `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/key1&show_comments=false&color=${APP_PRIMARY_COLOR}&hide_related=true&show_playcount=false`,
+  );
+});
+
+test("src and title for embed when Vimeo", () => {
+  playerState.mockReturnValue({
+    id: "id1",
+    type: "track",
+    provider: "Vimeo",
+    provider_key: "key1",
+  });
+
+  router.mockReturnValue({});
+  loading.mockReturnValue({});
+
+  render(<Player />);
+
+  const embed = screen.getByTitle("Vimeo player");
+  expect(embed).toHaveAttribute("src", "https://player.vimeo.com/video/key1");
+});
+
+test("src and title for embed when track of YouTube", () => {
+  playerState.mockReturnValue({
+    id: "id1",
+    type: "track",
+    provider: "YouTube",
+    provider_key: "key1",
+  });
+
+  router.mockReturnValue({});
+  loading.mockReturnValue({});
+
+  render(<Player />);
+
+  const embed = screen.getByTitle("YouTube player");
+  expect(embed).toHaveAttribute(
+    "src",
+    "https://www.youtube.com/embed/key1?playsinline=1&rel=0",
+  );
+});
+
+test("src and title for embed when playlist of YouTube", () => {
+  playerState.mockReturnValue({
+    id: "id1",
+    type: "playlist",
+    provider: "YouTube",
+    provider_key: "key1",
+  });
+
+  router.mockReturnValue({});
+  loading.mockReturnValue({});
+
+  render(<Player />);
+
+  const embed = screen.getByTitle("YouTube player");
+  expect(embed).toHaveAttribute(
+    "src",
+    "https://www.youtube.com/embed/videoseries?list=key1&playsinline=1&rel=0",
+  );
 });
 
 test("title and provider", () => {

@@ -1,7 +1,7 @@
 import { playerState } from "@/mocks/player-state";
 import { router } from "@/mocks/router";
 import type { Track } from "@/types/tracks";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { TrackCard } from ".";
 
 jest.mock("next/router", () => ({
@@ -31,32 +31,44 @@ const track: Track = {
   created_at: "",
 };
 
-test("aspect ratio: Bandcamp/SoundCloud", () => {
-  ["Bandcamp", "SoundCloud"].map((provider) => {
-    router.mockReturnValue({ query: { provider } });
-    playerState.mockReturnValue({ id: "foo" });
+test("aspect ratio: Bandcamp", () => {
+  router.mockReturnValue({ query: { provider: "Bandcamp" } });
+  playerState.mockReturnValue({ id: "foo" });
 
-    render(<TrackCard track={track}>foo</TrackCard>);
+  render(<TrackCard track={track}>foo</TrackCard>);
 
-    const img = screen.getByRole("img");
-    expect(img).not.toHaveClass("md:aspect-video");
-
-    cleanup();
-  });
+  const img = screen.getByRole("img");
+  expect(img).not.toHaveClass("md:aspect-video");
 });
 
-test("aspect ratio: YouTube/Vimeo", () => {
-  ["YouTube", "Vimeo"].map((provider) => {
-    router.mockReturnValue({ query: { provider } });
-    playerState.mockReturnValue({ id: "foo" });
+test("aspect ratio: SoundCloud", () => {
+  router.mockReturnValue({ query: { provider: "SoundCloud" } });
+  playerState.mockReturnValue({ id: "foo" });
 
-    render(<TrackCard track={track}>foo</TrackCard>);
+  render(<TrackCard track={track}>foo</TrackCard>);
 
-    const img = screen.getByRole("img");
-    expect(img).toHaveClass("md:aspect-video");
+  const img = screen.getByRole("img");
+  expect(img).not.toHaveClass("md:aspect-video");
+});
 
-    cleanup();
-  });
+test("aspect ratio: Vimeo", () => {
+  router.mockReturnValue({ query: { provider: "Vimeo" } });
+  playerState.mockReturnValue({ id: "foo" });
+
+  render(<TrackCard track={track}>foo</TrackCard>);
+
+  const img = screen.getByRole("img");
+  expect(img).toHaveClass("md:aspect-video");
+});
+
+test("aspect ratio: YouTube", () => {
+  router.mockReturnValue({ query: { provider: "YouTube" } });
+  playerState.mockReturnValue({ id: "foo" });
+
+  render(<TrackCard track={track}>foo</TrackCard>);
+
+  const img = screen.getByRole("img");
+  expect(img).toHaveClass("md:aspect-video");
 });
 
 test("status: play", () => {
