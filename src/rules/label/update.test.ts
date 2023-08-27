@@ -1,8 +1,9 @@
 /** @jest-environment node */
+import { parse } from "valibot";
 import { label, schema } from "./update";
 
 test("fields", () => {
-  expect(Object.keys(schema.fields)).toEqual([
+  expect(Object.keys(schema.object)).toEqual([
     "name",
     "country",
     "url",
@@ -12,43 +13,43 @@ test("fields", () => {
 });
 
 test("name", () => {
-  const _ = schema.pick(["name"]);
-  expect(_.isValidSync({ name: 0 })).toBe(false);
-  expect(_.isValidSync({ name: "" })).toBe(false);
-  expect(_.isValidSync({ name: "foo" })).toBe(true);
+  const { name } = schema.object;
+  expect(() => parse(name, 0)).toThrowError();
+  expect(() => parse(name, "")).toThrowError();
+  expect(parse(name, "foo")).toBe("foo");
   expect(label.name).toBe("Name");
 });
 
 test("country", () => {
-  const _ = schema.pick(["country"]);
-  expect(_.isValidSync({ country: 0 })).toBe(false);
-  expect(_.isValidSync({ country: "" })).toBe(false);
-  expect(_.isValidSync({ country: "foo" })).toBe(true);
+  const { country } = schema.object;
+  expect(() => parse(country, 0)).toThrowError();
+  expect(() => parse(country, "")).toThrowError();
+  expect(parse(country, "foo")).toBe("foo");
   expect(label.country).toBe("Country");
 });
 
 test("url", () => {
-  const _ = schema.pick(["url"]);
-  expect(_.isValidSync({ url: "" })).toBe(false);
-  expect(_.isValidSync({ url: "foo" })).toBe(false);
-  expect(_.isValidSync({ url: "https://example.com" })).toBe(true);
+  const { url } = schema.object;
+  expect(() => parse(url, "")).toThrowError();
+  expect(() => parse(url, "foo")).toThrowError();
+  expect(parse(url, "https://example.com")).toBe("https://example.com");
   expect(label.url).toBe("URL");
 });
 
 test("links", () => {
-  const _ = schema.pick(["links"]);
-  expect(_.isValidSync({ links: 0 })).toBe(false);
-  expect(_.isValidSync({ links: "" })).toBe(true);
-  expect(_.isValidSync({ links: "foo" })).toBe(true);
+  const { links } = schema.object;
+  expect(() => parse(links, 0)).toThrowError();
+  expect(parse(links, "")).toBe("");
+  expect(parse(links, "foo")).toBe("foo");
   expect(label.links).toBe("Links");
 });
 
 test("tags", () => {
-  const _ = schema.pick(["tags"]);
-  expect(_.isValidSync({ tags: 0 })).toBe(false);
-  expect(_.isValidSync({ tags: "foo" })).toBe(false);
-  expect(_.isValidSync({ tags: [0] })).toBe(false);
-  expect(_.isValidSync({ tags: [] })).toBe(true);
-  expect(_.isValidSync({ tags: ["foo", "bar"] })).toBe(true);
+  const { tags } = schema.object;
+  expect(() => parse(tags, 0)).toThrowError();
+  expect(() => parse(tags, "foo")).toThrowError();
+  expect(() => parse(tags, [0])).toThrowError();
+  expect(parse(tags, [])).toEqual([]);
+  expect(parse(tags, ["foo", "bar"])).toEqual(["foo", "bar"]);
   expect(label.tags).toBe("Tags");
 });

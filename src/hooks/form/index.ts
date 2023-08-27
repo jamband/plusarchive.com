@@ -1,16 +1,16 @@
-import { yupResolver } from "@hookform/resolvers/yup";
+import { valibotResolver } from "@hookform/resolvers/valibot";
 import { useEffect } from "react";
 import type { FieldValues, Path } from "react-hook-form";
 import { useForm } from "react-hook-form";
-import type { AnyObject, ObjectSchema } from "yup";
+import type { ObjectSchema, ObjectShape } from "valibot";
 
 type PostForm<T> = {
-  schema: ObjectSchema<AnyObject>;
+  schema: ObjectSchema<ObjectShape, T>;
   focus: Path<T>;
 };
 
 type PutForm<T> = {
-  schema: ObjectSchema<AnyObject>;
+  schema: ObjectSchema<ObjectShape, T>;
   focus: Path<T>;
   data: T | undefined;
 };
@@ -23,9 +23,8 @@ export const usePostForm = <T extends FieldValues>(form: PostForm<T>) => {
     setFocus,
     formState: { errors, isSubmitting, isValid },
   } = useForm<T>({
-    resolver: yupResolver(form.schema),
+    resolver: valibotResolver(form.schema),
     mode: "onChange",
-    defaultValues: form.schema.getDefault(),
   });
 
   useEffect(() => {
@@ -50,7 +49,7 @@ export const usePutForm = <T extends FieldValues>(form: PutForm<T>) => {
     setFocus,
     formState: { errors, isSubmitting, isValid },
   } = useForm<T>({
-    resolver: yupResolver(form.schema),
+    resolver: valibotResolver(form.schema),
     mode: "onChange",
   });
 

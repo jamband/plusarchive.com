@@ -1,8 +1,9 @@
 /** @jest-environment node */
+import { parse } from "valibot";
 import { label, schema } from "./create";
 
 test("fields", () => {
-  expect(Object.keys(schema.fields)).toEqual([
+  expect(Object.keys(schema.object)).toEqual([
     "url",
     "title",
     "image",
@@ -11,35 +12,35 @@ test("fields", () => {
 });
 
 test("url", () => {
-  const _ = schema.pick(["url"]);
-  expect(_.isValidSync({ url: "" })).toBe(false);
-  expect(_.isValidSync({ url: "foo" })).toBe(false);
-  expect(_.isValidSync({ url: "https://example.com" })).toBe(true);
+  const { url } = schema.object;
+  expect(() => parse(url, "")).toThrowError();
+  expect(() => parse(url, "foo")).toThrowError();
+  expect(parse(url, "https://example.com")).toBe("https://example.com");
   expect(label.url).toBe("URL");
 });
 
 test("title", () => {
-  const _ = schema.pick(["title"]);
-  expect(_.isValidSync({ title: 0 })).toBe(false);
-  expect(_.isValidSync({ title: "" })).toBe(true);
-  expect(_.isValidSync({ title: "foo" })).toBe(true);
+  const { title } = schema.object;
+  expect(() => parse(title, 0)).toThrowError();
+  expect(parse(title, undefined)).toBeUndefined();
+  expect(parse(title, "foo")).toBe("foo");
   expect(label.title).toBe("Title");
 });
 
 test("image", () => {
-  const _ = schema.pick(["image"]);
-  expect(_.isValidSync({ image: "foo" })).toBe(false);
-  expect(_.isValidSync({ image: "" })).toBe(true);
-  expect(_.isValidSync({ image: "https://example.com" })).toBe(true);
+  const { image } = schema.object;
+  expect(() => parse(image, 0)).toThrowError();
+  expect(parse(image, undefined)).toBeUndefined();
+  expect(parse(image, "foo")).toBe("foo");
   expect(label.image).toBe("Image");
 });
 
 test("genres", () => {
-  const _ = schema.pick(["genres"]);
-  expect(_.getDefault()).toEqual({ genres: [] });
-  expect(_.isValidSync({ genres: "foo" })).toBe(false);
-  expect(_.isValidSync({ genres: [0] })).toBe(false);
-  expect(_.isValidSync({ genres: [] })).toBe(true);
-  expect(_.isValidSync({ genres: ["foo", "bar"] })).toBe(true);
+  const { genres } = schema.object;
+  expect(() => parse(genres, "foo")).toThrowError();
+  expect(() => parse(genres, [0])).toThrowError();
+  expect(parse(genres, undefined)).toEqual([]);
+  expect(parse(genres, [])).toEqual([]);
+  expect(parse(genres, ["foo", "bar"])).toEqual(["foo", "bar"]);
   expect(label.genres).toBe("Genres");
 });

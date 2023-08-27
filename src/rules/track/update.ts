@@ -1,19 +1,22 @@
-import type { InferType } from "yup";
-import { array, object, string } from "yup";
-import "../locale";
+import type { Output } from "valibot";
+import { array, minLength, object, optional, string, url } from "valibot";
 
-export const schema = object({
-  url: string().url().strict().label("URL").required(),
-  title: string().strict().label("title"),
-  image: string().url().strict().label("image"),
-  genres: array(string().required()).strict().label("genres"),
-});
-
-export type Schema = InferType<typeof schema>;
-
-export const label: Record<keyof Schema, string> = {
+const field = {
   url: "URL",
   title: "Title",
   image: "Image",
   genres: "Genres",
 };
+
+export const schema = object({
+  url: string([url(`The ${field.url} is invalid.`)]),
+  title: optional(string()),
+  image: optional(string()),
+  genres: array(
+    string([minLength(1, `The ${field.genres} field is required.`)]),
+  ),
+});
+
+export type Schema = Output<typeof schema>;
+
+export const label: Record<keyof Schema, string> = field;

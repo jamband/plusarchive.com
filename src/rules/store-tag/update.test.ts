@@ -1,14 +1,15 @@
 /** @jest-environment node */
+import { parse } from "valibot";
 import { label, schema } from "./update";
 
 test("fields", () => {
-  expect(Object.keys(schema.fields)).toEqual(["name"]);
+  expect(Object.keys(schema.object)).toEqual(["name"]);
 });
 
 test("name", () => {
-  const _ = schema.pick(["name"]);
-  expect(_.isValidSync({ name: 0 })).toBe(false);
-  expect(_.isValidSync({ name: "" })).toBe(false);
-  expect(_.isValidSync({ name: "foo" })).toBe(true);
+  const { name } = schema.object;
+  expect(() => parse(name, 0)).toThrowError();
+  expect(() => parse(name, "")).toThrowError();
+  expect(parse(name, "foo")).toBe("foo");
   expect(label.name).toBe("Name");
 });
