@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import "whatwg-fetch";
 import {
   useAdminCountries,
+  useCountries,
   useCountry,
   useCreateCountry,
   useDeleteCountry,
@@ -22,6 +23,18 @@ jest.mock("next/router", () => ({
 jest.mock("@/hooks/notification", () => ({
   useNotificationAction: jest.fn(),
 }));
+
+test("GET /countries", async () => {
+  server.use(
+    rest.get("*/countries", (_, response, context) =>
+      response(context.json(["bar", "baz", "foo"])),
+    ),
+  );
+
+  const { result } = renderHook(useCountries, { wrapper });
+  await waitFor(() => expect(result.current.isLoading).toBe(false));
+  expect(result.current.data).toEqual(["bar", "baz", "foo"]);
+});
 
 test("GET /countries/admin", async () => {
   router.mockReturnValue({

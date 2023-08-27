@@ -7,6 +7,10 @@ import { useNotificationAction } from "../notification";
 import type { Variables } from "../server-state";
 import { useMutation, useQuery } from "../server-state";
 
+export const useCountries = () => {
+  return useQuery<Array<string>>(["/countries"]);
+};
+
 export const useAdminCountries = () => {
   const { query } = useRouter();
 

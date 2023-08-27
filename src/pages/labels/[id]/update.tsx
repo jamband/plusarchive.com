@@ -8,7 +8,7 @@ import { FormSelect } from "@/components/form/select";
 import { FormSubmit } from "@/components/form/submit";
 import { FormTextarea } from "@/components/form/textarea";
 import { Loading } from "@/components/loading";
-import { useAdminCountries } from "@/hooks/countries";
+import { useCountries } from "@/hooks/countries";
 import { usePutForm } from "@/hooks/form";
 import { useLabel, useLabelsTags, useUpdateLabel } from "@/hooks/labels";
 import { useRequireAdmin } from "@/hooks/require";
@@ -23,7 +23,7 @@ const Page: PageComponent = () => {
   useRequireAdmin();
 
   const label = useLabel();
-  const countries = useAdminCountries();
+  const countries = useCountries();
   const tags = useLabelsTags();
   const updateLabel = useUpdateLabel<Schema>();
 
@@ -76,8 +76,8 @@ const Page: PageComponent = () => {
           required
         >
           {countries.data?.map((country) => (
-            <option key={country.name} value={country.name}>
-              {country.name}
+            <option key={country} value={country}>
+              {country}
             </option>
           ))}
         </FormSelect>

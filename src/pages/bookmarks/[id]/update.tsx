@@ -13,7 +13,7 @@ import {
   useBookmarksTags,
   useUpdateBookmark,
 } from "@/hooks/bookmarks";
-import { useAdminCountries } from "@/hooks/countries";
+import { useCountries } from "@/hooks/countries";
 import { usePutForm } from "@/hooks/form";
 import { useRequireAdmin } from "@/hooks/require";
 import { AdminLayout } from "@/layouts/admin/layout";
@@ -27,7 +27,7 @@ const Page: PageComponent = () => {
   useRequireAdmin();
 
   const bookmark = useBookmark();
-  const countries = useAdminCountries();
+  const countries = useCountries();
   const tags = useBookmarksTags();
   const updateBookmark = useUpdateBookmark<Schema>();
 
@@ -80,8 +80,8 @@ const Page: PageComponent = () => {
           required
         >
           {countries.data?.map((country) => (
-            <option key={country.name} value={country.name}>
-              {country.name}
+            <option key={country} value={country}>
+              {country}
             </option>
           ))}
         </FormSelect>
