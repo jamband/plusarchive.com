@@ -1,13 +1,5 @@
 import type { Output } from "valibot";
-import {
-  array,
-  minLength,
-  object,
-  optional,
-  string,
-  url,
-  withDefault,
-} from "valibot";
+import { array, minLength, object, optional, string, url } from "valibot";
 
 export const field = {
   name: "Name",
@@ -19,13 +11,13 @@ export const field = {
 
 export const schema = object({
   name: string([minLength(1, `The ${field.name} field is required.`)]),
-  country: withDefault(
+  country: optional(
     string([minLength(1, `The ${field.country} field is required.`)]),
     "Unknown",
   ),
   url: string([url(`The ${field.url} is invalid.`)]),
   links: optional(string()),
-  tags: withDefault(
+  tags: optional(
     array(string([minLength(1, `The ${field.tags} field is required.`)])),
     [],
   ),
