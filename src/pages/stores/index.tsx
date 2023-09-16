@@ -6,6 +6,7 @@ import { DropdownLink } from "@/components/dropdown/link";
 import { DropdownText } from "@/components/dropdown/text";
 import { Pagination } from "@/components/pagination";
 import { SearchForm } from "@/components/search-form";
+import { TagLinks } from "@/components/tag-links";
 import { TotalCount } from "@/components/total-count";
 import { useStoresCountries, useStoresTags } from "@/hooks/stores";
 import { useUrlQuery } from "@/hooks/url-query";
@@ -160,7 +161,7 @@ const Page: PageComponent<Props> = (props) => {
             {props.storeCollection.data.map((store) => (
               <article
                 key={store.name}
-                className="mt-6 flex flex-col gap-0.5 lg:mt-0"
+                className="mt-8 flex flex-col gap-0.5 lg:mt-2"
               >
                 <section>
                   <a
@@ -189,22 +190,8 @@ const Page: PageComponent<Props> = (props) => {
                   <span className="text-gray-100">Links:</span>
                   <BrandIconLinks links={store.links} />
                 </section>
-                <section className="mb-2 flex gap-x-3 overflow-scroll whitespace-nowrap">
-                  <span className="text-gray-100">Tags:</span>
-                  {store.tags.map((tag) => (
-                    <Link
-                      key={tag}
-                      href={{
-                        pathname: "/stores",
-                        query: { tag },
-                      }}
-                      className="hover:text-gray-100"
-                    >
-                      {tag}
-                    </Link>
-                  ))}
-                </section>
-                <hr className="border-b-1 mt-6 border-gray-600" />
+                <TagLinks data={store.tags} pathname="/stores" />
+                <hr className="border-b-1 mt-8 border-gray-600" />
               </article>
             ))}
           </div>
