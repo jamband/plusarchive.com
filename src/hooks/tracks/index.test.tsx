@@ -134,7 +134,7 @@ test("PATCH /tracks/stop-urges", async () => {
   result.current.mutate();
   await waitFor(() => expect(cache.findAll()).toHaveLength(2));
   await waitFor(() => expect(useRouter().push).toHaveBeenCalledWith("/admin"));
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("PATCH /tracks/[id]/toggle-urge", async () => {
@@ -159,7 +159,7 @@ test("PATCH /tracks/[id]/toggle-urge", async () => {
   result.current.mutate("foo");
   await waitFor(() => expect(cache.findAll()).toHaveLength(2));
   await waitFor(() =>
-    expect(useNotificationAction().setNotification).toBeCalledTimes(1),
+    expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1),
   );
 });
 
@@ -191,7 +191,7 @@ test("POST /tracks", async () => {
   expect(queryClient.getQueryData(["/tracks", "foo"])).toEqual({ id: "foo" });
   expect(isInvalidated(["/tracks/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/tracks/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("PUT /tracks/[id]", async () => {
@@ -223,7 +223,7 @@ test("PUT /tracks/[id]", async () => {
   await waitFor(() => expect(isInvalidated(["/tracks", "foo"])).toBe(true));
   expect(isInvalidated(["/tracks/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/tracks/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("DELETE /tracks/[id]", async () => {
@@ -254,5 +254,5 @@ test("DELETE /tracks/[id]", async () => {
 
   expect(isInvalidated(["/tracks/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/tracks/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });

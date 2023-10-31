@@ -17,7 +17,7 @@ test("useRequireGuest without role", () => {
   router.mockReturnValue({ push: jest.fn() });
 
   renderHook(useRequireGuest);
-  expect(useRouter().push).toBeCalledTimes(0);
+  expect(useRouter().push).toHaveBeenCalledTimes(0);
 });
 
 test("useRequireGuest with admin role", () => {

@@ -91,7 +91,7 @@ test("POST /music-providers", async () => {
   expect(isInvalidated(["/music-providers/admin"])).toBe(true);
   expect(isInvalidated(["/tracks/providers"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/music-providers/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("PUT /music-providers/[id]", async () => {
@@ -129,7 +129,7 @@ test("PUT /music-providers/[id]", async () => {
   expect(isInvalidated(["/tracks/admin"])).toBe(true);
   expect(isInvalidated(["/tracks/providers"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/music-providers/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("DELETE /music-providers/[id]", async () => {
@@ -164,5 +164,5 @@ test("DELETE /music-providers/[id]", async () => {
   expect(isInvalidated(["/tracks/admin"])).toBe(true);
   expect(isInvalidated(["/tracks/providers"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/music-providers/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });

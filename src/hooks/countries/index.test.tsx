@@ -102,7 +102,7 @@ test("POST /countries", async () => {
   expect(isInvalidated(["/countries/admin"])).toBe(true);
   expect(isInvalidated(["/bookmarks/countries"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/countries/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("PUT /countries/[id]", async () => {
@@ -138,7 +138,7 @@ test("PUT /countries/[id]", async () => {
   expect(isInvalidated(["/bookmarks/admin"])).toBe(true);
   expect(isInvalidated(["/bookmarks/countries"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/countries/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("DELETE /countries/[id]", async () => {
@@ -173,5 +173,5 @@ test("DELETE /countries/[id]", async () => {
   expect(isInvalidated(["/bookmarks/admin"])).toBe(true);
   expect(isInvalidated(["/bookmarks/countries"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/countries/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });

@@ -97,7 +97,7 @@ test("POST /bookmark-tags", async () => {
   expect(isInvalidated(["/bookmark-tags/admin"])).toBe(true);
   expect(isInvalidated(["/bookmarks/tags"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/bookmark-tags/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("PUT /bookmark-tags/[id]", async () => {
@@ -134,7 +134,7 @@ test("PUT /bookmark-tags/[id]", async () => {
   expect(isInvalidated(["/bookmark-tags/admin"])).toBe(true);
   expect(isInvalidated(["/bookmarks/tags"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/bookmark-tags/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("DELETE /bookmark-tags/[id]", async () => {
@@ -168,5 +168,5 @@ test("DELETE /bookmark-tags/[id]", async () => {
   expect(isInvalidated(["/bookmarks/admin"])).toBe(true);
   expect(isInvalidated(["/bookmarks/tags"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/bookmark-tags/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });

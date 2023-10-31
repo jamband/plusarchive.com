@@ -97,7 +97,7 @@ test("POST /label-tags", async () => {
   expect(isInvalidated(["/label-tags/admin"])).toBe(true);
   expect(isInvalidated(["/labels/tags"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/label-tags/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("PUT /label-tags/[id]", async () => {
@@ -132,7 +132,7 @@ test("PUT /label-tags/[id]", async () => {
   expect(isInvalidated(["/label-tags/admin"])).toBe(true);
   expect(isInvalidated(["/labels/tags"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/label-tags/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("DELETE /label-tags/[id]", async () => {
@@ -166,5 +166,5 @@ test("DELETE /label-tags/[id]", async () => {
   expect(isInvalidated(["/labels/admin"])).toBe(true);
   expect(isInvalidated(["/labels/tags"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/label-tags/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });

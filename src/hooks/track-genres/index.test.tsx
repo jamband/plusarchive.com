@@ -89,7 +89,7 @@ test("POST /track-genres", async () => {
   expect(isInvalidated(["/track-genres/admin"])).toBe(true);
   expect(isInvalidated(["/tracks/genres"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/track-genres/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("PUT /track-genres/[id]", async () => {
@@ -125,7 +125,7 @@ test("PUT /track-genres/[id]", async () => {
   expect(isInvalidated(["/tracks/admin"])).toBe(true);
   expect(isInvalidated(["/tracks/genres"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/track-genres/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("DELETE /track-genres/[id]", async () => {
@@ -160,5 +160,5 @@ test("DELETE /track-genres/[id]", async () => {
   expect(isInvalidated(["/tracks/admin"])).toBe(true);
   expect(isInvalidated(["/tracks/genres"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/track-genres/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });

@@ -97,7 +97,7 @@ test("POST /playlists", async () => {
   });
   expect(isInvalidated(["/playlists/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/playlists/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("PUT /playlists/[id]", async () => {
@@ -129,7 +129,7 @@ test("PUT /playlists/[id]", async () => {
   await waitFor(() => expect(isInvalidated(["/playlists", "foo"])).toBe(true));
   expect(isInvalidated(["/playlists/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/playlists/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("DELETE /playlists/[id]", async () => {
@@ -160,5 +160,5 @@ test("DELETE /playlists/[id]", async () => {
 
   expect(isInvalidated(["/playlists/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/playlists/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });

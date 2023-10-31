@@ -121,7 +121,7 @@ test("POST /labels", async () => {
   expect(queryClient.getQueryData(["/labels", "1"])).toEqual({ id: 1 });
   expect(isInvalidated(["/labels/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/labels/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("PUT /labels/[id]", async () => {
@@ -153,7 +153,7 @@ test("PUT /labels/[id]", async () => {
   await waitFor(() => expect(isInvalidated(["/labels", "1"])).toBe(true));
   expect(isInvalidated(["/labels/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/labels/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("DELETE /labels/[id]", async () => {
@@ -184,5 +184,5 @@ test("DELETE /labels/[id]", async () => {
 
   expect(isInvalidated(["/labels/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/labels/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });

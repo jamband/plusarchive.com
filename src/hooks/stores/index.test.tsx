@@ -121,7 +121,7 @@ test("POST /stores", async () => {
   expect(queryClient.getQueryData(["/stores", "1"])).toEqual({ id: 1 });
   expect(isInvalidated(["/stores/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/stores/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("PUT /stores/[id]", async () => {
@@ -153,7 +153,7 @@ test("PUT /stores/[id]", async () => {
   await waitFor(() => expect(isInvalidated(["/stores", "1"])).toBe(true));
   expect(isInvalidated(["/stores/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/stores/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("DELETE /stores/[id]", async () => {
@@ -184,5 +184,5 @@ test("DELETE /stores/[id]", async () => {
 
   expect(isInvalidated(["/stores/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/stores/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });

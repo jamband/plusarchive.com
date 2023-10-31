@@ -121,7 +121,7 @@ test("POST /bookmarks", async () => {
   expect(queryClient.getQueryData(["/bookmarks", "1"])).toEqual({ id: 1 });
   expect(isInvalidated(["/bookmarks/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/bookmarks/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("PUT /bookmarks/[id]", async () => {
@@ -153,7 +153,7 @@ test("PUT /bookmarks/[id]", async () => {
   await waitFor(() => expect(isInvalidated(["/bookmarks", "1"])).toBe(true));
   expect(isInvalidated(["/bookmarks/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/bookmarks/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("DELETE /bookmarks/[id]", async () => {
@@ -184,5 +184,5 @@ test("DELETE /bookmarks/[id]", async () => {
 
   expect(isInvalidated(["/bookmarks/admin"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/bookmarks/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });

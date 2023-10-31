@@ -97,7 +97,7 @@ test("POST /store-tags", async () => {
   expect(isInvalidated(["/store-tags/admin"])).toBe(true);
   expect(isInvalidated(["/stores/tags"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/store-tags/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("PUT /store-tags/[id]", async () => {
@@ -132,7 +132,7 @@ test("PUT /store-tags/[id]", async () => {
   expect(isInvalidated(["/store-tags/admin"])).toBe(true);
   expect(isInvalidated(["/stores/tags"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/store-tags/1");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
 
 test("DELETE /store-tags/[id]", async () => {
@@ -166,5 +166,5 @@ test("DELETE /store-tags/[id]", async () => {
   expect(isInvalidated(["/stores/admin"])).toBe(true);
   expect(isInvalidated(["/stores/tags"])).toBe(true);
   expect(useRouter().push).toHaveBeenCalledWith("/store-tags/admin");
-  expect(useNotificationAction().setNotification).toBeCalledTimes(1);
+  expect(useNotificationAction().setNotification).toHaveBeenCalledTimes(1);
 });
