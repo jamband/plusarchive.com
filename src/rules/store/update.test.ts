@@ -3,7 +3,7 @@ import { parse } from "valibot";
 import { label, schema } from "./update";
 
 test("fields", () => {
-  expect(Object.keys(schema.object)).toEqual([
+  expect(Object.keys(schema.entries)).toEqual([
     "name",
     "country",
     "url",
@@ -13,42 +13,42 @@ test("fields", () => {
 });
 
 test("name", () => {
-  const { name } = schema.object;
-  expect(() => parse(name, 0)).toThrowError();
-  expect(() => parse(name, "")).toThrowError();
+  const { name } = schema.entries;
+  expect(() => parse(name, 0)).toThrow();
+  expect(() => parse(name, "")).toThrow();
   expect(parse(name, "foo")).toBe("foo");
   expect(label.name).toBe("Name");
 });
 
 test("country", () => {
-  const { country } = schema.object;
-  expect(() => parse(country, 0)).toThrowError();
-  expect(() => parse(country, "")).toThrowError();
+  const { country } = schema.entries;
+  expect(() => parse(country, 0)).toThrow();
+  expect(() => parse(country, "")).toThrow();
   expect(parse(country, "foo")).toBe("foo");
   expect(label.country).toBe("Country");
 });
 
 test("url", () => {
-  const { url } = schema.object;
-  expect(() => parse(url, "")).toThrowError();
-  expect(() => parse(url, "foo")).toThrowError();
+  const { url } = schema.entries;
+  expect(() => parse(url, "")).toThrow();
+  expect(() => parse(url, "foo")).toThrow();
   expect(parse(url, "https://example.com")).toBe("https://example.com");
   expect(label.url).toBe("URL");
 });
 
 test("links", () => {
-  const { links } = schema.object;
-  expect(() => parse(links, 0)).toThrowError();
+  const { links } = schema.entries;
+  expect(() => parse(links, 0)).toThrow();
   expect(parse(links, undefined)).toBeUndefined();
   expect(parse(links, "foo")).toBe("foo");
   expect(label.links).toBe("Links");
 });
 
 test("tags", () => {
-  const { tags } = schema.object;
-  expect(() => parse(tags, 0)).toThrowError();
-  expect(() => parse(tags, "foo")).toThrowError();
-  expect(() => parse(tags, [0])).toThrowError();
+  const { tags } = schema.entries;
+  expect(() => parse(tags, 0)).toThrow();
+  expect(() => parse(tags, "foo")).toThrow();
+  expect(() => parse(tags, [0])).toThrow();
   expect(parse(tags, [])).toEqual([]);
   expect(parse(tags, ["foo", "bar"])).toEqual(["foo", "bar"]);
   expect(label.tags).toBe("Tags");
