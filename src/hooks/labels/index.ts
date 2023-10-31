@@ -52,7 +52,7 @@ export const useCreateLabel = <T extends FieldValues>() => {
     {
       onSuccess: async (data) => {
         queryClient.setQueryData(["/labels", `${data.id}`], data);
-        await queryClient.invalidateQueries(["/labels/admin"]);
+        await queryClient.invalidateQueries({ queryKey: ["/labels/admin"] });
         await push(`/labels/${data.id}`);
         setNotification("New label has been created.");
       },
@@ -73,8 +73,10 @@ export const useUpdateLabel = <T extends FieldValues>() => {
       }),
     {
       onSuccess: async (data) => {
-        await queryClient.invalidateQueries(["/labels", `${data.id}`]);
-        await queryClient.invalidateQueries(["/labels/admin"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/labels", `${data.id}`],
+        });
+        await queryClient.invalidateQueries({ queryKey: ["/labels/admin"] });
         await push(`/labels/${data.id}`);
         setNotification("The label has been updated.");
       },
@@ -94,8 +96,8 @@ export const useDeleteLabel = () => {
       }),
     {
       onSuccess: async (_, id) => {
-        queryClient.removeQueries(["/labels", `${id}`]);
-        await queryClient.invalidateQueries(["/labels/admin"]);
+        queryClient.removeQueries({ queryKey: ["/labels", `${id}`] });
+        await queryClient.invalidateQueries({ queryKey: ["/labels/admin"] });
         await push("/labels/admin");
         setNotification("The label has been deleted.");
       },

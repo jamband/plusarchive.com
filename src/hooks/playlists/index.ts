@@ -4,12 +4,12 @@ import type {
   PlaylistAdmin,
   PlaylistAdminCollection,
 } from "@/types/playlists";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import type { FieldValues } from "react-hook-form";
 import { useNotificationAction } from "../notification";
 import type { Variables } from "../server-state";
-import { useMutation } from "../server-state";
+import { useMutation, useQuery } from "../server-state";
 
 export const usePlaylistsAdmin = () => {
   const { query } = useRouter();
@@ -47,7 +47,11 @@ export const useCreatePlaylist = <T extends FieldValues>() => {
     {
       onSuccess: async (data) => {
         queryClient.setQueryData(["/playlists", data.id], data);
-        await queryClient.invalidateQueries(["/playlists/admin"]);
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/playlists/admin"],
+        });
+
         await push("/playlists/admin");
         setNotification("New playlist has been created.");
       },
@@ -68,8 +72,13 @@ export const useUpdatePlaylist = <T extends FieldValues>() => {
       }),
     {
       onSuccess: async (data) => {
-        await queryClient.invalidateQueries(["/playlists", data.id]);
-        await queryClient.invalidateQueries(["/playlists/admin"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/playlists", data.id],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/playlists/admin"],
+        });
+
         await push("/playlists/admin");
         setNotification("The playlist has been updated.");
       },
@@ -89,8 +98,14 @@ export const useDeletePlaylist = () => {
       }),
     {
       onSuccess: async (_, id) => {
-        queryClient.removeQueries(["/playlists", id]);
-        await queryClient.invalidateQueries(["/playlists/admin"]);
+        queryClient.removeQueries({
+          queryKey: ["/playlists", id],
+        });
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/playlists/admin"],
+        });
+
         await push("/playlists/admin");
         setNotification("The playlist has been deleted.");
       },

@@ -45,8 +45,14 @@ export const useCreateCountry = <T extends FieldValues>() => {
     {
       onSuccess: async (data) => {
         queryClient.setQueryData(["/countries", `${data.id}`], data);
-        await queryClient.invalidateQueries(["/countries/admin"]);
-        await queryClient.invalidateQueries(["/bookmarks/countries"]);
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/countries/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/countries"],
+        });
+
         await push(`/countries/${data.id}`);
         setNotification("New country has been created.");
       },
@@ -67,10 +73,19 @@ export const useUpdateCountry = <T extends FieldValues>() => {
       }),
     {
       onSuccess: async (data) => {
-        await queryClient.invalidateQueries(["/countries", `${data.id}`]);
-        await queryClient.invalidateQueries(["/countries/admin"]);
-        await queryClient.invalidateQueries(["/bookmarks/admin"]);
-        await queryClient.invalidateQueries(["/bookmarks/countries"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/countries", `${data.id}`],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/countries/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/countries"],
+        });
+
         await push(`/countries/${data.id}`);
         setNotification("The country has been updated.");
       },
@@ -90,10 +105,20 @@ export const useDeleteCountry = () => {
       }),
     {
       onSuccess: async (_, id) => {
-        queryClient.removeQueries(["/countries", `${id}`]);
-        await queryClient.invalidateQueries(["/countries/admin"]);
-        await queryClient.invalidateQueries(["/bookmarks/admin"]);
-        await queryClient.invalidateQueries(["/bookmarks/countries"]);
+        queryClient.removeQueries({
+          queryKey: ["/countries", `${id}`],
+        });
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/countries/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/countries"],
+        });
+
         await push("/countries/admin");
         setNotification("The country has been deleted.");
       },

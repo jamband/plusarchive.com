@@ -41,8 +41,12 @@ export const useCreateMusicProvider = <T extends FieldValues>() => {
     {
       onSuccess: async (data) => {
         queryClient.setQueryData(["/music-providers", `${data.id}`], data);
-        await queryClient.invalidateQueries(["/music-providers/admin"]);
-        await queryClient.invalidateQueries(["/tracks/providers"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/music-providers/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/providers"],
+        });
         await push(`/music-providers/${data.id}`);
         setNotification("New music provider has been created.");
       },
@@ -63,10 +67,19 @@ export const useUpdateMusicProvider = <T extends FieldValues>() => {
       }),
     {
       onSuccess: async (data) => {
-        await queryClient.invalidateQueries(["/music-providers", `${data.id}`]);
-        await queryClient.invalidateQueries(["/music-providers/admin"]);
-        await queryClient.invalidateQueries(["/tracks/admin"]);
-        await queryClient.invalidateQueries(["/tracks/providers"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/music-providers", `${data.id}`],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/music-providers/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/providers"],
+        });
+
         await push(`/music-providers/${data.id}`);
         setNotification("The music provider has been updated.");
       },
@@ -86,10 +99,20 @@ export const useDeleteMusicProvider = () => {
       }),
     {
       onSuccess: async (_, id) => {
-        queryClient.removeQueries(["/music-providers", `${id}`]);
-        await queryClient.invalidateQueries(["/music-providers/admin"]);
-        await queryClient.invalidateQueries(["/tracks/admin"]);
-        await queryClient.invalidateQueries(["/tracks/providers"]);
+        queryClient.removeQueries({
+          queryKey: ["/music-providers", `${id}`],
+        });
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/music-providers/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/providers"],
+        });
+
         await push("/music-providers/admin");
         setNotification("The music provider has been deleted.");
       },

@@ -52,7 +52,11 @@ export const useCreateBookmark = <T extends FieldValues>() => {
     {
       onSuccess: async (data) => {
         queryClient.setQueryData(["/bookmarks", `${data.id}`], data);
-        await queryClient.invalidateQueries(["/bookmarks/admin"]);
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/admin"],
+        });
+
         await push(`/bookmarks/${data.id}`);
         setNotification("New bookmark has been created.");
       },
@@ -73,8 +77,13 @@ export const useUpdateBookmark = <T extends FieldValues>() => {
       }),
     {
       onSuccess: async (data) => {
-        await queryClient.invalidateQueries(["/bookmarks", `${data.id}`]);
-        await queryClient.invalidateQueries(["/bookmarks/admin"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks", `${data.id}`],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/admin"],
+        });
+
         await push(`/bookmarks/${data.id}`);
         setNotification("The bookmark has been updated.");
       },
@@ -94,8 +103,14 @@ export const useDeleteBookmark = () => {
       }),
     {
       onSuccess: async (_, id) => {
-        queryClient.removeQueries(["/bookmarks", `${id}`]);
-        await queryClient.invalidateQueries(["/bookmarks/admin"]);
+        queryClient.removeQueries({
+          queryKey: ["/bookmarks", `${id}`],
+        });
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/admin"],
+        });
+
         await push("/bookmarks/admin");
         setNotification("The bookmark has been deleted.");
       },

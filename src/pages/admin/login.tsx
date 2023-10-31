@@ -58,7 +58,7 @@ const Page: PageComponent = () => {
           autoComplete="current-password"
           required
         />
-        <FormSubmit disabled={form.disabled || login.isLoading}>
+        <FormSubmit disabled={form.disabled || login.isPending}>
           Login
         </FormSubmit>
       </form>

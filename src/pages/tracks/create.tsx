@@ -86,7 +86,7 @@ const Page: PageComponent = () => {
               />
             ))}
         </FormChecks>
-        <FormSubmit disabled={form.disabled || createTrack.isLoading}>
+        <FormSubmit disabled={form.disabled || createTrack.isPending}>
           Create
         </FormSubmit>
       </form>

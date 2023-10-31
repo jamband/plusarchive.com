@@ -20,7 +20,7 @@ const Page: PageComponent = () => {
         type="button"
         onClick={() => logout.mutate()}
         className="rounded bg-rose-500 px-4 py-1 font-bold text-gray-100 shadow-sm shadow-gray-900 disabled:bg-gray-700 disabled:text-gray-400"
-        disabled={logout.isLoading}
+        disabled={logout.isPending}
       >
         Logout
       </button>

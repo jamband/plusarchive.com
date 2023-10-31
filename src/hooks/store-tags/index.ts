@@ -42,8 +42,14 @@ export const useCreateStoreTag = <T extends FieldValues>() => {
     {
       onSuccess: async (data) => {
         queryClient.setQueryData(["/store-tags", `${data.id}`], data);
-        await queryClient.invalidateQueries(["/store-tags/admin"]);
-        await queryClient.invalidateQueries(["/stores/tags"]);
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/store-tags/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/stores/tags"],
+        });
+
         await push(`/store-tags/${data.id}`);
         setNotification("The store tag has been created.");
       },
@@ -64,10 +70,19 @@ export const useUpdateStoreTag = <T extends FieldValues>() => {
       }),
     {
       onSuccess: async (data) => {
-        await queryClient.invalidateQueries(["/store-tags", `${data.id}`]);
-        await queryClient.invalidateQueries(["/store-tags/admin"]);
-        await queryClient.invalidateQueries(["/stores/admin"]);
-        await queryClient.invalidateQueries(["/stores/tags"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/store-tags", `${data.id}`],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/store-tags/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/stores/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/stores/tags"],
+        });
+
         await push(`/store-tags/${data.id}`);
         setNotification("The store tag has been updated.");
       },
@@ -87,10 +102,20 @@ export const useDeleteStoreTag = () => {
       }),
     {
       onSuccess: async (_, id) => {
-        queryClient.removeQueries(["/store-tags", `${id}`]);
-        await queryClient.invalidateQueries(["/store-tags/admin"]);
-        await queryClient.invalidateQueries(["/stores/admin"]);
-        await queryClient.invalidateQueries(["/stores/tags"]);
+        queryClient.removeQueries({
+          queryKey: ["/store-tags", `${id}`],
+        });
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/store-tags/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/stores/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/stores/tags"],
+        });
+
         await push("/store-tags/admin");
         setNotification("The store tag has been deleted.");
       },

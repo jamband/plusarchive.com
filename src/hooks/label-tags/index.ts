@@ -42,8 +42,14 @@ export const useCreateLabelTag = <T extends FieldValues>() => {
     {
       onSuccess: async (data) => {
         queryClient.setQueryData(["/label-tags", `${data.id}`], data);
-        await queryClient.invalidateQueries(["/label-tags/admin"]);
-        await queryClient.invalidateQueries(["/labels/tags"]);
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/label-tags/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/labels/tags"],
+        });
+
         await push(`/label-tags/${data.id}`);
         setNotification("The label tag has been created.");
       },
@@ -64,10 +70,19 @@ export const useUpdateLabelTag = <T extends FieldValues>() => {
       }),
     {
       onSuccess: async (data) => {
-        await queryClient.invalidateQueries(["/label-tags", `${data.id}`]);
-        await queryClient.invalidateQueries(["/label-tags/admin"]);
-        await queryClient.invalidateQueries(["/labels/admin"]);
-        await queryClient.invalidateQueries(["/labels/tags"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/label-tags", `${data.id}`],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/label-tags/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/labels/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/labels/tags"],
+        });
+
         await push(`/label-tags/${data.id}`);
         setNotification("The label tag has been updated.");
       },
@@ -87,10 +102,20 @@ export const useDeleteLabelTag = () => {
       }),
     {
       onSuccess: async (_, id) => {
-        queryClient.removeQueries(["/label-tags", `${id}`]);
-        await queryClient.invalidateQueries(["/label-tags/admin"]);
-        await queryClient.invalidateQueries(["/labels/admin"]);
-        await queryClient.invalidateQueries(["/labels/tags"]);
+        queryClient.removeQueries({
+          queryKey: ["/label-tags", `${id}`],
+        });
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/label-tags/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/labels/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/labels/tags"],
+        });
+
         await push("/label-tags/admin");
         setNotification("The label tag has been deleted.");
       },

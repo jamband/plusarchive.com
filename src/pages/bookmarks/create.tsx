@@ -106,7 +106,7 @@ const Page: PageComponent = () => {
               />
             ))}
         </FormChecks>
-        <FormSubmit disabled={form.disabled || createBookmark.isLoading}>
+        <FormSubmit disabled={form.disabled || createBookmark.isPending}>
           Create
         </FormSubmit>
       </form>

@@ -45,8 +45,14 @@ export const useCreateTrackGenre = <T extends FieldValues>() => {
     {
       onSuccess: async (data) => {
         queryClient.setQueryData(["/track-genres", `${data.id}`], data);
-        await queryClient.invalidateQueries(["/track-genres/admin"]);
-        await queryClient.invalidateQueries(["/tracks/genres"]);
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/track-genres/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/genres"],
+        });
+
         await push(`/track-genres/${data.id}`);
         setNotification("New track genre has been created.");
       },
@@ -67,10 +73,19 @@ export const useUpdateTrackGenre = <T extends FieldValues>() => {
       }),
     {
       onSuccess: async (data) => {
-        await queryClient.invalidateQueries(["/track-genres", `${data.id}`]);
-        await queryClient.invalidateQueries(["/track-genres/admin"]);
-        await queryClient.invalidateQueries(["/tracks/admin"]);
-        await queryClient.invalidateQueries(["/tracks/genres"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/track-genres", `${data.id}`],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/track-genres/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/genres"],
+        });
+
         await push(`/track-genres/${data.id}`);
         setNotification("The track genre has been updated.");
       },
@@ -90,10 +105,20 @@ export const useDeleteTrackGenre = () => {
       }),
     {
       onSuccess: async (_, id) => {
-        queryClient.removeQueries(["/track-genres", `${id}`]);
-        await queryClient.invalidateQueries(["/track-genres/admin"]);
-        await queryClient.invalidateQueries(["/tracks/admin"]);
-        await queryClient.invalidateQueries(["/tracks/genres"]);
+        queryClient.removeQueries({
+          queryKey: ["/track-genres", `${id}`],
+        });
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/track-genres/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/genres"],
+        });
+
         await push("/track-genres/admin");
         setNotification("The track genre has been deleted.");
       },

@@ -116,7 +116,7 @@ const Page: PageComponent = () => {
               />
             ))}
         </FormChecks>
-        <FormSubmit disabled={form.disabled || updateStore.isLoading}>
+        <FormSubmit disabled={form.disabled || updateStore.isPending}>
           Update
         </FormSubmit>
       </form>

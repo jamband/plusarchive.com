@@ -52,7 +52,11 @@ export const useCreateStore = <T extends FieldValues>() => {
     {
       onSuccess: async (data) => {
         queryClient.setQueryData(["/stores", `${data.id}`], data);
-        await queryClient.invalidateQueries(["/stores/admin"]);
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/stores/admin"],
+        });
+
         await push(`/stores/${data.id}`);
         setNotification("New store has been created.");
       },
@@ -73,8 +77,13 @@ export const useUpdateStore = <T extends FieldValues>() => {
       }),
     {
       onSuccess: async (data) => {
-        await queryClient.invalidateQueries(["/stores", `${data.id}`]);
-        await queryClient.invalidateQueries(["/stores/admin"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/stores", `${data.id}`],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/stores/admin"],
+        });
+
         await push(`/stores/${data.id}`);
         setNotification("The store has been updated.");
       },
@@ -94,8 +103,14 @@ export const useDeleteStore = () => {
       }),
     {
       onSuccess: async (_, id) => {
-        queryClient.removeQueries(["/stores", `${id}`]);
-        await queryClient.invalidateQueries(["/stores/admin"]);
+        queryClient.removeQueries({
+          queryKey: ["/stores", `${id}`],
+        });
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/stores/admin"],
+        });
+
         await push("/stores/admin");
         setNotification("The store has been deleted.");
       },

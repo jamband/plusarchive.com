@@ -46,7 +46,7 @@ const Page: PageComponent = () => {
           placeholder="Name"
           required
         />
-        <FormSubmit disabled={form.disabled || createProvider.isLoading}>
+        <FormSubmit disabled={form.disabled || createProvider.isPending}>
           Create
         </FormSubmit>
       </form>

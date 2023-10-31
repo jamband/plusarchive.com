@@ -67,7 +67,7 @@ const Page: PageComponent = () => {
           feedback={form.errors.title?.message}
           placeholder="Title"
         />
-        <FormSubmit disabled={form.disabled || updatePlaylist.isLoading}>
+        <FormSubmit disabled={form.disabled || updatePlaylist.isPending}>
           Update
         </FormSubmit>
       </form>

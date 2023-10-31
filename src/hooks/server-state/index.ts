@@ -18,7 +18,10 @@ export const useQuery = <T>(
   queryKey: QueryKey,
   options?: QueryObserverOptions<T>,
 ) => {
-  const { isLoading, isError, data } = useBaseQuery<T>(queryKey, options);
+  const { isLoading, isError, data } = useBaseQuery<T>({
+    queryKey,
+    ...options,
+  });
 
   return {
     isLoading,
@@ -31,10 +34,13 @@ export const useMutation = <TData, TVariables>(
   mutationFn: (variables: TVariables) => Promise<TData>,
   options: UseMutationOptions<TData, Response, TVariables>,
 ) => {
-  const { isLoading, error, mutate } = useBaseMutation(mutationFn, options);
+  const { isPending, error, mutate } = useBaseMutation({
+    mutationFn,
+    ...options,
+  });
 
   return {
-    isLoading,
+    isPending,
     error,
     mutate,
   } as const;

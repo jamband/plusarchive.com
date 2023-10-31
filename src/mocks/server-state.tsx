@@ -13,11 +13,6 @@ export const queryClient = new QueryClient({
       queryFn,
     },
   },
-  logger: {
-    log: console.log,
-    warn: console.warn,
-    error: () => undefined,
-  },
 });
 
 export const wrapper: React.FC<Props> = (props) => (

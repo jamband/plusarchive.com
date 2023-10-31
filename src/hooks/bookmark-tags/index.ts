@@ -45,8 +45,14 @@ export const useCreateBookmarkTag = <T extends FieldValues>() => {
     {
       onSuccess: async (data) => {
         queryClient.setQueryData(["/bookmark-tags", `${data.id}`], data);
-        await queryClient.invalidateQueries(["/bookmark-tags/admin"]);
-        await queryClient.invalidateQueries(["/bookmarks/tags"]);
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmark-tags/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/tags"],
+        });
+
         await push(`/bookmark-tags/${data.id}`);
         setNotification("The bookmark tag has been created.");
       },
@@ -67,10 +73,19 @@ export const useUpdateBookmarkTag = <T extends FieldValues>() => {
       }),
     {
       onSuccess: async (data) => {
-        await queryClient.invalidateQueries(["/bookmark-tags", `${data.id}`]);
-        await queryClient.invalidateQueries(["/bookmark-tags/admin"]);
-        await queryClient.invalidateQueries(["/bookmarks/admin"]);
-        await queryClient.invalidateQueries(["/bookmarks/tags"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmark-tags", `${data.id}`],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmark-tags/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/tags"],
+        });
+
         await push(`/bookmark-tags/${data.id}`);
         setNotification("The bookmark tag has been updated.");
       },
@@ -90,10 +105,20 @@ export const useDeleteBookmarkTag = () => {
       }),
     {
       onSuccess: async (_, id) => {
-        queryClient.removeQueries(["/bookmark-tags", `${id}`]);
-        await queryClient.invalidateQueries(["/bookmark-tags/admin"]);
-        await queryClient.invalidateQueries(["/bookmarks/admin"]);
-        await queryClient.invalidateQueries(["/bookmarks/tags"]);
+        queryClient.removeQueries({
+          queryKey: ["/bookmark-tags", `${id}`],
+        });
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmark-tags/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/admin"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/bookmarks/tags"],
+        });
+
         await push("/bookmark-tags/admin");
         setNotification("The bookmark tag has been deleted.");
       },

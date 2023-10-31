@@ -57,8 +57,13 @@ export const useStopUrges = () => {
       }),
     {
       onSuccess: async () => {
-        await queryClient.invalidateQueries(["/tracks/favorites"]);
-        await queryClient.invalidateQueries(["/tracks/admin"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/favorites"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/admin"],
+        });
+
         await push("/admin");
         setNotification("All urges of tracks has been stopped.");
       },
@@ -77,8 +82,13 @@ export const useToggleUrge = () => {
       }),
     {
       onSuccess: async () => {
-        await queryClient.invalidateQueries(["/tracks/favorites"]);
-        await queryClient.invalidateQueries(["/tracks/admin"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/favorites"],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/admin"],
+        });
+
         setNotification("The urge has been toggled.");
       },
     },
@@ -98,7 +108,11 @@ export const useCreateTrack = <T extends FieldValues>() => {
     {
       onSuccess: async (data) => {
         queryClient.setQueryData(["/tracks", data.id], data);
-        await queryClient.invalidateQueries(["/tracks/admin"]);
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/admin"],
+        });
+
         await push("/tracks/admin");
         setNotification("New track has been created.");
       },
@@ -119,8 +133,13 @@ export const useUpdateTrack = <T extends FieldValues>() => {
       }),
     {
       onSuccess: async (data) => {
-        await queryClient.invalidateQueries(["/tracks", data.id]);
-        await queryClient.invalidateQueries(["/tracks/admin"]);
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks", data.id],
+        });
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/admin"],
+        });
+
         await push("/tracks/admin");
         setNotification("The track has been updated.");
       },
@@ -140,8 +159,14 @@ export const useDeleteTrack = () => {
       }),
     {
       onSuccess: async (_, id) => {
-        queryClient.removeQueries(["/tracks", id]);
-        await queryClient.invalidateQueries(["/tracks/admin"]);
+        queryClient.removeQueries({
+          queryKey: ["/tracks", id],
+        });
+
+        await queryClient.invalidateQueries({
+          queryKey: ["/tracks/admin"],
+        });
+
         await push("/tracks/admin");
         setNotification("The track has been deleted.");
       },

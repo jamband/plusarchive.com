@@ -120,7 +120,7 @@ const Page: PageComponent = () => {
               />
             ))}
         </FormChecks>
-        <FormSubmit disabled={form.disabled || updateBookmark.isLoading}>
+        <FormSubmit disabled={form.disabled || updateBookmark.isPending}>
           Update
         </FormSubmit>
       </form>
