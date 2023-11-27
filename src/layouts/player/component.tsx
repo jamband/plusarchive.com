@@ -22,7 +22,7 @@ export const Component: React.FC<_Props> = (props) => (
           }`}
           title={`${props.player.provider} player`}
           onLoad={props.loading.stop}
-          allowFullScreen
+          allow="fullscreen"
         />
       </div>
     </div>
