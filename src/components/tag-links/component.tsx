@@ -12,11 +12,12 @@ export const Component: React.FC<_Props> = (props) => (
             pathname: props.pathname,
             query: { tag },
           }}
-          className="last:after:mr-12 hover:text-gray-100 md:last:after:mr-24"
+          className="hover:text-gray-100"
         >
           {tag}
         </Link>
       ))}
+      <div className="mr-12 md:mr-24" />
     </div>
   </section>
 );
