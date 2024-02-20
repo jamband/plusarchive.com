@@ -1,12 +1,11 @@
 import { IconBandcamp } from "@/icons/bandcamp";
 import { IconFacebookSquare } from "@/icons/facebook-square";
 import { IconInstagram } from "@/icons/instagram";
-import { IconMixcloud } from "@/icons/mixcloud";
 import { IconSoundCloud } from "@/icons/soundcloud";
 import { IconSpotify } from "@/icons/spotify";
-import { IconTwitterSquare } from "@/icons/twitter-square";
 import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
 import { IconVimeoSquare } from "@/icons/vimeo-square";
+import { IconXTwitterSquare } from "@/icons/x-twitter-square";
 import { IconYouTubeSquare } from "@/icons/youtube-square";
 import { Component } from "./component";
 import type { Props } from "./types";
@@ -34,10 +33,6 @@ export const BrandIconLinks: React.FC<Props> = (props) => {
         name: "Instagram",
         component: <IconInstagram className={className} />,
       },
-      "mixcloud.com": {
-        name: "Mixcloud",
-        component: <IconMixcloud className={className} />,
-      },
       "soundcloud.com": {
         name: "SoundCloud",
         component: <IconSoundCloud className={className} />,
@@ -47,8 +42,8 @@ export const BrandIconLinks: React.FC<Props> = (props) => {
         component: <IconSpotify className={className} />,
       },
       "twitter.com": {
-        name: "Twitter",
-        component: <IconTwitterSquare className={className} />,
+        name: "X",
+        component: <IconXTwitterSquare className={className} />,
       },
       "vimeo.com": {
         name: "Vimeo",
@@ -73,6 +68,10 @@ export const BrandIconLinks: React.FC<Props> = (props) => {
         component: <IconBandcamp className={className} />,
       },
       "souterraine.biz": {
+        name: "Bandcamp",
+        component: <IconBandcamp className={className} />,
+      },
+      "wrwtfww.com": {
         name: "Bandcamp",
         component: <IconBandcamp className={className} />,
       },

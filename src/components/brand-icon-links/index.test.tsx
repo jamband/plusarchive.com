@@ -41,7 +41,6 @@ test("brand icon links", () => {
     "https://bandcamp.com/foo",
     "https://facebook.com/foo",
     "https://instagram.com/foo",
-    "https://mixcloud.com/foo",
     "https://soundcloud.com/foo",
     "https://spotify.com/foo",
     "https://twitter.com/foo",
@@ -62,11 +61,10 @@ test("brand icon links", () => {
     "Bandcamp",
     "Facebook",
     "Instagram",
-    "Mixcloud",
     "SoundCloud",
     "Spotify",
-    "Twitter",
     "Vimeo",
+    "X",
     "YouTube",
   ];
 
@@ -81,6 +79,7 @@ test("custom domains for Bandcamp", () => {
     "https://mamabirdrecordingco.com",
     "https://maybemars.org",
     "https://souterraine.biz",
+    "https://wrwtfww.com",
   ];
 
   render(<BrandIconLinks links={linkValues.join("\n")} />);

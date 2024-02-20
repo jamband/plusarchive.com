@@ -21,7 +21,7 @@ const Page: PageComponent = () => {
             target="_blank"
             rel="noreferrer"
           >
-            Twitter
+            X
             <IconUpRightFromSquare className="ml-1 h-4 w-4 align-[-0.125em] text-rose-500/70" />
           </a>{" "}
           or{" "}
