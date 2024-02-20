@@ -42,11 +42,9 @@ test("brand icon links", () => {
     "https://facebook.com/foo",
     "https://instagram.com/foo",
     "https://mixcloud.com/foo",
-    "https://pinterest.com/foo",
     "https://soundcloud.com/foo",
     "https://spotify.com/foo",
     "https://twitter.com/foo",
-    "https://tumblr.com/foo",
     "https://vimeo.com/foo",
     "https://www.youtube.com/foo",
   ];
@@ -65,11 +63,9 @@ test("brand icon links", () => {
     "Facebook",
     "Instagram",
     "Mixcloud",
-    "Pinterest",
     "SoundCloud",
     "Spotify",
     "Twitter",
-    "Tumblr",
     "Vimeo",
     "YouTube",
   ];
