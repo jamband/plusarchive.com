@@ -8,33 +8,40 @@ import type { Variables } from "../server-state";
 import { useMutation, useQuery } from "../server-state";
 
 export const useStoresCountries = () => {
-  return useQuery<Array<string>>(["/stores/countries"]);
+  return useQuery<Array<string>>({
+    queryKey: ["/stores/countries"],
+  });
 };
 
 export const useStoresTags = () => {
-  return useQuery<Array<string>>(["/stores/tags"]);
+  return useQuery<Array<string>>({
+    queryKey: ["/stores/tags"],
+  });
 };
 
 export const useStoresAdmin = () => {
   const { query } = useRouter();
 
-  return useQuery<StoreAdminCollection>([
-    "/stores/admin",
-    {
-      name: `${query.name || ""}`,
-      country: `${query.country || ""}`,
-      tag: `${query.tag || ""}`,
-      sort: `${query.sort || ""}`,
-      page: `${query.page || "1"}`,
-    },
-  ]);
+  return useQuery<StoreAdminCollection>({
+    queryKey: [
+      "/stores/admin",
+      {
+        name: `${query.name || ""}`,
+        country: `${query.country || ""}`,
+        tag: `${query.tag || ""}`,
+        sort: `${query.sort || ""}`,
+        page: `${query.page || "1"}`,
+      },
+    ],
+  });
 };
 
 export const useStore = () => {
   const { query } = useRouter();
   const id = `${query.id || ""}`;
 
-  return useQuery<StoreAdmin>(["/stores", id], {
+  return useQuery<StoreAdmin>({
+    queryKey: ["/stores", id],
     enabled: id !== "",
   });
 };

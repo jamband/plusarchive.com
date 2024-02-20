@@ -10,21 +10,24 @@ import { useMutation, useQuery } from "../server-state";
 export const useLabelTagsAdmin = () => {
   const { query } = useRouter();
 
-  return useQuery<LabelTagCollection>([
-    "/label-tags/admin",
-    {
-      name: `${query.name || ""}`,
-      sort: `${query.sort || ""}`,
-      page: `${query.page || "1"}`,
-    },
-  ]);
+  return useQuery<LabelTagCollection>({
+    queryKey: [
+      "/label-tags/admin",
+      {
+        name: `${query.name || ""}`,
+        sort: `${query.sort || ""}`,
+        page: `${query.page || "1"}`,
+      },
+    ],
+  });
 };
 
 export const useLabelTag = () => {
   const { query } = useRouter();
   const id = `${query.id || ""}`;
 
-  return useQuery<LabelTagAdmin>(["/label-tags", id], {
+  return useQuery<LabelTagAdmin>({
+    queryKey: ["/label-tags", id],
     enabled: id !== "",
   });
 };

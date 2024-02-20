@@ -13,21 +13,24 @@ import { useMutation, useQuery } from "../server-state";
 export const useBookmarkTagsAdmin = () => {
   const { query } = useRouter();
 
-  return useQuery<BookmarkTagCollection>([
-    "/bookmark-tags/admin",
-    {
-      name: `${query.name || ""}`,
-      sort: `${query.sort || ""}`,
-      page: `${query.page || "1"}`,
-    },
-  ]);
+  return useQuery<BookmarkTagCollection>({
+    queryKey: [
+      "/bookmark-tags/admin",
+      {
+        name: `${query.name || ""}`,
+        sort: `${query.sort || ""}`,
+        page: `${query.page || "1"}`,
+      },
+    ],
+  });
 };
 
 export const useBookmarkTag = () => {
   const { query } = useRouter();
   const id = `${query.id || ""}`;
 
-  return useQuery<BookmarkTagAdmin>(["/bookmark-tags", id], {
+  return useQuery<BookmarkTagAdmin>({
+    queryKey: ["/bookmark-tags", id],
     enabled: id !== "",
   });
 };

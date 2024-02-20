@@ -13,21 +13,24 @@ import { useMutation, useQuery } from "../server-state";
 export const useAdminTrackGenres = () => {
   const { query } = useRouter();
 
-  return useQuery<TrackGenreCollection>([
-    "/track-genres/admin",
-    {
-      name: `${query.name || ""}`,
-      sort: `${query.sort || ""}`,
-      page: `${query.page || "1"}`,
-    },
-  ]);
+  return useQuery<TrackGenreCollection>({
+    queryKey: [
+      "/track-genres/admin",
+      {
+        name: `${query.name || ""}`,
+        sort: `${query.sort || ""}`,
+        page: `${query.page || "1"}`,
+      },
+    ],
+  });
 };
 
 export const useTrackGenre = () => {
   const { query } = useRouter();
   const id = `${query.id || ""}`;
 
-  return useQuery<TrackGenreAdmin>(["/track-genres", id], {
+  return useQuery<TrackGenreAdmin>({
+    queryKey: ["/track-genres", id],
     enabled: id !== "",
   });
 };

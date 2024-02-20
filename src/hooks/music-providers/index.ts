@@ -11,19 +11,22 @@ import { useMutation, useQuery } from "../server-state";
 export const useAdminMusicProviders = () => {
   const { query } = useRouter();
 
-  return useQuery<Array<MusicProviderAdmin>>([
-    "/music-providers/admin",
-    {
-      sort: `${query.sort || ""}`,
-    },
-  ]);
+  return useQuery<Array<MusicProviderAdmin>>({
+    queryKey: [
+      "/music-providers/admin",
+      {
+        sort: `${query.sort || ""}`,
+      },
+    ],
+  });
 };
 
 export const useMusicProvider = () => {
   const { query } = useRouter();
   const id = `${query.id || ""}`;
 
-  return useQuery<MusicProviderAdmin>([`/music-providers`, id], {
+  return useQuery<MusicProviderAdmin>({
+    queryKey: [`/music-providers`, id],
     enabled: id !== "",
   });
 };

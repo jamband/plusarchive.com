@@ -14,22 +14,25 @@ import { useMutation, useQuery } from "../server-state";
 export const usePlaylistsAdmin = () => {
   const { query } = useRouter();
 
-  return useQuery<PlaylistAdminCollection>([
-    "/playlists/admin",
-    {
-      title: `${query.title || ""}`,
-      provider: `${query.provider || ""}`,
-      sort: `${query.sort || ""}`,
-      page: `${query.page || "1"}`,
-    },
-  ]);
+  return useQuery<PlaylistAdminCollection>({
+    queryKey: [
+      "/playlists/admin",
+      {
+        title: `${query.title || ""}`,
+        provider: `${query.provider || ""}`,
+        sort: `${query.sort || ""}`,
+        page: `${query.page || "1"}`,
+      },
+    ],
+  });
 };
 
 export const usePlaylist = () => {
   const { query } = useRouter();
   const id = `${query.id || ""}`;
 
-  return useQuery<Playlist>(["/playlists", id], {
+  return useQuery<Playlist>({
+    queryKey: ["/playlists", id],
     enabled: id !== "",
   });
 };

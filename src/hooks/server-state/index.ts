@@ -1,7 +1,6 @@
 import type {
-  QueryKey,
-  QueryObserverOptions,
   UseMutationOptions,
+  UseQueryOptions,
 } from "@tanstack/react-query";
 import {
   useMutation as useBaseMutation,
@@ -14,14 +13,8 @@ export type Variables<T extends FieldValues> = {
   id?: number | string | undefined;
 };
 
-export const useQuery = <T>(
-  queryKey: QueryKey,
-  options?: QueryObserverOptions<T>,
-) => {
-  const { isLoading, isError, data } = useBaseQuery<T>({
-    queryKey,
-    ...options,
-  });
+export const useQuery = <T>(options: UseQueryOptions<T>) => {
+  const { isLoading, isError, data } = useBaseQuery<T>(options);
 
   return {
     isLoading,

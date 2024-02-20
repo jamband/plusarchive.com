@@ -7,7 +7,9 @@ import type { Variables } from "../server-state";
 import { useMutation, useQuery } from "../server-state";
 
 export const useAuth = () => {
-  return useQuery<Auth>([API_USER_KEY]);
+  return useQuery<Auth>({
+    queryKey: [API_USER_KEY],
+  });
 };
 
 export const useLogin = <T extends FieldValues>() => {

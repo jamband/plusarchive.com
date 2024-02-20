@@ -9,38 +9,47 @@ import type { Variables } from "../server-state";
 import { useMutation, useQuery } from "../server-state";
 
 export const useTracksProviders = () => {
-  return useQuery<Array<MusicProvider>>(["/tracks/providers"]);
+  return useQuery<Array<MusicProvider>>({
+    queryKey: ["/tracks/providers"],
+  });
 };
 
 export const useTracksGenres = () => {
-  return useQuery<Array<string>>(["/tracks/genres"]);
+  return useQuery<Array<string>>({
+    queryKey: ["/tracks/genres"],
+  });
 };
 
 export const useTracksFavorites = () => {
-  return useQuery<Array<Track>>(["/tracks/favorites"]);
+  return useQuery<Array<Track>>({
+    queryKey: ["/tracks/favorites"],
+  });
 };
 
 export const useTracksAdmin = () => {
   const { query } = useRouter();
 
-  return useQuery<TrackAdminCollection>([
-    "/tracks/admin",
-    {
-      provider: `${query.provider || ""}`,
-      title: `${query.title || ""}`,
-      urge: `${query.urge || ""}`,
-      genre: `${query.genre || ""}`,
-      sort: `${query.sort || ""}`,
-      page: `${query.page || "1"}`,
-    },
-  ]);
+  return useQuery<TrackAdminCollection>({
+    queryKey: [
+      "/tracks/admin",
+      {
+        provider: `${query.provider || ""}`,
+        title: `${query.title || ""}`,
+        urge: `${query.urge || ""}`,
+        genre: `${query.genre || ""}`,
+        sort: `${query.sort || ""}`,
+        page: `${query.page || "1"}`,
+      },
+    ],
+  });
 };
 
 export const useTrack = () => {
   const { query } = useRouter();
   const id = `${query.id || ""}`;
 
-  return useQuery<Track>(["/tracks", id], {
+  return useQuery<Track>({
+    queryKey: ["/tracks", id],
     enabled: id !== "",
   });
 };

@@ -8,33 +8,40 @@ import type { Variables } from "../server-state";
 import { useMutation, useQuery } from "../server-state";
 
 export const useLabelsCountries = () => {
-  return useQuery<Array<string>>(["/labels/countries"]);
+  return useQuery<Array<string>>({
+    queryKey: ["/labels/countries"],
+  });
 };
 
 export const useLabelsTags = () => {
-  return useQuery<Array<string>>(["/labels/tags"]);
+  return useQuery<Array<string>>({
+    queryKey: ["/labels/tags"],
+  });
 };
 
 export const useLabelsAdmin = () => {
   const { query } = useRouter();
 
-  return useQuery<LabelAdminCollection>([
-    "/labels/admin",
-    {
-      name: `${query.name || ""}`,
-      country: `${query.country || ""}`,
-      tag: `${query.tag || ""}`,
-      sort: `${query.sort || ""}`,
-      page: `${query.page || "1"}`,
-    },
-  ]);
+  return useQuery<LabelAdminCollection>({
+    queryKey: [
+      "/labels/admin",
+      {
+        name: `${query.name || ""}`,
+        country: `${query.country || ""}`,
+        tag: `${query.tag || ""}`,
+        sort: `${query.sort || ""}`,
+        page: `${query.page || "1"}`,
+      },
+    ],
+  });
 };
 
 export const useLabel = () => {
   const { query } = useRouter();
   const id = `${query.id || ""}`;
 
-  return useQuery<LabelAdmin>(["/labels", id], {
+  return useQuery<LabelAdmin>({
+    queryKey: ["/labels", id],
     enabled: id !== "",
   });
 };

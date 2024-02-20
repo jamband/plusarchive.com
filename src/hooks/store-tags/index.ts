@@ -10,21 +10,24 @@ import { useMutation, useQuery } from "../server-state";
 export const useStoreTagsAdmin = () => {
   const { query } = useRouter();
 
-  return useQuery<StoreTagCollection>([
-    "/store-tags/admin",
-    {
-      name: `${query.name || ""}`,
-      sort: `${query.sort || ""}`,
-      page: `${query.page || "1"}`,
-    },
-  ]);
+  return useQuery<StoreTagCollection>({
+    queryKey: [
+      "/store-tags/admin",
+      {
+        name: `${query.name || ""}`,
+        sort: `${query.sort || ""}`,
+        page: `${query.page || "1"}`,
+      },
+    ],
+  });
 };
 
 export const useStoreTag = () => {
   const { query } = useRouter();
   const id = `${query.id || ""}`;
 
-  return useQuery<StoreTagAdmin>(["/store-tags", id], {
+  return useQuery<StoreTagAdmin>({
+    queryKey: ["/store-tags", id],
     enabled: id !== "",
   });
 };

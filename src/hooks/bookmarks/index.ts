@@ -8,33 +8,40 @@ import type { Variables } from "../server-state";
 import { useMutation, useQuery } from "../server-state";
 
 export const useBookmarksCountries = () => {
-  return useQuery<Array<string>>(["/bookmarks/countries"]);
+  return useQuery<Array<string>>({
+    queryKey: ["/bookmarks/countries"],
+  });
 };
 
 export const useBookmarksTags = () => {
-  return useQuery<Array<string>>(["/bookmarks/tags"]);
+  return useQuery<Array<string>>({
+    queryKey: ["/bookmarks/tags"],
+  });
 };
 
 export const useBookmarksAdmin = () => {
   const { query } = useRouter();
 
-  return useQuery<BookmarkAdminCollection>([
-    "/bookmarks/admin",
-    {
-      name: `${query.name || ""}`,
-      country: `${query.country || ""}`,
-      tag: `${query.tag || ""}`,
-      sort: `${query.sort || ""}`,
-      page: `${query.page || "1"}`,
-    },
-  ]);
+  return useQuery<BookmarkAdminCollection>({
+    queryKey: [
+      "/bookmarks/admin",
+      {
+        name: `${query.name || ""}`,
+        country: `${query.country || ""}`,
+        tag: `${query.tag || ""}`,
+        sort: `${query.sort || ""}`,
+        page: `${query.page || "1"}`,
+      },
+    ],
+  });
 };
 
 export const useBookmark = () => {
   const { query } = useRouter();
   const id = `${query.id || ""}`;
 
-  return useQuery<BookmarkAdmin>(["/bookmarks", id], {
+  return useQuery<BookmarkAdmin>({
+    queryKey: ["/bookmarks", id],
     enabled: id !== "",
   });
 };

@@ -8,26 +8,31 @@ import type { Variables } from "../server-state";
 import { useMutation, useQuery } from "../server-state";
 
 export const useCountries = () => {
-  return useQuery<Array<string>>(["/countries"]);
+  return useQuery<Array<string>>({
+    queryKey: ["/countries"],
+  });
 };
 
 export const useAdminCountries = () => {
   const { query } = useRouter();
 
-  return useQuery<Array<CountryAdmin>>([
-    "/countries/admin",
-    {
-      sort: `${query.sort || ""}`,
-      page: `${query.page || "1"}`,
-    },
-  ]);
+  return useQuery<Array<CountryAdmin>>({
+    queryKey: [
+      "/countries/admin",
+      {
+        sort: `${query.sort || ""}`,
+        page: `${query.page || "1"}`,
+      },
+    ],
+  });
 };
 
 export const useCountry = () => {
   const { query } = useRouter();
   const id = `${query.id || ""}`;
 
-  return useQuery<CountryAdmin>(["/countries", id], {
+  return useQuery<CountryAdmin>({
+    queryKey: ["/countries", id],
     enabled: id !== "",
   });
 };
