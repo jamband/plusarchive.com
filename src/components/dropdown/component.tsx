@@ -12,6 +12,7 @@ export const Component: React.FC<_Props> = (props) => (
     onKeyDown={props.onKeyDown}
   >
     <summary
+      role="button"
       className={`group block cursor-pointer rounded ${props.className || ""}`}
       aria-expanded={false}
       aria-label={props.label ? undefined : "More"}

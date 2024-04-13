@@ -25,7 +25,7 @@ const track: Track = {
   url: "",
   provider: "Bandcamp",
   provider_key: "",
-  title: "",
+  title: "title1",
   image: "",
   genres: ["genre1", "genre2"],
   created_at: "",
@@ -33,7 +33,7 @@ const track: Track = {
 
 test("aspect ratio: Bandcamp", () => {
   router.mockReturnValue({ query: { provider: "Bandcamp" } });
-  playerState.mockReturnValue({ id: "foo" });
+  playerState.mockReturnValue({ id: "id1" });
 
   render(<TrackCard track={track}>foo</TrackCard>);
 
@@ -43,7 +43,7 @@ test("aspect ratio: Bandcamp", () => {
 
 test("aspect ratio: SoundCloud", () => {
   router.mockReturnValue({ query: { provider: "SoundCloud" } });
-  playerState.mockReturnValue({ id: "foo" });
+  playerState.mockReturnValue({ id: "id1" });
 
   render(<TrackCard track={track}>foo</TrackCard>);
 
@@ -53,7 +53,7 @@ test("aspect ratio: SoundCloud", () => {
 
 test("aspect ratio: Vimeo", () => {
   router.mockReturnValue({ query: { provider: "Vimeo" } });
-  playerState.mockReturnValue({ id: "foo" });
+  playerState.mockReturnValue({ id: "id1" });
 
   render(<TrackCard track={track}>foo</TrackCard>);
 
@@ -63,7 +63,7 @@ test("aspect ratio: Vimeo", () => {
 
 test("aspect ratio: YouTube", () => {
   router.mockReturnValue({ query: { provider: "YouTube" } });
-  playerState.mockReturnValue({ id: "foo" });
+  playerState.mockReturnValue({ id: "id1" });
 
   render(<TrackCard track={track}>foo</TrackCard>);
 
@@ -73,9 +73,9 @@ test("aspect ratio: YouTube", () => {
 
 test("status: play", () => {
   router.mockReturnValue({ query: {} });
-  playerState.mockReturnValue({ id: "foo" });
+  playerState.mockReturnValue({ id: "id1" });
 
-  render(<TrackCard track={{ ...track, id: "bar" }}>foo</TrackCard>);
+  render(<TrackCard track={{ ...track, id: "id2" }}>foo</TrackCard>);
 
   const status = screen.getByText("status:play");
   expect(status).toBeInTheDocument();
@@ -83,9 +83,9 @@ test("status: play", () => {
 
 test("status: pause", () => {
   router.mockReturnValue({ query: {} });
-  playerState.mockReturnValue({ id: "foo" });
+  playerState.mockReturnValue({ id: "id1" });
 
-  render(<TrackCard track={{ ...track, id: "foo" }}>foo</TrackCard>);
+  render(<TrackCard track={{ ...track, id: "id1" }}>foo</TrackCard>);
 
   const status = screen.getByText("status:pause");
   expect(status).toBeInTheDocument();
@@ -93,16 +93,14 @@ test("status: pause", () => {
 
 test("children", () => {
   router.mockReturnValue({ query: {} });
-  playerState.mockReturnValue({ id: "foo" });
+  playerState.mockReturnValue({ id: "id1" });
 
   render(
     <TrackCard track={track}>
-      <div>foo</div>
+      <button type="button">button</button>
     </TrackCard>,
   );
 
-  const texts = screen.getAllByText("foo");
-  expect(texts.length).toBe(2);
-  expect(texts[0]).toHaveTextContent("foo");
-  expect(texts[1]).toHaveTextContent("foo");
+  const buttons = screen.getAllByRole("button", { name: "button" });
+  expect(buttons.length).toBe(2);
 });
