@@ -5,8 +5,7 @@
     "plugin:jest-dom/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:testing-library/react",
-    "next/core-web-vitals",
-    "prettier"
+    "next/core-web-vitals"
   ],
   "rules": {
     "@typescript-eslint/consistent-type-imports": "error"
