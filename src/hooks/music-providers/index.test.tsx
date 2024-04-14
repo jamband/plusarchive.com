@@ -3,9 +3,8 @@ import { router } from "@/mocks/router";
 import { csrfCookieHandler, server } from "@/mocks/server";
 import { isInvalidated, queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
-import { rest } from "msw";
+import { HttpResponse, http } from "msw";
 import { useRouter } from "next/router";
-import "whatwg-fetch";
 import {
   useAdminMusicProviders,
   useCreateMusicProvider,
@@ -29,9 +28,9 @@ test("GET /music-providers/admin", async () => {
   });
 
   server.use(
-    rest.get("*/music-providers/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }])),
-    ),
+    http.get("*/music-providers/admin", () => {
+      return HttpResponse.json([{ id: 1 }]);
+    }),
   );
 
   const { result } = renderHook(useAdminMusicProviders, { wrapper });
@@ -45,9 +44,9 @@ test("GET /music-providers/[id]", async () => {
   });
 
   server.use(
-    rest.get("*/music-providers/1", (_, response, context) =>
-      response(context.json({ id: 1 })),
-    ),
+    http.get("*/music-providers/1", () => {
+      return HttpResponse.json({ id: 1 });
+    }),
   );
 
   const { result } = renderHook(useMusicProvider, { wrapper });
@@ -70,9 +69,9 @@ test("POST /music-providers", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.post("*/music-providers", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 })),
-    ),
+    http.post("*/music-providers", () => {
+      return HttpResponse.json({ id: 1 }, { status: 201 });
+    }),
   );
 
   queryClient.setQueryData(["/music-providers/admin"], null);
@@ -105,9 +104,9 @@ test("PUT /music-providers/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.put("*/music-providers/1", (_, response, context) =>
-      response(context.json({ id: 1 })),
-    ),
+    http.put("*/music-providers/1", () => {
+      return HttpResponse.json({ id: 1 });
+    }),
   );
 
   queryClient.setQueryData(["/music-providers", "1"], null);
@@ -143,9 +142,9 @@ test("DELETE /music-providers/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.delete("*/music-providers/1", (_, response, context) =>
-      response(context.status(204)),
-    ),
+    http.delete("*/music-providers/1", () => {
+      return new Response(null, { status: 204 });
+    }),
   );
 
   queryClient.setQueryData(["/music-providers", "1"], null);

@@ -3,9 +3,8 @@ import { router } from "@/mocks/router";
 import { csrfCookieHandler, server } from "@/mocks/server";
 import { isInvalidated, queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
-import { rest } from "msw";
+import { HttpResponse, http } from "msw";
 import { useRouter } from "next/router";
-import "whatwg-fetch";
 import {
   useBookmarkTag,
   useBookmarkTagsAdmin,
@@ -29,9 +28,9 @@ test("GET /bookmark-tags/admin", async () => {
   });
 
   server.use(
-    rest.get("*/bookmark-tags/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }])),
-    ),
+    http.get("*/bookmark-tags/admin", () => {
+      return HttpResponse.json([{ id: 1 }]);
+    }),
   );
 
   const { result } = renderHook(useBookmarkTagsAdmin, { wrapper });
@@ -53,9 +52,9 @@ test("GET /bookmark-tags/[id]", async () => {
   });
 
   server.use(
-    rest.get("*/bookmark-tags/1", (_, response, context) =>
-      response(context.json({ id: 1 })),
-    ),
+    http.get("*/bookmark-tags/1", () => {
+      return HttpResponse.json({ id: 1 });
+    }),
   );
 
   const { result } = renderHook(useBookmarkTag, { wrapper });
@@ -78,9 +77,9 @@ test("POST /bookmark-tags", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.post("*/bookmark-tags", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 })),
-    ),
+    http.post("*/bookmark-tags", () => {
+      return HttpResponse.json({ id: 1 }, { status: 201 });
+    }),
   );
 
   queryClient.setQueryData(["/bookmark-tags/admin"], null);
@@ -111,9 +110,9 @@ test("PUT /bookmark-tags/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.put("*/bookmark-tags/1", (_, response, context) =>
-      response(context.json({ id: 1 })),
-    ),
+    http.put("*/bookmark-tags/1", () => {
+      return HttpResponse.json({ id: 1 });
+    }),
   );
 
   queryClient.setQueryData(["/bookmark-tags", "1"], null);
@@ -148,9 +147,9 @@ test("DELETE /bookmark-tags/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.delete("*/bookmark-tags/1", (_, response, context) =>
-      response(context.status(204)),
-    ),
+    http.delete("*/bookmark-tags/1", () => {
+      return new Response(null, { status: 204 });
+    }),
   );
 
   queryClient.setQueryData(["/bookmark-tags", "1"], null);

@@ -2,9 +2,8 @@ import { router } from "@/mocks/router";
 import { csrfCookieHandler, server } from "@/mocks/server";
 import { queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
-import { rest } from "msw";
+import { HttpResponse, http } from "msw";
 import { useRouter } from "next/router";
-import "whatwg-fetch";
 import { useAuth, useLogin, useLogout } from ".";
 
 jest.mock("next/router", () => ({
@@ -13,9 +12,9 @@ jest.mock("next/router", () => ({
 
 test("GET /auth/user", async () => {
   server.use(
-    rest.get("*/auth/user", (_, response, context) =>
-      response(context.json({ role: "foo" })),
-    ),
+    http.get("*/auth/user", () => {
+      return HttpResponse.json({ role: "foo" });
+    }),
   );
 
   const { result } = renderHook(useAuth, { wrapper });
@@ -34,9 +33,9 @@ test("POST /auth/login", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.post("*/auth/login", (_, response, context) =>
-      response(context.status(204)),
-    ),
+    http.post("*/auth/login", () => {
+      return new Response(null, { status: 204 });
+    }),
   );
 
   const { result } = renderHook(useLogin, { wrapper });
@@ -51,9 +50,9 @@ test("POST /auth/logout", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.post("*/auth/logout", (_, response, context) =>
-      response(context.status(204)),
-    ),
+    http.post("*/auth/logout", () => {
+      return new Response(null, { status: 204 });
+    }),
   );
 
   const { result } = renderHook(useLogout, { wrapper });

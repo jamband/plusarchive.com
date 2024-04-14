@@ -3,9 +3,8 @@ import { router } from "@/mocks/router";
 import { csrfCookieHandler, server } from "@/mocks/server";
 import { isInvalidated, queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
-import { rest } from "msw";
+import { HttpResponse, http } from "msw";
 import { useRouter } from "next/router";
-import "whatwg-fetch";
 import {
   useCreateLabelTag,
   useDeleteLabelTag,
@@ -29,9 +28,9 @@ test("GET /label-tags/admin", async () => {
   });
 
   server.use(
-    rest.get("*/label-tags/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }])),
-    ),
+    http.get("*/label-tags/admin", () => {
+      return HttpResponse.json([{ id: 1 }]);
+    }),
   );
 
   const { result } = renderHook(useLabelTagsAdmin, { wrapper });
@@ -53,9 +52,9 @@ test("GET /label-tags/[id]", async () => {
   });
 
   server.use(
-    rest.get("*/label-tags/1", (_, response, context) =>
-      response(context.json({ id: 1 })),
-    ),
+    http.get("*/label-tags/1", () => {
+      return HttpResponse.json({ id: 1 });
+    }),
   );
 
   const { result } = renderHook(useLabelTag, { wrapper });
@@ -78,9 +77,9 @@ test("POST /label-tags", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.post("*/label-tags", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 })),
-    ),
+    http.post("*/label-tags", () => {
+      return HttpResponse.json({ id: 1 }, { status: 201 });
+    }),
   );
 
   queryClient.setQueryData(["/label-tags/admin"], null);
@@ -111,9 +110,9 @@ test("PUT /label-tags/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.put("*/label-tags/1", (_, response, context) =>
-      response(context.json({ id: 1 })),
-    ),
+    http.put("*/label-tags/1", () => {
+      return HttpResponse.json({ id: 1 });
+    }),
   );
 
   queryClient.setQueryData(["/label-tags", "1"], null);
@@ -146,9 +145,9 @@ test("DELETE /label-tags/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.delete("*/label-tags/1", (_, response, context) =>
-      response(context.status(204)),
-    ),
+    http.delete("*/label-tags/1", () => {
+      return new Response(null, { status: 204 });
+    }),
   );
 
   queryClient.setQueryData(["/label-tags", "1"], null);

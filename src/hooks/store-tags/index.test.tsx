@@ -3,9 +3,8 @@ import { router } from "@/mocks/router";
 import { csrfCookieHandler, server } from "@/mocks/server";
 import { isInvalidated, queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
-import { rest } from "msw";
+import { HttpResponse, http } from "msw";
 import { useRouter } from "next/router";
-import "whatwg-fetch";
 import {
   useCreateStoreTag,
   useDeleteStoreTag,
@@ -29,9 +28,9 @@ test("GET /store-tags/admin", async () => {
   });
 
   server.use(
-    rest.get("*/store-tags/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }])),
-    ),
+    http.get("*/store-tags/admin", () => {
+      return HttpResponse.json([{ id: 1 }]);
+    }),
   );
 
   const { result } = renderHook(useStoreTagsAdmin, { wrapper });
@@ -53,9 +52,9 @@ test("GET /store-tags/[id]", async () => {
   });
 
   server.use(
-    rest.get("*/store-tags/1", (_, response, context) =>
-      response(context.json({ id: 1 })),
-    ),
+    http.get("*/store-tags/1", () => {
+      return HttpResponse.json({ id: 1 });
+    }),
   );
 
   const { result } = renderHook(useStoreTag, { wrapper });
@@ -78,9 +77,9 @@ test("POST /store-tags", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.post("*/store-tags", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 })),
-    ),
+    http.post("*/store-tags", () => {
+      return HttpResponse.json({ id: 1 }, { status: 201 });
+    }),
   );
 
   queryClient.setQueryData(["/store-tags/admin"], null);
@@ -111,9 +110,9 @@ test("PUT /store-tags/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.put("*/store-tags/1", (_, response, context) =>
-      response(context.json({ id: 1 })),
-    ),
+    http.put("*/store-tags/1", () => {
+      return HttpResponse.json({ id: 1 });
+    }),
   );
 
   queryClient.setQueryData(["/store-tags", "1"], null);
@@ -146,9 +145,9 @@ test("DELETE /store-tags/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.delete("*/store-tags/1", (_, response, context) =>
-      response(context.status(204)),
-    ),
+    http.delete("*/store-tags/1", () => {
+      return new Response(null, { status: 204 });
+    }),
   );
 
   queryClient.setQueryData(["/store-tags", "1"], null);

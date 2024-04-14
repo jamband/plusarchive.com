@@ -3,9 +3,8 @@ import { router } from "@/mocks/router";
 import { csrfCookieHandler, server } from "@/mocks/server";
 import { isInvalidated, queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
-import { rest } from "msw";
+import { HttpResponse, http } from "msw";
 import { useRouter } from "next/router";
-import "whatwg-fetch";
 import {
   useCreateTrack,
   useDeleteTrack,
@@ -30,9 +29,9 @@ jest.mock("@/hooks/notification", () => ({
 
 test("GET /tracks/providers", async () => {
   server.use(
-    rest.get("*/tracks/providers", (_, response, context) =>
-      response(context.json([{ name: "foo" }])),
-    ),
+    http.get("*/tracks/providers", () => {
+      return HttpResponse.json([{ name: "foo" }]);
+    }),
   );
 
   const { result } = renderHook(useTracksProviders, { wrapper });
@@ -42,9 +41,9 @@ test("GET /tracks/providers", async () => {
 
 test("GET /tracks/genres", async () => {
   server.use(
-    rest.get("*/tracks/genres", (_, response, context) =>
-      response(context.json([{ name: "foo" }])),
-    ),
+    http.get("*/tracks/genres", () => {
+      return HttpResponse.json([{ name: "foo" }]);
+    }),
   );
 
   const { result } = renderHook(useTracksGenres, { wrapper });
@@ -54,9 +53,9 @@ test("GET /tracks/genres", async () => {
 
 test("GET /tracks/favorites", async () => {
   server.use(
-    rest.get("*/tracks/favorites", (_, response, context) =>
-      response(context.json([{ name: "foo" }])),
-    ),
+    http.get("*/tracks/favorites", () => {
+      return HttpResponse.json([{ name: "foo" }]);
+    }),
   );
 
   const { result } = renderHook(useTracksFavorites, { wrapper });
@@ -70,9 +69,9 @@ test("GET /tracks/admin", async () => {
   });
 
   server.use(
-    rest.get("*/tracks/admin", (_, response, context) =>
-      response(context.json([{ id: "foo" }])),
-    ),
+    http.get("*/tracks/admin", () => {
+      return HttpResponse.json([{ id: "foo" }]);
+    }),
   );
 
   const { result } = renderHook(useTracksAdmin, { wrapper });
@@ -94,9 +93,9 @@ test("GET /tracks/[id]", async () => {
   });
 
   server.use(
-    rest.get("*/tracks/foo", (_, response, context) =>
-      response(context.json({ id: "foo" })),
-    ),
+    http.get("*/tracks/foo", () => {
+      return HttpResponse.json({ id: "foo" });
+    }),
   );
 
   const { result } = renderHook(useTrack, { wrapper });
@@ -119,9 +118,9 @@ test("PATCH /tracks/stop-urges", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.patch("*/tracks/stop-urges", (_, response, context) =>
-      response(context.status(204)),
-    ),
+    http.patch("*/tracks/stop-urges", () => {
+      return new Response(null, { status: 204 });
+    }),
   );
 
   queryClient.setQueryData(["/tracks/favorites"], null);
@@ -144,9 +143,9 @@ test("PATCH /tracks/[id]/toggle-urge", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.patch("*/tracks/foo/toggle-urge", (_, response, context) =>
-      response(context.status(204)),
-    ),
+    http.patch("*/tracks/foo/toggle-urge", () => {
+      return new Response(null, { status: 204 });
+    }),
   );
 
   queryClient.setQueryData(["/tracks/favorites"], null);
@@ -174,9 +173,9 @@ test("POST /tracks", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.post("*/tracks", (_, response, context) =>
-      response(context.status(201), context.json({ id: "foo" })),
-    ),
+    http.post("*/tracks", () => {
+      return HttpResponse.json({ id: "foo" }, { status: 201 });
+    }),
   );
 
   queryClient.setQueryData(["/tracks/admin"], null);
@@ -205,9 +204,9 @@ test("PUT /tracks/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.put("*/tracks/foo", (_, response, context) =>
-      response(context.json({ id: "foo" })),
-    ),
+    http.put("*/tracks/foo", () => {
+      return HttpResponse.json({ id: "foo" });
+    }),
   );
 
   queryClient.setQueryData(["/tracks", "foo"], null);
@@ -237,9 +236,9 @@ test("DELETE /tracks/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.delete("*/tracks/foo", (_, response, context) =>
-      response(context.status(204)),
-    ),
+    http.delete("*/tracks/foo", () => {
+      return new Response(null, { status: 204 });
+    }),
   );
 
   queryClient.setQueryData(["/tracks", "foo"], null);

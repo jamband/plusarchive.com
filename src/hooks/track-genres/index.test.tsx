@@ -3,9 +3,8 @@ import { router } from "@/mocks/router";
 import { csrfCookieHandler, server } from "@/mocks/server";
 import { isInvalidated, queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
-import { rest } from "msw";
+import { HttpResponse, http } from "msw";
 import { useRouter } from "next/router";
-import "whatwg-fetch";
 import {
   useAdminTrackGenres,
   useCreateTrackGenre,
@@ -29,9 +28,9 @@ test("GET /track-genres/admin", async () => {
   });
 
   server.use(
-    rest.get("*/track-genres/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }])),
-    ),
+    http.get("*/track-genres/admin", () => {
+      return HttpResponse.json([{ id: 1 }]);
+    }),
   );
 
   const { result } = renderHook(useAdminTrackGenres, { wrapper });
@@ -45,9 +44,9 @@ test("GET /track-genres/[id]", async () => {
   });
 
   server.use(
-    rest.get("*/track-genres/1", (_, response, context) =>
-      response(context.json({ id: 1 })),
-    ),
+    http.get("*/track-genres/1", () => {
+      return HttpResponse.json({ id: 1 });
+    }),
   );
 
   const { result } = renderHook(useTrackGenre, { wrapper });
@@ -70,9 +69,9 @@ test("POST /track-genres", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.post("*/track-genres", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 })),
-    ),
+    http.post("*/track-genres", () => {
+      return HttpResponse.json({ id: 1 }, { status: 201 });
+    }),
   );
 
   queryClient.setQueryData(["/track-genres/admin"], null);
@@ -103,9 +102,9 @@ test("PUT /track-genres/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.put("*/track-genres/1", (_, response, context) =>
-      response(context.json({ id: 1 })),
-    ),
+    http.put("*/track-genres/1", () => {
+      return HttpResponse.json({ id: 1 });
+    }),
   );
 
   queryClient.setQueryData(["/track-genres", "1"], null);
@@ -139,9 +138,9 @@ test("DELETE /track-genres/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.delete("*/track-genres/1", (_, response, context) =>
-      response(context.status(204)),
-    ),
+    http.delete("*/track-genres/1", () => {
+      return new Response(null, { status: 204 });
+    }),
   );
 
   queryClient.setQueryData(["/track-genres", "1"], null);

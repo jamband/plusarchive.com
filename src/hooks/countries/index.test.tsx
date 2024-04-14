@@ -3,9 +3,8 @@ import { router } from "@/mocks/router";
 import { csrfCookieHandler, server } from "@/mocks/server";
 import { isInvalidated, queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
-import { rest } from "msw";
+import { HttpResponse, http } from "msw";
 import { useRouter } from "next/router";
-import "whatwg-fetch";
 import {
   useAdminCountries,
   useCountries,
@@ -26,9 +25,9 @@ jest.mock("@/hooks/notification", () => ({
 
 test("GET /countries", async () => {
   server.use(
-    rest.get("*/countries", (_, response, context) =>
-      response(context.json(["bar", "baz", "foo"])),
-    ),
+    http.get("*/countries", () => {
+      return HttpResponse.json(["bar", "baz", "foo"]);
+    }),
   );
 
   const { result } = renderHook(useCountries, { wrapper });
@@ -42,9 +41,9 @@ test("GET /countries/admin", async () => {
   });
 
   server.use(
-    rest.get("*/countries/admin", (_, response, context) =>
-      response(context.json([{ id: 1 }])),
-    ),
+    http.get("*/countries/admin", () => {
+      return HttpResponse.json([{ id: 1 }]);
+    }),
   );
 
   const { result } = renderHook(useAdminCountries, { wrapper });
@@ -58,9 +57,9 @@ test("GET /countries/[id]", async () => {
   });
 
   server.use(
-    rest.get("*/countries/1", (_, response, context) =>
-      response(context.json({ id: 1 })),
-    ),
+    http.get("*/countries/1", () => {
+      return HttpResponse.json({ id: 1 });
+    }),
   );
 
   const { result } = renderHook(useCountry, { wrapper });
@@ -83,9 +82,9 @@ test("POST /countries", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.post("*/countries", (_, response, context) =>
-      response(context.status(201), context.json({ id: 1 })),
-    ),
+    http.post("*/countries", () => {
+      return HttpResponse.json({ id: 1 }, { status: 201 });
+    }),
   );
 
   queryClient.setQueryData(["/countries/admin"], null);
@@ -116,9 +115,9 @@ test("PUT /countries/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.put("*/countries/1", (_, response, context) =>
-      response(context.json({ id: 1 })),
-    ),
+    http.put("*/countries/1", () => {
+      return HttpResponse.json({ id: 1 });
+    }),
   );
 
   queryClient.setQueryData(["/countries", "1"], null);
@@ -152,9 +151,9 @@ test("DELETE /countries/[id]", async () => {
 
   server.use(
     csrfCookieHandler,
-    rest.delete("*/countries/1", (_, response, context) =>
-      response(context.status(204)),
-    ),
+    http.delete("*/countries/1", () => {
+      return new Response(null, { status: 204 });
+    }),
   );
 
   queryClient.setQueryData(["/countries", "1"], null);
