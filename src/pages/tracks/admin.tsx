@@ -164,13 +164,14 @@ const Page: PageComponent = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={track.image}
-                    className="mr-2 inline h-6 w-6 rounded-full bg-gray-600"
-                    alt=""
-                    loading="lazy"
-                  />
+                  <picture>
+                    <img
+                      src={track.image}
+                      className="mr-2 inline h-6 w-6 rounded-full bg-gray-600"
+                      alt=""
+                      loading="lazy"
+                    />
+                  </picture>
                   {track.title}
                   <IconUpRightFromSquare className="ml-1 h-3 w-3 align-baseline text-rose-500/60" />
                 </a>

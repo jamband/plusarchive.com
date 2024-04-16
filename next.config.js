@@ -3,9 +3,6 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
-  images: {
-    unoptimized: true,
-  },
   reactStrictMode: true,
   poweredByHeader: false,
 };
