@@ -13,7 +13,7 @@ export const Component: React.FC<_Props> = (props) => (
   >
     <summary
       role="button"
-      className={`group block cursor-pointer rounded ${props.className || ""}`}
+      className={`group block cursor-pointer select-none rounded ${props.className || ""}`}
       aria-expanded={false}
       aria-label={props.label ? undefined : "More"}
     >
