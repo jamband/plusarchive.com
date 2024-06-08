@@ -1,16 +1,15 @@
-import type { Output } from "valibot";
-import { object, optional, string, url } from "valibot";
+import * as v from "valibot";
 
 const field = {
   url: "URL",
   title: "Title",
 };
 
-export const schema = object({
-  url: string([url(`The ${field.url} is invalid.`)]),
-  title: optional(string()),
+export const schema = v.object({
+  url: v.pipe(v.string(), v.url(`The ${field.url} is invalid.`)),
+  title: v.optional(v.string()),
 });
 
-export type Schema = Output<typeof schema>;
+export type Schema = v.InferOutput<typeof schema>;
 
 export const label: Record<keyof Schema, string> = field;

@@ -1,5 +1,4 @@
-import type { Output } from "valibot";
-import { array, minLength, object, optional, string, url } from "valibot";
+import * as v from "valibot";
 
 const field = {
   name: "Name",
@@ -9,14 +8,17 @@ const field = {
   tags: "Tags",
 };
 
-export const schema = object({
-  name: string([minLength(1, `The ${field.name} field is required.`)]),
-  country: string([minLength(1, `The ${field.country} field is required.`)]),
-  url: string([url(`The ${field.url} is invalid.`)]),
-  links: optional(string()),
-  tags: array(string([minLength(1, `The ${field.tags} field is required.`)])),
+export const schema = v.object({
+  name: v.pipe(v.string(), v.nonEmpty(`The ${field.name} field is required.`)),
+  country: v.pipe(
+    v.string(),
+    v.nonEmpty(`The ${field.country} field is required.`),
+  ),
+  url: v.pipe(v.string(), v.url(`The ${field.url} is invalid.`)),
+  links: v.optional(v.string()),
+  tags: v.array(v.string()),
 });
 
-export type Schema = Output<typeof schema>;
+export type Schema = v.InferOutput<typeof schema>;
 
 export const label: Record<keyof Schema, string> = field;

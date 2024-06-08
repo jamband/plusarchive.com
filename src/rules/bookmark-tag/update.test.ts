@@ -1,5 +1,5 @@
 /** @jest-environment node */
-import { parse } from "valibot";
+import * as v from "valibot";
 import { label, schema } from "./update";
 
 test("fields", () => {
@@ -8,8 +8,8 @@ test("fields", () => {
 
 test("name", () => {
   const { name } = schema.entries;
-  expect(() => parse(name, 0)).toThrow();
-  expect(() => parse(name, "")).toThrow();
-  expect(parse(name, "foo")).toBe("foo");
+  expect(() => v.parse(name, 0)).toThrow();
+  expect(() => v.parse(name, "")).toThrow();
+  expect(v.parse(name, "foo")).toBe("foo");
   expect(label.name).toBe("Name");
 });

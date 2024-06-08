@@ -2,15 +2,15 @@ import { valibotResolver } from "@hookform/resolvers/valibot";
 import { useEffect } from "react";
 import type { FieldValues, Path } from "react-hook-form";
 import { useForm } from "react-hook-form";
-import type { ObjectEntries, ObjectSchema } from "valibot";
+import type * as v from "valibot";
 
 type PostForm<T> = {
-  schema: ObjectSchema<ObjectEntries>;
+  schema: v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>;
   focus: Path<T>;
 };
 
 type PutForm<T> = {
-  schema: ObjectSchema<ObjectEntries>;
+  schema: v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>;
   focus: Path<T>;
   data: T | undefined;
 };

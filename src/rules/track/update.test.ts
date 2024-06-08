@@ -1,5 +1,5 @@
 /** @jest-environment node */
-import { parse } from "valibot";
+import * as v from "valibot";
 import { label, schema } from "./update";
 
 test("fields", () => {
@@ -13,33 +13,33 @@ test("fields", () => {
 
 test("url", () => {
   const { url } = schema.entries;
-  expect(() => parse(url, "")).toThrow();
-  expect(() => parse(url, "foo")).toThrow();
-  expect(parse(url, "https://example.com")).toBe("https://example.com");
+  expect(() => v.parse(url, "")).toThrow();
+  expect(() => v.parse(url, "foo")).toThrow();
+  expect(v.parse(url, "https://example.com")).toBe("https://example.com");
   expect(label.url).toBe("URL");
 });
 
 test("title", () => {
   const { title } = schema.entries;
-  expect(() => parse(title, 0)).toThrow();
-  expect(parse(title, undefined)).toBeUndefined();
-  expect(parse(title, "foo")).toBe("foo");
+  expect(() => v.parse(title, 0)).toThrow();
+  expect(v.parse(title, undefined)).toBeUndefined();
+  expect(v.parse(title, "foo")).toBe("foo");
   expect(label.title).toBe("Title");
 });
 
 test("image", () => {
   const { image } = schema.entries;
-  expect(() => parse(image, 0)).toThrow();
-  expect(parse(image, undefined)).toBeUndefined();
-  expect(parse(image, "foo")).toBe("foo");
+  expect(() => v.parse(image, 0)).toThrow();
+  expect(v.parse(image, undefined)).toBeUndefined();
+  expect(v.parse(image, "foo")).toBe("foo");
   expect(label.image).toBe("Image");
 });
 
 test("genres", () => {
   const { genres } = schema.entries;
-  expect(() => parse(genres, "foo")).toThrow();
-  expect(() => parse(genres, [0])).toThrow();
-  expect(parse(genres, [])).toEqual([]);
-  expect(parse(genres, ["foo", "bar"])).toEqual(["foo", "bar"]);
+  expect(() => v.parse(genres, "foo")).toThrow();
+  expect(() => v.parse(genres, [0])).toThrow();
+  expect(v.parse(genres, [])).toEqual([]);
+  expect(v.parse(genres, ["foo", "bar"])).toEqual(["foo", "bar"]);
   expect(label.genres).toBe("Genres");
 });

@@ -1,14 +1,13 @@
-import type { Output } from "valibot";
-import { minLength, object, string } from "valibot";
+import * as v from "valibot";
 
 const field = {
   name: "Name",
 };
 
-export const schema = object({
-  name: string([minLength(1, `The ${field.name} field is required.`)]),
+export const schema = v.object({
+  name: v.pipe(v.string(), v.nonEmpty(`The ${field.name} field is required.`)),
 });
 
-export type Schema = Output<typeof schema>;
+export type Schema = v.InferOutput<typeof schema>;
 
 export const label: Record<keyof Schema, string> = field;
