@@ -1,21 +1,22 @@
-import { useId } from "react";
 import { Component } from "./component";
 import type { Props } from "./types";
 
 export const Dropdown: React.FC<Props> = (props) => {
-  const id = useId();
-
   const onClick = (event: React.FormEvent) => {
     const current = event.currentTarget;
     const firstChild = current.firstElementChild;
 
     if (current.hasAttribute("open")) {
-      setTimeout(() => {
-        current.removeAttribute("open");
-        firstChild?.setAttribute("aria-expanded", "false");
-      }, 100);
+      firstChild?.setAttribute("aria-expanded", "false");
     } else {
       firstChild?.setAttribute("aria-expanded", "true");
+    }
+
+    if (
+      event.target instanceof HTMLAnchorElement ||
+      event.target instanceof HTMLButtonElement
+    ) {
+      current.removeAttribute("open");
     }
   };
 
@@ -23,33 +24,25 @@ export const Dropdown: React.FC<Props> = (props) => {
     const current = event.currentTarget;
     const firstChild = current.firstElementChild;
 
-    if (
-      current.hasAttribute("open") &&
-      id !== event.relatedTarget?.parentElement?.parentElement?.id
-    ) {
-      setTimeout(() => {
-        current.removeAttribute("open");
-        firstChild?.setAttribute("aria-expanded", "false");
-      }, 100);
+    if (!current.contains(event.relatedTarget)) {
+      current.removeAttribute("open");
+      firstChild?.setAttribute("aria-expanded", "false");
     }
   };
 
   const onKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === "Escape") {
-      const current = event.currentTarget;
-      const firstChild = current.firstElementChild;
+    const current = event.currentTarget;
+    const firstChild = current.firstElementChild;
 
-      if (current.hasAttribute("open")) {
-        current.removeAttribute("open");
-        firstChild?.setAttribute("aria-expanded", "false");
-      }
+    if (event.key === "Escape") {
+      current.removeAttribute("open");
+      firstChild?.setAttribute("aria-expanded", "false");
     }
   };
 
   return (
     <Component
       {...props}
-      id={id}
       onClick={onClick}
       onBlur={onBlur}
       onKeyDown={onKeyDown}
