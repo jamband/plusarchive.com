@@ -3,40 +3,27 @@ import type { Props } from "./types";
 
 export const Dropdown: React.FC<Props> = (props) => {
   const onClick = (event: React.FormEvent) => {
-    const current = event.currentTarget;
-    const firstChild = current.firstElementChild;
-
-    if (current.hasAttribute("open")) {
-      firstChild?.setAttribute("aria-expanded", "false");
-    } else {
-      firstChild?.setAttribute("aria-expanded", "true");
-    }
-
     if (
       event.target instanceof HTMLAnchorElement ||
       event.target instanceof HTMLButtonElement
     ) {
-      current.removeAttribute("open");
+      event.currentTarget.removeAttribute("open");
     }
   };
 
   const onBlur = (event: React.FocusEvent) => {
     const current = event.currentTarget;
-    const firstChild = current.firstElementChild;
 
     if (!current.contains(event.relatedTarget)) {
-      current.removeAttribute("open");
-      firstChild?.setAttribute("aria-expanded", "false");
+      setTimeout(() => {
+        current.removeAttribute("open");
+      }, 100);
     }
   };
 
   const onKeyDown = (event: React.KeyboardEvent) => {
-    const current = event.currentTarget;
-    const firstChild = current.firstElementChild;
-
     if (event.key === "Escape") {
-      current.removeAttribute("open");
-      firstChild?.setAttribute("aria-expanded", "false");
+      event.currentTarget.removeAttribute("open");
     }
   };
 
