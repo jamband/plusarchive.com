@@ -4,7 +4,23 @@ import type { _Props } from "./types";
 export const Component: React.FC<_Props> = (props) => (
   <section className={`${props.className || ""} flex gap-3`}>
     <div className="text-gray-100">Tags:</div>
-    <div className="flex gap-3 overflow-scroll whitespace-nowrap [mask-image:linear-gradient(to_left,#0000,#000_20%)] md:[mask-image:linear-gradient(to_left,#0000,#000_15%)]">
+    <div
+      ref={props.tagsRef}
+      className={`w-full overflow-scroll overscroll-x-contain whitespace-nowrap [scrollbar-width:none] ${
+        props.tagsPosition === "right"
+          ? "[mask-image:linear-gradient(to_left,#0000,#000_20%)]"
+          : ""
+      } ${
+        props.tagsPosition === "center"
+          ? "[mask-image:linear-gradient(to_left,#0000,#000_20%,#000_80%,#0000)]"
+          : ""
+      } ${
+        props.tagsPosition === "left"
+          ? "[mask-image:linear-gradient(to_right,#0000,#000_20%)]"
+          : ""
+      }`}
+      onScroll={props.tagsOnScroll}
+    >
       {props.data.map((tag) => (
         <Link
           key={tag}
@@ -12,7 +28,7 @@ export const Component: React.FC<_Props> = (props) => (
             pathname: props.pathname,
             query: { tag },
           }}
-          className="hover:text-gray-100"
+          className="ml-0.5 mr-3 hover:text-gray-100"
         >
           {tag}
         </Link>

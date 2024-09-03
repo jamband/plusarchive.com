@@ -1,3 +1,5 @@
+export type TagsPosition = "left" | "center" | "right";
+
 export type Props = {
   className?: string;
   data: Array<string>;
@@ -5,5 +7,7 @@ export type Props = {
 };
 
 export type _Props = Props & {
-  //
+  tagsRef: React.RefObject<HTMLDivElement>;
+  tagsPosition: TagsPosition;
+  tagsOnScroll: () => void;
 };
