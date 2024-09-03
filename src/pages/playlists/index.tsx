@@ -34,25 +34,21 @@ const Page: PageComponent<Props> = (props) => {
         <meta name="description" content={description} />
         <meta property="og:description" content={description} />
       </Head>
-      <div className="grid gap-4 md:grid-cols-2 md:px-16 lg:px-32">
-        <div>
-          <h1>Playlists</h1>
-          <p>via SoundCloud or YouTube</p>
-        </div>
-        <ul className="flex flex-col gap-3">
-          {props.playlists.map((playlist) => (
-            <li key={playlist.id}>
-              <Link
-                href={`/playlists/${playlist.id}`}
-                className="justify flex items-center text-[24px] font-bold text-rose-500 active:text-rose-500"
-              >
-                {playlist.title}
-                <IconAngleRight className="mx-2 h-4 w-4 text-rose-500/60" />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <h1>Playlists</h1>
+      <p>via SoundCloud or YouTube</p>
+      <ul className="mt-6 flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-x-12 sm:gap-y-6">
+        {props.playlists.map((playlist) => (
+          <li key={playlist.id} className="leading-tight">
+            <Link
+              href={`/playlists/${playlist.id}`}
+              className="py-2 text-[1.425rem] font-bold text-rose-500 active:text-rose-500"
+            >
+              {playlist.title}
+              <IconAngleRight className="ml-2 h-4 w-4 align-baseline text-rose-500/60" />
+            </Link>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
