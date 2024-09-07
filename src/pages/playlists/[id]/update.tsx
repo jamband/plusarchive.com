@@ -26,7 +26,7 @@ const Page: PageComponent = () => {
   });
 
   const onSubmit: SubmitHandler<Schema> = (body) => {
-    const variables = { body };
+    const variables = { body, id: playlist.data?.id };
 
     updatePlaylist.mutate(variables, {
       onError: async (response) => {
