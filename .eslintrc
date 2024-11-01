@@ -1,11 +1,11 @@
 {
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:jest-dom/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:testing-library/react",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "next/typescript"
   ],
   "rules": {
     "@typescript-eslint/consistent-type-imports": "error"
