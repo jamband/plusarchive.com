@@ -51,9 +51,7 @@ const Page: PageComponent = () => {
             <button
               type="button"
               className="rounded bg-rose-500 px-4 py-1 text-gray-100 shadow-sm shadow-gray-900"
-              onClick={() => {
-                confirm("Are you sure?") && stopUrges.mutate();
-              }}
+              onClick={() => confirm("Are you sure?") && stopUrges.mutate()}
             >
               Stop All Urges
             </button>

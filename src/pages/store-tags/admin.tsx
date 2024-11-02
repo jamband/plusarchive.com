@@ -66,9 +66,9 @@ const Page: PageComponent = () => {
               <GridActions
                 resource="/store-tags"
                 id={tag.id}
-                mutation={() => {
-                  confirm("Are you sure?") && deleteTag.mutate(tag.id);
-                }}
+                mutation={() =>
+                  confirm("Are you sure?") && deleteTag.mutate(tag.id)
+                }
               />
             </Fragment>
           ))}

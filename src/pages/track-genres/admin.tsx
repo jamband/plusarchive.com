@@ -66,9 +66,9 @@ const Page: PageComponent = () => {
               <GridActions
                 resource="/track-genres"
                 id={genre.id}
-                mutation={() => {
-                  confirm("Are you sure?") && deleteGenre.mutate(genre.id);
-                }}
+                mutation={() =>
+                  confirm("Are you sure?") && deleteGenre.mutate(genre.id)
+                }
               />
             </Fragment>
           ))}

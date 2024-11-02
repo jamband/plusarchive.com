@@ -106,10 +106,9 @@ const Page: PageComponent = () => {
               <GridActions
                 resource="/playlists"
                 id={playlist.id}
-                mutation={() => {
-                  confirm("Are you sure?") &&
-                    deletePlaylist.mutate(playlist.id);
-                }}
+                mutation={() =>
+                  confirm("Are you sure?") && deletePlaylist.mutate(playlist.id)
+                }
               />
             </Fragment>
           ))}

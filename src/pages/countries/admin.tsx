@@ -49,9 +49,9 @@ const Page: PageComponent = () => {
             <GridActions
               resource="/countries"
               id={country.id}
-              mutation={() => {
-                confirm("Are you sure?") && deleteCountry.mutate(country.id);
-              }}
+              mutation={() =>
+                confirm("Are you sure?") && deleteCountry.mutate(country.id)
+              }
             />
           </Fragment>
         ))}

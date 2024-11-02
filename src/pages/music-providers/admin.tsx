@@ -53,10 +53,9 @@ const Page: PageComponent = () => {
               <GridActions
                 resource="/music-providers"
                 id={provider.id}
-                mutation={() => {
-                  confirm("Are you sure?") &&
-                    deleteProvider.mutate(provider.id);
-                }}
+                mutation={() =>
+                  confirm("Are you sure?") && deleteProvider.mutate(provider.id)
+                }
               />
             </Fragment>
           ))}

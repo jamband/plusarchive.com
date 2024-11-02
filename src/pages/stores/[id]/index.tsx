@@ -61,11 +61,11 @@ const Page: PageComponent = () => {
       <div className="flex justify-center">
         <ActionButton
           className="hover:bg-gray-700 hover:text-gray-100"
-          onClick={() => {
+          onClick={() =>
             confirm("Are you sure?") &&
-              !!store.data &&
-              deleteStore.mutate(store.data.id);
-          }}
+            !!store.data &&
+            deleteStore.mutate(store.data.id)
+          }
         >
           <IconTrash className="mr-1 h-4 w-4 align-[-0.125em]" />
           Delete
