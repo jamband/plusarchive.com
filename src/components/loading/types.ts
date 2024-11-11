@@ -1,6 +1,6 @@
 export type Props = {
-  color?: `bg-${string}`;
-  size?: `h-[${number}px] w-[${number}px]`;
+  color?: string;
+  size?: string;
 };
 
 export type _Props = Props;

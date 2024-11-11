@@ -6,23 +6,21 @@ test("", () => {
 
   const status = screen.getByRole("status");
   expect(status).toBeInTheDocument();
-  expect(status.childNodes[1]).toHaveClass("bg-gray-400 h-[7px] w-[7px]");
+  expect(status.childNodes[1]).toHaveClass("dot1 color size");
 });
 
 test("color", () => {
-  render(<Loading color="bg-rose-500" />);
+  render(<Loading color="foo" />);
 
   const status = screen.getByRole("status");
   expect(status).toBeInTheDocument();
-  expect(status.childNodes[1]).not.toHaveClass("bg-gray-400");
-  expect(status.childNodes[1]).toHaveClass("bg-rose-500");
+  expect(status.childNodes[1]).toHaveClass("dot1 foo size");
 });
 
-test("size", () => {
-  render(<Loading size="h-[5px] w-[5px]" />);
+test("color and size", () => {
+  render(<Loading color="foo" size="bar" />);
 
   const status = screen.getByRole("status");
   expect(status).toBeInTheDocument();
-  expect(status.childNodes[1]).not.toHaveClass("h-[7px] w-[7px]");
-  expect(status.childNodes[1]).toHaveClass("h-[5px] w-[5px]");
+  expect(status.childNodes[1]).toHaveClass("dot1 foo bar");
 });
