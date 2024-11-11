@@ -1,0 +1,40 @@
+.container {
+  font-size: var(--text-sm);
+  padding: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    font-size: var(--text-base);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .container:hover {
+    background: rgb(var(--gray-700));
+    color: rgb(var(--gray-100));
+  }
+}
+
+.container:active,
+.container:focus-visible,
+details[open] .container {
+  background: rgb(var(--gray-700));
+  color: rgb(var(--gray-100));
+}
+
+.icon {
+  color: rgb(var(--gray-400) / 70%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .container:hover .icon {
+    color: rgb(var(--gray-400));
+  }
+}
+
+.container:active .icon,
+.container:focus-visible .icon,
+details[open] .container .icon {
+  color: rgb(var(--gray-400));
+}

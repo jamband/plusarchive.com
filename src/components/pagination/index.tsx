@@ -5,6 +5,7 @@ import { IconAnglesRight } from "@/icons/angles-right";
 import { useRouter } from "next/router";
 import { Component } from "./component";
 import type { Part, Props } from "./types";
+import styles from "./styles.module.css";
 
 export const Pagination: React.FC<Props> = (props) => {
   const { pathname, query } = useRouter();
@@ -43,7 +44,7 @@ export const Pagination: React.FC<Props> = (props) => {
   };
 
   const icon = (part: Part) => {
-    const className = "h-3 w-3 align-baseline";
+    const className = styles.linkIcon;
 
     if (part === "First") {
       return <IconAnglesLeft className={className} />;

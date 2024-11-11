@@ -1,0 +1,25 @@
+.container {
+  margin: 1rem 0 0;
+}
+
+.form {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+}
+
+.fieldset {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .fieldset {
+    width: 50%;
+  }
+}
+
+.textbox {
+  background: rgb(var(--gray-900));
+  border: 1px solid rgb(var(--gray-700));
+}

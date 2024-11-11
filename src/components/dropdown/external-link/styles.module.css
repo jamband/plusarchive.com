@@ -1,0 +1,25 @@
+.container {
+  align-items: center;
+  border-radius: var(--rounded);
+  display: inline-flex;
+  gap: 0.5rem;
+  padding: 0.125rem 1rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .container:hover {
+    background: rgb(var(--gray-700));
+    color: rgb(var(--gray-100));
+  }
+}
+
+.container:active,
+.container:focus-visible {
+  background: rgb(var(--gray-700));
+  color: rgb(var(--gray-100));
+}
+
+.icon {
+  height: 1rem;
+  width: 1rem;
+}

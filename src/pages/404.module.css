@@ -1,0 +1,37 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  height: 70vh;
+  justify-content: center;
+}
+
+.description {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.3rem;
+}
+
+.descriptionIcon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.link {
+  align-items: center;
+  color: rgb(var(--rose-500));
+  display: inline-flex;
+  gap: 0.25rem;
+  margin: 2.5rem 0 0;
+}
+
+.link:active,
+.link:focus-visible {
+  color: rgb(var(--rose-500));
+}
+
+.linkIcon {
+  color: rgb(var(--rose-500) / 60%);
+  height: 1rem;
+  width: 1rem;
+}

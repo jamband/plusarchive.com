@@ -1,0 +1,5 @@
+.feedback {
+  box-shadow: 0 0 0 1px rgb(var(--red-400));
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}

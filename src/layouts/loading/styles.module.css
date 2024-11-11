@@ -1,0 +1,19 @@
+.container {
+  background: rgb(var(--rose-500));
+  height: 0.25rem;
+  position: fixed;
+  width: 0;
+  z-index: 50;
+}
+
+.start {
+  background: rgb(var(--rose-500) / 60%);
+  transition: width 10s cubic-bezier(0.1, 0.05, 0, 1);
+  width: 99%;
+}
+
+.complete {
+  background: rgb(var(--rose-500) / 80%);
+  transition: width 0.1s ease-out;
+  width: 100%;
+}

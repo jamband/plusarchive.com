@@ -3,6 +3,7 @@ import { useRequireAdmin } from "@/hooks/require";
 import { IconCircleInfo } from "@/icons/circle-info";
 import { AdminLayout } from "@/layouts/admin/layout";
 import type { PageComponent } from "../_app";
+import styles from "./logout.module.css";
 
 const Page: PageComponent = () => {
   useRequireAdmin();
@@ -10,16 +11,16 @@ const Page: PageComponent = () => {
   const logout = useLogout();
 
   return (
-    <div className="flex h-[65vh] flex-col items-center justify-center">
+    <div className={styles.container}>
       <h1>Admin logout</h1>
-      <p className="mb-4">
-        <IconCircleInfo className="mr-1.5 h-4 w-4 align-[-0.125em]" />
+      <p className={styles.information}>
+        <IconCircleInfo className={styles.informationIcon} />
         Press the <strong>Logout</strong> button to log out.
       </p>
       <button
         type="button"
         onClick={() => logout.mutate()}
-        className="rounded bg-rose-500 px-4 py-1 font-bold text-gray-100 shadow-sm shadow-gray-900 disabled:bg-gray-700 disabled:text-gray-400"
+        className={styles.button}
         disabled={logout.isPending}
       >
         Logout

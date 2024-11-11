@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.title {
+  color: rgb(var(--gray-100));
+}
+
+.links {
+  overflow: scroll;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.linksRight {
+  mask-image: linear-gradient(to left, #0000, #000 20%);
+}
+
+.linksCenter {
+  mask-image: linear-gradient(to left, #0000, #000 20%, #000 80%, #0000);
+}
+
+.linksLeft {
+  mask-image: linear-gradient(to right, #0000, #000 20%);
+}
+
+.link {
+  margin: 0 0.75rem 0 0.125rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: rgb(var(--gray-100));
+  }
+}
+
+.space {
+  margin: 0 3rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .space {
+    margin: 0 6rem 0 0;
+  }
+}

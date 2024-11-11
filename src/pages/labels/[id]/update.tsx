@@ -18,6 +18,7 @@ import type { Schema } from "@/rules/label/update";
 import { label as formLabel, schema } from "@/rules/label/update";
 import { setErrors } from "@/utils/form";
 import type { SubmitHandler } from "react-hook-form";
+import styles from "../form.module.css";
 
 const Page: PageComponent = () => {
   useRequireAdmin();
@@ -52,15 +53,15 @@ const Page: PageComponent = () => {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <h1>Update labels</h1>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <FormInformation className="mb-10" />
+      <form onSubmit={form.handleSubmit(onSubmit)} className={styles.form}>
+        <FormInformation />
         <FormInput
           label={formLabel.name}
-          className="mb-8 w-full md:w-1/2"
+          className={styles.fieldset}
           type="text"
-          inputClass="border-gray-700 bg-gray-900"
+          inputClass={styles.textbox}
           register={form.register("name")}
           feedback={form.errors.name?.message}
           placeholder="Name"
@@ -69,8 +70,8 @@ const Page: PageComponent = () => {
         <FormSelect
           label={formLabel.country}
           data={countries}
-          className="mb-8 w-full md:w-1/2"
-          inputClass="border-gray-700 bg-gray-900"
+          className={styles.fieldset}
+          inputClass={styles.combobox}
           register={form.register("country")}
           feedback={form.errors.country?.message}
           required
@@ -83,9 +84,9 @@ const Page: PageComponent = () => {
         </FormSelect>
         <FormInput
           label={formLabel.url}
-          className="mb-8 w-full md:w-1/2"
+          className={styles.fieldset}
           type="text"
-          inputClass="border-gray-700 bg-gray-900"
+          inputClass={styles.textbox}
           register={form.register("url")}
           feedback={form.errors.url?.message}
           placeholder="https://example.com"
@@ -93,16 +94,16 @@ const Page: PageComponent = () => {
         />
         <FormTextarea
           label={formLabel.links}
-          className="mb-8 w-full md:w-1/2"
-          inputClass="border-gray-700 bg-gray-900"
+          className={styles.textareaFieldset}
+          inputClass={styles.textarea}
           register={form.register("links")}
           feedback={form.errors.links?.message}
           placeholder={"https://twitter.com/foo\nhttps://bandcamp.com/bar"}
         />
         <FormChecks
           label={formLabel.tags}
-          className="mb-8 w-full"
-          inputClass="max-h-48 border-gray-700 bg-gray-900"
+          className={styles.listboxFieldset}
+          inputClass={styles.listbox}
           feedback={form.errors.tags?.message}
         >
           {tags.isError && <FailedToFetch />}
@@ -120,7 +121,7 @@ const Page: PageComponent = () => {
           Update
         </FormSubmit>
       </form>
-    </>
+    </div>
   );
 };
 

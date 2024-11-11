@@ -1,0 +1,28 @@
+.container {
+  align-items: center;
+  background: rgb(var(--gray-700));
+  display: flex;
+  gap: 0.125rem;
+  justify-content: center;
+}
+
+.action {
+  line-height: 1;
+  padding: 0.25rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .action:hover {
+    color: rgb(var(--gray-100));
+  }
+}
+
+.action:active,
+.action:focus-visible {
+  color: rgb(var(--gray-100));
+}
+
+.icon {
+  height: 1rem;
+  width: 1rem;
+}

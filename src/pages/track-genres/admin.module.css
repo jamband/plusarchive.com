@@ -1,0 +1,19 @@
+.container {
+  margin: 0 0 -3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) 7rem;
+  margin: 1.5rem 0 0;
+}
+
+.filterTextbox {
+  background: rgb(var(--gray-800));
+  border: 1px solid rgb(var(--gray-600));
+  margin: 0.25rem;
+}
+
+.pagination {
+  margin: 2rem 0 0;
+}

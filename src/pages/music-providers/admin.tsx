@@ -14,6 +14,7 @@ import { useRequireAdmin } from "@/hooks/require";
 import { AdminLayout } from "@/layouts/admin/layout";
 import { Fragment } from "react";
 import type { PageComponent } from "../_app";
+import styles from "./admin.module.css";
 
 const Page: PageComponent = () => {
   useRequireAdmin();
@@ -31,7 +32,7 @@ const Page: PageComponent = () => {
 
   return (
     <>
-      <GridContainer className="grid-cols-[repeat(2,_minmax(0,_1fr))_7em]">
+      <GridContainer className={styles.grid}>
         <GridHeader>
           <GridHeaderSort column="id" type="number">
             ID

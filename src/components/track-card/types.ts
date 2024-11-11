@@ -6,6 +6,6 @@ export type Props = {
 };
 
 export type _Props = Props & {
+  isVideoAspectRatio: boolean;
   isPlaying: boolean;
-  aspectRatio: string;
 };

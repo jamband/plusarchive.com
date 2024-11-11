@@ -1,0 +1,6 @@
+.container {
+  background: rgb(var(--gray-700));
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

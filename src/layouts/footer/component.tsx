@@ -1,28 +1,27 @@
 import { CloseButton } from "@/components/close-button";
 import { APP_NAME } from "@/constants/app";
 import Link from "next/link";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  <footer className="fixed bottom-0 z-20 w-full bg-gray-700 text-sm shadow-[0_-1px_2px] shadow-gray-900 md:text-base">
+  <footer className={styles.container}>
     {props.player.id !== "" && !props.isPlayerVisible ? (
-      <div className="my-2 flex items-center justify-center lg:container lg:mx-auto">
+      <div className={styles.active}>
         <Link
           href={`/${props.player.type}s/${props.player.id}`}
-          className="ml-4 mr-1 overflow-hidden text-ellipsis whitespace-nowrap py-2 font-semibold text-gray-100"
+          className={styles.link}
         >
           {props.player.title}
         </Link>
         <CloseButton
-          className="mr-2 rounded px-2 py-1 hover:bg-gray-600 hover:text-gray-100 active:bg-gray-600 active:text-rose-500"
-          iconClass="h-5 w-5 align-[-0.4em] md:align-[-0.25em]"
+          className={styles.close}
+          iconClass={styles.closeIcon}
           onClick={props.resetPlayer}
         />
       </div>
     ) : (
-      <div className="container mx-auto py-4 text-center font-semibold text-gray-100">
-        {APP_NAME}
-      </div>
+      <div className={styles.inactive}>{APP_NAME}</div>
     )}
   </footer>
 );

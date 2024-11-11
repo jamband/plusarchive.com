@@ -14,6 +14,7 @@ import { useRequireAdmin } from "@/hooks/require";
 import { AdminLayout } from "@/layouts/admin/layout";
 import { Fragment } from "react";
 import type { PageComponent } from "../_app";
+import styles from "./admin.module.css";
 
 const Page: PageComponent = () => {
   useRequireAdmin();
@@ -31,8 +32,8 @@ const Page: PageComponent = () => {
   }
 
   return (
-    <div className="-mb-12">
-      <GridContainer className="mb-6 grid-cols-[repeat(2,_minmax(0,_1fr))_7em]">
+    <div className={styles.container}>
+      <GridContainer className={styles.grid}>
         <GridHeader>
           <GridHeaderSort column="id" type="number">
             ID
@@ -50,7 +51,7 @@ const Page: PageComponent = () => {
         <GridFilter>
           <input
             type="text"
-            className="m-1 border-gray-600 bg-gray-800"
+            className={styles.filterTextbox}
             placeholder="Search..."
             value={name.value}
             onChange={name.onChange}
@@ -73,7 +74,12 @@ const Page: PageComponent = () => {
             </Fragment>
           ))}
       </GridContainer>
-      {tags.data && <Pagination pagination={tags.data.pagination} />}
+      {tags.data && (
+        <Pagination
+          pagination={tags.data.pagination}
+          className={styles.pagination}
+        />
+      )}
     </div>
   );
 };

@@ -1,0 +1,63 @@
+.container {
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .container {
+    font-size: var(--text-base);
+  }
+}
+
+.linkContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+}
+
+.link {
+  border-radius: var(--rounded);
+  padding: 0.5rem 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.linkDisabled {
+  border-radius: var(--rounded);
+  color: rgb(var(--gray-500));
+  padding: 0.5rem 0;
+  pointer-events: none;
+  width: 100%;
+  z-index: 10;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    background: rgb(var(--gray-500) / 20%);
+    color: rgb(var(--gray-100));
+  }
+}
+
+.link:active,
+.link:focus-visible {
+  background: rgb(var(--gray-500) / 20%);
+  color: rgb(var(--gray-100));
+}
+
+.linkIcon {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+.information {
+  font-size: var(--text-xs);
+  inset: auto auto 2.1rem;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .information {
+    font-size: var(--text-sm);
+    inset: auto auto 2.2rem;
+  }
+}

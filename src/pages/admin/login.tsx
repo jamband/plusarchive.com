@@ -10,6 +10,7 @@ import { label, schema } from "@/rules/auth/login";
 import { setErrors } from "@/utils/form";
 import type { SubmitHandler } from "react-hook-form";
 import type { PageComponent } from "../_app";
+import styles from "./login.module.css";
 
 const Page: PageComponent = () => {
   useRequireGuest();
@@ -32,15 +33,15 @@ const Page: PageComponent = () => {
   };
 
   return (
-    <div className="lg:px-40">
+    <div className={styles.container}>
       <h1>Admin login</h1>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <FormInformation className="mb-10" />
+      <form onSubmit={form.handleSubmit(onSubmit)} className={styles.form}>
+        <FormInformation />
         <FormInput
-          className="mb-8 w-full md:w-1/2"
+          className={styles.fieldset}
           label={label.email}
           type="text"
-          inputClass="border-gray-700 bg-gray-900"
+          inputClass={styles.textbox}
           register={form.register("email")}
           feedback={form.errors.email?.message}
           autoComplete="email"
@@ -48,10 +49,10 @@ const Page: PageComponent = () => {
           required
         />
         <FormInput
-          className="mb-8 w-full md:w-1/2"
+          className={styles.fieldset}
           label={label.password}
           type="password"
-          inputClass="border-gray-700 bg-gray-900"
+          inputClass={styles.textbox}
           register={form.register("password")}
           feedback={form.errors.password?.message}
           placeholder="Password"

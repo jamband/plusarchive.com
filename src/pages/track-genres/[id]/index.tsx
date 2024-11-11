@@ -9,6 +9,7 @@ import { useDeleteTrackGenre, useTrackGenre } from "@/hooks/track-genres";
 import { IconTrash } from "@/icons/trash";
 import { AdminLayout } from "@/layouts/admin/layout";
 import type { PageComponent } from "@/pages/_app";
+import styles from "./index.module.css";
 
 const Page: PageComponent = () => {
   useRequireAdmin();
@@ -29,27 +30,27 @@ const Page: PageComponent = () => {
   }
 
   return (
-    <>
-      <DetailContainer className="mb-10 grid-rows-2">
+    <div className={styles.container}>
+      <DetailContainer className={styles.detail}>
         <DetailColumn>ID</DetailColumn>
         <DetailColumn>Name</DetailColumn>
         <DetailContent>{genre.data.id}</DetailContent>
         <DetailContent>{genre.data.name}</DetailContent>
       </DetailContainer>
-      <div className="flex justify-center">
+      <div className={styles.action}>
         <ActionButton
-          className="hover:bg-gray-700 hover:text-gray-100"
+          className={styles.actionButton}
           onClick={() =>
             confirm("Are you sure?") &&
             !!genre.data &&
             deleteGenre.mutate(genre.data.id)
           }
         >
-          <IconTrash className="mr-1 h-4 w-4 align-[-0.125em]" />
+          <IconTrash className={styles.actionButtonIcon} />
           Delete
         </ActionButton>
       </div>
-    </>
+    </div>
   );
 };
 

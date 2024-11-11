@@ -4,6 +4,7 @@ import { IconCircleInfo } from "@/icons/circle-info";
 import { Layout } from "@/layouts/layout";
 import Head from "next/head";
 import Link from "next/link";
+import styles from "./404.module.css";
 import type { PageComponent } from "./_app";
 
 const Page: PageComponent = () => {
@@ -13,14 +14,14 @@ const Page: PageComponent = () => {
         <meta name="description" content={APP_DESCRIPTION} />
         <meta property="og:description" content={APP_DESCRIPTION} />
       </Head>
-      <div className="flex h-[70vh] flex-col items-center justify-center">
+      <div className={styles.container}>
         <h1>An error occurred</h1>
-        <div className="mb-10">
-          <IconCircleInfo className="mr-1.5 h-4 w-4 align-[-0.125em]" />
+        <div className={styles.description}>
+          <IconCircleInfo className={styles.descriptionIcon} />
           An error occurred.
         </div>
-        <Link href="/" className="text-rose-500 active:text-rose-500">
-          <IconAngleLeft className="mr-1 h-4 w-4 align-[-0.1em] text-rose-500/60" />
+        <Link href="/" className={styles.link}>
+          <IconAngleLeft className={styles.linkIcon} />
           Back to Home
         </Link>
       </div>

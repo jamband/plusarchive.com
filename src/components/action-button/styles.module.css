@@ -1,0 +1,4 @@
+.container {
+  border-radius: var(--rounded);
+  padding: 0.25rem 1rem;
+}

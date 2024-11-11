@@ -1,0 +1,87 @@
+html {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: rgb(var(--gray-800));
+  color: rgb(var(--gray-400));
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+}
+
+h1 {
+  color: rgb(var(--gray-100));
+  font-size: var(--text-5xl);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+h2 {
+  color: rgb(var(--gray-100));
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+a {
+  color: rgb(var(--gray-400));
+}
+
+a:active,
+a:focus-visible {
+  color: rgb(var(--gray-100));
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  vertical-align: middle;
+}
+
+iframe {
+  border: none;
+  vertical-align: middle;
+}
+
+label {
+  color: rgb(var(--gray-200));
+  display: block;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgb(var(--gray-500));
+}
+
+input[type="text"],
+input[type="search"],
+input[type="password"] {
+  border-radius: var(--rounded);
+  padding: 0.25rem 0.75rem;
+  width: 100%;
+}
+
+textarea {
+  border-radius: var(--rounded);
+  display: inline-block;
+  min-height: 7.5rem;
+  padding: 0.25rem 0.75rem;
+  resize: both;
+  width: 100%;
+}
+
+select {
+  border-radius: var(--rounded);
+  padding: 0.25rem 0.75rem;
+  vertical-align: middle;
+  width: 100%;
+}
+
+select:disabled {
+  color: rgb(var(--gray-500));
+}

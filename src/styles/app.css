@@ -1,12 +1,5 @@
-/*!
- * Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
- * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
- * Copyright 2023 Fonticons, Inc.
- */
-
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
-@import "./layers/base.css";
-@import "./layers/utilities.css";
+@import url("./license.css");
+@import url("./reset.css");
+@import url("./root.css");
+@import url("./base.css");
+@import url("./utilities.css");

@@ -1,22 +1,23 @@
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  <div className="flex gap-x-1" role="status">
-    <div className="sr-only">Loading...</div>
+  <div className={styles.container} role="status">
+    <div className="srOnly">Loading...</div>
     <div
-      className={`animation-delay-100 animate-loading rounded-full ${
-        props.color || "bg-gray-400"
-      } ${props.size || "h-[7px] w-[7px]"}`}
+      className={`${styles.dot1} ${
+        props.color || styles.color
+      } ${props.size || styles.size}`}
     />
     <div
-      className={`animation-delay-200 animate-loading rounded-full ${
-        props.color || "bg-gray-400"
-      } ${props.size || "h-[7px] w-[7px]"}`}
+      className={`${styles.dot2} ${
+        props.color || styles.color
+      } ${props.size || styles.size}`}
     />
     <div
-      className={`animation-delay-300 animate-loading rounded-full ${
-        props.color || "bg-gray-400"
-      } ${props.size || "h-[7px] w-[7px]"}`}
+      className={`${styles.dot3} ${
+        props.color || styles.color
+      } ${props.size || styles.size}`}
     />
   </div>
 );

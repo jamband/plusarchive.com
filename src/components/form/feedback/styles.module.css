@@ -1,0 +1,6 @@
+.container {
+  color: rgb(var(--red-400));
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  margin: 0.25rem 0 0;
+}

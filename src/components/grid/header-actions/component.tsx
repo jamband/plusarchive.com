@@ -1,3 +1,3 @@
 export const Component: React.FC = () => (
-  <span className="sr-only">Actions</span>
+  <span className="srOnly">Actions</span>
 );

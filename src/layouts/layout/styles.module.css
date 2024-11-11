@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 6rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .main {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    max-width: 1024px;
+    padding: 2.5rem 8rem 6rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .main {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .main {
+    max-width: 1536px;
+  }
+}

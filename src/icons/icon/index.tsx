@@ -5,7 +5,7 @@ export const Icon: React.FC<Props> = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox={props.viewBox}
     fill="currentColor"
-    className={`inline-block ${props.className}`}
+    className={props.className}
     role="img"
     aria-hidden={true}
   >

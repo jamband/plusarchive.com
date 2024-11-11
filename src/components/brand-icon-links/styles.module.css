@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.75rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    color: rgb(var(--gray-100));
+  }
+}
+
+.linkIcon {
+  height: 1.25rem;
+  vertical-align: -0.2rem;
+  width: 1.25rem;
+}

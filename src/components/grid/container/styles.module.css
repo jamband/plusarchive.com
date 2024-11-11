@@ -1,0 +1,5 @@
+.container {
+  display: grid;
+  font-size: var(--text-sm);
+  gap: 0.125rem;
+}

@@ -1,0 +1,47 @@
+.container {
+  margin: 1rem 0 0;
+}
+
+.form {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: column;
+  gap: 2rem;
+}
+
+.fieldset {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .fieldset {
+    width: 50%;
+  }
+}
+
+.textareaFieldset {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .textareaFieldset {
+    width: 50%;
+  }
+}
+
+.listboxFieldset {
+  width: 100%;
+}
+
+.textbox,
+.combobox,
+.textarea {
+  background: rgb(var(--gray-900));
+  border: 1px solid rgb(var(--gray-700));
+}
+
+.listbox {
+  background: rgb(var(--gray-900));
+  border: 1px solid rgb(var(--gray-700));
+  max-height: 12rem;
+}

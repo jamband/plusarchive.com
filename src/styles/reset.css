@@ -1,0 +1,9 @@
+@import url("the-new-css-reset");
+
+:focus {
+  outline: revert;
+}
+
+::marker {
+  content: revert;
+}

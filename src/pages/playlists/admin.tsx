@@ -16,6 +16,7 @@ import { IconAngleDown } from "@/icons/angle-down";
 import { AdminLayout } from "@/layouts/admin/layout";
 import { Fragment } from "react";
 import type { PageComponent } from "../_app";
+import styles from "./admin.module.css";
 
 const Page: PageComponent = () => {
   useRequireAdmin();
@@ -36,8 +37,8 @@ const Page: PageComponent = () => {
   }
 
   return (
-    <div className="-mb-12">
-      <GridContainer className="mb-8 grid-cols-[repeat(4,_minmax(0,_1fr))_7em]">
+    <div className={styles.container}>
+      <GridContainer className={styles.grid}>
         <GridHeader>
           <GridHeaderSort column="title" type="string">
             Title
@@ -60,7 +61,7 @@ const Page: PageComponent = () => {
         <GridFilter>
           <input
             type="text"
-            className="m-1 border-gray-600 bg-gray-800"
+            className={styles.filterTextbox}
             placeholder="Search..."
             value={title.value}
             onChange={title.onChange}
@@ -68,9 +69,9 @@ const Page: PageComponent = () => {
           />
         </GridFilter>
         <GridFilter>
-          <div className="relative m-1 w-full">
+          <div className={styles.filterComboboxContainer}>
             <select
-              className="border-gray-600 bg-gray-800 md:pr-8"
+              className={styles.filterCombobox}
               value={provider.value}
               onChange={provider.onChange}
             >
@@ -84,8 +85,8 @@ const Page: PageComponent = () => {
                   </option>
                 ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400">
-              <IconAngleDown className="h-3 w-3" />
+            <div className={styles.filterComboboxIconContainer}>
+              <IconAngleDown className={styles.filterComboboxIcon} />
             </div>
           </div>
         </GridFilter>
@@ -114,7 +115,10 @@ const Page: PageComponent = () => {
           ))}
       </GridContainer>
       {!!playlists.data && (
-        <Pagination pagination={playlists.data.pagination} />
+        <Pagination
+          pagination={playlists.data.pagination}
+          className={styles.pagination}
+        />
       )}
     </div>
   );

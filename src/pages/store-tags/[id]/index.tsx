@@ -9,6 +9,7 @@ import { useDeleteStoreTag, useStoreTag } from "@/hooks/store-tags";
 import { IconTrash } from "@/icons/trash";
 import { AdminLayout } from "@/layouts/admin/layout";
 import type { PageComponent } from "@/pages/_app";
+import styles from "@/pages/label-tags/[id]/index.module.css";
 
 const Page: PageComponent = () => {
   useRequireAdmin();
@@ -29,27 +30,27 @@ const Page: PageComponent = () => {
   }
 
   return (
-    <>
-      <DetailContainer className="mb-10 grid-rows-2">
+    <div className={styles.container}>
+      <DetailContainer className={styles.detail}>
         <DetailColumn>ID</DetailColumn>
         <DetailColumn>Name</DetailColumn>
         <DetailContent>{tag.data.id}</DetailContent>
         <DetailContent>{tag.data.name}</DetailContent>
       </DetailContainer>
-      <div className="flex justify-center">
+      <div className={styles.action}>
         <ActionButton
-          className="hover:bg-gray-700 hover:text-gray-100"
+          className={styles.actionButton}
           onClick={() =>
             confirm("Are you sure?") &&
             !!tag.data &&
             deleteTag.mutate(tag.data.id)
           }
         >
-          <IconTrash className="mr-1 h-4 w-4 align-[-0.125em]" />
+          <IconTrash className={styles.actionButtonIcon} />
           Delete
         </ActionButton>
       </div>
-    </>
+    </div>
   );
 };
 

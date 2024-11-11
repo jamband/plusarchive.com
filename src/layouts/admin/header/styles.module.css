@@ -1,0 +1,149 @@
+.container {
+  background: rgb(var(--gray-700));
+  box-shadow: 0 1px 2px 0 rgb(var(--gray-900));
+  width: 100%;
+}
+
+.pc {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.25rem;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .pc {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pc {
+    max-width: 1024px;
+    padding: 0 8rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .pc {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .pc {
+    max-width: 1536px;
+  }
+}
+
+.adminLinkContainer {
+  margin: 0.75rem 1rem 0.75rem 0;
+}
+
+.adminLink {
+  border-radius: var(--rounded);
+  color: rgb(var(--gray-100));
+  font-size: var(--text-base);
+  font-weight: 900;
+  padding: 0.5rem 0;
+}
+
+.linkContainer {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .linkContainer {
+    display: block;
+  }
+}
+
+.linkContainerLogout {
+  margin: 0 0 0 auto;
+}
+
+.link {
+  border-radius: var(--rounded);
+  font-size: var(--text-sm);
+  padding: 0.5rem 0.75rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .link:hover {
+    background: rgb(var(--gray-600) / 50%);
+    color: rgb(var(--gray-100));
+  }
+}
+
+.link[aria-current="page"] {
+  background: rgb(var(--gray-600));
+  color: rgb(var(--gray-100));
+}
+
+.menuContainer {
+  margin: 0 0 0 auto;
+}
+
+@media (min-width: 768px) {
+  .menuContainer {
+    display: none;
+  }
+}
+
+.menu {
+  border-radius: var(--rounded);
+  line-height: 1;
+  margin: 0 -0.25rem 0 0;
+  padding: 0.5rem 0.75rem;
+}
+
+.menu[aria-expanded="true"] {
+  background: rgb(var(--gray-600));
+  color: rgb(var(--gray-100));
+}
+
+.menuIcon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.mobile {
+  overflow: hidden;
+  transition: max-height 0.3s;
+}
+
+@media (min-width: 768px) {
+  .mobile {
+    display: none;
+  }
+}
+
+.mobileActive {
+  margin: 0 0 0.75rem;
+  max-height: 5rem;
+}
+
+.mobileInactive {
+  max-height: 0;
+}
+
+.mobileLink {
+  display: block;
+  font-size: var(--text-sm);
+  margin: 0.125rem 0;
+  padding: 0.375rem 1rem;
+}
+
+.mobileLink:active {
+  background: rgb(var(--gray-600));
+  color: rgb(var(--gray-100));
+}
+
+.mobileLink[aria-current="page"] {
+  color: rgb(var(--gray-100));
+  font-weight: 600;
+}

@@ -1,0 +1,31 @@
+:root {
+  /* font size */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-3xl: 1.65rem;
+  --text-4xl: 2rem;
+  --text-5xl: 2.5rem;
+
+  /* font family */
+  /* stylelint-disable-next-line value-keyword-case */
+  --font-sans: system-ui, Arial, sans-serif;
+
+  /* border radius */
+  --rounded: 0.25rem;
+
+  /* color */
+  --gray-100: 236 239 244;
+  --gray-200: 219 222 229;
+  --gray-300: 200 197 216;
+  --gray-400: 183 180 199;
+  --gray-500: 119 116 131;
+  --gray-600: 70 68 77;
+  --gray-700: 36 34 43;
+  --gray-800: 19 17 26;
+  --gray-900: 2 0 9;
+  --red-400: 248 113 113;
+  --amber-500: 245 158 11;
+  --yellow-400: 250 204 21;
+  --rose-500: 196 92 101;
+}

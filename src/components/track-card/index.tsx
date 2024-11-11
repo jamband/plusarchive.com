@@ -8,14 +8,14 @@ export const TrackCard: React.FC<Props> = (props) => {
   const player = usePlayerState();
 
   const provider = `${query.provider || ""}`;
-
-  const aspectRatio = ["Vimeo", "YouTube"].includes(provider)
-    ? "aspect-square md:aspect-video"
-    : "aspect-square";
-
+  const isVideoAspectRatio = ["Vimeo", "YouTube"].includes(provider);
   const isPlaying = player.id === props.track.id;
 
   return (
-    <Component {...props} aspectRatio={aspectRatio} isPlaying={isPlaying} />
+    <Component
+      {...props}
+      isVideoAspectRatio={isVideoAspectRatio}
+      isPlaying={isPlaying}
+    />
   );
 };

@@ -8,6 +8,7 @@ import { IconVimeoSquare } from "@/icons/vimeo-square";
 import { IconXTwitterSquare } from "@/icons/x-twitter-square";
 import { IconYouTubeSquare } from "@/icons/youtube-square";
 import { Component } from "./component";
+import styles from "./styles.module.css";
 import type { Props } from "./types";
 
 export const BrandIconLinks: React.FC<Props> = (props) => {
@@ -18,7 +19,7 @@ export const BrandIconLinks: React.FC<Props> = (props) => {
   }
 
   const icon = (link: string) => {
-    const className = "h-5 w-5 align-[-0.2em]";
+    const className = styles.linkIcon;
 
     const icons = {
       "bandcamp.com": {

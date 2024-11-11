@@ -22,6 +22,7 @@ import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
 import { AdminLayout } from "@/layouts/admin/layout";
 import { Fragment } from "react";
 import type { PageComponent } from "../_app";
+import styles from "./admin.module.css";
 
 const Page: PageComponent = () => {
   useRequireAdmin();
@@ -45,8 +46,8 @@ const Page: PageComponent = () => {
   }
 
   return (
-    <div className="-mb-12">
-      <GridContainer className="mb-6 grid-cols-[repeat(6,_minmax(0,_1fr))_7em]">
+    <div className={styles.container}>
+      <GridContainer className={styles.grid}>
         <GridHeader>
           <GridHeaderSort column="name" type="string">
             Name
@@ -71,7 +72,7 @@ const Page: PageComponent = () => {
         <GridFilter>
           <input
             type="text"
-            className="m-1 border-gray-600 bg-gray-800"
+            className={styles.filterTextbox}
             placeholder="Search..."
             value={name.value}
             onChange={name.onChange}
@@ -79,9 +80,9 @@ const Page: PageComponent = () => {
           />
         </GridFilter>
         <GridFilter>
-          <div className="relative m-1 w-full">
+          <div className={styles.filterComboboxContainer}>
             <select
-              className="border-gray-600 bg-gray-800 md:pr-8"
+              className={styles.filterCombobox}
               value={country.value}
               onChange={country.onChange}
             >
@@ -95,16 +96,16 @@ const Page: PageComponent = () => {
                   </option>
                 ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400">
-              <IconAngleDown className="h-3 w-3" />
+            <div className={styles.filterComboboxIconContainer}>
+              <IconAngleDown className={styles.filterComboboxIcon} />
             </div>
           </div>
         </GridFilter>
         <GridFilter />
         <GridFilter>
-          <div className="relative m-1 w-full">
+          <div className={styles.filterComboboxContainer}>
             <select
-              className="border-gray-600 bg-gray-800 md:pr-8"
+              className={styles.filterCombobox}
               value={tag.value}
               onChange={tag.onChange}
             >
@@ -118,8 +119,8 @@ const Page: PageComponent = () => {
                   </option>
                 ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400">
-              <IconAngleDown className="h-3 w-3" />
+            <div className={styles.filterComboboxIconContainer}>
+              <IconAngleDown className={styles.filterComboboxIcon} />
             </div>
           </div>
         </GridFilter>
@@ -132,19 +133,21 @@ const Page: PageComponent = () => {
               <GridContent>
                 <a
                   href={label.url}
-                  className="font-semibold text-rose-500 active:text-rose-500"
+                  className={styles.contentLink}
                   target="_blank"
                   rel="noreferrer"
                 >
                   {label.name}
-                  <IconUpRightFromSquare className="ml-1 h-3 w-3 align-baseline text-rose-500/60" />
+                  <IconUpRightFromSquare className={styles.contentLinkIcon} />
                 </a>
               </GridContent>
-              <GridContent className="truncate">{label.country}</GridContent>
+              <GridContent className={styles.cotent}>
+                {label.country}
+              </GridContent>
               <GridContent>
                 <BrandIconLinks links={label.links} />
               </GridContent>
-              <GridContent className="truncate">
+              <GridContent className={styles.content}>
                 {label.tags.join(", ")}
               </GridContent>
               <GridContent>{label.created_at}</GridContent>
@@ -159,7 +162,12 @@ const Page: PageComponent = () => {
             </Fragment>
           ))}
       </GridContainer>
-      {!!labels.data && <Pagination pagination={labels.data.pagination} />}
+      {!!labels.data && (
+        <Pagination
+          pagination={labels.data.pagination}
+          className={styles.pagination}
+        />
+      )}
     </div>
   );
 };

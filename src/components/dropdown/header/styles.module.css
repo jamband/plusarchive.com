@@ -1,0 +1,9 @@
+.container {
+  color: rgb(var(--gray-500));
+  font-size: var(--text-xs);
+  margin: 0 0.75rem 0.25rem;
+}
+
+.text {
+  border-bottom: 1px solid rgb(var(--gray-500));
+}

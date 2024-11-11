@@ -6,6 +6,7 @@ import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import type { PageComponent } from "../_app";
+import styles from "./index.module.css";
 
 type Props = {
   playlists: Array<Playlist>;
@@ -36,15 +37,12 @@ const Page: PageComponent<Props> = (props) => {
       </Head>
       <h1>Playlists</h1>
       <p>via SoundCloud or YouTube</p>
-      <ul className="mt-10 flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-x-12">
+      <ul className={styles.list}>
         {props.playlists.map((playlist) => (
-          <li key={playlist.id} className="leading-tight">
-            <Link
-              href={`/playlists/${playlist.id}`}
-              className="text-[1.425rem] font-bold text-rose-500 active:text-rose-500"
-            >
+          <li key={playlist.id} className={styles.listItem}>
+            <Link href={`/playlists/${playlist.id}`} className={styles.link}>
               {playlist.title}
-              <IconAngleRight className="ml-2 h-4 w-4 align-baseline text-rose-500/60" />
+              <IconAngleRight className={styles.linkIcon} />
             </Link>
           </li>
         ))}

@@ -8,6 +8,7 @@ import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
 import { Layout } from "@/layouts/layout";
 import Head from "next/head";
 import type { PageComponent } from "../_app";
+import styles from "./index.module.css";
 
 const Page: PageComponent = () => {
   return (
@@ -16,18 +17,20 @@ const Page: PageComponent = () => {
         <meta name="description" content={APP_DESCRIPTION} />
         <meta property="og:description" content={APP_DESCRIPTION} />
       </Head>
-      <div className="lg:px-40">
+      <div className={styles.container}>
         <h1>About</h1>
-        <p>{APP_NAME} is music archive website for everyday.</p>
-        <p>This website is an open source project.</p>
+        <div className={styles.descriptionContainer}>
+          <p>{APP_NAME} is music archive website for everyday.</p>
+          <p>This website is an open source project.</p>
+        </div>
         <a
           href={APP_REPOSITORY_URL}
-          className="text-rose-500 underline active:text-rose-500"
+          className={styles.link}
           target="_blank"
           rel="noreferrer"
         >
           GitHub: {APP_REPOSITORY_NAME}
-          <IconUpRightFromSquare className="ml-1 h-4 w-4 align-[-0.125em] text-rose-500/70" />
+          <IconUpRightFromSquare className={styles.linkIcon} />
         </a>{" "}
       </div>
     </>

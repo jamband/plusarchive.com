@@ -2,28 +2,22 @@ import { IconEye } from "@/icons/eye";
 import { IconPencil } from "@/icons/pencil";
 import { IconTrash } from "@/icons/trash";
 import Link from "next/link";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  <div className="flex items-start justify-center bg-gray-700 px-4 py-2">
-    <Link
-      href={`${props.resource}/${props.id}`}
-      className="mr-2 hover:text-gray-100"
-    >
-      <IconEye className="h-4 w-4 align-[-0.125em]" />
+  <div className={styles.container}>
+    <Link href={`${props.resource}/${props.id}`} className={styles.action}>
+      <IconEye className={styles.icon} />
     </Link>
     <Link
       href={`${props.resource}/${props.id}/update`}
-      className="mr-2 hover:text-gray-100"
+      className={styles.action}
     >
-      <IconPencil className="h-4 w-4 align-[-0.125em]" />
+      <IconPencil className={styles.icon} />
     </Link>
-    <button
-      type="button"
-      className="hover:text-gray-100"
-      onClick={props.mutation}
-    >
-      <IconTrash className="h-4 w-4 align-[-0.125em]" />
+    <button type="button" onClick={props.mutation} className={styles.action}>
+      <IconTrash className={styles.icon} />
     </button>
   </div>
 );

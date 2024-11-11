@@ -5,6 +5,7 @@ import { useCreateBookmarkTag } from "@/hooks/bookmark-tags";
 import { usePostForm } from "@/hooks/form";
 import { useRequireAdmin } from "@/hooks/require";
 import { AdminLayout } from "@/layouts/admin/layout";
+import styles from "@/pages/label-tags/form.module.css";
 import type { Schema } from "@/rules/bookmark-tag/create";
 import { label, schema } from "@/rules/bookmark-tag/create";
 import { setErrors } from "@/utils/form";
@@ -32,15 +33,15 @@ const Page: PageComponent = () => {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <h1>Create a bookmark tag</h1>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <FormInformation className="mb-10" />
+      <form onSubmit={form.handleSubmit(onSubmit)} className={styles.form}>
+        <FormInformation />
         <FormInput
-          className="mb-8 w-full md:w-1/2"
+          className={styles.fieldset}
           label={label.name}
           type="text"
-          inputClass="border-gray-700 bg-gray-900"
+          inputClass={styles.textbox}
           register={form.register("name")}
           feedback={form.errors.name?.message}
           placeholder="Name"
@@ -50,7 +51,7 @@ const Page: PageComponent = () => {
           Create
         </FormSubmit>
       </form>
-    </>
+    </div>
   );
 };
 

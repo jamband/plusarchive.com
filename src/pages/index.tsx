@@ -8,6 +8,7 @@ import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import type { PageComponent } from "./_app";
+import styles from "./index.module.css";
 
 type Props = {
   tracks: TrackCollection["data"];
@@ -39,25 +40,25 @@ const Page: PageComponent<Props> = (props) => {
         <meta name="description" content={description} />
         <meta property="og:description" content={description} />
       </Head>
-      <section className="mb-10">
-        <h2 className="mb-2 text-4xl">
+      <section>
+        <h2>
           Recent{" "}
-          <small className="text-base text-gray-400">favorite tracks</small>
+          <small className={styles.recentTitleSuffix}>favorite tracks</small>
         </h2>
-        <div className="md:grid md:grid-cols-2 md:gap-6 xl:grid-cols-3">
+        <div className={styles.recentMain}>
           {props.tracks.map((track) => (
             <TrackCard key={track.id} track={track}>
-              <IconClock className="h-4 w-4 align-[-0.175em] md:h-4 md:w-4 md:align-[-0.175em]" />
+              <IconClock className={styles.recentMainCardIcon} />
               {track.created_at}
             </TrackCard>
           ))}
         </div>
       </section>
-      <section className="mb-10">
-        <h2 className="mb-2 text-4xl">
-          Search <small className="text-base text-gray-400">by genres</small>
+      <section className={styles.search}>
+        <h2>
+          Search <small className={styles.searchTitleSuffix}>by genres</small>
         </h2>
-        <ul className="flex flex-wrap gap-x-5 gap-y-1">
+        <ul className={styles.searchList}>
           {props.genres.map((genre) => (
             <li key={genre}>
               <Link
@@ -65,7 +66,7 @@ const Page: PageComponent<Props> = (props) => {
                   pathname: "/tracks",
                   query: { genre },
                 }}
-                className="hover:text-gray-100"
+                className={styles.searchLink}
               >
                 {genre}
               </Link>
@@ -73,14 +74,14 @@ const Page: PageComponent<Props> = (props) => {
           ))}
         </ul>
       </section>
-      <div className="flex justify-center font-bold">
-        <Link href="/tracks" className="text-rose-500 active:text-rose-500">
+      <div className={styles.footer}>
+        <Link href="/tracks" className={styles.footerLink}>
           Go to Tracks
         </Link>
-        <span className="mx-2">or</span>
-        <Link href="/playlists" className="text-rose-500 active:text-rose-500">
+        <span className={styles.footerLinkDivider}>or</span>
+        <Link href="/playlists" className={styles.footerLink}>
           Playlists
-          <IconAngleRight className="ml-1 h-4 w-4 align-[-0.125em] text-rose-500/60 md:align-[-0.1em]" />
+          <IconAngleRight className={styles.footerLinkIcon} />
         </Link>
       </div>
     </>

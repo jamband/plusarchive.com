@@ -1,0 +1,23 @@
+.container {
+  line-height: 1.4;
+  padding: 0.25rem 0;
+  text-align: center;
+}
+
+.active {
+  color: rgb(var(--yellow-400));
+}
+
+.inactive {
+  color: rgb(var(--gray-500));
+}
+
+.iconContainer {
+  margin: 0 0 0 0.25rem;
+}
+
+.icon {
+  height: 1rem;
+  vertical-align: -0.125rem;
+  width: 1rem;
+}

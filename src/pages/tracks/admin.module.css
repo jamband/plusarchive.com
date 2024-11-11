@@ -1,0 +1,90 @@
+.container {
+  margin: 1.5rem 0 -3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) 7rem;
+}
+
+.filterTextbox {
+  background: rgb(var(--gray-800));
+  border: 1px solid rgb(var(--gray-600));
+  margin: 0.25rem;
+}
+
+.filterComboboxContainer {
+  margin: 0.25rem;
+  position: relative;
+  width: 100%;
+}
+
+.filterCombobox {
+  background: rgb(var(--gray-800));
+  border: 1px solid rgb(var(--gray-600));
+}
+
+.filterComboboxIconContainer {
+  align-items: center;
+  color: rgb(var(--gray-400));
+  display: flex;
+  inset: 0 0 0 auto;
+  padding: 0 0.75rem 0 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.filterComboboxIcon {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+.content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contentLink {
+  color: rgb(var(--rose-500));
+  font-weight: 600;
+}
+
+.contentLink:active,
+.contentLink:focus-visible {
+  color: rgb(var(--rose-500));
+}
+
+.contentLinkImage {
+  background: rgb(var(--gray-600));
+  border-radius: 10rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  width: 1.5rem;
+}
+
+.contentLinkIcon {
+  color: rgb(var(--rose-500) / 60%);
+  height: 1rem;
+  margin: 0 0 0 0.25rem;
+  width: 1rem;
+}
+
+.contentToggleButton {
+  border-radius: var(--rounded);
+  padding: 0.125rem 0.75rem;
+}
+
+.contentToggleButtonActive {
+  background: rgb(var(--rose-500));
+  color: rgb(var(--gray-100));
+}
+
+.contentToggleButtonInactive {
+  background: rgb(var(--gray-600));
+  color: rgb(var(--gray-400));
+}
+
+.pagination {
+  margin: 2rem 0 0;
+}

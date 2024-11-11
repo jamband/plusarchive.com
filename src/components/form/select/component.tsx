@@ -4,6 +4,7 @@ import { IconAngleDown } from "@/icons/angle-down";
 import { FormFakeInput } from "../fake-input";
 import { FormFeedback } from "../feedback";
 import { FormLabel } from "../label";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
@@ -19,13 +20,11 @@ export const Component: React.FC<_Props> = (props) => (
     {props.data.isError && <FailedToFetch />}
     {!!props.data.data && (
       <>
-        <div className="relative">
+        <div className={styles.comboboxContainer}>
           <select
             id={props.id}
             className={`${props.inputClass} ${
-              props.feedback
-                ? "outline-none ring-1 ring-red-400 focus:ring"
-                : ""
+              props.feedback ? styles.feedback : ""
             }`}
             aria-required={props.required}
             aria-describedby={props.feedbackId}
@@ -33,8 +32,8 @@ export const Component: React.FC<_Props> = (props) => (
           >
             {props.children}
           </select>
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400">
-            <IconAngleDown className="h-3 w-3" />
+          <div className={styles.caretContainer}>
+            <IconAngleDown className={styles.caret} />
           </div>
         </div>
         {!!props.feedback && (

@@ -1,0 +1,6 @@
+.container {
+  background: rgb(var(--gray-600));
+  color: rgb(var(--gray-100));
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}

@@ -1,5 +1,6 @@
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  <div className="bg-gray-700 px-4 py-2">{props.children}</div>
+  <div className={styles.container}>{props.children}</div>
 );

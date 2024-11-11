@@ -3,6 +3,7 @@ import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
 import { Layout } from "@/layouts/layout";
 import Head from "next/head";
 import type { PageComponent } from "../_app";
+import styles from "./index.module.css";
 
 const Page: PageComponent = () => {
   return (
@@ -11,28 +12,28 @@ const Page: PageComponent = () => {
         <meta name="description" content={APP_DESCRIPTION} />
         <meta property="og:description" content={APP_DESCRIPTION} />
       </Head>
-      <div className="lg:px-40">
+      <div className={styles.container}>
         <h1>Contact</h1>
-        <p>
+        <p className={styles.description}>
           Please to the message via{" "}
           <a
             href="https://twitter.com/livejam_db"
-            className="text-rose-500 underline active:text-rose-500"
+            className={styles.link}
             target="_blank"
             rel="noreferrer"
           >
             X
-            <IconUpRightFromSquare className="ml-1 h-4 w-4 align-[-0.125em] text-rose-500/70" />
+            <IconUpRightFromSquare className={styles.linkIcon} />
           </a>{" "}
           or{" "}
           <a
             href={`${APP_REPOSITORY_URL}/issues`}
-            className="text-rose-500 underline active:text-rose-500"
+            className={styles.link}
             target="_blank"
             rel="noreferrer"
           >
             GitHub
-            <IconUpRightFromSquare className="ml-1 h-4 w-4 align-[-0.125em] text-rose-500/70" />
+            <IconUpRightFromSquare className={styles.linkIcon} />
           </a>{" "}
           Issues. Thank you.
         </p>

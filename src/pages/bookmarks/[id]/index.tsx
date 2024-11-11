@@ -11,6 +11,7 @@ import { IconTrash } from "@/icons/trash";
 import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
 import { AdminLayout } from "@/layouts/admin/layout";
 import type { PageComponent } from "@/pages/_app";
+import styles from "@/pages/labels/[id]/index.module.css";
 
 const Page: PageComponent = () => {
   useRequireAdmin();
@@ -31,8 +32,8 @@ const Page: PageComponent = () => {
   }
 
   return (
-    <>
-      <DetailContainer className="mb-10 grid-rows-6">
+    <div className={styles.container}>
+      <DetailContainer className={styles.detail}>
         <DetailColumn>Name</DetailColumn>
         <DetailColumn>Country</DetailColumn>
         <DetailColumn>Links</DetailColumn>
@@ -42,12 +43,12 @@ const Page: PageComponent = () => {
         <DetailContent>
           <a
             href={bookmark.data.url}
-            className="font-bold text-rose-500"
+            className={styles.contentLink}
             target="_blank"
             rel="noreferrer"
           >
             {bookmark.data.name}
-            <IconUpRightFromSquare className="ml-1.5 h-4 w-4 align-[-0.125em] text-rose-500/60" />
+            <IconUpRightFromSquare className={styles.contentLinkIcon} />
           </a>
         </DetailContent>
         <DetailContent>{bookmark.data.country}</DetailContent>
@@ -58,20 +59,20 @@ const Page: PageComponent = () => {
         <DetailContent>{bookmark.data.created_at}</DetailContent>
         <DetailContent>{bookmark.data.updated_at}</DetailContent>
       </DetailContainer>
-      <div className="flex justify-center">
+      <div className={styles.action}>
         <ActionButton
-          className="hover:bg-gray-700 hover:text-gray-100"
+          className={styles.actionButton}
           onClick={() =>
             confirm("Are you sure?") &&
             !!bookmark.data &&
             deleteBookmark.mutate(bookmark.data.id)
           }
         >
-          <IconTrash className="mr-1 h-4 w-4 align-[-0.125em]" />
+          <IconTrash className={styles.actionButtonIcon} />
           Delete
         </ActionButton>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,0 +1,23 @@
+.input {
+  height: 0;
+  width: 0;
+}
+
+.button {
+  background: rgb(var(--gray-700));
+  border-radius: var(--rounded);
+  color: rgb(var(--gray-400));
+  cursor: pointer;
+  display: inline;
+  padding: 0.25rem 0.75rem;
+}
+
+.input:checked ~ .button {
+  background: rgb(var(--gray-600));
+  color: rgb(var(--gray-100));
+}
+
+.input:focus-visible ~ .button {
+  outline: 2px solid rgb(var(--gray-400));
+  outline-offset: 0.1rem;
+}

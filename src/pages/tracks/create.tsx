@@ -14,6 +14,7 @@ import { label, schema } from "@/rules/track/create";
 import { setErrors } from "@/utils/form";
 import type { SubmitHandler } from "react-hook-form";
 import type { PageComponent } from "../_app";
+import styles from "./form.module.css";
 
 const Page: PageComponent = () => {
   useRequireAdmin();
@@ -37,15 +38,15 @@ const Page: PageComponent = () => {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <h1>Create a track</h1>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <FormInformation className="mb-10" />
+      <form onSubmit={form.handleSubmit(onSubmit)} className={styles.form}>
+        <FormInformation />
         <FormInput
-          className="mb-8 w-full md:w-1/2"
+          className={styles.fieldset}
           label={label.url}
           type="text"
-          inputClass="border-gray-700 bg-gray-900"
+          inputClass={styles.textbox}
           register={form.register("url")}
           feedback={form.errors.url?.message}
           placeholder="https://example.com"
@@ -53,26 +54,26 @@ const Page: PageComponent = () => {
         />
         <FormInput
           label={label.title}
-          className="mb-8 w-full md:w-1/2"
+          className={styles.fieldset}
           type="text"
-          inputClass="border-gray-700 bg-gray-900"
+          inputClass={styles.textbox}
           register={form.register("title")}
           feedback={form.errors.title?.message}
           placeholder="Title"
         />
         <FormInput
           label={label.image}
-          className="mb-8 w-full md:w-1/2"
+          className={styles.fieldset}
           type="text"
-          inputClass="border-gray-700 bg-gray-900"
+          inputClass={styles.textbox}
           register={form.register("image")}
           feedback={form.errors.image?.message}
           placeholder="https://example.com"
         />
         <FormChecks
           label={label.genres}
-          className="mb-8 w-full"
-          inputClass="max-h-48 border-gray-700 bg-gray-900"
+          className={styles.listboxFieldset}
+          inputClass={styles.listbox}
           feedback={form.errors.genres?.message}
         >
           {genres.isLoading && <Loading />}
@@ -90,7 +91,7 @@ const Page: PageComponent = () => {
           Create
         </FormSubmit>
       </form>
-    </>
+    </div>
   );
 };
 

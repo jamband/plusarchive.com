@@ -1,41 +1,37 @@
 import { IconCirclePause } from "@/icons/circle-pause";
 import { IconCirclePlay } from "@/icons/circle-play";
 import Link from "next/link";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  <div className="mb-3 flex rounded-none border-b border-gray-600 md:mb-0 md:flex-col md:rounded md:border-none md:bg-gray-700 md:shadow md:shadow-gray-900">
-    <Link
-      href={`/tracks/${props.track.id}`}
-      className="relative mb-3 h-max w-1/3 rounded bg-gray-700 active:text-gray-400 md:mb-4 md:w-full"
-    >
+  <div className={styles.container}>
+    <Link href={`/tracks/${props.track.id}`} className={styles.link}>
       <picture>
         <img
           src={props.track.image}
-          className={`w-full rounded-b rounded-t object-cover opacity-60 md:rounded-b-none ${props.aspectRatio}`}
+          className={`${styles.image} ${props.isVideoAspectRatio ? styles.videoAspectRatio : styles.squareAspectRatio}`}
           alt={props.track.title}
           loading="lazy"
         />
       </picture>
-      <div className="absolute inset-0 flex items-center justify-center opacity-80">
+      <div className={styles.status}>
         {props.isPlaying ? (
-          <IconCirclePause className="h-6 w-6 md:h-10 md:w-10 lg:h-12 lg:w-12" />
+          <IconCirclePause className={styles.statusIcon} />
         ) : (
-          <IconCirclePlay className="h-6 w-6 md:h-10 md:w-10 lg:h-12 lg:w-12" />
+          <IconCirclePlay className={styles.statusIcon} />
         )}
       </div>
     </Link>
-    <div className="flex w-2/3 flex-col md:w-full">
-      <div className="mb-1 truncate px-2 text-center font-bold leading-normal text-gray-100 md:mb-2 md:mt-1 md:px-3 md:text-[1.125rem]">
-        {props.track.title}
-      </div>
-      <div className="mx-2 mb-1 flex flex-wrap justify-center gap-x-4 text-sm leading-7 md:mb-2 md:gap-y-1 md:text-base">
+    <div className={styles.main}>
+      <div className={styles.mainTitle}>{props.track.title}</div>
+      <div className={styles.mainLinks}>
         <Link
           href={{
             pathname: "/tracks",
             query: { provider: props.track.provider },
           }}
-          className="hover:text-gray-100"
+          className={styles.mainLink}
         >
           {props.track.provider}
         </Link>
@@ -46,18 +42,14 @@ export const Component: React.FC<_Props> = (props) => (
               pathname: "/tracks",
               query: { genre },
             }}
-            className="hover:text-gray-100"
+            className={styles.mainLink}
           >
             {genre}
           </Link>
         ))}
       </div>
-      <div className="mb-0 mr-2 mt-auto flex items-center justify-end gap-x-1 text-sm text-gray-500 md:hidden">
-        {props.children}
-      </div>
+      <div className={styles.mainFooter}>{props.children}</div>
     </div>
-    <div className="mr-2 mt-auto hidden p-1 text-sm text-gray-500 md:flex md:items-center md:justify-end md:gap-x-1">
-      {props.children}
-    </div>
+    <div className={styles.footer}>{props.children}</div>
   </div>
 );

@@ -8,6 +8,7 @@ import { useRequireAdmin } from "@/hooks/require";
 import { useStoreTag, useUpdateStoreTag } from "@/hooks/store-tags";
 import { AdminLayout } from "@/layouts/admin/layout";
 import type { PageComponent } from "@/pages/_app";
+import styles from "@/pages/label-tags/form.module.css";
 import type { Schema } from "@/rules/track-genre/update";
 import { label, schema } from "@/rules/track-genre/update";
 import { setErrors } from "@/utils/form";
@@ -44,15 +45,15 @@ const Page: PageComponent = () => {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <h1>Update store tags</h1>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
-        <FormInformation className="mb-10" />
+      <form onSubmit={form.handleSubmit(onSubmit)} className={styles.form}>
+        <FormInformation />
         <FormInput
           label={label.name}
-          className="mb-8 w-full md:w-1/2"
+          className={styles.fieldset}
           type="text"
-          inputClass="border-gray-700 bg-gray-900"
+          inputClass={styles.textbox}
           register={form.register("name")}
           feedback={form.errors.name?.message}
           placeholder="Name"
@@ -62,7 +63,7 @@ const Page: PageComponent = () => {
           Update
         </FormSubmit>
       </form>
-    </>
+    </div>
   );
 };
 

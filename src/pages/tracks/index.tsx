@@ -20,6 +20,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type { PageComponent } from "../_app";
+import styles from "./index.module.css";
 
 type Props = {
   trackCollection: TrackCollection;
@@ -57,26 +58,21 @@ const Page: PageComponent<Props> = (props) => {
         <meta name="description" content={description} />
         <meta property="og:description" content={description} />
       </Head>
-      <div className="-mb-6 -mt-4">
-        <div className="text-sm md:mb-5 md:flex md:items-center md:justify-center md:text-base">
-          <div className="mb-1 flex justify-center md:mb-0">
-            <Link
-              href="/tracks"
-              className="group rounded px-2 py-0.5 hover:bg-gray-700 hover:text-gray-100 active:bg-gray-700 md:px-3 md:py-1"
-            >
-              <IconRotateRight className="mr-1.5 h-4 w-4 align-[-0.125em] text-gray-400/70 group-hover:text-gray-400" />
-              Reset All
-            </Link>
-          </div>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <Link href="/tracks" className={styles.headerReset}>
+            <IconRotateRight className={styles.headerResetIcon} />
+            Reset All
+          </Link>
           <TotalCount
             total={props.trackCollection.pagination.total}
-            className="hidden px-3 py-1 md:block"
+            className={styles.headerTotalCount}
           />
-          <div className="mb-3 flex justify-center gap-x-1 md:mb-0">
+          <div className={styles.headerDropdowns}>
             <Dropdown
               label={`${query.provider || "Providers"}`}
-              className="px-2 py-0.5 hover:bg-gray-700 hover:text-gray-100 focus:bg-gray-700 focus:text-gray-100 md:px-3 md:py-1"
-              iconClass="text-gray-400/70 group-hover:text-gray-400 group-focus:text-gray-400"
+              className={styles.headerDropdown}
+              iconClass={styles.headerDropdownIcon}
             >
               <DropdownHeader>Actions</DropdownHeader>
               <DropdownLink
@@ -91,8 +87,10 @@ const Page: PageComponent<Props> = (props) => {
               <DropdownHeader>Providers</DropdownHeader>
               {providers.isLoading && <DropdownText>Loading...</DropdownText>}
               {providers.isError && (
-                <DropdownText className="text-red-600">
-                  <IconTriangleExclamation className="mr-1 h-4 w-4 align-[-0.125em]" />
+                <DropdownText className={styles.headerDropdownError}>
+                  <IconTriangleExclamation
+                    className={styles.headerDropdownErrorIcon}
+                  />
                   Request failed
                 </DropdownText>
               )}
@@ -111,8 +109,8 @@ const Page: PageComponent<Props> = (props) => {
             </Dropdown>
             <Dropdown
               label={`${query.genre || "Genres"}`}
-              className="px-2 py-0.5 hover:bg-gray-700 hover:text-gray-100 focus:bg-gray-700 focus:text-gray-100 md:px-3 md:py-1"
-              iconClass="text-gray-400/70 group-hover:text-gray-400 group-focus:text-gray-400"
+              className={styles.headerDropdown}
+              iconClass={styles.headerDropdownIcon}
             >
               <DropdownHeader>Actions</DropdownHeader>
               <DropdownLink
@@ -127,8 +125,10 @@ const Page: PageComponent<Props> = (props) => {
               <DropdownHeader>Genres</DropdownHeader>
               {genres.isLoading && <DropdownText>Loading...</DropdownText>}
               {genres.isError && (
-                <DropdownText className="text-red-600">
-                  <IconTriangleExclamation className="mr-1 h-4 w-4 align-[-0.125em]" />
+                <DropdownText className={styles.headerDropdownError}>
+                  <IconTriangleExclamation
+                    className={styles.headerDropdownErrorIcon}
+                  />
                   Request failed
                 </DropdownText>
               )}
@@ -147,22 +147,25 @@ const Page: PageComponent<Props> = (props) => {
             </Dropdown>
           </div>
         </div>
-        <div className="mb-5 md:hidden">
-          <SearchForm className="border-gray-700 bg-gray-900 md:hidden" />
+        <div className={styles.searchFormContainer}>
+          <SearchForm className={styles.searchForm} />
           <TotalCount
             total={props.trackCollection.pagination.total}
-            className="flex justify-end text-sm"
+            className={styles.searchFormTotalCount}
           />
         </div>
-        <div className="mb-8 md:grid md:grid-cols-2 md:gap-6 xl:grid-cols-3">
+        <div className={styles.main}>
           {props.trackCollection.data.map((track) => (
             <TrackCard key={track.id} track={track}>
-              <IconClock className="h-4 w-4 align-[-0.175em] md:h-4 md:w-4 md:align-[-0.175em]" />
+              <IconClock className={styles.trackCardIcon} />
               {track.created_at}
             </TrackCard>
           ))}
         </div>
-        <Pagination pagination={props.trackCollection.pagination} />
+        <Pagination
+          pagination={props.trackCollection.pagination}
+          className={styles.pagination}
+        />
       </div>
     </>
   );

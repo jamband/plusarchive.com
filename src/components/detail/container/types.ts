@@ -1,5 +1,5 @@
 export type Props = {
-  className?: string;
+  className: string;
   children: React.ReactNode;
 };
 

@@ -23,6 +23,7 @@ import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
 import { AdminLayout } from "@/layouts/admin/layout";
 import { Fragment } from "react";
 import type { PageComponent } from "../_app";
+import styles from "./admin.module.css";
 
 const Page: PageComponent = () => {
   useRequireAdmin();
@@ -58,8 +59,8 @@ const Page: PageComponent = () => {
   }
 
   return (
-    <div className="-mb-12">
-      <GridContainer className="mb-8 grid-cols-[repeat(6,_minmax(0,_1fr))_7em]">
+    <div className={styles.container}>
+      <GridContainer className={styles.grid}>
         <GridHeader>
           <GridHeaderSort column="title" type="string">
             Title
@@ -84,7 +85,7 @@ const Page: PageComponent = () => {
         <GridFilter>
           <input
             type="text"
-            className="m-1 border-gray-600 bg-gray-800"
+            className={styles.filterTextbox}
             placeholder="Search..."
             value={title.value}
             onChange={title.onChange}
@@ -92,9 +93,9 @@ const Page: PageComponent = () => {
           />
         </GridFilter>
         <GridFilter>
-          <div className="relative m-1 w-full">
+          <div className={styles.filterComboboxContainer}>
             <select
-              className="border-gray-600 bg-gray-800 md:pr-8"
+              className={styles.filterCombobox}
               value={provider.value}
               onChange={provider.onChange}
             >
@@ -108,15 +109,15 @@ const Page: PageComponent = () => {
                   </option>
                 ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400">
-              <IconAngleDown className="h-3 w-3" />
+            <div className={styles.filterComboboxIconContainer}>
+              <IconAngleDown className={styles.filterComboboxIcon} />
             </div>
           </div>
         </GridFilter>
         <GridFilter>
-          <div className="relative m-1 w-full">
+          <div className={styles.filterComboboxContainer}>
             <select
-              className="border-gray-600 bg-gray-800 md:pr-8"
+              className={styles.filterCombobox}
               value={urge.value}
               onChange={urge.onChange}
             >
@@ -124,15 +125,15 @@ const Page: PageComponent = () => {
               <option value={0}>No</option>
               <option value={1}>Yes</option>
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400">
-              <IconAngleDown className="h-3 w-3" />
+            <div className={styles.filterComboboxIconContainer}>
+              <IconAngleDown className={styles.filterComboboxIcon} />
             </div>
           </div>
         </GridFilter>
         <GridFilter>
-          <div className="relative m-1 w-full">
+          <div className={styles.filterComboboxContainer}>
             <select
-              className="border-gray-600 bg-gray-800 md:pr-8"
+              className={styles.filterCombobox}
               value={genre.value}
               onChange={genre.onChange}
             >
@@ -146,8 +147,8 @@ const Page: PageComponent = () => {
                   </option>
                 ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400">
-              <IconAngleDown className="h-3 w-3" />
+            <div className={styles.filterComboboxIconContainer}>
+              <IconAngleDown className={styles.filterComboboxIcon} />
             </div>
           </div>
         </GridFilter>
@@ -160,37 +161,39 @@ const Page: PageComponent = () => {
               <GridContent>
                 <a
                   href={track.url}
-                  className="font-semibold text-rose-500 active:text-rose-500"
+                  className={styles.contentLink}
                   target="_blank"
                   rel="noreferrer"
                 >
                   <picture>
                     <img
                       src={track.image}
-                      className="mr-2 inline h-6 w-6 rounded-full bg-gray-600"
+                      className={styles.contentLinkImage}
                       alt=""
                       loading="lazy"
                     />
                   </picture>
                   {track.title}
-                  <IconUpRightFromSquare className="ml-1 h-3 w-3 align-baseline text-rose-500/60" />
+                  <IconUpRightFromSquare className={styles.contentLinkIcon} />
                 </a>
               </GridContent>
-              <GridContent className="truncate">{track.provider}</GridContent>
+              <GridContent className={styles.content}>
+                {track.provider}
+              </GridContent>
               <GridContent>
                 <button
                   type="button"
-                  className={`rounded p-0.5 px-3 ${
+                  className={`${styles.contentToggleButton} ${
                     track.urge
-                      ? "bg-rose-500 text-gray-100"
-                      : "bg-gray-600 text-gray-400"
+                      ? styles.contentToggleButtonActive
+                      : styles.contentToggleButtonInactive
                   }`}
                   onClick={() => onToggleUrge(track.id)}
                 >
                   {track.urge ? "Yes" : "No"}
                 </button>
               </GridContent>
-              <GridContent className="truncate">
+              <GridContent className={styles.content}>
                 {track.genres.join(", ")}
               </GridContent>
               <GridContent>{track.created_at}</GridContent>
@@ -205,7 +208,12 @@ const Page: PageComponent = () => {
             </Fragment>
           ))}
       </GridContainer>
-      {!!tracks.data && <Pagination pagination={tracks.data.pagination} />}
+      {!!tracks.data && (
+        <Pagination
+          pagination={tracks.data.pagination}
+          className={styles.pagination}
+        />
+      )}
     </div>
   );
 };

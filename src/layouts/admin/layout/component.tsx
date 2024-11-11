@@ -8,6 +8,7 @@ import { AdminLinks } from "../links";
 import { AdminNotification } from "../notification";
 import { AdminPages } from "../pages";
 import { AdminTitle } from "../title";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
@@ -20,10 +21,10 @@ export const Component: React.FC<_Props> = (props) => (
         <AdminTitle title={props.title} />
         <Loading />
         <AdminNotification />
-        <div className="flex min-h-screen flex-col">
+        <div className={styles.container}>
           <AdminHeader />
-          <main className="container mx-auto grow pb-28 pt-6">
-            <div className="mb-6 flex justify-center gap-x-2 text-sm md:text-base">
+          <main className={styles.main}>
+            <div className={styles.mainHeader}>
               <AdminPages />
               <AdminLinks />
             </div>

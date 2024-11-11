@@ -1,0 +1,45 @@
+.container {
+  margin: 0 0 -3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) 7rem;
+  margin: 1.5rem 0 0;
+}
+
+.filterTextbox {
+  background: rgb(var(--gray-800));
+  border: 1px solid rgb(var(--gray-600));
+  margin: 0.25rem;
+}
+
+.filterComboboxContainer {
+  margin: 0.25rem;
+  position: relative;
+  width: 100%;
+}
+
+.filterCombobox {
+  background: rgb(var(--gray-800));
+  border: 1px solid rgb(var(--gray-600));
+}
+
+.filterComboboxIconContainer {
+  align-items: center;
+  color: rgb(var(--gray-400));
+  display: flex;
+  inset: 0 0 0 auto;
+  padding: 0 0.75rem;
+  pointer-events: none;
+  position: absolute;
+}
+
+.filterComboboxIcon {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+.pagination {
+  margin: 2rem 0 0;
+}

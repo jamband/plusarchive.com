@@ -1,0 +1,236 @@
+.container {
+  margin: 0 0 -1.5rem;
+}
+
+.title {
+  text-align: center;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  font-size: var(--text-sm);
+  gap: 0.25rem;
+  margin: 0.25rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .header {
+    align-items: center;
+    display: flex;
+    flex-flow: row;
+    font-size: var(--test-base);
+    gap: 0.15rem;
+    justify-content: center;
+  }
+}
+
+.headerReset {
+  align-items: center;
+  border-radius: var(--rounded);
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .headerReset {
+    padding: 0.25rem 0.75rem;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .headerReset:hover {
+    background: rgb(var(--gray-700));
+    color: rgb(var(--gray-100));
+  }
+}
+
+.headerReset:active,
+.headerReset:focus-visible {
+  background: rgb(var(--gray-700));
+}
+
+.headerResetIcon {
+  color: rgb(var(--gray-400) / 70%);
+  height: 1rem;
+  width: 1rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .headerReset:hover .headerResetIcon {
+    color: rgb(var(--gray-400));
+  }
+}
+
+.headerTotalCount {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .headerTotalCount {
+    display: block;
+    padding: 0.25rem 0.75rem;
+  }
+}
+
+.headerDropdowns {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.headerDropdown {
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .headerDropdown {
+    padding: 0.6rem 0.75rem;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .headerDropdown:hover {
+    background: rgb(var(--gray-700));
+    color: rgb(var(--gray-100));
+  }
+}
+
+.headerDropdown:active,
+.headerDropdown:focus-visible,
+details[open] .headerDropdown {
+  background: rgb(var(--gray-700));
+  color: rgb(var(--gray-100));
+}
+
+.headerDropdownIcon {
+  color: rgb(var(--gray-400) / 70%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .headerDropdown:hover .headerDropdownIcon {
+    color: rgb(var(--gray-400));
+  }
+}
+
+.headerDropdown:active .headerDropdownIcon,
+.headerDropdown:focus-visible .headerDropdownIcon,
+details[open] .headerDropdown .headerDropdownIcon {
+  color: rgb(var(--gray-400));
+}
+
+.headerDropdownError {
+  align-items: center;
+  color: rgb(var(--red-400));
+  display: inline-flex;
+}
+
+.headerDropdownErrorIcon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.searchFormContainer {
+  display: flex;
+  flex-flow: column;
+  gap: 0.25rem;
+  margin: 0.75rem 0 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .searchFormContainer {
+    display: none;
+  }
+}
+
+.searchForm {
+  background: rgb(var(--gray-900));
+  border: 1px solid rgb(var(--gray-700));
+}
+
+.searchFormTotalCount {
+  display: flex;
+  font-size: var(--text-sm);
+  justify-content: flex-end;
+}
+
+.main {
+  margin: 2rem 0 0;
+}
+
+@media (min-width: 1024px) {
+  .main {
+    display: grid;
+    gap: 1.5rem 3rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.mainItems {
+  display: flex;
+  flex-flow: column;
+  gap: 0.125rem;
+  margin: 2rem 0 0;
+}
+
+@media (min-width: 1024px) {
+  .mainItems {
+    margin: 0.5rem 0 0;
+  }
+}
+
+.mainName {
+  align-items: center;
+  color: rgb(var(--rose-500));
+  display: inline-flex;
+  font-size: 1.2rem;
+  font-weight: 700;
+  gap: 0.25rem;
+}
+
+.mainName:active,
+.mainName:focus-visible {
+  color: rgb(var(--rose-500));
+}
+
+.mainNameIcon {
+  color: rgb(var(--rose-500) / 60%);
+  height: 1rem;
+  width: 1rem;
+}
+
+.mainCountryContainer {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.mainCountry {
+  color: rgb(var(--gray-100));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mainCountryLink:hover {
+    color: rgb(var(--gray-100));
+  }
+}
+
+.mainLinksContainer {
+  display: flex;
+  gap: 0.75rem;
+  overflow: scroll;
+}
+
+.mainLinks {
+  color: rgb(var(--gray-100));
+}
+
+.mainDivider {
+  border-top: 1px solid rgb(var(--gray-600));
+  margin: 2rem 0 0;
+}
+
+.pagination {
+  margin: 2rem 0 0;
+}

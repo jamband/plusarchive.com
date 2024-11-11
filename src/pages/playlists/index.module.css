@@ -1,0 +1,36 @@
+.list {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  margin: 2.5rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .list {
+    display: grid;
+    gap: 1rem 3rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.listItem {
+  line-height: 1.25;
+}
+
+.link {
+  color: rgb(var(--rose-500));
+  font-size: 1.425rem;
+  font-weight: 700;
+}
+
+.link:active,
+.link:focus-visible {
+  color: rgb(var(--rose-500));
+}
+
+.linkIcon {
+  color: rgb(var(--rose-500) / 60%);
+  height: 1rem;
+  margin: 0 0 0 0.5rem;
+  width: 1rem;
+}

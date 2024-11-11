@@ -1,5 +1,6 @@
 import { FormFeedback } from "../feedback";
 import { FormLabel } from "../label";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
@@ -10,9 +11,7 @@ export const Component: React.FC<_Props> = (props) => (
     <input
       type={props.type}
       id={props.id}
-      className={`${props.inputClass} ${
-        props.feedback ? "outline-none ring-1 ring-red-400 focus:ring" : ""
-      }`}
+      className={`${props.inputClass} ${props.feedback ? styles.feedback : ""}`}
       autoComplete={props.autoComplete}
       placeholder={props.placeholder}
       aria-required={props.required}

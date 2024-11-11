@@ -7,6 +7,7 @@ import { Header } from "../header";
 import { Loading } from "../loading";
 import { Player } from "../player";
 import { Title } from "../title";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
@@ -21,9 +22,9 @@ export const Component: React.FC<_Props> = (props) => (
       <PlayerProvider>
         <Title title={props.title} />
         <Loading />
-        <div className="flex min-h-screen flex-col">
+        <div className={styles.container}>
           <Header />
-          <main className="container mx-auto grow pb-24 pt-10">
+          <main className={styles.main}>
             <Player />
             {props.children}
           </main>

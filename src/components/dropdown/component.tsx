@@ -1,35 +1,31 @@
 import { IconAngleDown } from "@/icons/angle-down";
 import { IconEllipsis } from "@/icons/ellipsis";
+import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
   <details
-    className="inline-block"
     onClick={props.onClick}
     onBlur={props.onBlur}
     onKeyDown={props.onKeyDown}
   >
     <summary
       role="button"
-      className={`group block cursor-pointer select-none rounded ${props.className || ""}`}
+      className={`${styles.button} ${props.className || ""}`}
       aria-label={props.label ? undefined : "More"}
     >
       {props.label ? (
-        <>
-          <span className="mr-1.5">{props.label}</span>
+        <div className={styles.label}>
+          {props.label}
           <IconAngleDown
-            className={`h-3 w-3 align-[-0.075em] md:align-[0em] ${
-              props.iconClass || ""
-            }`}
+            className={`${styles.caret} ${props.iconClass || ""}`}
           />
-        </>
+        </div>
       ) : (
-        <IconEllipsis className="h-4 w-4 align-[-0.125em]" />
+        <IconEllipsis className={styles.more} />
       )}
     </summary>
-    <div className="absolute z-20 -mb-0.5 mt-1 flex max-h-[20rem] min-w-[10em] flex-col overflow-scroll rounded border border-gray-700 bg-gray-800 py-2 shadow-md shadow-gray-900">
-      {props.children}
-    </div>
+    <div className={styles.content}>{props.children}</div>
   </details>
 );

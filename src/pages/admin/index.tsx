@@ -8,6 +8,7 @@ import { IconPencil } from "@/icons/pencil";
 import { AdminLayout } from "@/layouts/admin/layout";
 import Link from "next/link";
 import type { PageComponent } from "../_app";
+import styles from "./index.module.css";
 
 const Page: PageComponent = () => {
   useRequireAdmin();
@@ -16,41 +17,41 @@ const Page: PageComponent = () => {
   const stopUrges = useStopUrges();
 
   return (
-    <>
-      <h2 className="mb-2 text-4xl">
+    <div className={styles.container}>
+      <h2>
         Recent{" "}
-        <small className="text-base text-gray-400">favorite tracks</small>
+        <small className={styles.recentTitleSuffix}>favorite tracks</small>
       </h2>
       {tracks.isLoading && <CenteredLoading />}
       {tracks.isError && <FailedToFetch />}
       {!!tracks.data && tracks.data.length === 0 && (
-        <div className="text-amber-500">
-          <IconCircleInfo className="mr-1 h-4 w-4 align-[-0.125em]" />
+        <div className={styles.information}>
+          <IconCircleInfo className={styles.informationIcon} />
           Not exists.{" "}
-          <Link href="/tracks/admin" className="text-amber-500 underline">
+          <Link href="/tracks/admin" className={styles.informationLink}>
             Digging?
           </Link>
         </div>
       )}
       {!!tracks.data && tracks.data.length !== 0 && (
         <>
-          <div className="mb-8 md:grid md:grid-cols-2 md:gap-6 xl:grid-cols-3">
+          <div className={styles.main}>
             {tracks.data.map((track) => (
               <TrackCard key={track.id} track={track}>
                 <Link
                   href={`/tracks/${track.id}/update`}
-                  className="hover:text-gray-100"
+                  className={styles.mainCardLink}
                 >
-                  <IconPencil className="mr-1 h-4 w-4 align-[-0.175em] md:h-4 md:w-4 md:align-[-0.175em]" />
+                  <IconPencil className={styles.mainCardLinkIcon} />
                   Update
                 </Link>
               </TrackCard>
             ))}
           </div>
-          <div className="flex justify-center">
+          <div className={styles.footer}>
             <button
               type="button"
-              className="rounded bg-rose-500 px-4 py-1 text-gray-100 shadow-sm shadow-gray-900"
+              className={styles.footerButton}
               onClick={() => confirm("Are you sure?") && stopUrges.mutate()}
             >
               Stop All Urges
@@ -58,7 +59,7 @@ const Page: PageComponent = () => {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 
