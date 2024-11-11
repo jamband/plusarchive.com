@@ -61,5 +61,5 @@ test("feedback", () => {
     description: "feedback...",
   });
 
-  expect(combobox).toHaveClass("ring-red-400");
+  expect(combobox).toHaveClass("feedback");
 });

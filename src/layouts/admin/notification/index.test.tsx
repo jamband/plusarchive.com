@@ -35,6 +35,7 @@ test("show", () => {
 
   render(<AdminNotification />);
 
-  expect(screen.getByText("icon-info foo")).toBeInTheDocument();
+  expect(screen.getByText("icon-info")).toBeInTheDocument();
+  expect(screen.getByText("foo")).toBeInTheDocument();
   expect(screen.getByText("close")).toBeInTheDocument();
 });

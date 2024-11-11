@@ -47,5 +47,5 @@ test("feedback", () => {
     description: "feedback...",
   });
 
-  expect(textbox).toHaveClass("ring-red-400");
+  expect(textbox).toHaveClass("feedback");
 });

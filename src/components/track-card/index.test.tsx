@@ -38,7 +38,7 @@ test("aspect ratio: Bandcamp", () => {
   render(<TrackCard track={track}>foo</TrackCard>);
 
   const img = screen.getByRole("img");
-  expect(img).not.toHaveClass("md:aspect-video");
+  expect(img).toHaveClass("squareAspectRatio");
 });
 
 test("aspect ratio: SoundCloud", () => {
@@ -48,7 +48,7 @@ test("aspect ratio: SoundCloud", () => {
   render(<TrackCard track={track}>foo</TrackCard>);
 
   const img = screen.getByRole("img");
-  expect(img).not.toHaveClass("md:aspect-video");
+  expect(img).toHaveClass("squareAspectRatio");
 });
 
 test("aspect ratio: Vimeo", () => {
@@ -58,7 +58,7 @@ test("aspect ratio: Vimeo", () => {
   render(<TrackCard track={track}>foo</TrackCard>);
 
   const img = screen.getByRole("img");
-  expect(img).toHaveClass("md:aspect-video");
+  expect(img).toHaveClass("videoAspectRatio");
 });
 
 test("aspect ratio: YouTube", () => {
@@ -68,7 +68,7 @@ test("aspect ratio: YouTube", () => {
   render(<TrackCard track={track}>foo</TrackCard>);
 
   const img = screen.getByRole("img");
-  expect(img).toHaveClass("md:aspect-video");
+  expect(img).toHaveClass("videoAspectRatio");
 });
 
 test("status: play", () => {

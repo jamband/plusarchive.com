@@ -11,7 +11,7 @@ test("", () => {
   render(<CloseButton className="foo" iconClass="bar" onClick={onClick} />);
 
   const button = screen.getByRole("button", { name: "Close" });
-  expect(button).toHaveClass("foo", { exact: true });
+  expect(button).toHaveClass("container foo", { exact: true });
   expect(button).toHaveTextContent("x");
 
   fireEvent.click(button);

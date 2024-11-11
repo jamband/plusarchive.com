@@ -21,5 +21,5 @@ test("", () => {
   render(<Loading />);
 
   const status = screen.getByRole("status");
-  expect(status).toHaveClass("fixed w-[99%]");
+  expect(status).toHaveClass("start");
 });

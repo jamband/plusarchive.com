@@ -4,6 +4,6 @@ import { DropdownHeader } from ".";
 test("", () => {
   render(<DropdownHeader>foo</DropdownHeader>);
 
-  const heading = screen.getByRole("heading", { name: "foo" });
+  const heading = screen.getByText("foo");
   expect(heading).toBeInTheDocument();
 });
