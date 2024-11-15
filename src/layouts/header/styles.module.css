@@ -104,7 +104,7 @@
 }
 
 .subLinksAndMoreLinksDropdown {
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.45rem;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -160,9 +160,7 @@ details[open] .subLinksAndMoreLinksDropdown {
 }
 
 .moreLinksDropdown {
-  border-radius: var(--rounded);
-  margin: 0 -0.5rem 0 0;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.45rem;
 }
 
 @media (hover: hover) and (pointer: fine) {
