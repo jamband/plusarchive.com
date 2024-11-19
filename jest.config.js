@@ -6,9 +6,8 @@ const createConfig = nextJest({ dir: "./" });
 const config = {
   roots: ["<rootDir>/src/"],
   moduleNameMapper: { "^@/(.*)$": "<rootDir>/src/$1" },
-  setupFiles: ["./jest.polyfills.js"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
-  testEnvironment: "jsdom",
+  testEnvironment: "jest-fixed-jsdom",
   testEnvironmentOptions: {
     customExportConditions: [""],
   },
