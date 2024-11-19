@@ -8,9 +8,6 @@ const config = {
   moduleNameMapper: { "^@/(.*)$": "<rootDir>/src/$1" },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testEnvironment: "jest-fixed-jsdom",
-  testEnvironmentOptions: {
-    customExportConditions: [""],
-  },
 };
 
 module.exports = createConfig(config);
