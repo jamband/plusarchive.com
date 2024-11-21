@@ -83,23 +83,23 @@
   }
 }
 
-.footerFirstLink {
-  align-items: center;
+.footerLink {
   color: rgb(var(--rose-500));
-  display: inline-flex;
-  gap: 0.25rem;
 }
 
-.footerFirstLinkIcon {
+.footerLink:active,
+.footerLink:focus-visible {
+  color: rgb(var(--rose-500));
+}
+
+.footerLinkIcon {
   color: rgb(var(--rose-500) / 60%);
   height: 1rem;
+  margin: 0 0.25rem 0 0;
+  vertical-align: -0.125rem;
   width: 1rem;
 }
 
 .footerLinkDivider {
   margin: 0 0.5rem;
-}
-
-.footerSecondLink {
-  color: rgb(var(--rose-500));
 }

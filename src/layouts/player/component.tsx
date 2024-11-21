@@ -34,13 +34,13 @@ export const Component: React.FC<_Props> = (props) => (
     <div className={styles.footer}>
       <Link
         href={props.player.type === "track" ? "/tracks" : "/playlists"}
-        className={styles.footerFirstLink}
+        className={styles.footerLink}
       >
-        <IconAngleLeft className={styles.footerFirstLinkIcon} />
+        <IconAngleLeft className={styles.footerLinkIcon} />
         Back to {props.player.type === "track" ? "Tracks" : "Playlists"}
       </Link>
       <span className={styles.footerLinkDivider}>or</span>
-      <Link href="/" className={styles.footerSecondLink}>
+      <Link href="/" className={styles.footerLink}>
         Recent Favorites
       </Link>
     </div>
