@@ -36,9 +36,15 @@
   line-height: 1.5;
   margin: 0.25rem 0 -0.125rem;
   max-height: 20rem;
-  min-width: 10rem;
+  min-width: fit-content;
   overflow: scroll;
   padding: 0.75rem 0.5rem;
   position: absolute;
   z-index: 20;
+}
+
+@media (min-width: 768px) {
+  .content {
+    min-width: 10rem;
+  }
 }
