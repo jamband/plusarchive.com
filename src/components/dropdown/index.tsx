@@ -2,7 +2,7 @@ import { Component } from "./component";
 import type { Props } from "./types";
 
 export const Dropdown: React.FC<Props> = (props) => {
-  const onClick = (event: React.FormEvent) => {
+  const onClick = (event: React.MouseEvent) => {
     if (
       event.target instanceof HTMLAnchorElement ||
       event.target instanceof HTMLButtonElement
