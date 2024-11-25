@@ -9,11 +9,9 @@ test("empty link elements", () => {
 });
 
 test("links", () => {
-  render(
-    <BrandIconLinks
-      links={"https://example.com/foo\nhttps://example.com/bar"}
-    />,
-  );
+  const linkValues = ["https://example.com/foo", "https://example.com/bar"];
+
+  render(<BrandIconLinks links={linkValues.join("\n")} />);
 
   const links = screen.getAllByRole("link");
   expect(links).toHaveLength(2);
@@ -45,32 +43,33 @@ test("brand icon links", () => {
     "https://spotify.com/foo",
     "https://twitter.com/foo",
     "https://vimeo.com/foo",
+    "https://x.com/foo",
     "https://www.youtube.com/foo",
   ];
 
   render(<BrandIconLinks links={linkValues.join("\n")} />);
 
   const links = screen.getAllByRole("link");
-  expect(links).toHaveLength(linkValues.length);
+  expect(links).toHaveLength(9);
 
-  for (const i in linkValues) {
-    expect(links[i]).toHaveAttribute("href", linkValues[i]);
-  }
-
-  const nameValues = [
-    "Bandcamp",
-    "Facebook",
-    "Instagram",
-    "SoundCloud",
-    "Spotify",
-    "Vimeo",
-    "X",
-    "YouTube",
-  ];
-
-  for (const i in nameValues) {
-    expect(screen.getByText(nameValues[i])).toBeInTheDocument();
-  }
+  expect(links[0]).toHaveAttribute("href", "https://bandcamp.com/foo");
+  expect(links[0]).toHaveTextContent("Bandcamp");
+  expect(links[1]).toHaveAttribute("href", "https://facebook.com/foo");
+  expect(links[1]).toHaveTextContent("Facebook");
+  expect(links[2]).toHaveAttribute("href", "https://instagram.com/foo");
+  expect(links[2]).toHaveTextContent("Instagram");
+  expect(links[3]).toHaveAttribute("href", "https://soundcloud.com/foo");
+  expect(links[3]).toHaveTextContent("SoundCloud");
+  expect(links[4]).toHaveAttribute("href", "https://spotify.com/foo");
+  expect(links[4]).toHaveTextContent("Spotify");
+  expect(links[5]).toHaveAttribute("href", "https://twitter.com/foo");
+  expect(links[5]).toHaveTextContent("X");
+  expect(links[6]).toHaveAttribute("href", "https://vimeo.com/foo");
+  expect(links[6]).toHaveTextContent("Vimeo");
+  expect(links[7]).toHaveAttribute("href", "https://x.com/foo");
+  expect(links[7]).toHaveTextContent("X");
+  expect(links[8]).toHaveAttribute("href", "https://www.youtube.com/foo");
+  expect(links[8]).toHaveTextContent("YouTube");
 });
 
 test("custom domains for Bandcamp", () => {
@@ -85,16 +84,16 @@ test("custom domains for Bandcamp", () => {
   render(<BrandIconLinks links={linkValues.join("\n")} />);
 
   const links = screen.getAllByRole("link");
-  expect(links).toHaveLength(linkValues.length);
+  expect(links).toHaveLength(5);
 
-  for (const i in linkValues) {
-    expect(links[i]).toHaveAttribute("href", linkValues[i]);
-  }
-
-  const texts = screen.getAllByText("Bandcamp");
-  expect(texts).toHaveLength(linkValues.length);
-
-  for (const i in linkValues) {
-    expect(texts[i]).toBeInTheDocument();
-  }
+  expect(links[0]).toHaveAttribute("href", "https://fikarecordings.com");
+  expect(links[0]).toHaveTextContent("Bandcamp");
+  expect(links[1]).toHaveAttribute("href", "https://mamabirdrecordingco.com");
+  expect(links[1]).toHaveTextContent("Bandcamp");
+  expect(links[2]).toHaveAttribute("href", "https://maybemars.org");
+  expect(links[2]).toHaveTextContent("Bandcamp");
+  expect(links[3]).toHaveAttribute("href", "https://souterraine.biz");
+  expect(links[3]).toHaveTextContent("Bandcamp");
+  expect(links[4]).toHaveAttribute("href", "https://wrwtfww.com");
+  expect(links[4]).toHaveTextContent("Bandcamp");
 });

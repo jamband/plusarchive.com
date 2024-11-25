@@ -50,6 +50,10 @@ export const BrandIconLinks: React.FC<Props> = (props) => {
         name: "Vimeo",
         component: <IconVimeoSquare className={className} />,
       },
+      "x.com": {
+        name: "X",
+        component: <IconXTwitterSquare className={className} />,
+      },
       "youtube.com": {
         name: "YouTube",
         component: <IconYouTubeSquare className={className} />,
