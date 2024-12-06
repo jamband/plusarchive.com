@@ -26,7 +26,7 @@ const track: Track = {
   provider: "Bandcamp",
   provider_key: "",
   title: "title1",
-  image: "",
+  image: "about:blank",
   genres: ["genre1", "genre2"],
   created_at: "",
 };

@@ -16,7 +16,7 @@ export const Player: React.FC = () => {
   const isVisible = ["/tracks/[id]", "/playlists/[id]"].includes(pathname);
   const isAspectSquare = ["Bandcamp", "SoundCloud"].includes(player.provider);
 
-  let embedSrc = "";
+  let embedSrc = "about:blank";
 
   if (player.provider === "Bandcamp" && player.type === "track") {
     embedSrc = `https://bandcamp.com/EmbeddedPlayer/track=${player.provider_key}/size=large/tracklist=false/bgcol=333333/linkcol=${APP_PRIMARY_COLOR}`;
