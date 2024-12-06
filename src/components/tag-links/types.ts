@@ -7,7 +7,7 @@ export type Props = {
 };
 
 export type _Props = Props & {
-  tagsRef: React.RefObject<HTMLDivElement>;
+  tagsRef: React.RefObject<HTMLDivElement | null>;
   tagsPosition: TagsPosition;
   tagsOnScroll: () => void;
 };

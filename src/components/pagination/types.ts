@@ -12,5 +12,5 @@ export type _Props = Props & {
   parts: Array<Part>;
   href: (part: Part) => string | UrlObject;
   disabled: (part: Part) => boolean;
-  icon: (part: Part) => JSX.Element;
+  icon: (part: Part) => React.JSX.Element;
 };
