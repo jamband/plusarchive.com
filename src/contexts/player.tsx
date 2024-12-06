@@ -13,10 +13,8 @@ export const PlayerProvider: React.FC<Props> = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <StateContext.Provider value={state}>
-      <DispatchContext.Provider value={dispatch}>
-        {props.children}
-      </DispatchContext.Provider>
-    </StateContext.Provider>
+    <StateContext value={state}>
+      <DispatchContext value={dispatch}>{props.children}</DispatchContext>
+    </StateContext>
   );
 };
