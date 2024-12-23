@@ -9,7 +9,7 @@
 
 .links {
   overflow: scroll;
-  overscroll-behavior: contain;
+  overscroll-behavior: contain auto;
   scrollbar-width: none;
   white-space: nowrap;
   width: 100%;
