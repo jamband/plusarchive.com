@@ -74,7 +74,7 @@
   color: rgb(var(--gray-100));
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .mainLink:hover {
     background: rgb(var(--gray-600) / 50%);
     color: rgb(var(--gray-100));
@@ -107,7 +107,7 @@
   padding: 0.5rem 0.75rem 0.45rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .subLinksAndMoreLinksDropdown:hover {
     background: rgb(var(--gray-600) / 50%);
     color: rgb(var(--gray-100));
@@ -137,7 +137,7 @@ details[open] .subLinksAndMoreLinksDropdown {
   padding: 0.5rem 0.75rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .subLink:hover {
     background: rgb(var(--gray-600) / 50%);
     color: rgb(var(--gray-100));
@@ -163,7 +163,7 @@ details[open] .subLinksAndMoreLinksDropdown {
   padding: 0.5rem 0.75rem 0.45rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .moreLinksDropdown:hover {
     background: rgb(var(--gray-600) / 50%);
     color: rgb(var(--gray-100));

@@ -11,7 +11,7 @@
   padding: 0.25rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .action:hover {
     color: rgb(var(--gray-100));
   }

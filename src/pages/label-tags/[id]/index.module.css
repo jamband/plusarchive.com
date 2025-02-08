@@ -18,7 +18,7 @@
   gap: 0.25rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .actionButton:hover {
     background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));

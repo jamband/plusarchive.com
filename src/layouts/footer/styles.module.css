@@ -44,14 +44,15 @@
   padding: 0.4rem 0.5rem 0.3rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .close:hover {
     background: rgb(var(--gray-600));
     color: rgb(var(--gray-100));
   }
 }
 
-.close:active {
+.close:active,
+.close:focus-visible {
   background: rgb(var(--gray-600));
   color: rgb(var(--rose-500));
 }

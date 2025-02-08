@@ -137,7 +137,7 @@
   }
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .mainLink:hover {
     color: rgb(var(--gray-100));
   }

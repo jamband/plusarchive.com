@@ -6,7 +6,7 @@
   padding: 0.125rem 1rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .container:hover {
     background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));

@@ -31,7 +31,7 @@
   margin: 0 0.75rem 0 0.125rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .link:hover {
     color: rgb(var(--gray-100));
   }

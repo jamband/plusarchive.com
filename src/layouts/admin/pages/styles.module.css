@@ -9,7 +9,7 @@
   }
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .container:hover {
     background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
@@ -27,7 +27,7 @@ details[open] .container {
   color: rgb(var(--gray-400) / 70%);
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .container:hover .icon {
     color: rgb(var(--gray-400));
   }

@@ -45,7 +45,7 @@
   padding: 0.4rem 0.4rem 0.3rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .close:hover {
     background: rgb(var(--gray-600));
   }

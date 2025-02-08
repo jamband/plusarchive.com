@@ -42,7 +42,7 @@
   margin: 0.25rem 0 0;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .searchLink:hover {
     color: rgb(var(--gray-100));
   }

@@ -31,7 +31,7 @@
   z-index: 10;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .link:hover {
     background: rgb(var(--gray-500) / 20%);
     color: rgb(var(--gray-100));

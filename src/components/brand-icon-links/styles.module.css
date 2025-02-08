@@ -4,7 +4,7 @@
   gap: 0.75rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .link:hover {
     color: rgb(var(--gray-100));
   }

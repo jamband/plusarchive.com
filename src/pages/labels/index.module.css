@@ -40,7 +40,7 @@
   }
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .headerReset:hover {
     background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
@@ -58,7 +58,7 @@
   width: 1rem;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .headerReset:hover .headerResetIcon {
     color: rgb(var(--gray-400));
   }
@@ -90,7 +90,7 @@
   }
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .headerDropdown:hover {
     background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
@@ -108,7 +108,7 @@ details[open] .headerDropdown {
   color: rgb(var(--gray-400) / 70%);
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .headerDropdown:hover .headerDropdownIcon {
     color: rgb(var(--gray-400));
   }
@@ -210,7 +210,7 @@ details[open] .headerDropdown .headerDropdownIcon {
   color: rgb(var(--gray-100));
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (any-hover: hover) {
   .mainCountryLink:hover {
     color: rgb(var(--gray-100));
   }
