@@ -1,9 +1,11 @@
 import type { Pagination } from "./pagination";
 
-export type TrackGenreAdmin = {
+type Base = {
   id: number;
   name: string;
 };
+
+export type TrackGenreAdmin = Pick<Base, "id" | "name">;
 
 export type TrackGenreCollection = {
   data: Array<TrackGenreAdmin>;

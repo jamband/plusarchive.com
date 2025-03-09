@@ -1,9 +1,13 @@
-import type { MusicProvider } from "./music-providers";
+import type { Playlist } from "./playlists";
+import type { Track } from "./tracks";
 
-export type Player = {
-  id: string;
-  title: string;
+type Base = {
+  [K in Extract<keyof Track, keyof Playlist>]: Track[K] | Playlist[K];
+};
+
+export type Player = Pick<
+  Base,
+  "id" | "title" | "provider" | "provider_key"
+> & {
   type: "track" | "playlist";
-  provider: MusicProvider;
-  provider_key: string;
 };

@@ -1,22 +1,25 @@
 import type { MusicProvider } from "./music-providers";
 import type { Pagination } from "./pagination";
 
-export type Playlist = {
+type Base = {
   id: string;
   url: string;
   provider: MusicProvider;
   provider_key: string;
   title: string;
-};
-
-export type PlaylistAdmin = {
-  id: string;
-  url: string;
-  provider: MusicProvider;
-  title: string;
   created_at: string;
   updated_at: string;
 };
+
+export type Playlist = Pick<
+  Base,
+  "id" | "url" | "provider" | "provider_key" | "title"
+>;
+
+export type PlaylistAdmin = Pick<
+  Base,
+  "id" | "url" | "provider" | "title" | "created_at" | "updated_at"
+>;
 
 export type PlaylistAdminCollection = {
   data: Array<PlaylistAdmin>;

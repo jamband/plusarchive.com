@@ -1,9 +1,11 @@
 import type { Pagination } from "./pagination";
 
-export type StoreTagAdmin = {
+type Base = {
   id: number;
   name: string;
 };
+
+export type StoreTagAdmin = Pick<Base, "id" | "name">;
 
 export type StoreTagCollection = {
   data: Array<StoreTagAdmin>;
