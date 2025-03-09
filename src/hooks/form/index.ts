@@ -5,12 +5,12 @@ import { useForm } from "react-hook-form";
 import type * as v from "valibot";
 
 type PostForm<T> = {
-  schema: v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>;
+  schema: v.GenericSchema<unknown>;
   focus: Path<T>;
 };
 
 type PutForm<T> = {
-  schema: v.BaseSchema<unknown, unknown, v.BaseIssue<unknown>>;
+  schema: v.GenericSchema<unknown>;
   focus: Path<T>;
   data: T | undefined;
 };
