@@ -115,7 +115,7 @@
   .mainTitle {
     font-size: 1.125rem;
     margin: 1.25rem 0 0;
-    padding: 0 0.75rem;
+    padding: 0 1rem;
   }
 }
 
@@ -164,7 +164,7 @@
   display: none;
   font-size: var(--text-sm);
   margin: auto 0.5rem 0 0;
-  padding: 0.25rem;
+  padding: 0.5rem;
 }
 
 @media (min-width: 768px) {
