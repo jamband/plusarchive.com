@@ -1,4 +1,6 @@
+import type { BookmarkAdmin } from "@/types/bookmarks";
 import * as v from "valibot";
+import type { PickField } from "../types";
 
 const field = {
   name: "Name",
@@ -6,7 +8,10 @@ const field = {
   url: "URL",
   links: "Links",
   tags: "Tags",
-};
+} satisfies PickField<
+  BookmarkAdmin,
+  "name" | "country" | "url" | "links" | "tags"
+>;
 
 export const schema = v.object({
   name: v.pipe(v.string(), v.nonEmpty(`The ${field.name} field is required.`)),

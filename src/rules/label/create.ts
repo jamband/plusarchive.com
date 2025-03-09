@@ -1,4 +1,6 @@
+import type { LabelAdmin } from "@/types/labels";
 import * as v from "valibot";
+import type { PickField } from "../types";
 
 const field = {
   name: "Name",
@@ -6,7 +8,10 @@ const field = {
   url: "URL",
   links: "Links",
   tags: "Tags",
-};
+} satisfies PickField<
+  LabelAdmin,
+  "name" | "country" | "url" | "links" | "tags"
+>;
 
 export const schema = v.object({
   name: v.pipe(v.string(), v.nonEmpty(`The ${field.name} field is required.`)),
