@@ -16,8 +16,8 @@
     "@eslint/eslintrc": "3.3.0",
     "@eslint/js": "9.22.0",
     "@hookform/resolvers": "4.0.0",
-    "@tanstack/react-query": "5.68.0",
-    "@tanstack/react-query-devtools": "5.68.0",
+    "@tanstack/react-query": "5.69.0",
+    "@tanstack/react-query-devtools": "5.69.0",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.2.0",
     "@types/jest": "29.5.14",
@@ -43,6 +43,6 @@
     "the-new-css-reset": "1.11.3",
     "typescript": "5.8.2",
     "typescript-eslint": "8.26.1",
-    "valibot": "1.0.0-rc.4"
+    "valibot": "1.0.0"
   }
 }
