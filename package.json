@@ -13,18 +13,18 @@
     "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
-    "@eslint/eslintrc": "3.3.0",
-    "@eslint/js": "9.22.0",
+    "@eslint/eslintrc": "3.3.1",
+    "@eslint/js": "9.23.0",
     "@hookform/resolvers": "4.0.0",
     "@tanstack/react-query": "5.69.0",
     "@tanstack/react-query-devtools": "5.69.0",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.2.0",
     "@types/jest": "29.5.14",
-    "@types/node": "22.13.10",
-    "@types/react": "19.0.11",
+    "@types/node": "22.13.11",
+    "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
-    "eslint": "9.22.0",
+    "eslint": "9.23.0",
     "eslint-config-next": "15.2.3",
     "eslint-plugin-jest-dom": "5.5.0",
     "eslint-plugin-testing-library": "7.1.1",
@@ -42,7 +42,7 @@
     "stylelint-order": "6.0.4",
     "the-new-css-reset": "1.11.3",
     "typescript": "5.8.2",
-    "typescript-eslint": "8.26.1",
+    "typescript-eslint": "8.27.0",
     "valibot": "1.0.0"
   }
 }
