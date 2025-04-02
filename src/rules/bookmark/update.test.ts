@@ -22,6 +22,7 @@ test("name", () => {
 
 test("country", () => {
   const { country } = schema.entries;
+  expect(() => v.parse(country, undefined)).toThrow();
   expect(() => v.parse(country, 0)).toThrow();
   expect(() => v.parse(country, "")).toThrow();
   expect(v.parse(country, "foo")).toBe("foo");
@@ -38,6 +39,7 @@ test("url", () => {
 
 test("links", () => {
   const { links } = schema.entries;
+  expect(() => v.parse(links, undefined)).toThrow();
   expect(() => v.parse(links, 0)).toThrow();
   expect(v.parse(links, "")).toBe("");
   expect(v.parse(links, "foo")).toBe("foo");
@@ -46,7 +48,7 @@ test("links", () => {
 
 test("tags", () => {
   const { tags } = schema.entries;
-  expect(() => v.parse(tags, 0)).toThrow();
+  expect(() => v.parse(tags, undefined)).toThrow();
   expect(() => v.parse(tags, "foo")).toThrow();
   expect(() => v.parse(tags, [0])).toThrow();
   expect(v.parse(tags, [])).toEqual([]);

@@ -22,7 +22,7 @@ const Page: PageComponent = () => {
   const genres = useTracksGenres();
   const createTrack = useCreateTrack<Schema>();
 
-  const form = usePostForm<Schema>({
+  const form = usePostForm({
     schema,
     focus: "url",
   });

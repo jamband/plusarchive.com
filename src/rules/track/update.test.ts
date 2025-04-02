@@ -21,22 +21,25 @@ test("url", () => {
 
 test("title", () => {
   const { title } = schema.entries;
+  expect(() => v.parse(title, undefined)).toThrow();
   expect(() => v.parse(title, 0)).toThrow();
-  expect(v.parse(title, undefined)).toBeUndefined();
+  expect(v.parse(title, "")).toBe("");
   expect(v.parse(title, "foo")).toBe("foo");
   expect(label.title).toBe("Title");
 });
 
 test("image", () => {
   const { image } = schema.entries;
+  expect(() => v.parse(image, undefined)).toThrow();
   expect(() => v.parse(image, 0)).toThrow();
-  expect(v.parse(image, undefined)).toBeUndefined();
+  expect(v.parse(image, "")).toBe("");
   expect(v.parse(image, "foo")).toBe("foo");
   expect(label.image).toBe("Image");
 });
 
 test("genres", () => {
   const { genres } = schema.entries;
+  expect(() => v.parse(genres, undefined)).toThrow();
   expect(() => v.parse(genres, "foo")).toThrow();
   expect(() => v.parse(genres, [0])).toThrow();
   expect(v.parse(genres, [])).toEqual([]);

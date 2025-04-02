@@ -26,7 +26,7 @@ const Page: PageComponent = () => {
   const tags = useBookmarksTags();
   const createBookmark = useCreateBookmark<Schema>();
 
-  const form = usePostForm<Schema>({
+  const form = usePostForm({
     schema,
     focus: "name",
   });

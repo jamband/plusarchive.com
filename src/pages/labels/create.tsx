@@ -26,7 +26,7 @@ const Page: PageComponent = () => {
   const tags = useLabelsTags();
   const createLabel = useCreateLabel<Schema>();
 
-  const form = usePostForm<Schema>({
+  const form = usePostForm({
     schema,
     focus: "name",
   });

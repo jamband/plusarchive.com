@@ -11,9 +11,9 @@ const field = {
 
 export const schema = v.object({
   url: v.pipe(v.string(), v.url(`The ${field.url} is invalid.`)),
-  title: v.optional(v.string()),
-  image: v.optional(v.string()),
-  genres: v.optional(v.array(v.string()), []),
+  title: v.string(),
+  image: v.string(),
+  genres: v.array(v.string()),
 });
 
 export type Schema = v.InferOutput<typeof schema>;

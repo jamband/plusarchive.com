@@ -20,7 +20,7 @@ const Page: PageComponent = () => {
   const genre = useTrackGenre();
   const updateGenre = useUpdateTrackGenre<Schema>();
 
-  const form = usePutForm<Schema>({
+  const form = usePutForm({
     schema,
     focus: "name",
     data: genre.data,

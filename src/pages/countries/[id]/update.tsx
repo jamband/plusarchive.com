@@ -20,7 +20,7 @@ const Page: PageComponent = () => {
   const country = useCountry();
   const updateCountry = useUpdateCountry<Schema>();
 
-  const form = usePutForm<Schema>({
+  const form = usePutForm({
     schema,
     focus: "name",
     data: country.data,

@@ -17,7 +17,7 @@ const Page: PageComponent = () => {
 
   const login = useLogin<Schema>();
 
-  const form = usePostForm<Schema>({
+  const form = usePostForm({
     schema,
     focus: "email",
   });

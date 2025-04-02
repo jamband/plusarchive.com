@@ -4,25 +4,17 @@ import type { FieldValues, Path } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import type * as v from "valibot";
 
-type PostForm<T> = {
-  schema: v.GenericSchema<unknown>;
+export const usePostForm = <T extends FieldValues>(form: {
+  schema: v.GenericSchema<T>;
   focus: Path<T>;
-};
-
-type PutForm<T> = {
-  schema: v.GenericSchema<unknown>;
-  focus: Path<T>;
-  data: T | undefined;
-};
-
-export const usePostForm = <T extends FieldValues>(form: PostForm<T>) => {
+}) => {
   const {
     register,
     handleSubmit,
     setError,
     setFocus,
     formState: { errors, isSubmitting, isValid },
-  } = useForm<T>({
+  } = useForm({
     resolver: valibotResolver(form.schema),
     mode: "onChange",
   });
@@ -40,7 +32,11 @@ export const usePostForm = <T extends FieldValues>(form: PostForm<T>) => {
   } as const;
 };
 
-export const usePutForm = <T extends FieldValues>(form: PutForm<T>) => {
+export const usePutForm = <T extends FieldValues>(form: {
+  schema: v.GenericSchema<T>;
+  focus: Path<T>;
+  data: T | undefined;
+}) => {
   const {
     register,
     handleSubmit,
@@ -48,7 +44,7 @@ export const usePutForm = <T extends FieldValues>(form: PutForm<T>) => {
     setError,
     setFocus,
     formState: { errors, isSubmitting, isValid },
-  } = useForm<T>({
+  } = useForm({
     resolver: valibotResolver(form.schema),
     mode: "onChange",
   });

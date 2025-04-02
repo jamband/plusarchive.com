@@ -17,7 +17,7 @@ const Page: PageComponent = () => {
 
   const createTag = useCreateStoreTag<Schema>();
 
-  const form = usePostForm<Schema>({
+  const form = usePostForm({
     schema,
     focus: "name",
   });

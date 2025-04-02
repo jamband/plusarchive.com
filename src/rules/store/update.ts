@@ -20,7 +20,7 @@ export const schema = v.object({
     v.nonEmpty(`The ${field.country} field is required.`),
   ),
   url: v.pipe(v.string(), v.url(`The ${field.url} is invalid.`)),
-  links: v.optional(v.string()),
+  links: v.string(),
   tags: v.array(v.string()),
 });
 

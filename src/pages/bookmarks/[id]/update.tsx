@@ -32,7 +32,7 @@ const Page: PageComponent = () => {
   const tags = useBookmarksTags();
   const updateBookmark = useUpdateBookmark<Schema>();
 
-  const form = usePutForm<Schema>({
+  const form = usePutForm({
     schema,
     focus: "name",
     data: bookmark.data,

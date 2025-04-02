@@ -17,7 +17,7 @@ const Page: PageComponent = () => {
 
   const createPlaylist = useCreatePlaylist<Schema>();
 
-  const form = usePostForm<Schema>({
+  const form = usePostForm({
     schema,
     focus: "url",
   });

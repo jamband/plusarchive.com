@@ -20,7 +20,7 @@ const Page: PageComponent = () => {
   const tag = useLabelTag();
   const updateTag = useUpdateLabelTag<Schema>();
 
-  const form = usePutForm<Schema>({
+  const form = usePutForm({
     schema,
     focus: "name",
     data: tag.data,

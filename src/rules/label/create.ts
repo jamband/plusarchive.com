@@ -15,10 +15,13 @@ const field = {
 
 export const schema = v.object({
   name: v.pipe(v.string(), v.nonEmpty(`The ${field.name} field is required.`)),
-  country: v.optional(v.string(), "Unknown"),
+  country: v.pipe(
+    v.string(),
+    v.nonEmpty(`The ${field.country} field is required.`),
+  ),
   url: v.pipe(v.string(), v.url(`${field.url} is invalid.`)),
-  links: v.optional(v.string()),
-  tags: v.optional(v.array(v.string()), []),
+  links: v.string(),
+  tags: v.array(v.string()),
 });
 
 export type Schema = v.InferOutput<typeof schema>;

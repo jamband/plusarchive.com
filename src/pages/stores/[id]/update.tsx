@@ -28,7 +28,7 @@ const Page: PageComponent = () => {
   const tags = useStoresTags();
   const updateStore = useUpdateStore<Schema>();
 
-  const form = usePutForm<Schema>({
+  const form = usePutForm({
     schema,
     focus: "name",
     data: store.data,

@@ -20,7 +20,7 @@ const Page: PageComponent = () => {
   const playlist = usePlaylist();
   const updatePlaylist = useUpdatePlaylist<Schema>();
 
-  const form = usePutForm<Schema>({
+  const form = usePutForm({
     schema,
     focus: "url",
     data: playlist.data,

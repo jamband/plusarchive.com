@@ -23,7 +23,7 @@ const Page: PageComponent = () => {
   const provider = useMusicProvider();
   const updateProvider = useUpdateMusicProvider<Schema>();
 
-  const form = usePutForm<Schema>({
+  const form = usePutForm({
     schema,
     focus: "name",
     data: provider.data,

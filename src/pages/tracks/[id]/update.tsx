@@ -24,7 +24,7 @@ const Page: PageComponent = () => {
   const genres = useTracksGenres();
   const updateTrack = useUpdateTrack<Schema>();
 
-  const form = usePutForm<Schema>({
+  const form = usePutForm({
     schema,
     focus: "url",
     data: track.data,
