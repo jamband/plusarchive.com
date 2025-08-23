@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc",
-    "lint": "next lint",
+    "lint": "eslint",
     "stylelint": "stylelint \"src/**/*.css\"",
     "format": "prettier --check .",
     "test": "jest",
