@@ -34,8 +34,8 @@
 }
 
 .filterComboboxIcon {
-  height: 0.75rem;
-  width: 0.75rem;
+  height: 1rem;
+  width: 1rem;
 }
 
 .content {
@@ -56,9 +56,10 @@
 
 .contentLinkIcon {
   color: rgb(var(--rose-500) / 60%);
-  height: 1rem;
+  height: 1.25rem;
   margin: 0 0 0 0.25rem;
-  width: 1rem;
+  vertical-align: -0.25rem;
+  width: 1.25rem;
 }
 
 .pagination {

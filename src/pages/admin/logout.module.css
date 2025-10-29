@@ -6,15 +6,11 @@
   justify-content: center;
 }
 
-.information {
-  align-items: center;
-  display: inline-flex;
-  gap: 0.25rem;
-}
-
-.informationIcon {
-  height: 1rem;
-  width: 1rem;
+.descriptionIcon {
+  height: 1.25rem;
+  margin: 0 0.25rem 0 0;
+  vertical-align: -0.25rem;
+  width: 1.25rem;
 }
 
 .button {

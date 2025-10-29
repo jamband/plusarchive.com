@@ -2,7 +2,7 @@ import { Icon } from "./icon";
 import type { _Props } from "./icon/types";
 
 export const IconEllipsis: React.FC<_Props> = (props) => (
-  <Icon className={props.className} viewBox="0 0 448 512">
-    <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z" />
+  <Icon className={props.className} viewBox="0 0 640 640">
+    <path d="M96 320C96 289.1 121.1 264 152 264C182.9 264 208 289.1 208 320C208 350.9 182.9 376 152 376C121.1 376 96 350.9 96 320zM264 320C264 289.1 289.1 264 320 264C350.9 264 376 289.1 376 320C376 350.9 350.9 376 320 376C289.1 376 264 350.9 264 320zM488 264C518.9 264 544 289.1 544 320C544 350.9 518.9 376 488 376C457.1 376 432 350.9 432 320C432 289.1 457.1 264 488 264z" />
   </Icon>
 );

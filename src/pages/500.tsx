@@ -16,10 +16,10 @@ const Page: PageComponent = () => {
       </Head>
       <div className={styles.container}>
         <h1>An error occurred</h1>
-        <div className={styles.description}>
+        <p>
           <IconCircleInfo className={styles.descriptionIcon} />
           An error occurred.
-        </div>
+        </p>
         <Link href="/" className={styles.link}>
           <IconAngleLeft className={styles.linkIcon} />
           Back to Home

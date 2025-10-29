@@ -4,8 +4,8 @@ import { IconAnglesLeft } from "@/icons/angles-left";
 import { IconAnglesRight } from "@/icons/angles-right";
 import { useRouter } from "next/router";
 import { Component } from "./component";
-import type { Part, Props } from "./types";
 import styles from "./styles.module.css";
+import type { Part, Props } from "./types";
 
 export const Pagination: React.FC<Props> = (props) => {
   const { pathname, query } = useRouter();

@@ -1,7 +1,15 @@
 .container {
-  line-height: 1.4;
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  line-height: 1;
   padding: 0.25rem 0;
-  text-align: center;
+}
+
+.icon {
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 .active {
@@ -10,14 +18,4 @@
 
 .inactive {
   color: rgb(var(--gray-500));
-}
-
-.iconContainer {
-  margin: 0 0 0 0.25rem;
-}
-
-.icon {
-  height: 1rem;
-  vertical-align: -0.125rem;
-  width: 1rem;
 }

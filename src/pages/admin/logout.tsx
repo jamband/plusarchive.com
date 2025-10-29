@@ -13,8 +13,8 @@ const Page: PageComponent = () => {
   return (
     <div className={styles.container}>
       <h1>Admin logout</h1>
-      <p className={styles.information}>
-        <IconCircleInfo className={styles.informationIcon} />
+      <p>
+        <IconCircleInfo className={styles.descriptionIcon} />
         Press the <strong>Logout</strong> button to log out.
       </p>
       <button

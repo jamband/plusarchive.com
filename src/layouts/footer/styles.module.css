@@ -41,7 +41,7 @@
 .close {
   border-radius: var(--rounded);
   margin: 0.125rem 0.5rem 0 0;
-  padding: 0.4rem 0.5rem 0.3rem;
+  padding: 0.4rem 0.5rem;
 }
 
 @media (any-hover: hover) {

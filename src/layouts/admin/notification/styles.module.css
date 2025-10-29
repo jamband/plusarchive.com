@@ -22,12 +22,12 @@
 }
 
 .iconContainer {
-  margin: 1.25rem -0.5rem 0 1rem;
+  margin: 1.125rem -0.5rem 0 1rem;
 }
 
 .icon {
-  height: 1rem;
-  width: 1rem;
+  height: 1.25rem;
+  width: 1.25rem;
 }
 
 .message {

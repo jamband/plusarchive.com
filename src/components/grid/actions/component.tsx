@@ -7,16 +7,26 @@ import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
   <div className={styles.container}>
-    <Link href={`${props.resource}/${props.id}`} className={styles.action}>
+    <Link
+      href={`${props.resource}/${props.id}`}
+      className={styles.action}
+      aria-label="view"
+    >
       <IconEye className={styles.icon} />
     </Link>
     <Link
       href={`${props.resource}/${props.id}/update`}
       className={styles.action}
+      aria-label="update"
     >
       <IconPencil className={styles.icon} />
     </Link>
-    <button type="button" onClick={props.mutation} className={styles.action}>
+    <button
+      type="button"
+      onClick={props.mutation}
+      className={styles.action}
+      aria-label="delete"
+    >
       <IconTrash className={styles.icon} />
     </button>
   </div>

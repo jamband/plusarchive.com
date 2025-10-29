@@ -30,7 +30,8 @@
 
 .linkIcon {
   color: rgb(var(--rose-500) / 60%);
-  height: 1rem;
+  height: 1.25rem;
   margin: 0 0 0 0.5rem;
-  width: 1rem;
+  vertical-align: -0.15rem;
+  width: 1.25rem;
 }

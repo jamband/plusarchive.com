@@ -2,7 +2,7 @@ import { Icon } from "./icon";
 import type { _Props } from "./icon/types";
 
 export const IconAngleRight: React.FC<_Props> = (props) => (
-  <Icon className={props.className} viewBox="0 0 320 512">
-    <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
+  <Icon className={props.className} viewBox="0 0 640 640">
+    <path d="M439.1 297.4C451.6 309.9 451.6 330.2 439.1 342.7L279.1 502.7C266.6 515.2 246.3 515.2 233.8 502.7C221.3 490.2 221.3 469.9 233.8 457.4L371.2 320L233.9 182.6C221.4 170.1 221.4 149.8 233.9 137.3C246.4 124.8 266.7 124.8 279.2 137.3L439.2 297.3z" />
   </Icon>
 );
