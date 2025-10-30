@@ -13,22 +13,20 @@
   display: flex;
   gap: 1rem;
   justify-content: space-around;
+  line-height: 0;
 }
 
 .link {
   border-radius: var(--rounded);
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
   width: 100%;
   z-index: 10;
 }
 
-.linkDisabled {
-  border-radius: var(--rounded);
-  color: rgb(var(--gray-500));
-  padding: 0.5rem 0;
-  pointer-events: none;
-  width: 100%;
-  z-index: 10;
+@media (min-width: 768px) {
+  .link {
+    padding: 1rem 0;
+  }
 }
 
 @media (any-hover: hover) {
@@ -44,6 +42,21 @@
   color: rgb(var(--gray-100));
 }
 
+.linkDisabled {
+  border-radius: var(--rounded);
+  color: rgb(var(--gray-500));
+  padding: 0.75rem 0;
+  pointer-events: none;
+  width: 100%;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .linkDisabled {
+    padding: 1rem 0;
+  }
+}
+
 .linkIcon {
   height: 1rem;
   width: 1rem;
@@ -51,13 +64,13 @@
 
 .information {
   font-size: var(--text-xs);
-  inset: auto auto 2.1rem;
+  inset: auto auto 1.9rem;
   position: relative;
 }
 
 @media (min-width: 768px) {
   .information {
     font-size: var(--text-sm);
-    inset: auto auto 2.2rem;
+    inset: auto auto 2.3rem;
   }
 }

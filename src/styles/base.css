@@ -48,6 +48,10 @@ iframe {
   vertical-align: middle;
 }
 
+svg {
+  vertical-align: middle;
+}
+
 label {
   color: rgb(var(--gray-200));
   display: block;
