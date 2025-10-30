@@ -29,7 +29,6 @@
 @media (min-width: 768px) {
   .recentMainCardIcon {
     height: 1.125rem;
-    margin: 0.1rem 0 0;
     width: 1.125rem;
   }
 }
@@ -60,11 +59,15 @@
   display: flex;
   font-weight: 700;
   justify-content: center;
-  margin: 2.5rem 0 0;
+  line-height: 2;
+  margin: 2rem 0 0;
 }
 
 .footerLink {
+  align-items: center;
   color: rgb(var(--rose-500));
+  display: flex;
+  gap: 0.125rem;
 }
 
 .footerLink:active,
@@ -79,7 +82,5 @@
 .footerLinkIcon {
   color: rgb(var(--rose-500) / 60%);
   height: 1.25rem;
-  margin: 0 0 0 0.125rem;
-  vertical-align: -0.25rem;
   width: 1.25rem;
 }

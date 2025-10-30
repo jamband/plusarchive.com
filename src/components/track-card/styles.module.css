@@ -150,6 +150,7 @@
   font-size: var(--text-xs);
   gap: 0.25rem;
   justify-content: flex-end;
+  line-height: 1.8;
   margin: auto 0.5rem 0.25rem 0;
 }
 
@@ -173,5 +174,6 @@
     display: flex;
     gap: 0.25rem;
     justify-content: flex-end;
+    line-height: 1.8;
   }
 }
