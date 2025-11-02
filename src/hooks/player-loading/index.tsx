@@ -12,11 +12,15 @@ export const usePlayerLoading = () => {
 
   useEffect(() => {
     if (player.id !== "") {
-      setKey(player.id);
+      setTimeout(() => {
+        setKey(player.id);
+      });
     }
 
     if (player.id !== key) {
-      setLoading(true);
+      setTimeout(() => {
+        setLoading(true);
+      });
     }
   }, [player.id, key]);
 

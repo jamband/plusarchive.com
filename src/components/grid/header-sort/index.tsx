@@ -10,11 +10,12 @@ export const GridHeaderSort: React.FC<Props> = (props) => {
   const current = column.replace("-", "") === props.column;
 
   const sort = async () => {
-    delete query.page;
+    const _query = { ...query };
+    delete _query.page;
 
     await push({
       query: {
-        ...query,
+        ..._query,
         sort: column === props.column ? `-${column}` : props.column,
       },
     });

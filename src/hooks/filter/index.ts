@@ -21,7 +21,9 @@ export const useTextFilter = (name: string) => {
   };
 
   useEffect(() => {
-    setValue(initialValue);
+    setTimeout(() => {
+      setValue(initialValue);
+    });
   }, [setValue, initialValue]);
 
   return {
@@ -47,7 +49,9 @@ export const useSelectFilter = (name: string) => {
   };
 
   useEffect(() => {
-    setValue(initialValue);
+    setTimeout(() => {
+      setValue(initialValue);
+    });
   }, [setValue, initialValue]);
 
   return {

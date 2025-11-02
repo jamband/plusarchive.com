@@ -28,6 +28,10 @@ const eslintConfig = defineConfig(
   {
     files: ["src/**/*.{ts,tsx}"],
     extends: [next],
+    rules: {
+      // https://github.com/facebook/react/issues/34775
+      "react-hooks/refs": "off",
+    },
   },
   {
     files: ["src/**/*.test.{ts,tsx}"],
