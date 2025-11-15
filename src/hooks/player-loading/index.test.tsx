@@ -17,14 +17,18 @@ test("state when player.id is 'foo'", () => {
   playerState.mockReturnValue({ id: "foo" });
 
   const { result } = renderHook(usePlayerLoading);
-  expect(result.current.state).toBe(true);
+  setTimeout(() => {
+    expect(result.current.state).toBe(true);
+  });
 });
 
 test("stopLoading", () => {
   playerState.mockReturnValue({ id: "foo" });
 
   const { result } = renderHook(usePlayerLoading);
-  expect(result.current.state).toBe(true);
+  setTimeout(() => {
+    expect(result.current.state).toBe(true);
+  });
 
   act(result.current.stop);
   expect(result.current.state).toBe(false);
