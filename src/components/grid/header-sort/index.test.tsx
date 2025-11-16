@@ -1,31 +1,34 @@
-import { router } from "@/mocks/router";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { useRouter } from "next/router";
+import type { Mock } from "vitest";
+import { expect, test, vi } from "vitest";
 import { GridHeaderSort } from ".";
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
+vi.mock("next/router", () => ({
+  useRouter: vi.fn(),
 }));
 
-jest.mock("@/icons/arrow-down-1-9", () => ({
-  IconArrowDown19: () => <span>19</span>,
+vi.mock("@/icons/arrow-down-1-9", () => ({
+  IconArrowDown19: () => <div>19</div>,
 }));
 
-jest.mock("@/icons/arrow-down-9-1", () => ({
-  IconArrowDown91: () => <span>91</span>,
+vi.mock("@/icons/arrow-down-9-1", () => ({
+  IconArrowDown91: () => <div>91</div>,
 }));
 
-jest.mock("@/icons/arrow-down-a-z", () => ({
-  IconArrowDownAZ: () => <span>az</span>,
+vi.mock("@/icons/arrow-down-a-z", () => ({
+  IconArrowDownAZ: () => <div>az</div>,
 }));
 
-jest.mock("@/icons/arrow-down-z-a", () => ({
-  IconArrowDownZA: () => <span>za</span>,
+vi.mock("@/icons/arrow-down-z-a", () => ({
+  IconArrowDownZA: () => <div>za</div>,
 }));
+
+const router = useRouter as Mock;
 
 test("type: number", () => {
   router.mockReturnValue({
-    push: jest.fn(),
+    push: vi.fn(),
     query: {},
   });
 
@@ -41,7 +44,7 @@ test("type: number", () => {
 
 test("type: number and desc to asc", () => {
   router.mockReturnValue({
-    push: jest.fn(),
+    push: vi.fn(),
     query: { sort: "-id" },
   });
 
@@ -57,7 +60,7 @@ test("type: number and desc to asc", () => {
 
 test("type: number and asc to desc", () => {
   router.mockReturnValue({
-    push: jest.fn(),
+    push: vi.fn(),
     query: { sort: "id" },
   });
 
@@ -73,7 +76,7 @@ test("type: number and asc to desc", () => {
 
 test("type: string", () => {
   router.mockReturnValue({
-    push: jest.fn(),
+    push: vi.fn(),
     query: {},
   });
 
@@ -89,7 +92,7 @@ test("type: string", () => {
 
 test("type: string and desc to asc", () => {
   router.mockReturnValue({
-    push: jest.fn(),
+    push: vi.fn(),
     query: { sort: "-foo" },
   });
 
@@ -105,7 +108,7 @@ test("type: string and desc to asc", () => {
 
 test("type: string and asc to desc", () => {
   router.mockReturnValue({
-    push: jest.fn(),
+    push: vi.fn(),
     query: { sort: "foo" },
   });
 

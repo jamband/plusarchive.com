@@ -1,5 +1,6 @@
-/** @jest-environment node */
+// @vitest-environment node
 import * as v from "valibot";
+import { expect, test } from "vitest";
 import { label, schema } from "./create";
 
 test("fields", () => {

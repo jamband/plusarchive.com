@@ -1,10 +1,18 @@
-import { router } from "@/mocks/router";
 import { render, screen } from "@testing-library/react";
+import { useRouter } from "next/router";
+import type { Mock } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import { Pagination } from ".";
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
+const router = useRouter as Mock;
+
+vi.mock("next/router", () => ({
+  useRouter: vi.fn(),
 }));
+
+beforeEach(() => {
+  router.mockReset();
+});
 
 test("1/10", () => {
   router.mockReturnValue({

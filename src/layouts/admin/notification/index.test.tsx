@@ -1,23 +1,25 @@
 import { useNotificationState } from "@/hooks/notification";
 import { render, screen } from "@testing-library/react";
+import type { Mock } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import { AdminNotification } from ".";
 
-jest.mock("@/hooks/notification", () => ({
-  useNotificationState: jest.fn(),
+vi.mock("@/hooks/notification", () => ({
+  useNotificationState: vi.fn(),
   useNotificationAction: () => ({
     resetNotification: () => undefined,
   }),
 }));
 
-jest.mock("@/icons/circle-info", () => ({
+vi.mock("@/icons/circle-info", () => ({
   IconCircleInfo: () => "icon-info ",
 }));
 
-jest.mock("@/components/close-button", () => ({
+vi.mock("@/components/close-button", () => ({
   CloseButton: () => "close",
 }));
 
-const notification = useNotificationState as jest.Mock;
+const notification = useNotificationState as Mock;
 
 beforeEach(() => {
   notification.mockReset();

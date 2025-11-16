@@ -1,12 +1,13 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import { expect, test, vi } from "vitest";
 import { CloseButton } from ".";
 
-jest.mock("@/icons/xmark", () => ({
+vi.mock("@/icons/xmark", () => ({
   IconXMark: () => "x",
 }));
 
 test("", () => {
-  const onClick = jest.fn();
+  const onClick = vi.fn();
 
   render(<CloseButton className="foo" iconClass="bar" onClick={onClick} />);
 

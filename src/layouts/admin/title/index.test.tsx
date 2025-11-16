@@ -1,14 +1,10 @@
 import { APP_NAME } from "@/constants/app";
 import { render } from "@testing-library/react";
+import { expect, test, vi } from "vitest";
 import { AdminTitle } from ".";
 
-jest.mock("next/head", () => ({
-  __esModule: true,
+vi.mock("next/head", () => ({
   default: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-}));
-
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
 }));
 
 test("title: ''", () => {

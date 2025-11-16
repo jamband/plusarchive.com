@@ -1,9 +1,10 @@
 import type { useQuery } from "@/hooks/server-state";
 import { render, screen } from "@testing-library/react";
 import type { UseFormRegisterReturn } from "react-hook-form";
+import { expect, test, vi } from "vitest";
 import { FormSelect } from ".";
 
-jest.mock("@/icons/angle-down", () => ({
+vi.mock("@/icons/angle-down", () => ({
   IconAngleDown: () => "angle-down-icon",
 }));
 

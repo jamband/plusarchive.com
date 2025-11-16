@@ -1,20 +1,21 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import { expect, test, vi } from "vitest";
 import { GridActions } from ".";
 
-jest.mock("@/icons/eye", () => ({
+vi.mock("@/icons/eye", () => ({
   IconEye: () => "view",
 }));
 
-jest.mock("@/icons/pencil", () => ({
+vi.mock("@/icons/pencil", () => ({
   IconPencil: () => "update",
 }));
 
-jest.mock("@/icons/trash", () => ({
+vi.mock("@/icons/trash", () => ({
   IconTrash: () => "delete",
 }));
 
 test("", () => {
-  const mutation = jest.fn();
+  const mutation = vi.fn();
 
   render(<GridActions resource="/foo" id={1} mutation={mutation} />);
 

@@ -1,22 +1,24 @@
-import { playerState } from "@/mocks/player-state";
-import { router } from "@/mocks/router";
+import { usePlayerState } from "@/hooks/player";
 import type { Track } from "@/types/tracks";
 import { render, screen } from "@testing-library/react";
+import { useRouter } from "next/router";
+import type { Mock } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import { TrackCard } from ".";
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
+vi.mock("next/router", () => ({
+  useRouter: vi.fn(),
 }));
 
-jest.mock("@/hooks/player", () => ({
-  usePlayerState: jest.fn(),
+vi.mock("@/hooks/player", () => ({
+  usePlayerState: vi.fn(),
 }));
 
-jest.mock("@/icons/circle-pause", () => ({
+vi.mock("@/icons/circle-pause", () => ({
   IconCirclePause: () => "status:pause",
 }));
 
-jest.mock("@/icons/circle-play", () => ({
+vi.mock("@/icons/circle-play", () => ({
   IconCirclePlay: () => "status:play",
 }));
 
@@ -30,6 +32,14 @@ const track: Track = {
   genres: ["genre1", "genre2"],
   created_at: "",
 };
+
+const router = useRouter as Mock;
+const playerState = usePlayerState as Mock;
+
+beforeEach(() => {
+  router.mockReset();
+  playerState.mockReset();
+});
 
 test("aspect ratio: Bandcamp", () => {
   router.mockReturnValue({ query: { provider: "Bandcamp" } });

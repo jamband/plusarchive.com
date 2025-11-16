@@ -1,8 +1,9 @@
 import { APP_NAME } from "@/constants/app";
 import { render, screen } from "@testing-library/react";
+import { expect, test, vi } from "vitest";
 import { AdminFooter } from ".";
 
-jest.mock("@/icons/lock", () => ({
+vi.mock("@/icons/lock", () => ({
   IconLock: () => "icon ",
 }));
 

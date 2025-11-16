@@ -1,30 +1,42 @@
 import { APP_PRIMARY_COLOR } from "@/constants/app";
-import { loading } from "@/mocks/player-loading";
-import { playerState } from "@/mocks/player-state";
-import { router } from "@/mocks/router";
+import { usePlayerState } from "@/hooks/player";
+import { usePlayerLoading } from "@/hooks/player-loading";
 import { render, screen } from "@testing-library/react";
+import { useRouter } from "next/router";
+import type { Mock } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import { Player } from ".";
 
-jest.mock("@/hooks/player", () => ({
-  usePlayerState: jest.fn(),
+vi.mock("@/hooks/player", () => ({
+  usePlayerState: vi.fn(),
 }));
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
+vi.mock("next/router", () => ({
+  useRouter: vi.fn(),
 }));
 
-jest.mock("@/hooks/player-loading", () => ({
-  usePlayerLoading: jest.fn(),
+vi.mock("@/hooks/player-loading", () => ({
+  usePlayerLoading: vi.fn(),
 }));
 
-jest.mock("@/icons/angle-left", () => ({
-  IconAngleLeft: jest.fn(),
+vi.mock("@/icons/angle-left", () => ({
+  IconAngleLeft: vi.fn(),
 }));
+
+const router = useRouter as Mock;
+const playerState = usePlayerState as Mock;
+const playerLoading = usePlayerLoading as Mock;
+
+beforeEach(() => {
+  router.mockReset();
+  playerState.mockReset();
+  playerLoading.mockReset();
+});
 
 test("", () => {
   playerState.mockReturnValue({ id: "" });
   router.mockReturnValue({});
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   const { container } = render(<Player />);
   expect(container).toBeEmptyDOMElement();
@@ -33,7 +45,7 @@ test("", () => {
 test("hidden", () => {
   playerState.mockReturnValue({ id: "foo" });
   router.mockReturnValue({});
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   render(<Player />);
 
@@ -44,7 +56,7 @@ test("hidden", () => {
 test("visible", () => {
   playerState.mockReturnValue({ id: "foo" });
   router.mockReturnValue({ pathname: "/tracks/[id]" });
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   render(<Player />);
 
@@ -61,7 +73,7 @@ test("src and title for embed when track of Bandcamp", () => {
   });
 
   router.mockReturnValue({});
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   render(<Player />);
 
@@ -81,7 +93,7 @@ test("src and title for embed when playlist of Bandcamp", () => {
   });
 
   router.mockReturnValue({});
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   render(<Player />);
 
@@ -101,7 +113,7 @@ test("src and title for embed when track of SoundCloud", () => {
   });
 
   router.mockReturnValue({});
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   render(<Player />);
 
@@ -121,7 +133,7 @@ test("src and title for embed when playlist of SoundCloud", () => {
   });
 
   router.mockReturnValue({});
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   render(<Player />);
 
@@ -141,7 +153,7 @@ test("src and title for embed when Vimeo", () => {
   });
 
   router.mockReturnValue({});
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   render(<Player />);
 
@@ -158,7 +170,7 @@ test("src and title for embed when track of YouTube", () => {
   });
 
   router.mockReturnValue({});
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   render(<Player />);
 
@@ -178,7 +190,7 @@ test("src and title for embed when playlist of YouTube", () => {
   });
 
   router.mockReturnValue({});
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   render(<Player />);
 
@@ -197,7 +209,7 @@ test("title and provider", () => {
   });
 
   router.mockReturnValue({ pathname: "/tracks/[id]" });
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   render(<Player />);
 
@@ -212,7 +224,7 @@ test("links when type is track", () => {
   });
 
   router.mockReturnValue({ pathname: "/tracks/[id]" });
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   render(<Player />);
 
@@ -233,7 +245,7 @@ test("links when type is playlist", () => {
   });
 
   router.mockReturnValue({ pathname: "/tracks/[id]" });
-  loading.mockReturnValue({});
+  playerLoading.mockReturnValue({});
 
   render(<Player />);
 

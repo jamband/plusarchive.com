@@ -1,14 +1,21 @@
-import { router } from "@/mocks/router";
 import { csrfCookieHandler, server } from "@/mocks/server";
 import { queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
 import { HttpResponse, http } from "msw";
 import { useRouter } from "next/router";
+import type { Mock } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import { useAuth, useLogin, useLogout } from ".";
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
+vi.mock("next/router", () => ({
+  useRouter: vi.fn(),
 }));
+
+const router = useRouter as Mock;
+
+beforeEach(() => {
+  router.mockReset();
+});
 
 test("GET /auth/user", async () => {
   server.use(
@@ -28,7 +35,7 @@ test("GET /auth/user", async () => {
 
 test("POST /auth/login", async () => {
   router.mockReturnValue({
-    push: jest.fn(),
+    push: vi.fn(),
   });
 
   server.use(
@@ -45,7 +52,7 @@ test("POST /auth/login", async () => {
 
 test("POST /auth/logout", async () => {
   router.mockReturnValue({
-    push: jest.fn(),
+    push: vi.fn(),
   });
 
   server.use(

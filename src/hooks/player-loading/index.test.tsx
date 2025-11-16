@@ -1,10 +1,18 @@
-import { playerState } from "@/mocks/player-state";
-import { act, renderHook } from "@testing-library/react";
+import { act, renderHook, waitFor } from "@testing-library/react";
+import type { Mock } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import { usePlayerLoading } from ".";
+import { usePlayerState } from "../player";
 
-jest.mock("@/hooks/player", () => ({
-  usePlayerState: jest.fn(),
+vi.mock("@/hooks/player", () => ({
+  usePlayerState: vi.fn(),
 }));
+
+const playerState = usePlayerState as Mock;
+
+beforeEach(() => {
+  playerState.mockReset();
+});
 
 test("state when player.id is ''", () => {
   playerState.mockReturnValue({ id: "" });
@@ -13,22 +21,18 @@ test("state when player.id is ''", () => {
   expect(result.current.state).toBe(false);
 });
 
-test("state when player.id is 'foo'", () => {
+test("state when player.id is 'foo'", async () => {
   playerState.mockReturnValue({ id: "foo" });
 
   const { result } = renderHook(usePlayerLoading);
-  setTimeout(() => {
-    expect(result.current.state).toBe(true);
-  });
+  await waitFor(() => expect(result.current.state).toBe(true));
 });
 
-test("stopLoading", () => {
+test("stopLoading", async () => {
   playerState.mockReturnValue({ id: "foo" });
 
   const { result } = renderHook(usePlayerLoading);
-  setTimeout(() => {
-    expect(result.current.state).toBe(true);
-  });
+  await waitFor(() => expect(result.current.state).toBe(true));
 
   act(result.current.stop);
   expect(result.current.state).toBe(false);

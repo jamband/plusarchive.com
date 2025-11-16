@@ -1,15 +1,23 @@
 import { APP_NAME } from "@/constants/app";
-import { router } from "@/mocks/router";
 import { render, screen } from "@testing-library/react";
+import { useRouter } from "next/router";
+import type { Mock } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import { Header } from ".";
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
+vi.mock("next/router", () => ({
+  useRouter: vi.fn(),
 }));
 
-jest.mock("./search-form", () => ({
+vi.mock("./search-form", () => ({
   HeaderSearchForm: () => null,
 }));
+
+const router = useRouter as Mock;
+
+beforeEach(() => {
+  router.mockReset();
+});
 
 test("current: /", () => {
   router.mockReturnValue({ pathname: "/" });

@@ -1,10 +1,10 @@
-import { notificationAction } from "@/mocks/notification-action";
-import { router } from "@/mocks/router";
 import { csrfCookieHandler, server } from "@/mocks/server";
 import { isInvalidated, queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
 import { HttpResponse, http } from "msw";
 import { useRouter } from "next/router";
+import type { Mock } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import {
   useCreateStoreTag,
   useDeleteStoreTag,
@@ -14,13 +14,21 @@ import {
 } from ".";
 import { useNotificationAction } from "../notification";
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
+vi.mock("next/router", () => ({
+  useRouter: vi.fn(),
 }));
 
-jest.mock("@/hooks/notification", () => ({
-  useNotificationAction: jest.fn(),
+vi.mock("@/hooks/notification", () => ({
+  useNotificationAction: vi.fn(),
 }));
+
+const router = useRouter as Mock;
+const notificationAction = useNotificationAction as Mock;
+
+beforeEach(() => {
+  router.mockReset();
+  notificationAction.mockReset();
+});
 
 test("GET /store-tags/admin", async () => {
   router.mockReturnValue({
@@ -68,11 +76,11 @@ test("GET /store-tags/[id]", async () => {
 
 test("POST /store-tags", async () => {
   router.mockReturnValue({
-    push: jest.fn(),
+    push: vi.fn(),
   });
 
   notificationAction.mockReturnValue({
-    setNotification: jest.fn(),
+    setNotification: vi.fn(),
   });
 
   server.use(
@@ -101,11 +109,11 @@ test("POST /store-tags", async () => {
 
 test("PUT /store-tags/[id]", async () => {
   router.mockReturnValue({
-    push: jest.fn(),
+    push: vi.fn(),
   });
 
   notificationAction.mockReturnValue({
-    setNotification: jest.fn(),
+    setNotification: vi.fn(),
   });
 
   server.use(
@@ -136,11 +144,11 @@ test("PUT /store-tags/[id]", async () => {
 
 test("DELETE /store-tags/[id]", async () => {
   router.mockReturnValue({
-    push: jest.fn(),
+    push: vi.fn(),
   });
 
   notificationAction.mockReturnValue({
-    setNotification: jest.fn(),
+    setNotification: vi.fn(),
   });
 
   server.use(

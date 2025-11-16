@@ -1,15 +1,23 @@
-import { router } from "@/mocks/router";
 import { fireEvent, render, renderHook, screen } from "@testing-library/react";
+import { useRouter } from "next/router";
+import type { Mock } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import { useSelectFilter, useTextFilter } from ".";
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
+vi.mock("next/router", () => ({
+  useRouter: vi.fn(),
 }));
+
+const router = useRouter as Mock;
+
+beforeEach(() => {
+  router.mockReset();
+});
 
 test("useTextFilter", () => {
   router.mockReturnValue({
     query: { foo: "foo1" },
-    push: jest.fn(),
+    push: vi.fn(),
   });
 
   const { result } = renderHook(() => useTextFilter("foo"));
@@ -29,7 +37,7 @@ test("useTextFilter", () => {
 test("useSelectFilter", () => {
   router.mockReturnValue({
     query: {},
-    push: jest.fn(),
+    push: vi.fn(),
   });
 
   const { result } = renderHook(() => useSelectFilter("foo"));

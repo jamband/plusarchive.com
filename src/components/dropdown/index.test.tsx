@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { expect, test } from "vitest";
 import { Dropdown } from ".";
 
 test("without label", () => {

@@ -1,19 +1,29 @@
 import { APP_NAME } from "@/constants/app";
-import { playerState } from "@/mocks/player-state";
-import { router } from "@/mocks/router";
+import { usePlayerState } from "@/hooks/player";
 import { render, screen } from "@testing-library/react";
+import { useRouter } from "next/router";
+import type { Mock } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import { Footer } from ".";
 
-jest.mock("@/hooks/player", () => ({
-  usePlayerState: jest.fn(),
+vi.mock("@/hooks/player", () => ({
+  usePlayerState: vi.fn(),
   usePlayerAction: () => ({
     resetPlayer: () => undefined,
   }),
 }));
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
+vi.mock("next/router", () => ({
+  useRouter: vi.fn(),
 }));
+
+const router = useRouter as Mock;
+const playerState = usePlayerState as Mock;
+
+beforeEach(() => {
+  router.mockReset();
+  playerState.mockReset();
+});
 
 test("route is /foo and empty player", () => {
   router.mockReturnValue({ pathname: "/foo" });

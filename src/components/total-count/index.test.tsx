@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { expect, test } from "vitest";
 import { TotalCount } from ".";
 
 test("total: 0", () => {

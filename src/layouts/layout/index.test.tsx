@@ -1,26 +1,34 @@
-import { router } from "@/mocks/router";
 import { render, screen } from "@testing-library/react";
+import { useRouter } from "next/router";
+import type { Mock } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import { Layout } from ".";
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
+vi.mock("next/router", () => ({
+  useRouter: vi.fn(),
 }));
 
-jest.mock("../loading", () => ({
-  Loading: jest.fn(() => null),
+vi.mock("../loading", () => ({
+  Loading: vi.fn(() => null),
 }));
 
-jest.mock("../header", () => ({
-  Header: jest.fn(() => null),
+vi.mock("../header", () => ({
+  Header: vi.fn(() => null),
 }));
 
-jest.mock("../footer", () => ({
-  Footer: jest.fn(() => null),
+vi.mock("../footer", () => ({
+  Footer: vi.fn(() => null),
 }));
 
-jest.mock("../player", () => ({
-  Player: jest.fn(() => null),
+vi.mock("../player", () => ({
+  Player: vi.fn(() => null),
 }));
+
+const router = useRouter as Mock;
+
+beforeEach(() => {
+  router.mockReset();
+});
 
 test("", () => {
   router.mockReturnValue({

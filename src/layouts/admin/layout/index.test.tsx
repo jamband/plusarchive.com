@@ -1,28 +1,29 @@
 import { render, screen } from "@testing-library/react";
+import { expect, test, vi } from "vitest";
 import { AdminLayout } from ".";
 
-jest.mock("@/layouts/loading", () => ({
-  Loading: jest.fn(() => null),
+vi.mock("@/layouts/loading", () => ({
+  Loading: vi.fn(() => null),
 }));
 
-jest.mock("../notification", () => ({
-  AdminNotification: jest.fn(() => null),
+vi.mock("../notification", () => ({
+  AdminNotification: vi.fn(() => null),
 }));
 
-jest.mock("../header", () => ({
-  AdminHeader: jest.fn(() => null),
+vi.mock("../header", () => ({
+  AdminHeader: vi.fn(() => null),
 }));
 
-jest.mock("../pages", () => ({
-  AdminPages: jest.fn(() => null),
+vi.mock("../pages", () => ({
+  AdminPages: vi.fn(() => null),
 }));
 
-jest.mock("../links", () => ({
-  AdminLinks: jest.fn(() => null),
+vi.mock("../links", () => ({
+  AdminLinks: vi.fn(() => null),
 }));
 
-jest.mock("../footer", () => ({
-  AdminFooter: jest.fn(() => null),
+vi.mock("../footer", () => ({
+  AdminFooter: vi.fn(() => null),
 }));
 
 test("", () => {
