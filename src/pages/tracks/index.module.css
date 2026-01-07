@@ -164,7 +164,7 @@ details[open] .headerDropdown .headerDropdownIcon {
   }
 }
 
-@media (width >= 96rem) {
+@media (width >= 80rem) {
   .main {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
