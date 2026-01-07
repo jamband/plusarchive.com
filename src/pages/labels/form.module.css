@@ -13,7 +13,7 @@
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .fieldset {
     width: 50%;
   }
@@ -23,7 +23,7 @@
   width: 100%;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .textareaFieldset {
     width: 50%;
   }

@@ -8,7 +8,7 @@
   z-index: 20;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .container {
     font-size: var(--text-base);
   }
@@ -21,7 +21,7 @@
   margin: 0.5rem 0;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .active {
     margin: 0.5rem auto;
     max-width: 1024px;

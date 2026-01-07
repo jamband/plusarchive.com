@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .container {
     font-size: var(--text-base);
   }
@@ -23,7 +23,7 @@
   z-index: 10;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .link {
     padding: 1rem 0;
   }
@@ -51,7 +51,7 @@
   z-index: 10;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .linkDisabled {
     padding: 1rem 0;
   }
@@ -68,7 +68,7 @@
   position: relative;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .information {
     font-size: var(--text-sm);
     inset: auto auto 2.3rem;

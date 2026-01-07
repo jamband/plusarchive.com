@@ -15,26 +15,26 @@
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .pc {
     max-width: 768px;
   }
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .pc {
     max-width: 1024px;
     padding: 0 8rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (width >= 1280px) {
   .pc {
     max-width: 1280px;
   }
 }
 
-@media (min-width: 1536px) {
+@media (width >= 1536px) {
   .pc {
     max-width: 1536px;
   }
@@ -56,7 +56,7 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .linkContainer {
     display: block;
   }
@@ -88,7 +88,7 @@
   margin: 0 0 0 auto;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .menuContainer {
     display: none;
   }
@@ -116,7 +116,7 @@
   transition: max-height 0.3s;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .mobile {
     display: none;
   }

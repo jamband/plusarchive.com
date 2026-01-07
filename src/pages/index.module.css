@@ -7,7 +7,7 @@
   margin: 0.25rem 0 0;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .recentMain {
     display: grid;
     gap: 1.5rem;
@@ -15,7 +15,7 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (width >= 1280px) {
   .recentMain {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -26,7 +26,7 @@
   width: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .recentMainCardIcon {
     height: 1.125rem;
     width: 1.125rem;

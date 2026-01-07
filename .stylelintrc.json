@@ -3,7 +3,6 @@
   "plugins": ["stylelint-order"],
   "rules": {
     "declaration-property-value-no-unknown": true,
-    "media-feature-range-notation": "prefix",
     "property-no-vendor-prefix": null,
     "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
     "order/properties-alphabetical-order": true

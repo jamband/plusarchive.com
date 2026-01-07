@@ -23,7 +23,7 @@
   text-decoration: underline;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .main {
     display: grid;
     gap: 1.5rem;
@@ -31,7 +31,7 @@
   }
 }
 
-@media (min-width: 1536px) {
+@media (width >= 1536px) {
   .main {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -43,7 +43,7 @@
   gap: 0.25rem;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .mainCardLink:hover {
     color: rgb(var(--gray-100));
   }
@@ -54,7 +54,7 @@
   width: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .mainCardLinkIcon {
     height: 1.125rem;
     width: 1.125rem;

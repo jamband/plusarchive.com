@@ -15,7 +15,7 @@
   margin: 0.25rem 0 0;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .header {
     align-items: center;
     display: flex;
@@ -34,7 +34,7 @@
   padding: 0.125rem 0.5rem;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .headerReset {
     padding: 0.25rem 0.75rem;
   }
@@ -68,7 +68,7 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .headerTotalCount {
     display: block;
     padding: 0.25rem 0.75rem;
@@ -84,7 +84,7 @@
   padding: 0.5rem;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .headerDropdown {
     padding: 0.6rem 0.75rem;
   }
@@ -139,7 +139,7 @@ details[open] .headerDropdown .headerDropdownIcon {
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .searchFormContainer {
     display: none;
   }
@@ -160,7 +160,7 @@ details[open] .headerDropdown .headerDropdownIcon {
   margin: 2rem 0 0;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .main {
     display: grid;
     gap: 1.5rem 3rem;
@@ -175,7 +175,7 @@ details[open] .headerDropdown .headerDropdownIcon {
   margin: 2rem 0 0;
 }
 
-@media (min-width: 1024px) {
+@media (width >= 1024px) {
   .mainItems {
     margin: 0.5rem 0 0;
   }
