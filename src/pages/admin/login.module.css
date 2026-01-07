@@ -1,4 +1,4 @@
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .container {
     padding: 0 10rem;
   }
@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .fieldset {
     width: 50%;
   }

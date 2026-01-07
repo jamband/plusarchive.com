@@ -10,7 +10,7 @@
   gap: 0.25rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .header {
     align-items: center;
     display: flex;
@@ -29,7 +29,7 @@
   padding: 0.125rem 0.5rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .headerReset {
     padding: 0.25rem 0.75rem;
   }
@@ -64,7 +64,7 @@
   display: none;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .headerTotalCount {
     display: block;
     padding: 0.25rem 0.75rem;
@@ -80,7 +80,7 @@
   padding: 0.5rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .headerDropdown {
     padding: 0.6rem 0.75rem;
   }
@@ -135,7 +135,7 @@ details[open] .headerDropdown .headerDropdownIcon {
   width: 100%;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .searchFormContainer {
     display: none;
   }
@@ -156,7 +156,7 @@ details[open] .headerDropdown .headerDropdownIcon {
   margin: 1.5rem 0 0;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .main {
     display: grid;
     gap: 1.5rem;
@@ -164,7 +164,7 @@ details[open] .headerDropdown .headerDropdownIcon {
   }
 }
 
-@media (width >= 1536px) {
+@media (width >= 96rem) {
   .main {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -175,7 +175,7 @@ details[open] .headerDropdown .headerDropdownIcon {
   width: 1rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .trackCardIcon {
     height: 1.125rem;
     margin: 0.1rem 0 0;

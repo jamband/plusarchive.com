@@ -41,7 +41,7 @@
   margin: 0 3rem 0 0;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .space {
     margin: 0 6rem 0 0;
   }

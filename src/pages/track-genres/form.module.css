@@ -13,7 +13,7 @@
   width: 100%;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .fieldset {
     width: 50%;
   }

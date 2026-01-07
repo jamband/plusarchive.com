@@ -15,7 +15,7 @@
   z-index: 50;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .container {
     inset: 0.75rem 0.75rem auto auto;
   }

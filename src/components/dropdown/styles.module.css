@@ -43,7 +43,7 @@
   z-index: 20;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .content {
     min-width: 10rem;
   }

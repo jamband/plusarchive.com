@@ -15,28 +15,28 @@
   width: 100%;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .pc {
-    max-width: 768px;
+    max-width: 48rem;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .pc {
-    max-width: 1024px;
+    max-width: 64rem;
     padding: 0 8rem;
   }
 }
 
-@media (width >= 1280px) {
+@media (width >= 80rem) {
   .pc {
-    max-width: 1280px;
+    max-width: 80rem;
   }
 }
 
-@media (width >= 1536px) {
+@media (width >= 96rem) {
   .pc {
-    max-width: 1536px;
+    max-width: 96rem;
   }
 }
 
@@ -56,7 +56,7 @@
   display: none;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .linkContainer {
     display: block;
   }
@@ -88,7 +88,7 @@
   margin: 0 0 0 auto;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .menuContainer {
     display: none;
   }
@@ -116,7 +116,7 @@
   transition: max-height 0.3s;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .mobile {
     display: none;
   }

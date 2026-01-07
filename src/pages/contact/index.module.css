@@ -1,4 +1,4 @@
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .container {
     padding: 0 10rem;
   }

@@ -3,7 +3,7 @@
   display: flex;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .container {
     background: rgb(var(--gray-700));
     border: none;
@@ -24,7 +24,7 @@
   width: 33.3333%;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .link {
     margin: 0;
     width: 100%;
@@ -38,7 +38,7 @@
   width: 100%;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .image {
     border-radius: var(--rounded) var(--rounded) 0 0;
   }
@@ -52,7 +52,7 @@
   aspect-ratio: 1 / 1;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .videoAspectRatio {
     aspect-ratio: 16 / 9;
   }
@@ -72,14 +72,14 @@
   width: 1.75rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .statusIcon {
     height: 2.75rem;
     width: 2.75rem;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .statusIcon {
     height: 3.25rem;
     width: 3.25rem;
@@ -93,7 +93,7 @@
   width: 66.6667%;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .main {
     width: 100%;
   }
@@ -111,7 +111,7 @@
   white-space: nowrap;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .mainTitle {
     font-size: 1.125rem;
     margin: 1.25rem 0 0;
@@ -129,7 +129,7 @@
   margin: 0.25rem 1rem 0;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .mainLinks {
     font-size: var(--text-base);
     gap: 0.25rem 0.75rem;
@@ -154,7 +154,7 @@
   margin: auto 0.5rem 0.25rem 0;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .mainFooter {
     display: none;
   }
@@ -168,7 +168,7 @@
   padding: 0.5rem;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .footer {
     align-items: center;
     display: flex;

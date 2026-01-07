@@ -19,28 +19,28 @@
   width: 100%;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .main {
-    max-width: 768px;
+    max-width: 48rem;
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 64rem) {
   .main {
-    max-width: 1024px;
+    max-width: 64rem;
     padding: 0 8rem;
   }
 }
 
-@media (width >= 1280px) {
+@media (width >= 80rem) {
   .main {
-    max-width: 1280px;
+    max-width: 80rem;
   }
 }
 
-@media (width >= 1536px) {
+@media (width >= 96rem) {
   .main {
-    max-width: 1536px;
+    max-width: 96rem;
   }
 }
 

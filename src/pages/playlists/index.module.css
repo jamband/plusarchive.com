@@ -5,7 +5,7 @@
   margin: 2.5rem 0 0;
 }
 
-@media (width >= 768px) {
+@media (width >= 48rem) {
   .list {
     display: grid;
     gap: 1rem 3rem;
