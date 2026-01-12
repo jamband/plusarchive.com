@@ -19,8 +19,8 @@
     "@tanstack/react-query-devtools": "5.91.2",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.1",
-    "@types/node": "22.19.3",
-    "@types/react": "19.2.7",
+    "@types/node": "22.19.5",
+    "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.2",
     "eslint": "9.39.2",
@@ -34,7 +34,7 @@
     "prettier": "3.7.4",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-hook-form": "7.70.0",
+    "react-hook-form": "7.71.0",
     "stylelint": "16.26.1",
     "stylelint-config-standard": "39.0.1",
     "stylelint-order": "7.0.1",
@@ -42,7 +42,7 @@
     "typescript": "5.9.3",
     "typescript-eslint": "8.52.0",
     "valibot": "1.2.0",
-    "vite-tsconfig-paths": "6.0.3",
-    "vitest": "4.0.16"
+    "vite-tsconfig-paths": "6.0.4",
+    "vitest": "4.0.17"
   }
 }
