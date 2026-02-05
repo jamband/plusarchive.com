@@ -2,6 +2,9 @@
   "[css][javascript][json][jsonc][typescript][typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.codeActionsOnSave": { "source.fixAll": "explicit" },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
   "editor.formatOnSave": true
 }
