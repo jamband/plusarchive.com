@@ -8,7 +8,7 @@ export const SearchForm: React.FC<Props> = (props) => {
   const search = `${query.q || ""}`;
   const [value, setValue] = useState(search);
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     push({

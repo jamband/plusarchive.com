@@ -4,6 +4,6 @@ export type Props = {
 
 export type _Props = Props & {
   value: string;
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit: (event: React.SubmitEvent<HTMLFormElement>) => void;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
