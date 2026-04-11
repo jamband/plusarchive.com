@@ -42,8 +42,7 @@
     }
   }
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     background: rgb(var(--gray-700));
   }
 }
@@ -88,8 +87,7 @@
     }
   }
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
   }
@@ -109,8 +107,7 @@
     }
   }
 
-  .headerDropdown:active &,
-  .headerDropdown:focus-visible & {
+  .headerDropdown:is(:active, :focus-visible) & {
     color: rgb(var(--gray-400));
   }
 
@@ -179,8 +176,7 @@
   font-size: 1.2rem;
   font-weight: 700;
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     color: rgb(var(--rose-500));
   }
 }

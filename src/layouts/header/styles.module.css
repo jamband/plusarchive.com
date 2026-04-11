@@ -65,8 +65,7 @@
     }
   }
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     background: rgb(var(--gray-600) / 50%);
     color: rgb(var(--gray-100));
   }
@@ -99,8 +98,7 @@
     }
   }
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     background: rgb(var(--gray-600) / 50%);
     color: rgb(var(--gray-100));
   }
@@ -155,8 +153,7 @@
     }
   }
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     background: rgb(var(--gray-600));
     color: rgb(var(--gray-100));
   }

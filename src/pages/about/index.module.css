@@ -17,8 +17,7 @@
   line-height: 1.4;
   margin: 1rem 0 0;
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     color: rgb(var(--rose-500));
   }
 }

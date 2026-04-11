@@ -37,8 +37,7 @@
     }
   }
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
   }
@@ -84,8 +83,7 @@
     }
   }
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
   }
@@ -105,8 +103,7 @@
     }
   }
 
-  .headerDropdown:active &,
-  .headerDropdown:focus-visible & {
+  .headerDropdown:is(:active, :focus-visible) & {
     color: rgb(var(--gray-400));
   }
 

@@ -83,8 +83,7 @@
   display: inline-flex;
   gap: 0.125rem;
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     color: rgb(var(--rose-500));
   }
 }

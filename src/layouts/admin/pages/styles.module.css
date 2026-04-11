@@ -13,8 +13,7 @@
     }
   }
 
-  &:active,
-  &:focus-visible {
+  &:is(:active, :focus-visible) {
     background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
   }
@@ -34,8 +33,7 @@
     }
   }
 
-  .container:active &,
-  .container:focus-visible & {
+  .container:is(:active, :focus-visible) & {
     color: rgb(var(--gray-400));
   }
 }
