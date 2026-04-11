@@ -9,17 +9,17 @@
 .action {
   line-height: 0;
   padding: 0.125rem;
-}
 
-@media (any-hover: hover) {
-  .action:hover {
+  @media (any-hover: hover) {
+    &:hover {
+      color: rgb(var(--gray-100));
+    }
+  }
+
+  &:active,
+  &:focus-visible {
     color: rgb(var(--gray-100));
   }
-}
-
-.action:active,
-.action:focus-visible {
-  color: rgb(var(--gray-100));
 }
 
 .icon {

@@ -41,10 +41,8 @@
   padding: 0.75rem 0.5rem;
   position: absolute;
   z-index: 20;
-}
 
-@media (width >= 48rem) {
-  .content {
+  @media (width >= 48rem) {
     min-width: 10rem;
   }
 }

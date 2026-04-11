@@ -5,10 +5,10 @@
   color: rgb(var(--gray-100));
   font-weight: 700;
   padding: 0.25rem 1.125rem 0.3rem;
-}
 
-.container:disabled {
-  background: rgb(var(--gray-700));
-  color: rgb(var(--gray-400));
-  cursor: not-allowed;
+  &:disabled {
+    background: rgb(var(--gray-700));
+    color: rgb(var(--gray-400));
+    cursor: not-allowed;
+  }
 }

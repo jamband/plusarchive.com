@@ -9,11 +9,11 @@
 .contentLink {
   color: rgb(var(--rose-500));
   font-weight: 700;
-}
 
-.contentLink:active,
-.contentLink:focus-visible {
-  color: rgb(var(--rose-500));
+  &:active,
+  &:focus-visible {
+    color: rgb(var(--rose-500));
+  }
 }
 
 .contentLinkIcon {
@@ -34,19 +34,19 @@
   align-items: center;
   display: inline-flex;
   gap: 0.25rem;
-}
 
-@media (any-hover: hover) {
-  .actionButton:hover {
+  @media (any-hover: hover) {
+    &:hover {
+      background: rgb(var(--gray-700));
+      color: rgb(var(--gray-100));
+    }
+  }
+
+  &:active,
+  &:focus-visible {
     background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
   }
-}
-
-.actionButton:active,
-.actionButton:focus-visible {
-  background: rgb(var(--gray-700));
-  color: rgb(var(--gray-100));
 }
 
 .actionButtonIcon {

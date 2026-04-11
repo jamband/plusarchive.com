@@ -3,10 +3,8 @@
   flex-flow: column;
   gap: 1rem;
   margin: 2.5rem 0 0;
-}
 
-@media (width >= 48rem) {
-  .list {
+  @media (width >= 48rem) {
     display: grid;
     gap: 1rem 3rem;
     grid-template-columns: repeat(2, 1fr);
@@ -21,11 +19,11 @@
   color: rgb(var(--rose-500));
   font-size: 1.425rem;
   font-weight: 700;
-}
 
-.link:active,
-.link:focus-visible {
-  color: rgb(var(--rose-500));
+  &:active,
+  &:focus-visible {
+    color: rgb(var(--rose-500));
+  }
 }
 
 .linkIcon {

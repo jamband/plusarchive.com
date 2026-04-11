@@ -1,40 +1,41 @@
 .container {
   font-size: var(--text-sm);
   padding: 0.75rem;
-}
 
-@media (width >= 48rem) {
-  .container {
+  @media (width >= 48rem) {
     font-size: var(--text-base);
   }
-}
 
-@media (any-hover: hover) {
-  .container:hover {
+  @media (any-hover: hover) {
+    &:hover {
+      background: rgb(var(--gray-700));
+      color: rgb(var(--gray-100));
+    }
+  }
+
+  &:active,
+  &:focus-visible {
+    background: rgb(var(--gray-700));
+    color: rgb(var(--gray-100));
+  }
+
+  details[open] & {
     background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
   }
 }
 
-.container:active,
-.container:focus-visible,
-details[open] .container {
-  background: rgb(var(--gray-700));
-  color: rgb(var(--gray-100));
-}
-
 .icon {
   color: rgb(var(--gray-400) / 70%);
-}
 
-@media (any-hover: hover) {
-  .container:hover .icon {
+  @media (any-hover: hover) {
+    .container:hover & {
+      color: rgb(var(--gray-400));
+    }
+  }
+
+  .container:active &,
+  .container:focus-visible & {
     color: rgb(var(--gray-400));
   }
-}
-
-.container:active .icon,
-.container:focus-visible .icon,
-details[open] .container .icon {
-  color: rgb(var(--gray-400));
 }

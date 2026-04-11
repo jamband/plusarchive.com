@@ -13,29 +13,21 @@
   margin: 0 auto;
   padding: 0 1rem;
   width: 100%;
-}
 
-@media (width >= 48rem) {
-  .pc {
+  @media (width >= 48rem) {
     max-width: 48rem;
   }
-}
 
-@media (width >= 64rem) {
-  .pc {
+  @media (width >= 64rem) {
     max-width: 64rem;
     padding: 0 8rem;
   }
-}
 
-@media (width >= 80rem) {
-  .pc {
+  @media (width >= 80rem) {
     max-width: 80rem;
   }
-}
 
-@media (width >= 96rem) {
-  .pc {
+  @media (width >= 96rem) {
     max-width: 96rem;
   }
 }
@@ -54,10 +46,8 @@
 
 .linkContainer {
   display: none;
-}
 
-@media (width >= 48rem) {
-  .linkContainer {
+  @media (width >= 48rem) {
     display: block;
   }
 }
@@ -70,26 +60,24 @@
   border-radius: var(--rounded);
   font-size: var(--text-sm);
   padding: 0.5rem 0.75rem;
-}
 
-@media (any-hover: hover) {
-  .link:hover {
-    background: rgb(var(--gray-600) / 50%);
+  @media (any-hover: hover) {
+    &:hover {
+      background: rgb(var(--gray-600) / 50%);
+      color: rgb(var(--gray-100));
+    }
+  }
+
+  &[aria-current="page"] {
+    background: rgb(var(--gray-600));
     color: rgb(var(--gray-100));
   }
 }
 
-.link[aria-current="page"] {
-  background: rgb(var(--gray-600));
-  color: rgb(var(--gray-100));
-}
-
 .menuContainer {
   margin: 0 0 0 auto;
-}
 
-@media (width >= 48rem) {
-  .menuContainer {
+  @media (width >= 48rem) {
     display: none;
   }
 }
@@ -99,11 +87,11 @@
   line-height: 1;
   margin: 0 -0.25rem 0 0;
   padding: 0.5rem 0.75rem;
-}
 
-.menu[aria-expanded="true"] {
-  background: rgb(var(--gray-600));
-  color: rgb(var(--gray-100));
+  &[aria-expanded="true"] {
+    background: rgb(var(--gray-600));
+    color: rgb(var(--gray-100));
+  }
 }
 
 .menuIcon {
@@ -114,10 +102,8 @@
 .mobile {
   overflow: hidden;
   transition: max-height 0.3s;
-}
 
-@media (width >= 48rem) {
-  .mobile {
+  @media (width >= 48rem) {
     display: none;
   }
 }
@@ -136,14 +122,14 @@
   font-size: var(--text-sm);
   margin: 0.125rem 0;
   padding: 0.375rem 1rem;
-}
 
-.mobileLink:active {
-  background: rgb(var(--gray-600));
-  color: rgb(var(--gray-100));
-}
+  &:active {
+    background: rgb(var(--gray-600));
+    color: rgb(var(--gray-100));
+  }
 
-.mobileLink[aria-current="page"] {
-  color: rgb(var(--gray-100));
-  font-weight: 600;
+  &[aria-current="page"] {
+    color: rgb(var(--gray-100));
+    font-weight: 600;
+  }
 }

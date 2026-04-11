@@ -1,10 +1,8 @@
 .container {
   font-weight: 700;
   text-align: center;
-}
 
-@media (width >= 48rem) {
-  .container {
+  @media (width >= 48rem) {
     font-size: var(--text-base);
   }
 }
@@ -21,25 +19,23 @@
   padding: 0.75rem 0;
   width: 100%;
   z-index: 10;
-}
 
-@media (width >= 48rem) {
-  .link {
+  @media (width >= 48rem) {
     padding: 1rem 0;
   }
-}
 
-@media (any-hover: hover) {
-  .link:hover {
+  @media (any-hover: hover) {
+    &:hover {
+      background: rgb(var(--gray-500) / 20%);
+      color: rgb(var(--gray-100));
+    }
+  }
+
+  &:active,
+  &:focus-visible {
     background: rgb(var(--gray-500) / 20%);
     color: rgb(var(--gray-100));
   }
-}
-
-.link:active,
-.link:focus-visible {
-  background: rgb(var(--gray-500) / 20%);
-  color: rgb(var(--gray-100));
 }
 
 .linkDisabled {
@@ -49,10 +45,8 @@
   pointer-events: none;
   width: 100%;
   z-index: 10;
-}
 
-@media (width >= 48rem) {
-  .linkDisabled {
+  @media (width >= 48rem) {
     padding: 1rem 0;
   }
 }
@@ -66,10 +60,8 @@
   font-size: var(--text-xs);
   inset: auto auto 1.9rem;
   position: relative;
-}
 
-@media (width >= 48rem) {
-  .information {
+  @media (width >= 48rem) {
     font-size: var(--text-sm);
     inset: auto auto 2.3rem;
   }

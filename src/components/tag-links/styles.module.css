@@ -29,20 +29,18 @@
 
 .link {
   margin: 0 0.75rem 0 0.125rem;
-}
 
-@media (any-hover: hover) {
-  .link:hover {
-    color: rgb(var(--gray-100));
+  @media (any-hover: hover) {
+    &:hover {
+      color: rgb(var(--gray-100));
+    }
   }
 }
 
 .space {
   margin: 0 3rem 0 0;
-}
 
-@media (width >= 48rem) {
-  .space {
+  @media (width >= 48rem) {
     margin: 0 6rem 0 0;
   }
 }

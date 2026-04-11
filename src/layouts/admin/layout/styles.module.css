@@ -9,29 +9,21 @@
   margin: 0 auto;
   padding: 1.5rem 1rem 7rem;
   width: 100%;
-}
 
-@media (width >= 48rem) {
-  .main {
+  @media (width >= 48rem) {
     max-width: 48rem;
   }
-}
 
-@media (width >= 64rem) {
-  .main {
+  @media (width >= 64rem) {
     max-width: 64rem;
     padding: 1.5rem 8rem 7rem;
   }
-}
 
-@media (width >= 80rem) {
-  .main {
+  @media (width >= 80rem) {
     max-width: 80rem;
   }
-}
 
-@media (width >= 96rem) {
-  .main {
+  @media (width >= 96rem) {
     max-width: 96rem;
   }
 }
@@ -41,10 +33,8 @@
   font-size: var(--text-sm);
   gap: 0.5rem;
   justify-content: center;
-}
 
-@media (width >= 48rem) {
-  .mainHeader {
+  @media (width >= 48rem) {
     font-size: var(--text-base);
   }
 }

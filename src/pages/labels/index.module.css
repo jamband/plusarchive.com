@@ -13,10 +13,8 @@
   font-size: var(--text-sm);
   gap: 0.25rem;
   margin: 0.25rem 0 0;
-}
 
-@media (width >= 48rem) {
-  .header {
+  @media (width >= 48rem) {
     align-items: center;
     display: flex;
     flex-flow: row;
@@ -32,44 +30,40 @@
   display: inline-flex;
   gap: 0.25rem;
   padding: 0.125rem 0.5rem;
-}
 
-@media (width >= 48rem) {
-  .headerReset {
+  @media (width >= 48rem) {
     padding: 0.25rem 0.75rem;
   }
-}
 
-@media (any-hover: hover) {
-  .headerReset:hover {
-    background: rgb(var(--gray-700));
-    color: rgb(var(--gray-100));
+  @media (any-hover: hover) {
+    &:hover {
+      background: rgb(var(--gray-700));
+      color: rgb(var(--gray-100));
+    }
   }
-}
 
-.headerReset:active,
-.headerReset:focus-visible {
-  background: rgb(var(--gray-700));
+  &:active,
+  &:focus-visible {
+    background: rgb(var(--gray-700));
+  }
 }
 
 .headerResetIcon {
   color: rgb(var(--gray-400) / 70%);
   height: 1.125rem;
   width: 1.125rem;
-}
 
-@media (any-hover: hover) {
-  .headerReset:hover .headerResetIcon {
-    color: rgb(var(--gray-400));
+  @media (any-hover: hover) {
+    .headerReset:hover & {
+      color: rgb(var(--gray-400));
+    }
   }
 }
 
 .headerTotalCount {
   display: none;
-}
 
-@media (width >= 48rem) {
-  .headerTotalCount {
+  @media (width >= 48rem) {
     display: block;
     padding: 0.25rem 0.75rem;
   }
@@ -82,42 +76,47 @@
 
 .headerDropdown {
   padding: 0.5rem;
-}
 
-@media (width >= 48rem) {
-  .headerDropdown {
+  @media (width >= 48rem) {
     padding: 0.6rem 0.75rem;
   }
-}
 
-@media (any-hover: hover) {
-  .headerDropdown:hover {
+  @media (any-hover: hover) {
+    &:hover {
+      background: rgb(var(--gray-700));
+      color: rgb(var(--gray-100));
+    }
+  }
+
+  &:active,
+  &:focus-visible {
+    background: rgb(var(--gray-700));
+    color: rgb(var(--gray-100));
+  }
+
+  details[open] & {
     background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
   }
 }
 
-.headerDropdown:active,
-.headerDropdown:focus-visible,
-details[open] .headerDropdown {
-  background: rgb(var(--gray-700));
-  color: rgb(var(--gray-100));
-}
-
 .headerDropdownIcon {
   color: rgb(var(--gray-400) / 70%);
-}
 
-@media (any-hover: hover) {
-  .headerDropdown:hover .headerDropdownIcon {
+  @media (any-hover: hover) {
+    .headerDropdown:hover & {
+      color: rgb(var(--gray-400));
+    }
+  }
+
+  .headerDropdown:active &,
+  .headerDropdown:focus-visible & {
     color: rgb(var(--gray-400));
   }
-}
 
-.headerDropdown:active .headerDropdownIcon,
-.headerDropdown:focus-visible .headerDropdownIcon,
-details[open] .headerDropdown .headerDropdownIcon {
-  color: rgb(var(--gray-400));
+  details[open] .headerDropdown & {
+    color: rgb(var(--gray-400));
+  }
 }
 
 .headerDropdownError {
@@ -137,10 +136,8 @@ details[open] .headerDropdown .headerDropdownIcon {
   gap: 0.25rem;
   margin: 0.75rem 0 0;
   width: 100%;
-}
 
-@media (width >= 48rem) {
-  .searchFormContainer {
+  @media (width >= 48rem) {
     display: none;
   }
 }
@@ -158,10 +155,8 @@ details[open] .headerDropdown .headerDropdownIcon {
 
 .main {
   margin: 2rem 0 0;
-}
 
-@media (width >= 64rem) {
-  .main {
+  @media (width >= 64rem) {
     display: grid;
     gap: 1.5rem 3rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -173,10 +168,8 @@ details[open] .headerDropdown .headerDropdownIcon {
   flex-flow: column;
   gap: 0.125rem;
   margin: 2rem 0 0;
-}
 
-@media (width >= 64rem) {
-  .mainItems {
+  @media (width >= 64rem) {
     margin: 0.5rem 0 0;
   }
 }
@@ -185,11 +178,11 @@ details[open] .headerDropdown .headerDropdownIcon {
   color: rgb(var(--rose-500));
   font-size: 1.2rem;
   font-weight: 700;
-}
 
-.mainName:active,
-.mainName:focus-visible {
-  color: rgb(var(--rose-500));
+  &:active,
+  &:focus-visible {
+    color: rgb(var(--rose-500));
+  }
 }
 
 .mainNameIcon {
@@ -209,9 +202,11 @@ details[open] .headerDropdown .headerDropdownIcon {
   color: rgb(var(--gray-100));
 }
 
-@media (any-hover: hover) {
-  .mainCountryLink:hover {
-    color: rgb(var(--gray-100));
+.mainCountryLink {
+  @media (any-hover: hover) {
+    &:hover {
+      color: rgb(var(--gray-100));
+    }
   }
 }
 

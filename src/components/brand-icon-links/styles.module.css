@@ -4,11 +4,11 @@
   flex-flow: row wrap;
   gap: 0.5rem 0.75rem;
   line-height: 1;
-}
 
-@media (any-hover: hover) {
-  .link:hover {
-    color: rgb(var(--gray-100));
+  @media (any-hover: hover) {
+    &:hover {
+      color: rgb(var(--gray-100));
+    }
   }
 }
 

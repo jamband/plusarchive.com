@@ -1,6 +1,4 @@
 html {
-  font-size: var(--text-base);
-  line-height: 1.7;
   scrollbar-gutter: stable;
   -webkit-text-size-adjust: 100%;
 }
@@ -10,6 +8,7 @@ body {
   color: rgb(var(--gray-400));
   font-family: var(--font-sans);
   font-size: var(--text-base);
+  line-height: 1.7;
 }
 
 h1 {
@@ -28,11 +27,11 @@ h2 {
 
 a {
   color: rgb(var(--gray-400));
-}
 
-a:active,
-a:focus-visible {
-  color: rgb(var(--gray-100));
+  &:active,
+  &:focus-visible {
+    color: rgb(var(--gray-100));
+  }
 }
 
 button {
@@ -57,17 +56,14 @@ label {
   display: block;
 }
 
-input::placeholder,
-textarea::placeholder {
-  color: rgb(var(--gray-500));
-}
-
-input[type="text"],
-input[type="search"],
-input[type="password"] {
-  border-radius: var(--rounded);
-  padding: 0.25rem 0.75rem;
-  width: 100%;
+input {
+  &[type="text"],
+  &[type="search"],
+  &[type="password"] {
+    border-radius: var(--rounded);
+    padding: 0.25rem 0.75rem;
+    width: 100%;
+  }
 }
 
 textarea {
@@ -84,8 +80,20 @@ select {
   padding: 0.25rem 0.75rem;
   vertical-align: middle;
   width: 100%;
+
+  &:disabled {
+    color: rgb(var(--gray-500));
+  }
 }
 
-select:disabled {
+:focus {
+  outline: revert;
+}
+
+::marker {
+  content: revert;
+}
+
+::placeholder {
   color: rgb(var(--gray-500));
 }

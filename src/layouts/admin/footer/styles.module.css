@@ -17,29 +17,21 @@
   justify-content: center;
   margin: 1rem auto;
   width: 100%;
-}
 
-@media (width >= 48rem) {
-  .main {
+  @media (width >= 48rem) {
     max-width: 48rem;
   }
-}
 
-@media (width >= 64rem) {
-  .main {
+  @media (width >= 64rem) {
     max-width: 64rem;
     padding: 0 8rem;
   }
-}
 
-@media (width >= 80rem) {
-  .main {
+  @media (width >= 80rem) {
     max-width: 80rem;
   }
-}
 
-@media (width >= 96rem) {
-  .main {
+  @media (width >= 96rem) {
     max-width: 96rem;
   }
 }

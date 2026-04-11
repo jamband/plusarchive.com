@@ -1,10 +1,8 @@
 .container {
   border-bottom: 1px solid rgb(var(--gray-600));
   display: flex;
-}
 
-@media (width >= 48rem) {
-  .container {
+  @media (width >= 48rem) {
     background: rgb(var(--gray-700));
     border: none;
     border-radius: var(--rounded);
@@ -22,10 +20,8 @@
   margin: 0.75rem 0;
   position: relative;
   width: 33.3333%;
-}
 
-@media (width >= 48rem) {
-  .link {
+  @media (width >= 48rem) {
     margin: 0;
     width: 100%;
   }
@@ -36,10 +32,8 @@
   object-fit: cover;
   opacity: 0.6;
   width: 100%;
-}
 
-@media (width >= 48rem) {
-  .image {
+  @media (width >= 48rem) {
     border-radius: var(--rounded) var(--rounded) 0 0;
   }
 }
@@ -50,10 +44,8 @@
 
 .videoAspectRatio {
   aspect-ratio: 1 / 1;
-}
 
-@media (width >= 48rem) {
-  .videoAspectRatio {
+  @media (width >= 48rem) {
     aspect-ratio: 16 / 9;
   }
 }
@@ -70,17 +62,13 @@
 .statusIcon {
   height: 1.75rem;
   width: 1.75rem;
-}
 
-@media (width >= 48rem) {
-  .statusIcon {
+  @media (width >= 48rem) {
     height: 2.75rem;
     width: 2.75rem;
   }
-}
 
-@media (width >= 64rem) {
-  .statusIcon {
+  @media (width >= 64rem) {
     height: 3.25rem;
     width: 3.25rem;
   }
@@ -91,10 +79,8 @@
   flex-flow: column;
   gap: 0.25rem;
   width: 66.6667%;
-}
 
-@media (width >= 48rem) {
-  .main {
+  @media (width >= 48rem) {
     width: 100%;
   }
 }
@@ -109,10 +95,8 @@
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
 
-@media (width >= 48rem) {
-  .mainTitle {
+  @media (width >= 48rem) {
     font-size: 1.125rem;
     margin: 1.25rem 0 0;
     padding: 0 1rem;
@@ -127,19 +111,19 @@
   justify-content: center;
   line-height: 1.75;
   margin: 0.25rem 1rem 0;
-}
 
-@media (width >= 48rem) {
-  .mainLinks {
+  @media (width >= 48rem) {
     font-size: var(--text-base);
     gap: 0.25rem 0.75rem;
     margin: 0.25rem 3rem;
   }
 }
 
-@media (any-hover: hover) {
-  .mainLink:hover {
-    color: rgb(var(--gray-100));
+.mainLink {
+  @media (any-hover: hover) {
+    &:hover {
+      color: rgb(var(--gray-100));
+    }
   }
 }
 
@@ -152,10 +136,8 @@
   justify-content: flex-end;
   line-height: 1.8;
   margin: auto 0.5rem 0.25rem 0;
-}
 
-@media (width >= 48rem) {
-  .mainFooter {
+  @media (width >= 48rem) {
     display: none;
   }
 }
@@ -166,10 +148,8 @@
   font-size: var(--text-sm);
   margin: auto 0.5rem 0 0;
   padding: 0.5rem;
-}
 
-@media (width >= 48rem) {
-  .footer {
+  @media (width >= 48rem) {
     align-items: center;
     display: flex;
     gap: 0.25rem;
