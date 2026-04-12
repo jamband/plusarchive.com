@@ -3,7 +3,6 @@
     "target": "ES2017",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
-    "baseUrl": ".",
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
