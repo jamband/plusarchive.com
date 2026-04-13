@@ -24,7 +24,7 @@ export const useTextFilter = (name: string) => {
     setTimeout(() => {
       setValue(initialValue);
     });
-  }, [setValue, initialValue]);
+  }, [initialValue]);
 
   return {
     value,
@@ -52,7 +52,7 @@ export const useSelectFilter = (name: string) => {
     setTimeout(() => {
       setValue(initialValue);
     });
-  }, [setValue, initialValue]);
+  }, [initialValue]);
 
   return {
     value,

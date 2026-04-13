@@ -37,11 +37,11 @@ const Page: PageComponent = () => {
       <div className={styles.action}>
         <ActionButton
           className={styles.actionButton}
-          onClick={() =>
-            confirm("Are you sure?") &&
-            !!country.data &&
-            deleteCountry.mutate(country.data.id)
-          }
+          onClick={() => {
+            if (confirm("Are you sure?") && !!country.data) {
+              deleteCountry.mutate(country.data.id);
+            }
+          }}
         >
           <IconTrash className={styles.actionButtonIcon} />
           Delete

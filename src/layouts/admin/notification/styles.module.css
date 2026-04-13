@@ -1,18 +1,18 @@
 .container {
+  position: fixed;
+  inset: 0.75rem 0.75rem auto;
+  z-index: 50;
+  display: flex;
+  max-width: 18rem;
+  margin: 0 auto;
+  line-height: 1;
+  color: rgb(var(--gray-100));
   background: rgb(var(--gray-700));
   border: 1px solid rgb(var(--gray-600));
   border-radius: var(--rounded);
   box-shadow:
     0 4px 6px -1px rgb(var(--gray-900)),
     0 2px 4px -2px rgb(var(--gray-900));
-  color: rgb(var(--gray-100));
-  display: flex;
-  inset: 0.75rem 0.75rem auto;
-  line-height: 1;
-  margin: 0 auto;
-  max-width: 18rem;
-  position: fixed;
-  z-index: 50;
 
   @media (width >= 48rem) {
     inset: 0.75rem 0.75rem auto auto;
@@ -24,23 +24,23 @@
 }
 
 .icon {
-  height: 1.25rem;
   width: 1.25rem;
+  height: 1.25rem;
 }
 
 .message {
-  align-items: center;
   display: flex;
   flex: 9;
-  line-height: 1.4;
+  align-items: center;
   padding: 1rem 1.25rem;
+  line-height: 1.4;
 }
 
 .close {
   align-self: flex-start;
-  border-radius: var(--rounded);
-  margin: 0.75rem 0.75rem 0 0;
   padding: 0.4rem 0.4rem 0.3rem;
+  margin: 0.75rem 0.75rem 0 0;
+  border-radius: var(--rounded);
 
   @media (any-hover: hover) {
     &:hover {
@@ -49,12 +49,12 @@
   }
 
   &:is(:active, :focus-visible) {
-    background: rgb(var(--gray-600));
     color: rgb(var(--rose-500));
+    background: rgb(var(--gray-600));
   }
 }
 
 .closeIcon {
-  height: 1.25rem;
   width: 1.25rem;
+  height: 1.25rem;
 }

@@ -43,11 +43,11 @@ const Page: PageComponent = () => {
       <div className={styles.action}>
         <ActionButton
           className={styles.actionButton}
-          onClick={() =>
-            confirm("Are you sure?") &&
-            !!provider.data &&
-            deleteProvider.mutate(provider.data.id)
-          }
+          onClick={() => {
+            if (confirm("Are you sure?") && !!provider.data) {
+              deleteProvider.mutate(provider.data.id);
+            }
+          }}
         >
           <IconTrash className={styles.actionButtonIcon} />
           Delete

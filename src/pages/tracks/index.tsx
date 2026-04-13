@@ -1,3 +1,7 @@
+import type { GetServerSideProps } from "next";
+import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { Dropdown } from "@/components/dropdown";
 import { DropdownDivider } from "@/components/dropdown/divider";
 import { DropdownHeader } from "@/components/dropdown/header";
@@ -15,10 +19,6 @@ import { IconTriangleExclamation } from "@/icons/triangle-exclamation";
 import { Layout } from "@/layouts/layout";
 import type { TrackCollection } from "@/types/tracks";
 import { http, searchParams } from "@/utils/api";
-import type { GetServerSideProps } from "next";
-import Head from "next/head";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import type { PageComponent } from "../_app";
 import styles from "./index.module.css";
 

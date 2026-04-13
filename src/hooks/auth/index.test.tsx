@@ -1,10 +1,10 @@
-import { csrfCookieHandler, server } from "@/mocks/server";
-import { queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
 import { HttpResponse, http } from "msw";
 import { useRouter } from "next/router";
 import type { Mock } from "vitest";
 import { beforeEach, expect, test, vi } from "vitest";
+import { csrfCookieHandler, server } from "@/mocks/server";
+import { queryClient, wrapper } from "@/mocks/server-state";
 import { useAuth, useLogin, useLogout } from ".";
 
 vi.mock("next/router", () => ({

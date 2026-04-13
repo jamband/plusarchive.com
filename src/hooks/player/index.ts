@@ -1,6 +1,6 @@
+import { use, useCallback } from "react";
 import { DispatchContext, StateContext } from "@/contexts/player";
 import type { State } from "@/reducers/player";
-import { use, useCallback } from "react";
 
 export const usePlayerState = () => {
   return use(StateContext);

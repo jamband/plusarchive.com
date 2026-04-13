@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { CenteredLoading } from "@/components/centered-loading";
 import { FailedToFetch } from "@/components/failed-to-fetch";
 import { GridActions } from "@/components/grid/actions";
@@ -15,7 +16,6 @@ import {
 import { useTextFilter } from "@/hooks/filter";
 import { useRequireAdmin } from "@/hooks/require";
 import { AdminLayout } from "@/layouts/admin/layout";
-import { Fragment } from "react";
 import type { PageComponent } from "../_app";
 import styles from "../label-tags/admin.module.css";
 
@@ -70,9 +70,11 @@ const Page: PageComponent = () => {
               <GridActions
                 resource="/bookmark-tags"
                 id={tag.id}
-                mutation={() =>
-                  confirm("Are you sure?") && deleteTag.mutate(tag.id)
-                }
+                mutation={() => {
+                  if (confirm("Are you sure?")) {
+                    deleteTag.mutate(tag.id);
+                  }
+                }}
               />
             </Fragment>
           ))}

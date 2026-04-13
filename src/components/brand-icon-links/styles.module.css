@@ -1,8 +1,8 @@
 .container {
-  align-items: center;
   display: flex;
   flex-flow: row wrap;
   gap: 0.5rem 0.75rem;
+  align-items: center;
   line-height: 1;
 
   @media (any-hover: hover) {
@@ -13,6 +13,6 @@
 }
 
 .linkIcon {
-  height: 1.5rem;
   width: 1.5rem;
+  height: 1.5rem;
 }

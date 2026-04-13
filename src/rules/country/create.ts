@@ -1,5 +1,5 @@
-import type { CountryAdmin } from "@/types/countries";
 import * as v from "valibot";
+import type { CountryAdmin } from "@/types/countries";
 import type { PickField } from "../types";
 
 const field = {

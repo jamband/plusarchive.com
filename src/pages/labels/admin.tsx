@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { BrandIconLinks } from "@/components/brand-icon-links";
 import { CenteredLoading } from "@/components/centered-loading";
 import { FailedToFetch } from "@/components/failed-to-fetch";
@@ -20,7 +21,6 @@ import { useRequireAdmin } from "@/hooks/require";
 import { IconAngleDown } from "@/icons/angle-down";
 import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
 import { AdminLayout } from "@/layouts/admin/layout";
-import { Fragment } from "react";
 import type { PageComponent } from "../_app";
 import styles from "./admin.module.css";
 
@@ -155,9 +155,11 @@ const Page: PageComponent = () => {
               <GridActions
                 resource="/labels"
                 id={label.id}
-                mutation={() =>
-                  confirm("Are you sure?") && deleteLabel.mutate(label.id)
-                }
+                mutation={() => {
+                  if (confirm("Are you sure?")) {
+                    deleteLabel.mutate(label.id);
+                  }
+                }}
               />
             </Fragment>
           ))}

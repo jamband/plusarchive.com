@@ -1,15 +1,15 @@
 .container {
-  align-items: center;
   display: flex;
   gap: 0.25rem;
+  align-items: center;
   justify-content: center;
-  line-height: 1;
   padding: 0.25rem 0;
+  line-height: 1;
 }
 
 .icon {
-  height: 1.5rem;
   width: 1.5rem;
+  height: 1.5rem;
 }
 
 .active {

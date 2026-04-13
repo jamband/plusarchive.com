@@ -1,5 +1,5 @@
+import type { ParsedUrlQuery } from "node:querystring";
 import { API_CSRF_COOKIE, API_URL } from "@/constants/api";
-import type { ParsedUrlQuery } from "querystring";
 
 export type Options = Pick<RequestInit, "headers"> & {
   method?: "POST" | "PUT" | "DELETE" | "PATCH";
@@ -36,12 +36,6 @@ export const http = async (resource: string, options?: Options) => {
 
 export const searchParams = (query: ParsedUrlQuery, params: Array<string>) => {
   return new URLSearchParams(
-    params.reduce(
-      (previous, param) => ({
-        ...previous,
-        [param]: `${query[param] || ""}`,
-      }),
-      {},
-    ),
+    Object.fromEntries(params.map((param) => [param, `${query[param] || ""}`])),
   );
 };

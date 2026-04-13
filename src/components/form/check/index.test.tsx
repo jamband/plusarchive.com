@@ -9,6 +9,6 @@ test("", () => {
   const checkbox = screen.getByRole("checkbox");
   expect(checkbox).not.toBeChecked();
 
-  const button = screen.getByRole("button");
-  expect(button).toHaveTextContent("bar");
+  const label = screen.getByText("bar");
+  expect(label).toHaveTextContent("bar");
 });

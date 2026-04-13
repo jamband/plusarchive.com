@@ -4,25 +4,25 @@ html {
 }
 
 body {
-  background: rgb(var(--gray-800));
-  color: rgb(var(--gray-400));
   font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: 1.7;
+  color: rgb(var(--gray-400));
+  background: rgb(var(--gray-800));
 }
 
 h1 {
-  color: rgb(var(--gray-100));
   font-size: var(--text-5xl);
   font-weight: 700;
   line-height: 1.5;
+  color: rgb(var(--gray-100));
 }
 
 h2 {
-  color: rgb(var(--gray-100));
   font-size: var(--text-4xl);
   font-weight: 700;
   line-height: 1.5;
+  color: rgb(var(--gray-100));
 }
 
 a {
@@ -43,8 +43,8 @@ img {
 }
 
 iframe {
-  border: none;
   vertical-align: middle;
+  border: none;
 }
 
 svg {
@@ -52,34 +52,34 @@ svg {
 }
 
 label {
-  color: rgb(var(--gray-200));
   display: block;
+  color: rgb(var(--gray-200));
 }
 
 input {
   &[type="text"],
   &[type="search"],
   &[type="password"] {
-    border-radius: var(--rounded);
-    padding: 0.25rem 0.75rem;
     width: 100%;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--rounded);
   }
 }
 
 textarea {
-  border-radius: var(--rounded);
   display: inline-block;
+  width: 100%;
   min-height: 7.5rem;
   padding: 0.25rem 0.75rem;
   resize: both;
-  width: 100%;
+  border-radius: var(--rounded);
 }
 
 select {
-  border-radius: var(--rounded);
+  width: 100%;
   padding: 0.25rem 0.75rem;
   vertical-align: middle;
-  width: 100%;
+  border-radius: var(--rounded);
 
   &:disabled {
     color: rgb(var(--gray-500));

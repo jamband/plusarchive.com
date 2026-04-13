@@ -1,3 +1,7 @@
+import type { GetServerSideProps } from "next";
+import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { BrandIconLinks } from "@/components/brand-icon-links";
 import { Dropdown } from "@/components/dropdown";
 import { DropdownDivider } from "@/components/dropdown/divider";
@@ -16,10 +20,6 @@ import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
 import { Layout } from "@/layouts/layout";
 import type { LabelCollection } from "@/types/labels";
 import { http, searchParams } from "@/utils/api";
-import type { GetServerSideProps } from "next";
-import Head from "next/head";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import type { PageComponent } from "../_app";
 import styles from "./index.module.css";
 

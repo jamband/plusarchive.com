@@ -1,7 +1,7 @@
+import Link from "next/link";
 import { IconEye } from "@/icons/eye";
 import { IconPencil } from "@/icons/pencil";
 import { IconTrash } from "@/icons/trash";
-import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

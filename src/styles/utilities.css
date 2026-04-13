@@ -1,11 +1,11 @@
 .srOnly {
-  border-width: 0;
-  clip-path: inset(0 0 100% 100%);
+  position: absolute;
+  width: 1px;
   height: 1px;
+  padding: 0;
   margin: -1px;
   overflow: hidden;
-  padding: 0;
-  position: absolute;
   white-space: nowrap;
-  width: 1px;
+  border-width: 0;
+  clip-path: inset(0 0 100% 100%);
 }

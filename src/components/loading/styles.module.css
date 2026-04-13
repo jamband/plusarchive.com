@@ -18,21 +18,21 @@
 }
 
 .size {
-  height: 7px;
   width: 7px;
+  height: 7px;
 }
 
 .dot1 {
-  animation: fadein 0.5s ease 0.1s infinite;
   border-radius: 10rem;
+  animation: fadein 0.5s ease 0.1s infinite;
 }
 
 .dot2 {
-  animation: fadein 0.5s ease 0.2s infinite;
   border-radius: 10rem;
+  animation: fadein 0.5s ease 0.2s infinite;
 }
 
 .dot3 {
-  animation: fadein 0.5s ease 0.3s infinite;
   border-radius: 10rem;
+  animation: fadein 0.5s ease 0.3s infinite;
 }

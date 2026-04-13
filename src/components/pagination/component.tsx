@@ -12,16 +12,14 @@ export const Component: React.FC<_Props> = (props) => (
       {props.parts.map((part) => (
         <Fragment key={part}>
           {props.disabled(part) ? (
-            // eslint-disable-next-line jsx-a11y/anchor-is-valid
-            <a
-              role="link"
+            <button
+              type="button"
               className={styles.linkDisabled}
               aria-label={part}
-              aria-disabled={true}
-              tabIndex={-1}
+              disabled
             >
               {props.icon(part)}
-            </a>
+            </button>
           ) : (
             <Link
               href={props.href(part)}
@@ -34,7 +32,11 @@ export const Component: React.FC<_Props> = (props) => (
         </Fragment>
       ))}
     </div>
-    <div className={styles.information} aria-label="Page information">
+    <div
+      className={styles.information}
+      role="status"
+      aria-label="Page information"
+    >
       {props.pagination.currentPage}/{props.pagination.lastPage}
     </div>
   </nav>

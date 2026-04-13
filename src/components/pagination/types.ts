@@ -1,5 +1,5 @@
+import type { UrlObject } from "node:url";
 import type { Pagination } from "@/types/pagination";
-import type { UrlObject } from "url";
 
 export type Part = "First" | "Previous" | "Next" | "Last";
 

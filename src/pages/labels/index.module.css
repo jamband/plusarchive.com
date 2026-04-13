@@ -7,29 +7,29 @@
 }
 
 .header {
-  align-items: center;
   display: flex;
   flex-flow: column;
-  font-size: var(--text-sm);
   gap: 0.25rem;
+  align-items: center;
   margin: 0.25rem 0 0;
+  font-size: var(--text-sm);
 
   @media (width >= 48rem) {
-    align-items: center;
     display: flex;
     flex-flow: row;
-    font-size: var(--test-base);
     gap: 0.15rem;
+    align-items: center;
     justify-content: center;
+    font-size: var(--test-base);
   }
 }
 
 .headerReset {
-  align-items: center;
-  border-radius: var(--rounded);
   display: inline-flex;
   gap: 0.25rem;
+  align-items: center;
   padding: 0.125rem 0.5rem;
+  border-radius: var(--rounded);
 
   @media (width >= 48rem) {
     padding: 0.25rem 0.75rem;
@@ -37,8 +37,8 @@
 
   @media (any-hover: hover) {
     &:hover {
-      background: rgb(var(--gray-700));
       color: rgb(var(--gray-100));
+      background: rgb(var(--gray-700));
     }
   }
 
@@ -48,9 +48,9 @@
 }
 
 .headerResetIcon {
-  color: rgb(var(--gray-400) / 70%);
-  height: 1.125rem;
   width: 1.125rem;
+  height: 1.125rem;
+  color: rgb(var(--gray-400) / 70%);
 
   @media (any-hover: hover) {
     .headerReset:hover & {
@@ -82,20 +82,20 @@
 
   @media (any-hover: hover) {
     &:hover {
-      background: rgb(var(--gray-700));
       color: rgb(var(--gray-100));
+      background: rgb(var(--gray-700));
     }
   }
 
   &:is(:active, :focus-visible) {
-    background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
+    background: rgb(var(--gray-700));
   }
+}
 
-  details[open] & {
-    background: rgb(var(--gray-700));
-    color: rgb(var(--gray-100));
-  }
+details[open] .headerDropdown {
+  color: rgb(var(--gray-100));
+  background: rgb(var(--gray-700));
 }
 
 .headerDropdownIcon {
@@ -110,29 +110,29 @@
   .headerDropdown:is(:active, :focus-visible) & {
     color: rgb(var(--gray-400));
   }
+}
 
-  details[open] .headerDropdown & {
-    color: rgb(var(--gray-400));
-  }
+details[open] .headerDropdown .headerDropdownIcon {
+  color: rgb(var(--gray-400));
 }
 
 .headerDropdownError {
+  display: inline-flex;
   align-items: center;
   color: rgb(var(--red-400));
-  display: inline-flex;
 }
 
 .headerDropdownErrorIcon {
-  height: 1.25rem;
   width: 1.25rem;
+  height: 1.25rem;
 }
 
 .searchFormContainer {
   display: flex;
   flex-flow: column;
   gap: 0.25rem;
-  margin: 0.75rem 0 0;
   width: 100%;
+  margin: 0.75rem 0 0;
 
   @media (width >= 48rem) {
     display: none;
@@ -146,8 +146,8 @@
 
 .searchFormTotalCount {
   display: flex;
-  font-size: var(--text-sm);
   justify-content: flex-end;
+  font-size: var(--text-sm);
 }
 
 .main {
@@ -155,8 +155,8 @@
 
   @media (width >= 64rem) {
     display: grid;
-    gap: 1.5rem 3rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 3rem;
   }
 }
 
@@ -172,9 +172,9 @@
 }
 
 .mainName {
-  color: rgb(var(--rose-500));
   font-size: 1.2rem;
   font-weight: 700;
+  color: rgb(var(--rose-500));
 
   &:is(:active, :focus-visible) {
     color: rgb(var(--rose-500));
@@ -182,11 +182,11 @@
 }
 
 .mainNameIcon {
-  color: rgb(var(--rose-500) / 60%);
+  width: 1.25rem;
   height: 1.25rem;
   margin: 0 0 0 0.25rem;
   vertical-align: -0.2rem;
-  width: 1.25rem;
+  color: rgb(var(--rose-500) / 60%);
 }
 
 .mainCountryContainer {
@@ -217,8 +217,8 @@
 }
 
 .mainDivider {
-  border-top: 1px solid rgb(var(--gray-600));
   margin: 2rem 0 0;
+  border-top: 1px solid rgb(var(--gray-600));
 }
 
 .pagination {

@@ -7,6 +7,6 @@
 }
 
 .disabled {
-  background: rgb(var(--gray-600));
   cursor: not-allowed;
+  background: rgb(var(--gray-600));
 }

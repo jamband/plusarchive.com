@@ -4,12 +4,12 @@ import styles from "./styles.module.css";
 import type { _Props } from "./types";
 
 export const Component: React.FC<_Props> = (props) => (
-  // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
   <details
     onClick={props.onClick}
     onBlur={props.onBlur}
     onKeyDown={props.onKeyDown}
   >
+    {/* biome-ignore lint/a11y/useSemanticElements: role="button" is required for testing-library getByRole */}
     <summary
       role="button"
       className={`${styles.button} ${props.className || ""}`}

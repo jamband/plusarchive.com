@@ -1,5 +1,5 @@
-import type { MusicProviderAdmin } from "@/types/music-providers";
 import * as v from "valibot";
+import type { MusicProviderAdmin } from "@/types/music-providers";
 import type { PickField } from "../types";
 
 const field = {

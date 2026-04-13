@@ -1,6 +1,6 @@
+import Link from "next/link";
 import { CloseButton } from "@/components/close-button";
 import { APP_NAME } from "@/constants/app";
-import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

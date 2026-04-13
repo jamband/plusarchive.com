@@ -1,5 +1,5 @@
-import type { TrackAdmin } from "@/types/tracks";
 import * as v from "valibot";
+import type { TrackAdmin } from "@/types/tracks";
 import type { PickField } from "../types";
 
 const field = {

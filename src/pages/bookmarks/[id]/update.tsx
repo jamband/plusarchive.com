@@ -1,3 +1,4 @@
+import type { SubmitHandler } from "react-hook-form";
 import { CenteredLoading } from "@/components/centered-loading";
 import { FailedToFetch } from "@/components/failed-to-fetch";
 import { FormCheck } from "@/components/form/check";
@@ -22,7 +23,6 @@ import styles from "@/pages/labels/form.module.css";
 import type { Schema } from "@/rules/bookmark/update";
 import { label, schema } from "@/rules/bookmark/update";
 import { setErrors } from "@/utils/form";
-import type { SubmitHandler } from "react-hook-form";
 
 const Page: PageComponent = () => {
   useRequireAdmin();

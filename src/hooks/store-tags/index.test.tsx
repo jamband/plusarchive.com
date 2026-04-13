@@ -1,10 +1,11 @@
-import { csrfCookieHandler, server } from "@/mocks/server";
-import { isInvalidated, queryClient, wrapper } from "@/mocks/server-state";
 import { renderHook, waitFor } from "@testing-library/react";
 import { HttpResponse, http } from "msw";
 import { useRouter } from "next/router";
 import type { Mock } from "vitest";
 import { beforeEach, expect, test, vi } from "vitest";
+import { csrfCookieHandler, server } from "@/mocks/server";
+import { isInvalidated, queryClient, wrapper } from "@/mocks/server-state";
+import { useNotificationAction } from "../notification";
 import {
   useCreateStoreTag,
   useDeleteStoreTag,
@@ -12,7 +13,6 @@ import {
   useStoreTagsAdmin,
   useUpdateStoreTag,
 } from ".";
-import { useNotificationAction } from "../notification";
 
 vi.mock("next/router", () => ({
   useRouter: vi.fn(),

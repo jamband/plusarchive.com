@@ -1,8 +1,8 @@
-import { APP_NAME } from "@/constants/app";
 import { render, screen } from "@testing-library/react";
 import { useRouter } from "next/router";
 import type { Mock } from "vitest";
 import { beforeEach, expect, test, vi } from "vitest";
+import { APP_NAME } from "@/constants/app";
 import { Header } from ".";
 
 vi.mock("next/router", () => ({

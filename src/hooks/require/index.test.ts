@@ -2,8 +2,8 @@ import { renderHook } from "@testing-library/react";
 import { useRouter } from "next/router";
 import type { Mock } from "vitest";
 import { beforeEach, expect, test, vi } from "vitest";
-import { useRequireAdmin, useRequireGuest } from ".";
 import { useAuth } from "../auth";
+import { useRequireAdmin, useRequireGuest } from ".";
 
 vi.mock("../auth", () => ({
   useAuth: vi.fn(),

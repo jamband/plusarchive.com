@@ -1,18 +1,18 @@
 .container {
-  align-items: center;
-  border-radius: var(--rounded);
   display: inline-flex;
+  align-items: center;
   padding: 0.25rem 0.75rem;
+  border-radius: var(--rounded);
 
   @media (any-hover: hover) {
     &:hover {
-      background: rgb(var(--gray-700));
       color: rgb(var(--gray-100));
+      background: rgb(var(--gray-700));
     }
   }
 
   &:is(:active, :focus-visible) {
-    background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
+    background: rgb(var(--gray-700));
   }
 }

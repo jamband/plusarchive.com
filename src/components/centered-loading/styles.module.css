@@ -1,6 +1,6 @@
 .container {
-  display: grid;
-  inset: 0;
-  place-items: center;
   position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
 }

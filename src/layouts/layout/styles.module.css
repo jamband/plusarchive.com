@@ -6,9 +6,9 @@
 
 .main {
   flex-grow: 1;
-  margin: 0 auto;
-  padding: 2.5rem 1rem 6rem;
   width: 100%;
+  padding: 2.5rem 1rem 6rem;
+  margin: 0 auto;
 
   @media (width >= 48rem) {
     max-width: 48rem;

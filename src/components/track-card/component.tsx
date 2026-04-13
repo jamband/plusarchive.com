@@ -1,6 +1,6 @@
+import Link from "next/link";
 import { IconCirclePause } from "@/icons/circle-pause";
 import { IconCirclePlay } from "@/icons/circle-play";
-import Link from "next/link";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

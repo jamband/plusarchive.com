@@ -1,6 +1,6 @@
 .container {
-  font-size: var(--text-sm);
   padding: 0.75rem;
+  font-size: var(--text-sm);
 
   @media (width >= 48rem) {
     font-size: var(--text-base);
@@ -8,19 +8,19 @@
 
   @media (any-hover: hover) {
     &:hover {
-      background: rgb(var(--gray-700));
       color: rgb(var(--gray-100));
+      background: rgb(var(--gray-700));
     }
   }
 
   &:is(:active, :focus-visible) {
-    background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
+    background: rgb(var(--gray-700));
   }
 
   details[open] & {
-    background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
+    background: rgb(var(--gray-700));
   }
 }
 

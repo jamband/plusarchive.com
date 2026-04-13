@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { CenteredLoading } from "@/components/centered-loading";
 import { FailedToFetch } from "@/components/failed-to-fetch";
 import { GridActions } from "@/components/grid/actions";
@@ -12,7 +13,6 @@ import { useTextFilter } from "@/hooks/filter";
 import { useRequireAdmin } from "@/hooks/require";
 import { useAdminTrackGenres, useDeleteTrackGenre } from "@/hooks/track-genres";
 import { AdminLayout } from "@/layouts/admin/layout";
-import { Fragment } from "react";
 import type { PageComponent } from "../_app";
 import styles from "./admin.module.css";
 
@@ -67,9 +67,11 @@ const Page: PageComponent = () => {
               <GridActions
                 resource="/track-genres"
                 id={genre.id}
-                mutation={() =>
-                  confirm("Are you sure?") && deleteGenre.mutate(genre.id)
-                }
+                mutation={() => {
+                  if (confirm("Are you sure?")) {
+                    deleteGenre.mutate(genre.id);
+                  }
+                }}
               />
             </Fragment>
           ))}

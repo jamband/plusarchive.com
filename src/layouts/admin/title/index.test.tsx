@@ -1,6 +1,6 @@
-import { APP_NAME } from "@/constants/app";
 import { render } from "@testing-library/react";
 import { expect, test, vi } from "vitest";
+import { APP_NAME } from "@/constants/app";
 import { AdminTitle } from ".";
 
 vi.mock("next/head", () => ({

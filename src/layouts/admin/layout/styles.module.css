@@ -6,9 +6,9 @@
 
 .main {
   flex-grow: 1;
-  margin: 0 auto;
-  padding: 1.5rem 1rem 7rem;
   width: 100%;
+  padding: 1.5rem 1rem 7rem;
+  margin: 0 auto;
 
   @media (width >= 48rem) {
     max-width: 48rem;
@@ -30,9 +30,9 @@
 
 .mainHeader {
   display: flex;
-  font-size: var(--text-sm);
   gap: 0.5rem;
   justify-content: center;
+  font-size: var(--text-sm);
 
   @media (width >= 48rem) {
     font-size: var(--text-base);

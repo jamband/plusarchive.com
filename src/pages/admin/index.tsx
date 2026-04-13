@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CenteredLoading } from "@/components/centered-loading";
 import { FailedToFetch } from "@/components/failed-to-fetch";
 import { TrackCard } from "@/components/track-card";
@@ -6,7 +7,6 @@ import { useStopUrges, useTracksFavorites } from "@/hooks/tracks";
 import { IconCircleInfo } from "@/icons/circle-info";
 import { IconPencil } from "@/icons/pencil";
 import { AdminLayout } from "@/layouts/admin/layout";
-import Link from "next/link";
 import type { PageComponent } from "../_app";
 import styles from "./index.module.css";
 
@@ -52,7 +52,11 @@ const Page: PageComponent = () => {
             <button
               type="button"
               className={styles.footerButton}
-              onClick={() => confirm("Are you sure?") && stopUrges.mutate()}
+              onClick={() => {
+                if (confirm("Are you sure?")) {
+                  stopUrges.mutate();
+                }
+              }}
             >
               Stop All Urges
             </button>

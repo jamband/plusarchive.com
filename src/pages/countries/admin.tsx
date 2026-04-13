@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { CenteredLoading } from "@/components/centered-loading";
 import { FailedToFetch } from "@/components/failed-to-fetch";
 import { GridActions } from "@/components/grid/actions";
@@ -9,7 +10,6 @@ import { GridHeaderSort } from "@/components/grid/header-sort";
 import { useAdminCountries, useDeleteCountry } from "@/hooks/countries";
 import { useRequireAdmin } from "@/hooks/require";
 import { AdminLayout } from "@/layouts/admin/layout";
-import { Fragment } from "react";
 import type { PageComponent } from "../_app";
 import styles from "./admin.module.css";
 
@@ -50,9 +50,11 @@ const Page: PageComponent = () => {
             <GridActions
               resource="/countries"
               id={country.id}
-              mutation={() =>
-                confirm("Are you sure?") && deleteCountry.mutate(country.id)
-              }
+              mutation={() => {
+                if (confirm("Are you sure?")) {
+                  deleteCountry.mutate(country.id);
+                }
+              }}
             />
           </Fragment>
         ))}

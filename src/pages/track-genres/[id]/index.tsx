@@ -40,11 +40,11 @@ const Page: PageComponent = () => {
       <div className={styles.action}>
         <ActionButton
           className={styles.actionButton}
-          onClick={() =>
-            confirm("Are you sure?") &&
-            !!genre.data &&
-            deleteGenre.mutate(genre.data.id)
-          }
+          onClick={() => {
+            if (confirm("Are you sure?") && !!genre.data) {
+              deleteGenre.mutate(genre.data.id);
+            }
+          }}
         >
           <IconTrash className={styles.actionButtonIcon} />
           Delete

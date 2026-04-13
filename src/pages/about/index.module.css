@@ -9,13 +9,13 @@
 }
 
 .link {
-  align-items: center;
-  border-bottom: 0.1rem solid rgb(var(--rose-500) / 70%);
-  color: rgb(var(--rose-500));
   display: inline-flex;
   gap: 0.125rem;
-  line-height: 1.4;
+  align-items: center;
   margin: 1rem 0 0;
+  line-height: 1.4;
+  color: rgb(var(--rose-500));
+  border-bottom: 0.1rem solid rgb(var(--rose-500) / 70%);
 
   &:is(:active, :focus-visible) {
     color: rgb(var(--rose-500));
@@ -23,7 +23,7 @@
 }
 
 .linkIcon {
-  color: rgb(var(--rose-500) / 70%);
-  height: 1.125rem;
   width: 1.125rem;
+  height: 1.125rem;
+  color: rgb(var(--rose-500) / 70%);
 }

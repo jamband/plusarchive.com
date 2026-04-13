@@ -1,22 +1,22 @@
 .container {
-  align-items: center;
   display: flex;
   flex-flow: column;
-  height: 70vh;
+  align-items: center;
   justify-content: center;
+  height: 70vh;
 }
 
 .descriptionIcon {
+  width: 1.25rem;
   height: 1.25rem;
   margin: 0 0.25rem 0 0;
   vertical-align: -0.25rem;
-  width: 1.25rem;
 }
 
 .link {
-  color: rgb(var(--rose-500));
   gap: 0.25rem;
   margin: 2.5rem 0 0;
+  color: rgb(var(--rose-500));
 
   &:is(:active, :focus-visible) {
     color: rgb(var(--rose-500));
@@ -24,9 +24,9 @@
 }
 
 .linkIcon {
-  color: rgb(var(--rose-500) / 60%);
+  width: 1.25rem;
   height: 1.25rem;
   margin: 0 0.125rem 0 0;
   vertical-align: -0.25rem;
-  width: 1.25rem;
+  color: rgb(var(--rose-500) / 60%);
 }

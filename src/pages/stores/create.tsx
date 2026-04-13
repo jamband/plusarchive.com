@@ -1,3 +1,4 @@
+import type { SubmitHandler } from "react-hook-form";
 import { FailedToFetch } from "@/components/failed-to-fetch";
 import { FormCheck } from "@/components/form/check";
 import { FormChecks } from "@/components/form/checks";
@@ -15,7 +16,6 @@ import { AdminLayout } from "@/layouts/admin/layout";
 import type { Schema } from "@/rules/store/create";
 import { label, schema } from "@/rules/store/create";
 import { setErrors } from "@/utils/form";
-import type { SubmitHandler } from "react-hook-form";
 import type { PageComponent } from "../_app";
 import styles from "../labels/form.module.css";
 

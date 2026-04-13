@@ -1,5 +1,5 @@
-import type { BookmarkAdmin } from "@/types/bookmarks";
 import * as v from "valibot";
+import type { BookmarkAdmin } from "@/types/bookmarks";
 import type { PickField } from "../types";
 
 const field = {

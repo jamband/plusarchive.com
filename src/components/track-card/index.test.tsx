@@ -1,9 +1,9 @@
-import { usePlayerState } from "@/hooks/player";
-import type { Track } from "@/types/tracks";
 import { render, screen } from "@testing-library/react";
 import { useRouter } from "next/router";
 import type { Mock } from "vitest";
 import { beforeEach, expect, test, vi } from "vitest";
+import { usePlayerState } from "@/hooks/player";
+import type { Track } from "@/types/tracks";
 import { TrackCard } from ".";
 
 vi.mock("next/router", () => ({

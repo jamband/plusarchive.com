@@ -1,5 +1,5 @@
-import type { PlaylistAdmin } from "@/types/playlists";
 import * as v from "valibot";
+import type { PlaylistAdmin } from "@/types/playlists";
 import type { PickField } from "../types";
 
 const field = {

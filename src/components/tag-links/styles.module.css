@@ -8,11 +8,11 @@
 }
 
 .links {
+  width: 100%;
   overflow: scroll;
   overscroll-behavior: contain auto;
-  scrollbar-width: none;
   white-space: nowrap;
-  width: 100%;
+  scrollbar-width: none;
 }
 
 .linksRight {

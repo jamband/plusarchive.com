@@ -1,3 +1,4 @@
+import Head from "next/head";
 import {
   APP_DESCRIPTION,
   APP_NAME,
@@ -6,7 +7,6 @@ import {
 } from "@/constants/app";
 import { IconUpRightFromSquare } from "@/icons/up-right-from-square";
 import { Layout } from "@/layouts/layout";
-import Head from "next/head";
 import type { PageComponent } from "../_app";
 import styles from "./index.module.css";
 

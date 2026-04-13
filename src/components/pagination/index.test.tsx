@@ -31,15 +31,18 @@ test("1/10", () => {
     />,
   );
 
-  const [first, previous, next, last] = screen.getAllByRole("link");
-  expect(first).not.toHaveAttribute("href");
-  expect(first).toHaveAttribute("tabindex", "-1");
-  expect(previous).not.toHaveAttribute("href");
-  expect(previous).toHaveAttribute("tabindex", "-1");
+  const first = screen.getByRole("button", { name: "First" });
+  expect(first).toBeDisabled();
+
+  const previous = screen.getByRole("button", { name: "Previous" });
+  expect(previous).toBeDisabled();
+
+  const next = screen.getByRole("link", { name: "Next" });
   expect(next).toHaveAttribute("href", "/?page=2");
-  expect(next).not.toHaveAttribute("tabindex");
+
+  const last = screen.getByRole("link", { name: "Last" });
   expect(last).toHaveAttribute("href", "/?page=10");
-  expect(last).not.toHaveAttribute("tabindex");
+
   expect(screen.getByText("1/10")).toBeInTheDocument();
 });
 
@@ -60,15 +63,18 @@ test("5/10", () => {
     />,
   );
 
-  const [first, previous, next, last] = screen.getAllByRole("link");
+  const first = screen.getByRole("link", { name: "First" });
   expect(first).toHaveAttribute("href", "/?page=1");
-  expect(first).not.toHaveAttribute("tabindex");
+
+  const previous = screen.getByRole("link", { name: "Previous" });
   expect(previous).toHaveAttribute("href", "/?page=4");
-  expect(previous).not.toHaveAttribute("tabindex");
+
+  const next = screen.getByRole("link", { name: "Next" });
   expect(next).toHaveAttribute("href", "/?page=6");
-  expect(next).not.toHaveAttribute("tabindex");
+
+  const last = screen.getByRole("link", { name: "Last" });
   expect(last).toHaveAttribute("href", "/?page=10");
-  expect(last).not.toHaveAttribute("tabindex");
+
   expect(screen.getByText("5/10")).toBeInTheDocument();
 });
 
@@ -89,15 +95,18 @@ test("10/10", () => {
     />,
   );
 
-  const [first, previous, next, last] = screen.getAllByRole("link");
+  const first = screen.getByRole("link", { name: "First" });
   expect(first).toHaveAttribute("href", "/?page=1");
-  expect(first).not.toHaveAttribute("tabindex");
+
+  const previous = screen.getByRole("link", { name: "Previous" });
   expect(previous).toHaveAttribute("href", "/?page=9");
-  expect(previous).not.toHaveAttribute("tabindex");
-  expect(next).not.toHaveAttribute("href");
-  expect(next).toHaveAttribute("tabindex", "-1");
-  expect(last).not.toHaveAttribute("href");
-  expect(last).toHaveAttribute("tabindex", "-1");
+
+  const next = screen.getByRole("button", { name: "Next" });
+  expect(next).toBeDisabled();
+
+  const last = screen.getByRole("button", { name: "Last" });
+  expect(last).toBeDisabled();
+
   expect(screen.getByText("10/10")).toBeInTheDocument();
 });
 
@@ -118,14 +127,17 @@ test("includes some query string", () => {
     />,
   );
 
-  const [first, previous, next, last] = screen.getAllByRole("link");
-  expect(first).not.toHaveAttribute("href");
-  expect(first).toHaveAttribute("tabindex", "-1");
-  expect(previous).not.toHaveAttribute("href");
-  expect(previous).toHaveAttribute("tabindex", "-1");
+  const first = screen.getByRole("button", { name: "First" });
+  expect(first).toBeDisabled();
+
+  const previous = screen.getByRole("button", { name: "Previous" });
+  expect(previous).toBeDisabled();
+
+  const next = screen.getByRole("link", { name: "Next" });
   expect(next).toHaveAttribute("href", "/foo?bar=baz&page=2");
-  expect(next).not.toHaveAttribute("tabindex");
+
+  const last = screen.getByRole("link", { name: "Last" });
   expect(last).toHaveAttribute("href", "/foo?bar=baz&page=10");
-  expect(last).not.toHaveAttribute("tabindex");
+
   expect(screen.getByText("1/10")).toBeInTheDocument();
 });

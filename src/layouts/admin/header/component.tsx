@@ -1,5 +1,5 @@
-import { IconBars } from "@/icons/bars";
 import Link from "next/link";
+import { IconBars } from "@/icons/bars";
 import styles from "./styles.module.css";
 import type { _Props } from "./types";
 

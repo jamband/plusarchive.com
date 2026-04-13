@@ -1,4 +1,4 @@
-import type { UrlObject } from "url";
+import type { UrlObject } from "node:url";
 
 export type Props = {
   href: string | UrlObject;

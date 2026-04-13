@@ -1,9 +1,9 @@
 import "@testing-library/jest-dom/vitest";
 
-import { server } from "@/mocks/server";
-import { queryClient } from "@/mocks/server-state";
 import { cleanup } from "@testing-library/react";
 import { afterAll, afterEach, beforeAll, beforeEach, vi } from "vitest";
+import { server } from "@/mocks/server";
+import { queryClient } from "@/mocks/server-state";
 
 beforeAll(() => {
   vi.resetModules();

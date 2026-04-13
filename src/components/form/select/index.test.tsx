@@ -1,7 +1,7 @@
-import type { useQuery } from "@/hooks/server-state";
 import { render, screen } from "@testing-library/react";
 import type { UseFormRegisterReturn } from "react-hook-form";
 import { expect, test, vi } from "vitest";
+import type { useQuery } from "@/hooks/server-state";
 import { FormSelect } from ".";
 
 vi.mock("@/icons/angle-down", () => ({

@@ -1,7 +1,7 @@
 .container {
-  align-items: center;
-  border-radius: var(--rounded);
   display: flex;
+  align-items: center;
   height: 2.5rem;
   padding: 0 0.75rem;
+  border-radius: var(--rounded);
 }

@@ -7,8 +7,8 @@
 }
 
 .contentLink {
-  color: rgb(var(--rose-500));
   font-weight: 700;
+  color: rgb(var(--rose-500));
 
   &:is(:active, :focus-visible) {
     color: rgb(var(--rose-500));
@@ -16,11 +16,11 @@
 }
 
 .contentLinkIcon {
-  color: rgb(var(--rose-500) / 60%);
+  width: 1.25rem;
   height: 1.25rem;
   margin: 0 0 0 0.25rem;
   vertical-align: -0.25rem;
-  width: 1.25rem;
+  color: rgb(var(--rose-500) / 60%);
 }
 
 .action {
@@ -30,24 +30,24 @@
 }
 
 .actionButton {
-  align-items: center;
   display: inline-flex;
   gap: 0.25rem;
+  align-items: center;
 
   @media (any-hover: hover) {
     &:hover {
-      background: rgb(var(--gray-700));
       color: rgb(var(--gray-100));
+      background: rgb(var(--gray-700));
     }
   }
 
   &:is(:active, :focus-visible) {
-    background: rgb(var(--gray-700));
     color: rgb(var(--gray-100));
+    background: rgb(var(--gray-700));
   }
 }
 
 .actionButtonIcon {
-  height: 1.25rem;
   width: 1.25rem;
+  height: 1.25rem;
 }

@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { CenteredLoading } from "@/components/centered-loading";
 import { FailedToFetch } from "@/components/failed-to-fetch";
 import { GridActions } from "@/components/grid/actions";
@@ -12,7 +13,6 @@ import {
 } from "@/hooks/music-providers";
 import { useRequireAdmin } from "@/hooks/require";
 import { AdminLayout } from "@/layouts/admin/layout";
-import { Fragment } from "react";
 import type { PageComponent } from "../_app";
 import styles from "./admin.module.css";
 
@@ -31,37 +31,37 @@ const Page: PageComponent = () => {
   }
 
   return (
-    <>
-      <GridContainer className={styles.grid}>
-        <GridHeader>
-          <GridHeaderSort column="id" type="number">
-            ID
-          </GridHeaderSort>
-        </GridHeader>
-        <GridHeader>
-          <GridHeaderSort column="name" type="string">
-            Name
-          </GridHeaderSort>
-        </GridHeader>
-        <GridHeader>
-          <GridHeaderActions />
-        </GridHeader>
-        {!!providers.data &&
-          providers.data.map((provider) => (
-            <Fragment key={provider.id}>
-              <GridContent>{provider.id}</GridContent>
-              <GridContent>{provider.name}</GridContent>
-              <GridActions
-                resource="/music-providers"
-                id={provider.id}
-                mutation={() =>
-                  confirm("Are you sure?") && deleteProvider.mutate(provider.id)
+    <GridContainer className={styles.grid}>
+      <GridHeader>
+        <GridHeaderSort column="id" type="number">
+          ID
+        </GridHeaderSort>
+      </GridHeader>
+      <GridHeader>
+        <GridHeaderSort column="name" type="string">
+          Name
+        </GridHeaderSort>
+      </GridHeader>
+      <GridHeader>
+        <GridHeaderActions />
+      </GridHeader>
+      {!!providers.data &&
+        providers.data.map((provider) => (
+          <Fragment key={provider.id}>
+            <GridContent>{provider.id}</GridContent>
+            <GridContent>{provider.name}</GridContent>
+            <GridActions
+              resource="/music-providers"
+              id={provider.id}
+              mutation={() => {
+                if (confirm("Are you sure?")) {
+                  deleteProvider.mutate(provider.id);
                 }
-              />
-            </Fragment>
-          ))}
-      </GridContainer>
-    </>
+              }}
+            />
+          </Fragment>
+        ))}
+    </GridContainer>
   );
 };
 

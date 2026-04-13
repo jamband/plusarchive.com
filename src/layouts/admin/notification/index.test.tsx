@@ -1,7 +1,7 @@
-import { useNotificationState } from "@/hooks/notification";
 import { render, screen } from "@testing-library/react";
 import type { Mock } from "vitest";
 import { beforeEach, expect, test, vi } from "vitest";
+import { useNotificationState } from "@/hooks/notification";
 import { AdminNotification } from ".";
 
 vi.mock("@/hooks/notification", () => ({

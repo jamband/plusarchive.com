@@ -1,10 +1,10 @@
-import { APP_PRIMARY_COLOR } from "@/constants/app";
-import { usePlayerState } from "@/hooks/player";
-import { usePlayerLoading } from "@/hooks/player-loading";
 import { render, screen } from "@testing-library/react";
 import { useRouter } from "next/router";
 import type { Mock } from "vitest";
 import { beforeEach, expect, test, vi } from "vitest";
+import { APP_PRIMARY_COLOR } from "@/constants/app";
+import { usePlayerState } from "@/hooks/player";
+import { usePlayerLoading } from "@/hooks/player-loading";
 import { Player } from ".";
 
 vi.mock("@/hooks/player", () => ({

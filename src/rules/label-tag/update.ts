@@ -1,5 +1,5 @@
-import type { LabelTagAdmin } from "@/types/label-tags";
 import * as v from "valibot";
+import type { LabelTagAdmin } from "@/types/label-tags";
 import type { PickField } from "../types";
 
 const field = {

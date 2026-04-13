@@ -1,3 +1,4 @@
+import type { SubmitHandler } from "react-hook-form";
 import { CenteredLoading } from "@/components/centered-loading";
 import { FailedToFetch } from "@/components/failed-to-fetch";
 import { FormCheck } from "@/components/form/check";
@@ -17,7 +18,6 @@ import type { PageComponent } from "@/pages/_app";
 import type { Schema } from "@/rules/label/update";
 import { label as formLabel, schema } from "@/rules/label/update";
 import { setErrors } from "@/utils/form";
-import type { SubmitHandler } from "react-hook-form";
 import styles from "../form.module.css";
 
 const Page: PageComponent = () => {

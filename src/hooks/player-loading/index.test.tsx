@@ -1,8 +1,8 @@
 import { act, renderHook, waitFor } from "@testing-library/react";
 import type { Mock } from "vitest";
 import { beforeEach, expect, test, vi } from "vitest";
-import { usePlayerLoading } from ".";
 import { usePlayerState } from "../player";
+import { usePlayerLoading } from ".";
 
 vi.mock("@/hooks/player", () => ({
   usePlayerState: vi.fn(),

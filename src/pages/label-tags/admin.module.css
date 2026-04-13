@@ -9,9 +9,9 @@
 }
 
 .filterTextbox {
+  margin: 0.25rem;
   background: rgb(var(--gray-800));
   border: 1px solid rgb(var(--gray-600));
-  margin: 0.25rem;
 }
 
 .pagination {
