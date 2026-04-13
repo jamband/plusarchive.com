@@ -53,6 +53,10 @@
       color: rgb(var(--gray-400));
     }
   }
+
+  .headerReset:is(:active, :focus-visible) & {
+    color: rgb(var(--gray-400));
+  }
 }
 
 .headerTotalCount {
