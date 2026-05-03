@@ -63,7 +63,7 @@ const Page: PageComponent = () => {
         <ActionButton
           className={styles.actionButton}
           onClick={() => {
-            if (confirm("Are you sure?") && !!bookmark.data) {
+            if (confirm("Are you sure?") && bookmark.data) {
               deleteBookmark.mutate(bookmark.data.id);
             }
           }}

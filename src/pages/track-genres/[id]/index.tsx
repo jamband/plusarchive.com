@@ -41,7 +41,7 @@ const Page: PageComponent = () => {
         <ActionButton
           className={styles.actionButton}
           onClick={() => {
-            if (confirm("Are you sure?") && !!genre.data) {
+            if (confirm("Are you sure?") && genre.data) {
               deleteGenre.mutate(genre.data.id);
             }
           }}
