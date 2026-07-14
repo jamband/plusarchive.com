@@ -10,25 +10,25 @@
     "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
-    "@biomejs/biome": "2.5.0",
+    "@biomejs/biome": "2.5.3",
     "@hookform/resolvers": "5.4.0",
-    "@tanstack/react-query": "5.101.0",
-    "@tanstack/react-query-devtools": "5.101.0",
+    "@tanstack/react-query": "5.101.2",
+    "@tanstack/react-query-devtools": "5.101.2",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
-    "@types/node": "24.13.2",
+    "@types/node": "24.13.3",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react": "6.0.2",
+    "@vitejs/plugin-react": "6.0.3",
     "jsdom": "29.1.1",
-    "msw": "2.14.6",
-    "next": "16.2.9",
+    "msw": "2.15.0",
+    "next": "16.2.10",
     "react": "19.2.7",
     "react-dom": "19.2.7",
-    "react-hook-form": "7.79.0",
+    "react-hook-form": "7.81.0",
     "the-new-css-reset": "1.11.3",
     "typescript": "6.0.3",
-    "valibot": "1.4.1",
-    "vitest": "4.1.8"
+    "valibot": "1.4.2",
+    "vitest": "4.1.10"
   }
 }
