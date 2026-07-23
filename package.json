@@ -10,10 +10,10 @@
     "clean": "node scripts/clean.mjs"
   },
   "dependencies": {
-    "@biomejs/biome": "2.5.3",
+    "@biomejs/biome": "2.5.4",
     "@hookform/resolvers": "5.4.0",
-    "@tanstack/react-query": "5.101.2",
-    "@tanstack/react-query-devtools": "5.101.2",
+    "@tanstack/react-query": "5.101.3",
+    "@tanstack/react-query-devtools": "5.101.3",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
     "@types/node": "24.13.3",
@@ -25,7 +25,7 @@
     "next": "16.2.10",
     "react": "19.2.7",
     "react-dom": "19.2.7",
-    "react-hook-form": "7.81.0",
+    "react-hook-form": "7.82.0",
     "the-new-css-reset": "1.11.3",
     "typescript": "6.0.3",
     "valibot": "1.4.2",
