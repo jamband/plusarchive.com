@@ -1,4 +1,4 @@
-import { http } from "msw";
+import { http } from "msw/http";
 import { setupServer } from "msw/node";
 import { API_CSRF_COOKIE } from "@/constants/api";
 
