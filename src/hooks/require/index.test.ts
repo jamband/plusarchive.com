@@ -45,7 +45,7 @@ test("useRequireAdmin without role", () => {
   expect(useRouter().push).toHaveBeenCalledWith("/");
 });
 
-test("useRequireGuest with admin role", () => {
+test("useRequireAdmin with admin role", () => {
   auth.mockReturnValue({ data: { role: "admin" } });
   router.mockReturnValue({ push: vi.fn() });
 
